@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
-import {HttpClient, HttpEvent, HttpRequest} from "@angular/common/http";
+import {HttpClient, HttpEvent, HttpHeaders, HttpRequest} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -8,8 +8,8 @@ import {Observable} from "rxjs";
 })
 export class AppService {
 
-  private URLBASE = "https://localhost:8443/fpdual-api/";
-  constructor(private router:Router, private http: HttpClient) { }
+  private URLBASE = "http://localhost/proyecto/Proyecto_back/php/controlador/";
+  constructor( private http: HttpClient) { }
 
   //Para llamar a la Api con el metodo get
 
@@ -18,6 +18,17 @@ export class AppService {
     return this.http.get(this.URLBASE+ruta)
   }
 
+  getQuery2(ruta:string,body:any):Observable<any>
+  {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Headers": "*"
+      })
+    }
+    return this.http.post<any>(this.URLBASE+ruta,body,httpOptions)
+  }
 
   // Metodo encargado de llamar a la api con POST y introducir el link deseado y el body de la creacion
 
@@ -52,5 +63,5 @@ export class AppService {
     });
     return this.http.request(req);
   }
-  
+
 }

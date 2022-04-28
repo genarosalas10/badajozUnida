@@ -1,1 +1,9 @@
-<p>login works!</p>
+<form [formGroup]="forma" style="margin-top: 5rem; width:300px;"  (ngSubmit)="guardar(forma)">
+<label for="email">Enter your globex.com email:</label>
+
+<input type="email" id="email" formControlName="email" required>
+  <p *ngIf="!validar('email')"  class="error">Requiere al menos 3 caracteres</p>
+<input type="password" id="password" formControlName="password" required>
+  <p *ngIf="!validar('password')" class="error">Requiere al menos 3 caracteres</p>
+  <input class="btn btn-block fa-lg " type="submit" value="Entrar" style="width: 100%; background-color: #F28C00">
+</form>
