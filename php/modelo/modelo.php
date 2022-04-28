@@ -1,7 +1,7 @@
 <?php
 require_once 'Procesos_bd.php ';
 
-class Procesos
+class modelo
 {
     function __construct() {
 
@@ -15,7 +15,7 @@ class Procesos
         });
         return $array;
     }
-
+    //Sacar informacion de la base de datos
     public function obtenerDatos($query){
         $results = $this->conexion->consulta($query);
         $resultArray = array();
@@ -24,7 +24,7 @@ class Procesos
         }
         return $this->convertirUTF8($resultArray);
     }
-
+    //Borrado y modificado
     public function nonQuery($query){
         $results = $this->conexion->consulta($query);
         return $this->conexion->filasAfectadas();

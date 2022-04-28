@@ -4,7 +4,7 @@ class Procesos_bd{
 
 
     function __construct() {
-        include "configuracionBD.php";
+        include "../config/configuracionBD.php";
 
         $this->mysqli = new mysqli(SERVIDOR,USUARIO,PASSWORD,DB);
     }

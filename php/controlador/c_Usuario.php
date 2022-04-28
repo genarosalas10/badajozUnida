@@ -1,9 +1,9 @@
 
 <?php
 require_once "../modelo/Respuestas.php";
-require_once "../modelo/Procesos.php";
+require_once "../modelo/modelo.php";
 
-class C_Usuario extends Procesos {
+class C_Usuario extends modelo {
 
 
     public function login($json) {
