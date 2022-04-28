@@ -10,6 +10,7 @@ CREATE TABLE Usuario(
 	nombre varchar(60) NOT NULL,
     apellidos varchar(60) NOT NULL,
     email varchar(100) NOT NULL UNIQUE,
+    password varchar(255) NOT NULL,
 	fechaNacimiento DATE NOT NULL,
     tipo char(1) NOT NULL DEFAULT 'u',
     CONSTRAINT CHK_tipo_Usuario CHECK (tipo='a' OR tipo='u')
@@ -44,7 +45,7 @@ CREATE TABLE Evento(
     CONSTRAINT FK_idSubcategoria_Evento FOREIGN KEY (idSubcategoria) REFERENCES Subcategoria(idSubcategoria),
     CONSTRAINT FK_idUsario_Evento FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario) 
 
-
+);
 --Tabla Participante
 CREATE TABLE Participante(
 	idEvento mediumint unsigned NOT NULL,
