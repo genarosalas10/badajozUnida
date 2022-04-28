@@ -27,7 +27,8 @@ export class AppService {
         "Access-Control-Allow-Headers": "*"
       })
     }
-    return this.http.post<any>(this.URLBASE+ruta,body,httpOptions)
+    // return this.http.post<any>(this.URLBASE+ruta,body,httpOptions)
+    return this.http.post<any>(ruta,body,httpOptions)
   }
 
   // Metodo encargado de llamar a la api con POST y introducir el link deseado y el body de la creacion

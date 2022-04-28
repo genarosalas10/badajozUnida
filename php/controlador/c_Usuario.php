@@ -26,13 +26,13 @@ class C_Usuario extends Procesos {
 
                 }else{
                     //La contraseña no es igual
-                    return $_respuestas->error_200("La contraseña es invalida");
+                    return $_respuestas->error_200("La contraseña es inválida");
                 }
 
 
             }else{
                 //no existe el usuario
-                return $_respuestas->error_200("no existe el correo $email");
+                return $_respuestas->error_200("No existe el correo $email");
             }
         }
     }

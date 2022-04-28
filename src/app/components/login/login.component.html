@@ -2,12 +2,12 @@
   <div class="grid-form-image">
   </div>
   <div class="grid-form">
-      <form  [formGroup]="forma" (ngSubmit)="guardar(forma)">
+      <form [formGroup]="loginForm" (ngSubmit)="enviar(loginForm)">
           <h1>INICIAR SESIÓN</h1>
           <div class="separador"></div>
           <div class="input-group">
             <input type="email" maxlength="100" formControlName="email" name="mail" id="iMail" placeholder="Correo Electrónico" />
-            <p *ngIf="!validar('email')"  class="error">Ajústese al formato del correo.</p>
+            <p *ngIf="!validar('email')" class="error">Ajústese al formato del correo.</p>
           </div>
           <div class="input-group">
             <input type="password" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" />
