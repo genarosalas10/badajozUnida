@@ -16,5 +16,5 @@ VALUES ('fútbol', 'partido de fútbol',1),
 
 
 INSERT INTO Usuario (nombre, apellidos, email, password, fechaNacimiento,tipo)
-VALUES ('Isabel', 'Munoz Perez','isa@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','1987-01-01', 'a');
-('baloncesto', 'partido de fútbol',1),
+VALUES ('Isabel', 'Munoz Perez','isa@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','1987-01-01', 'a'),
+VALUES ('juan@gmail.com', 'Perez','juan','81dc9bdb52d04dc20036dbd8313ed055','1987-01-01', 'a');
