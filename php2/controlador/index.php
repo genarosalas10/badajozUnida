@@ -3,9 +3,21 @@
     header('Access-Control-Allow-Origin: *');
     header("Access-Control-Allow-Headers: *");
 
-    $response=new stdClass();
-    $response->respuesta='OK';
-    echo json_encode($response);
+    $datos=file_get_contents("php://input");
+    $datos=json_decode($datos);
+
+    switch($datos->tipo){
+        case 'login':
+            $response=new stdClass();
+            $response->respuesta='OK';
+            echo json_encode($response);
+            break;
+        default:
+            $response=new stdClass();
+            $response->respuesta='NOK';
+            echo json_encode($response);
+            break;
+    }
 
     //class Controlador{
 

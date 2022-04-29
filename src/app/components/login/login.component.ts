@@ -19,8 +19,10 @@ export class LoginComponent implements OnInit {
     }
 
   enviar(loginForm: FormGroup){
-    console.log(JSON.stringify(loginForm.value));
-    this.appService.getQuery2('http://localhost/badajozUnida/php2/controlador/controlador.php', JSON.stringify(loginForm.value))
+    let datos=loginForm.value
+    datos.tipo='login';
+    console.log(JSON.stringify(datos));
+    this.appService.getQuery2('http://localhost/badajozUnida/php2/controlador/index.php', JSON.stringify(datos))
         .subscribe(response=>{
             if(response['respuesta']=='OK'){
                 alert('Éxito')
