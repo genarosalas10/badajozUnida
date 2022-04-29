@@ -2,10 +2,13 @@
 require_once "../modelo/Respuestas.php";
 require_once "c_Usuario.php";
 
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: *");
+
 $c_Usario = new C_Usuario();
 $_respuestas = new Respuestas;
 
-if($_SERVER['REQUEST_METHOD'] =="GET"){
+if($_SERVER['REQUEST_METHOD'] =="POST"){
 
     //recibir datos
     $postBody = file_get_contents("php://input");

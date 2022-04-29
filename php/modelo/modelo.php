@@ -1,5 +1,5 @@
 <?php
-require_once 'Procesos_bd.php ';
+require_once '../operaciones/Procesos_bd.php ';
 
 class modelo
 {
