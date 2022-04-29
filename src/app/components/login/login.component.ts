@@ -24,10 +24,11 @@ export class LoginComponent implements OnInit {
     console.log(JSON.stringify(datos));
     this.appService.getQuery2('http://localhost/badajozUnida/php2/controlador/index.php', JSON.stringify(datos))
         .subscribe(response=>{
-            if(response['respuesta']=='OK'){
-                alert('Éxito')
+            console.table(response);
+            if(response['status']!='error'){
+                alert('Hola'+' ' + response[0]['nombre'])
             }else{
-                alert('Fracaso')
+                alert(response['result']['error_id']+" " + response['result']['error_msg'])
             }
         })
   }

@@ -8,7 +8,8 @@ import {Observable} from "rxjs";
 })
 export class AppService {
 
-  private URLBASE = "http://localhost/proyecto/Proyecto_back/php/controlador/";
+  //private URLBASE = "http://localhost/badajozUnida/php2/controlador/controlador.php/";
+  private URLBASE = "http://localhost/proyecto/badajozUnida/php/controlador/";
   constructor( private http: HttpClient) { }
 
   //Para llamar a la Api con el metodo get
@@ -27,8 +28,8 @@ export class AppService {
         "Access-Control-Allow-Headers": "*"
       })
     }
-    // return this.http.post<any>(this.URLBASE+ruta,body,httpOptions)
-    return this.http.post<any>(ruta,body,httpOptions)
+    return this.http.post<any>(this.URLBASE+ruta,body,httpOptions)
+    //return this.http.post<any>(ruta,body,httpOptions)
   }
 
   // Metodo encargado de llamar a la api con POST y introducir el link deseado y el body de la creacion
