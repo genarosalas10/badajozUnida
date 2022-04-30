@@ -8,63 +8,34 @@ import {AppService} from "../../services/app.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  forma!: FormGroup;
-  constructor(private formBuilder:FormBuilder, private appService:AppService) { }
+    loginForm!: FormGroup;
+    constructor(private formBuilder:FormBuilder, private appService:AppService) { }
 
-
-  ngOnInit(): void {
-    this.crearFormulario();
-  }
-
-  crearFormulario() {
-    this.forma = this.formBuilder.group({
-      email:['',[Validators.required, Validators.email]],
-      password:['',[Validators.required, Validators.minLength(8)]]
-
-    })
-  }
-  guardar(forma: FormGroup){
-    console.log(JSON.stringify(forma.value));
-
-    if (forma.invalid || forma.pending) {
-      Object.values(forma.controls).forEach(control => {
-        if (control instanceof FormGroup)
-          this.guardar(control);
-        control.markAsTouched();
-      })
-      return;
+    ngOnInit(): void {
+            this.loginForm = this.formBuilder.group({
+            email:['',[Validators.required, Validators.email]],
+            password:['',[Validators.required, Validators.minLength(8)]]
+        })
     }
-    this.ComprobarUsuario(forma);
-    //this.forma.reset();
 
+  enviar(loginForm: FormGroup){
+    let datos=loginForm.value
+    datos.tipo='login';
+    console.log(JSON.stringify(datos));
+    this.appService.getQuery2('http://localhost/badajozUnida/php2/controlador/index.php', JSON.stringify(datos))
+        .subscribe(response=>{
+            console.table(response);
+            if(response['status']!='error'){
+                alert('Hola'+' ' + response[0]['nombre'])
+            }else{
+                alert(response['result']['error_id']+" " + response['result']['error_msg'])
+            }
+        })
   }
+
   validar(campo1: string){
-    let campo: any = this.forma.get(campo1);
+    let campo: any = this.loginForm.get(campo1);
     return !(campo.invalid && campo.touched);
   }
-  ComprobarUsuario(forma: FormGroup)
-  {
-    this.appService.getQuery2(`usuarios.php`, JSON.stringify(forma.value))
-      .subscribe(data =>
-        {
-          console.log(data);
-          //id=JSON.parse(JSON.stringify(this.usuario));
-          let nombre=data.nombre;
-          let correo =data.correo;
-          /*
-          sessionStorage.setItem('id', id);
-          sessionStorage.setItem('correo', correo);
-          console.log(id)
 
-           */
-          window.location.reload();
-        }
-        , async (errorServicio) =>
-        {
-          console.log(errorServicio);
-          //this.toast=true;
-
-
-        });
-  }
 }
