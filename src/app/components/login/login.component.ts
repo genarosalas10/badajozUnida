@@ -8,7 +8,7 @@ import {AppService} from "../../services/app.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  forma!: FormGroup;
+  loginForm!: FormGroup;
   constructor(private formBuilder:FormBuilder, private appService:AppService) { }
 
 
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   }
   // Crear formulario
   crearFormulario() {
-    this.forma = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       email:['',[Validators.required, Validators.email]],
       password:['',[Validators.required, Validators.minLength(8)]]
 
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 
   //Validador
   validar(campo1: string){
-    let campo: any = this.forma.get(campo1);
+    let campo: any = this.loginForm.get(campo1);
     return !(campo.invalid && campo.touched);
   }
 
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
   {
     let datos=loginForm.value
     datos.tipo='login';
-    this.appService.getQuery2(`index.php`, JSON.stringify(datos.value))
+    this.appService.getQuery2(`usuarios.php`, JSON.stringify(datos.value))
       .subscribe(data =>
         {
           console.log(data);
