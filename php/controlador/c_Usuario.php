@@ -6,10 +6,10 @@ require_once "../modelo/modelo.php";
 class C_Usuario extends modelo {
 
 
-    public function login($json) {
+    public function login($datos) {
         $_respuestas = new Respuestas;
-        $datos = json_decode($json, true);
-
+        $datos = json_decode($datos, true);
+      //print_r($datos);
         if(!isset($datos['email']) || !isset($datos['password']) ){
             //error con los campos
             return $_respuestas->error_400();

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   //Coger los datos y comprobar si son correctos
   guardar(forma: FormGroup){
-    console.log(JSON.stringify(forma.value));
+
 
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
@@ -52,16 +52,22 @@ export class LoginComponent implements OnInit {
   {
     let datos=loginForm.value
     datos.tipo='login';
-    this.appService.getQuery2(`usuarios.php`, JSON.stringify(datos.value))
-      .subscribe(data =>
-        {
+    console.log(JSON.stringify(datos));
+
+    this.appService.getQuery2(`usuarios.php`, JSON.stringify(datos))
+      .subscribe(data => {
           console.log(data);
+          if (data['status'] != 'error') {
+            alert('Hola' + ' ' + data[0]['nombre'])
+          } else {
+            alert(data['result']['error_id'] + " " + data['result']['error_msg'])
+          }
           /*
           sessionStorage.setItem('id', id);
           sessionStorage.setItem('correo', correo);
+           window.location.reload();
 
            */
-          window.location.reload();
         }
         , async (errorServicio) =>
         {
@@ -70,5 +76,6 @@ export class LoginComponent implements OnInit {
 
 
         });
+
   }
 }

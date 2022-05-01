@@ -1,13 +1,36 @@
 <?php
-require_once "../modelo/Respuestas.php";
-require_once "c_Usuario.php";
-
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: *");
+header('Content-Type: application/json');
 
+require_once "../modelo/Respuestas.php";
+require_once "c_Usuario.php";
 $c_Usario = new C_Usuario();
 $_respuestas = new Respuestas;
 
+//recibir datos
+$datos=file_get_contents("php://input");
+$datos=json_decode($datos, true);
+switch($datos['tipo']){
+  case 'login':
+
+    //enviar datos al manejador
+    $datos=json_encode($datos);
+    $datosArray = $c_Usario->login($datos);
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+
+    }
+    echo json_encode($datosArray);
+    break;
+  default:
+    $datosArray = $_respuestas->error_405();
+    echo json_encode($datosArray);
+    break;
+}
+/*
 if($_SERVER['REQUEST_METHOD'] =="POST"){
 
     //recibir datos
@@ -17,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] =="POST"){
     $datosArray = $c_Usario ->login($postBody);
 
     //devolvemos una respuesta
-    header('Content-Type: application/json');
+
     if(isset($datosArray["result"]['error_id'])){
         $responseCode = $datosArray["result"]['error_id'];
     }else{
@@ -26,8 +49,9 @@ if($_SERVER['REQUEST_METHOD'] =="POST"){
     }
     echo json_encode($datosArray);
 }else{
-    header('Content-Type: application/json');
+
     $datosArray = $_respuestas->error_405();
     echo json_encode($datosArray);
 }
+*/
 ?>
