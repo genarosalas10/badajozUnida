@@ -96,7 +96,7 @@
 }
 
 /*======Media Queries======*/
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 750px) {
     .grid-form-container{
         display: grid;
         grid-template-columns: 1fr 1fr;
