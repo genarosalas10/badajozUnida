@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 
 require_once "../modelo/Respuestas.php";
 require_once "c_Usuario.php";
-$c_Usario = new C_Usuario();
+$c_Usario = new C_Usuario;
 $_respuestas = new Respuestas;
 
 //recibir datos
@@ -24,6 +24,9 @@ switch($datos['tipo']){
 
     }
     echo json_encode($datosArray);
+    break;
+  case 'registro':
+
     break;
   default:
     $datosArray = $_respuestas->error_405();

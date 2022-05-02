@@ -1,11 +1,15 @@
 <?php
 require_once '../operaciones/Procesos_bd.php ';
+require_once "Respuestas.php";
 
 class modelo
 {
+    private $conexion;
+    public $_respuestas;
     function __construct() {
 
         $this->conexion = new Procesos_bd;
+        $this->_respuestas = new Respuestas;
     }
     private function convertirUTF8($array){
         array_walk_recursive($array, function (&$item, $key){

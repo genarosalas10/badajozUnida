@@ -7,12 +7,12 @@ class C_Usuario extends modelo {
 
 
     public function login($datos) {
-        $_respuestas = new Respuestas;
+
         $datos = json_decode($datos, true);
       //print_r($datos);
         if(!isset($datos['email']) || !isset($datos['password']) ){
             //error con los campos
-            return $_respuestas->error_400();
+            return $this->_respuestas->error_400();
         }else{
             //todo esta bien
             $email = $datos['email'];
@@ -26,13 +26,13 @@ class C_Usuario extends modelo {
 
                 }else{
                     //La contraseña no es igual
-                    return $_respuestas->error_200("La contraseña es inválida");
+                    return $this->_respuestas->error_200("La contraseña es inválida");
                 }
 
 
             }else{
                 //no existe el usuario
-                return $_respuestas->error_200("No existe el correo $email");
+                return $this->_respuestas->error_200("No existe el correo $email");
             }
         }
     }
