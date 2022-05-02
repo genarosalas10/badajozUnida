@@ -8,7 +8,6 @@ class C_Usuario extends modelo {
 
     public function login($datos) {
 
-        $datos = json_decode($datos, true);
       //print_r($datos);
         if(!isset($datos['email']) || !isset($datos['password']) ){
             //error con los campos

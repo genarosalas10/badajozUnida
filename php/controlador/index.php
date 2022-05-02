@@ -15,7 +15,6 @@ switch($datos['tipo']){
   case 'login':
 
     //enviar datos al manejador
-    $datos=json_encode($datos);
     $datosArray = $c_Usario->login($datos);
     if(isset($datosArray["result"]['error_id'])){
       $responseCode = $datosArray["result"]['error_id'];
