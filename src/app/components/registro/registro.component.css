@@ -127,8 +127,8 @@ body{font-family: 'Open Sans', sans-serif;}
     }
 
     .grid-form-image img{
-        width: 100%;
-        margin: auto 0;
+        width: 90%;
+        margin: auto;
     }
 
     .grid-form{
