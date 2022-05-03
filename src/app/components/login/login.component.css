@@ -103,9 +103,14 @@
     }
 
     .grid-form-image{
-        display: block;
-        background-image: url("https://via.placeholder.com/1920x1080?text=Fondo%20Placeholder");
-        background-position: center;
+        display: flex;
+        background-color: var(--secondary-color);
+        padding: 1.5rem;
+    }
+
+    .grid-form-image img{
+        width: 100%;
+        margin: auto 0;
     }
 
     .grid-form{
