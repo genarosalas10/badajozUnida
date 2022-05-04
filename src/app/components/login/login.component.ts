@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
   {
     let datos=loginForm.value
     datos.tipo='login';
-    console.log(JSON.stringify(datos));
+    //console.log(JSON.stringify(datos));
 
     this.appService.getQuery2( JSON.stringify(datos))
       .subscribe(data => {
@@ -71,6 +71,7 @@ export class LoginComponent implements OnInit {
         }
         , async (errorServicio) =>
         {
+          console.log('he fallado')
           console.log(errorServicio);
           //this.toast=true;
 

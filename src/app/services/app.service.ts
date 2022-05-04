@@ -8,8 +8,8 @@ import {Observable} from "rxjs";
 })
 export class AppService {
 
-  //private URLBASE = "http://localhost/badajozUnida/php2/controlador/controlador.php/";
-  private URLBASE = "https://2daw.esvirgua.com/01/badajoz-unida-api/controlador/index.php";
+  private URLBASE2 = "https://2daw.esvirgua.com/01/php/controlador/index.php";
+  private URLBASE = "http://localhost/proyecto/badajozUnida/php/controlador/index.php";
   constructor( private http: HttpClient) { }
 
   //Para llamar a la Api con el metodo get
@@ -24,11 +24,9 @@ export class AppService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        "Access-Control-Allow-Headers": "*"
       })
     }
-    return this.http.post<any>(this.URLBASE,body,httpOptions)
+    return this.http.post<any>(this.URLBASE2,body,httpOptions)
     //return this.http.post<any>(ruta,body,httpOptions)
   }
 
