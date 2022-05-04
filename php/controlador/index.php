@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 
 require_once "../modelo/Respuestas.php";
 require_once "c_Usuario.php";
-$c_Usario = new C_Usuario;
+$c_Usuario = new C_Usuario;
 $_respuestas = new Respuestas;
 
 //recibir datos
@@ -15,7 +15,7 @@ switch($datos['tipo']){
   case 'login':
 
     //enviar datos al manejador
-    $datosArray = $c_Usario->login($datos);
+    $datosArray = $c_Usuario->login($datos);
     if(isset($datosArray["result"]['error_id'])){
       $responseCode = $datosArray["result"]['error_id'];
     }else{

@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
     datos.tipo='login';
     console.log(JSON.stringify(datos));
 
-    this.appService.getQuery2(`usuarios.php`, JSON.stringify(datos))
+    this.appService.getQuery2( JSON.stringify(datos))
       .subscribe(data => {
           console.log(data);
           if (data['status'] != 'error') {

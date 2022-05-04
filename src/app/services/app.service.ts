@@ -19,7 +19,7 @@ export class AppService {
     return this.http.get(this.URLBASE+ruta)
   }
 
-  getQuery2(ruta:string,body:any):Observable<any>
+  getQuery2(body:any):Observable<any>
   {
     const httpOptions = {
       headers: new HttpHeaders({
