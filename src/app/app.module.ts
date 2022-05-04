@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        IonicModule.forRoot()
     ],
   providers: [],
   bootstrap: [AppComponent]
