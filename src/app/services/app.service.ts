@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 export class AppService {
 
   //private URLBASE = "http://localhost/badajozUnida/php2/controlador/controlador.php/";
-  private URLBASE = "http://localhost/proyecto/badajozUnida/php/controlador/index.php";
+  private URLBASE = "https://2daw.esvirgua.com/01/badajoz-unida-api/controlador/index.php";
   constructor( private http: HttpClient) { }
 
   //Para llamar a la Api con el metodo get
