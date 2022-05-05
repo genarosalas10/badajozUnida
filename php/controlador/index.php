@@ -1,10 +1,14 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: *");
-header('Content-Type: application/json');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+
 
 require_once "../modelo/Respuestas.php";
 require_once "c_Usuario.php";
+
+
 $c_Usuario = new C_Usuario;
 $_respuestas = new Respuestas;
 
@@ -29,7 +33,7 @@ switch($datos['tipo']){
     break;
   default:
     $datosArray = $_respuestas->error_405();
-    echo json_encode($datosArray);
+    echo  json_encode($datosArray);
     break;
 }
 /*

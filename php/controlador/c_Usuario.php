@@ -1,7 +1,9 @@
 
 <?php
+
 require_once "../modelo/Respuestas.php";
 require_once "../modelo/modelo.php";
+
 
 class C_Usuario extends modelo {
 

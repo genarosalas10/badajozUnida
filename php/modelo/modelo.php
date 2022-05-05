@@ -1,6 +1,8 @@
 <?php
-require_once '../operaciones/Procesos_bd.php ';
+
+require_once "../operaciones/Procesos_bd.php";
 require_once "Respuestas.php";
+
 
 class modelo
 {
