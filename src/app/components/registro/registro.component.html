@@ -3,24 +3,37 @@
       <img src="assets/Logo_Badajoz_Unida.png" alt="">
     </div>
     <div class="grid-form">
-        <form>
+      <form [formGroup]="forma" (ngSubmit)="guardar(forma)">
             <h1>REGISTRO</h1>
             <div class="separador"></div>
             <div class="input-group flex">
-                <input type="text" maxlength="60" name="nombre" id="iNombre" placeholder="Nombre" />
-                <input type="text" maxlength="60" name="apellidos" id="iApellidos" placeholder="Apellidos" />
+                <input type="text" formControlName="nombre" maxlength="60" name="nombre" id="iNombre" placeholder="Nombre" />
+                <input type="text" formControlName="apellidos" maxlength="60" name="apellidos" id="iApellidos" placeholder="Apellidos" />
+              <p *ngIf="!validar('nombre')" class="error">Ajústese al formato del correo.</p>
+              <p *ngIf="!validar('apellidos')" class="error">Ajústese al formato del correo.</p>
             </div>
             <div class="input-group">
-              <input type="email" maxlength="100" name="mail" id="iMail" placeholder="Correo Electrónico" />
+              <input type="email" formControlName="email" maxlength="100"  name="mail" id="iMail" placeholder="Correo Electrónico" />
+              <p *ngIf="!validar('email')" class="error">Ajústese al formato del correo.</p>
             </div>
             <div class="input-group">
-              <input type="password" name="password" id="iPassword" placeholder="Contraseña" />
+              <input type="password" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" oncopy="return false" onpaste="return false"/>
+              <p *ngIf="!validar('password')" class="error">
+                Minimo 8 caracteres
+                Maximo 20
+                Al menos una letra mayúscula
+                Al menos una letra minúscula
+                Al menos un dígito
+                No espacios en blanco
+                Al menos 1 carácter especial</p>
             </div>
             <div class="input-group">
-                <input type="password" name="passwordRepeat" id="iPasswordRepeat" placeholder="Repite tu contraseña" />
+              <input type="password" formControlName="password2" name="passwordRepeat" id="iPasswordRepeat" placeholder="Repite tu contraseña" oncopy="return false" onpaste="return false"/>
+              <p *ngIf="!comprobarPasswords || !validar('password2')" class="error">Las contraseñas no son iguales.</p>
             </div>
             <div class="input-group">
-                <label for="fechaNacimiento">Fecha de nacimiento </label><input type="date" name="fechaNacimiento" id="ifechaNacimiento" />
+                <label for="ifechaNacimiento">Fecha de nacimiento </label><input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" id="ifechaNacimiento" />
+              <p *ngIf="!validar('fechaNacimiento')" class="error">Ajústese al formato del correo.</p>
             </div>
             <div class="input-group">
               <input type="submit" value="CREAR CUENTA" />
