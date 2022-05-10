@@ -27,7 +27,7 @@ class C_Usuario extends modelo {
 
                 }else{
                     //La contraseña no es igual
-                    return $this->_respuestas->error_200("Fallo correo. ");
+                    return $this->_respuestas->error_200("El correo y/o contraseña son incorrectos. ");
                 }
 
 
