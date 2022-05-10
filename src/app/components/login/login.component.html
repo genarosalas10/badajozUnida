@@ -12,6 +12,7 @@
           </div>
           <div class="input-group">
             <input type="password" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" />
+            <i id="ieye"class="bi bi-eye-fill float-end mb-2" (click)="showHide()"></i>
             <p *ngIf="!validar('password')" class="error">La contraseña debe incluir 8 caracteres.</p>
           </div>
           <div class="input-group">

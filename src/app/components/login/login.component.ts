@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   constructor(private formBuilder:FormBuilder, private appService:AppService) { }
   modal=new ModalComponent;
-  
+
   ngOnInit(): void {
     this.crearFormulario();
   }
@@ -79,5 +79,19 @@ export class LoginComponent implements OnInit {
 
         });
 
+  }
+
+  //Ver contraseña
+  showHide() {
+
+    const input = <HTMLInputElement>document.getElementById('iPassword');
+    const i = <HTMLInputElement>document.getElementById("ieye");
+    if (input.type === "password") {
+      input.type = "text";
+      i.classList.replace("bi-eye-fill", "bi-eye-slash-fill");
+    } else {
+      input.type = "password";
+      i.classList.replace("bi-eye-slash-fill", "bi-eye-fill");
+    }
   }
 }
