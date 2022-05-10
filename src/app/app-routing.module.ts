@@ -8,7 +8,6 @@ const routes: Routes = [
   {path: "", redirectTo: "/login", pathMatch: "full"}, //Temporal
   {path: "login", component: LoginComponent},
   {path: "registro", component: RegistroComponent},
-  {path: "modal", component: ModalComponent}, //Temporal
 ];
 
 @NgModule({

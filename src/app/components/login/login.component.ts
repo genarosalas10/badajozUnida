@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AppService} from "../../services/app.service";
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,8 @@ import {AppService} from "../../services/app.service";
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   constructor(private formBuilder:FormBuilder, private appService:AppService) { }
-
-
+  modal=new ModalComponent;
+  
   ngOnInit(): void {
     this.crearFormulario();
   }
@@ -58,9 +59,9 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
           console.log(data);
           if (data['status'] != 'error') {
-            alert('Hola' + ' ' + data[0]['nombre'])
+            this.modal.generateModal('Éxito', `Hola, ${data[0]['nombre']}`, 'De acuerdo', 'success');
           } else {
-            alert(data['result']['error_id'] + " " + data['result']['error_msg'])
+            this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
           }
           /*
           sessionStorage.setItem('id', id);
