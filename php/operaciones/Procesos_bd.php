@@ -1,5 +1,7 @@
 <?php
 include "../config/configuracionBD.php";
+mysqli_report(MYSQLI_REPORT_STRICT); //Desactivar reportes de mysqli
+
 class Procesos_bd{
 
 
@@ -8,10 +10,12 @@ class Procesos_bd{
         $this->mysqli = new mysqli(SERVIDOR,USUARIO,PASSWORD,DB);
     }
     public function consulta($consulta){
-
+      try {
         return  $this->resultado=$this->mysqli->query($consulta);
+    } catch (mysqli_sql_exception $e){
+      return $e->__toString();
+      }
     }
-
     public function extraerFila($resultado){
         return $this->fila =$resultado->fetch_array();
     }

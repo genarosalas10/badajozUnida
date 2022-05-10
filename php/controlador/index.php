@@ -16,20 +16,29 @@ $_respuestas = new Respuestas;
 $datos=file_get_contents("php://input");
 $datos=json_decode($datos, true);
 switch($datos['tipo']){
-  case 'login':
 
-    //enviar datos al manejador
+  case 'login':
+    //enviar datos al controlador
     $datosArray = $c_Usuario->login($datos);
+
+    //enviar respuesta
     if(isset($datosArray["result"]['error_id'])){
       $responseCode = $datosArray["result"]['error_id'];
     }else{
       http_response_code(200);
-
     }
     echo json_encode($datosArray);
     break;
-  case 'registro':
 
+  case 'registro':
+    $datosArray = $c_Usuario->registro($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
     break;
   default:
     $datosArray = $_respuestas->error_405();

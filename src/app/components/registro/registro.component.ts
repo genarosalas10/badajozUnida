@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AppService} from "../../services/app.service";
+import {ModalComponent} from "../modal/modal.component";
 
 //504921600000 ms
 @Component({
@@ -10,6 +11,7 @@ import {AppService} from "../../services/app.service";
 })
 export class RegistroComponent implements OnInit {
   forma!: FormGroup;
+  modal=new ModalComponent;
   constructor(private formBuilder:FormBuilder, private appService:AppService) { }
 
   ngOnInit(): void {
@@ -31,7 +33,6 @@ export class RegistroComponent implements OnInit {
   //Coger los datos y comprobar si son correctos
   guardar(forma: FormGroup){
 
-
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
         if (control instanceof FormGroup)
@@ -52,20 +53,38 @@ export class RegistroComponent implements OnInit {
     let datos=loginForm.value
     datos.tipo='registro';
     console.log(JSON.stringify(datos));
+    this.appService.postQuery(datos)
+      .subscribe(data => {
+          if (data['status'] != 'error') {
+            alert('Éxito. Registro completo');
+          } else {
+            alert(`Error. ${data['result']['error_msg']}`);
+          }
+
+        }
+        , async (errorServicio) =>
+        {
+          console.log('he fallado')
+          console.log(errorServicio);
+          //this.toast=true;
+
+
+        });
   }
+
   //Validador
   validar(campo1: string){
     let campo: any = this.forma.get(campo1);
     return !(campo.invalid && campo.touched);
   }
+
   //Comprobar si las contraseñas son iguales
   get comprobarPasswords() {
     let pass1 = this.forma.get('password')?.value;
     let pass2 = this.forma.get('password2')?.value;
-    console.log(pass1)
-    console.log(pass2)
     return (pass1 === pass2) ? true : false;
   }
+
   //Comprobar si tiene mas de 14 años
   get comprobarEdad()
   {

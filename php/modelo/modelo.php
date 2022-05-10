@@ -37,17 +37,24 @@ class modelo
     }
     //INSERT
     public function nonQueryId($query){
-        $results = $this->conexion->consulta($query);
+        $resultado = $this->conexion->consulta($query);
         $filas = $this->conexion->filasAfectadas();
-        if( $filas>=1){
-            return $this->conexion->ultimoInsert_id();
+
+        if($resultado){
+
+            return 1;
         }else{
-            return 0;
+
+            return $resultado;
         }
     }
     //encriptar
     protected function encriptar($string){
         return md5($string);
+    }
+
+    public function errorId(){
+     return $this->conexion->errno();
     }
 
 }
