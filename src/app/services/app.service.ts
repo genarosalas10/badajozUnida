@@ -32,16 +32,28 @@ export class AppService {
 
   // Metodo encargado de llamar a la api con POST y introducir el link deseado y el body de la creacion
 
-  postQuery(ruta:string,body:any):Observable<any>
+  postQuery(body:any):Observable<any>
   {
-    return this.http.post(this.URLBASE+ruta,body)
+    body = JSON.stringify(body);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    }
+    return this.http.post(this.URLBASE,body,httpOptions)
   }
 
   // Metodo encargado de llamar a la api con PUT y introducir el link deseado y el body de la creacion
 
-  putQuery(ruta:string,body:any):Observable<any>
+  putQuery(body:any):Observable<any>
   {
-    return this.http.put(this.URLBASE+ruta,body)
+    body = JSON.stringify(body);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    }
+    return this.http.put(this.URLBASE,body, httpOptions)
   }
 
 
@@ -49,6 +61,7 @@ export class AppService {
   // Metodo encargado de llamar a la api con delete
   deleteQuery(ruta:string):Observable<any>
   {
+
     return this.http.delete(this.URLBASE+ruta)
   }
 
