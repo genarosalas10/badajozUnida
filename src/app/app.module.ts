@@ -7,12 +7,14 @@ import { RegistroComponent } from './components/registro/registro.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { IonicModule } from '@ionic/angular';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    ModalComponent
   ],
     imports: [
         BrowserModule,
