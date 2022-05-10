@@ -27,13 +27,13 @@ class C_Usuario extends modelo {
 
                 }else{
                     //La contraseña no es igual
-                    return $this->_respuestas->error_200("La contraseña es inválida");
+                    return $this->_respuestas->error_200("El correo y/o contraseña son incorrectos.");
                 }
 
 
             }else{
                 //no existe el usuario
-                return $this->_respuestas->error_200("No existe el correo $email");
+                return $this->_respuestas->error_200("El correo y/o contraseña son incorrectos.");
             }
         }
     }
