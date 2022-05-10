@@ -16,8 +16,10 @@
               <input type="email" formControlName="email" maxlength="100"  name="mail" id="iMail" placeholder="Correo Electrónico" />
               <p *ngIf="!validar('email')" class="error">Ajústese al formato del correo.</p>
             </div>
+
             <div class="input-group">
-              <input type="password" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" oncopy="return false" onpaste="return false"/>
+              <input type="text" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" oncopy="return false" onpaste="return false"/>
+              <i id="ieye"class="bi bi-eye-fill float-end mb-2" (click)="showHide()"></i>
               <p *ngIf="!validar('password')" class="error">
                 Minimo 8 caracteres
                 Maximo 20
@@ -28,12 +30,12 @@
                 Al menos 1 carácter especial</p>
             </div>
             <div class="input-group">
-              <input type="password" formControlName="password2" name="passwordRepeat" id="iPasswordRepeat" placeholder="Repite tu contraseña" oncopy="return false" onpaste="return false"/>
+              <input type="text" formControlName="password2" name="passwordRepeat" id="iPasswordRepeat" placeholder="Repite tu contraseña" oncopy="return false" onpaste="return false"/>
               <p *ngIf="!comprobarPasswords || !validar('password2')" class="error">Las contraseñas no son iguales.</p>
             </div>
             <div class="input-group">
                 <label for="ifechaNacimiento">Fecha de nacimiento </label><input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" id="ifechaNacimiento" />
-              <p *ngIf="!validar('fechaNacimiento')" class="error">Ajústese al formato del correo.</p>
+              <p *ngIf="!comprobarEdad || !validar('fechaNacimiento')" class="error">Ajústese al formato del correo.</p>
             </div>
             <div class="input-group">
               <input type="submit" value="CREAR CUENTA" />

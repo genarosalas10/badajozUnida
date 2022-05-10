@@ -22,16 +22,16 @@ export class RegistroComponent implements OnInit {
       nombre:['',[Validators.required, Validators.minLength(4), Validators.maxLength(60)]],
       apellidos:['',[Validators.required, Validators.minLength(8), Validators.maxLength(60)]],
       email:['',[Validators.required, Validators.email, Validators.pattern(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i) ]],
-      password:['',[Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/)]],
-      password2:['',[]],
-      fechaNacimiento:['',[Validators.required ]]
+      password:['',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/)]],
+      password2:['',[Validators.required ]],
+      fechaNacimiento:[null,[Validators.required ]]
 
     })
   }
   //Coger los datos y comprobar si son correctos
   guardar(forma: FormGroup){
 
-    this.comprobarPasswords();
+
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
         if (control instanceof FormGroup)
@@ -59,11 +59,37 @@ export class RegistroComponent implements OnInit {
     return !(campo.invalid && campo.touched);
   }
   //Comprobar si las contraseñas son iguales
-  comprobarPasswords() {
+  get comprobarPasswords() {
     let pass1 = this.forma.get('password')?.value;
-    let pass2 = this.forma.get('password.2')?.value;
+    let pass2 = this.forma.get('password2')?.value;
     console.log(pass1)
     console.log(pass2)
     return (pass1 === pass2) ? true : false;
+  }
+  //Comprobar si tiene mas de 14 años
+  get comprobarEdad()
+  {
+    if(this.forma.get('fechaNacimiento')!= null){
+    let fechaNacimiento = this.forma.get('fechaNacimiento')?.value;
+    let convertirFecha = new Date(fechaNacimiento).getTime();
+    let timeDiff = Math.abs(Date.now() - convertirFecha);
+    let edad = Math.floor((timeDiff / (1000 * 3600 * 24))/365);
+    return (edad >= 14) ? true : false;
+    }
+    return true;
+  }
+
+  //Ver contraseña
+  showHide() {
+
+    const input = <HTMLInputElement>document.getElementById('iPassword');
+    const i = <HTMLInputElement>document.getElementById("ieye");
+    if (input.type === "password") {
+      input.type = "text";
+      i.classList.replace("bi-eye-fill", "bi-eye-slash-fill");
+    } else {
+      input.type = "password";
+      i.classList.replace(" bi-eye-slash-fill", "bi-eye-fill");
+    }
   }
 }
