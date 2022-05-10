@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
           if (data['status'] != 'error') {
             alert('Hola' + ' ' + data[0]['nombre'])
           } else {
-            alert(data['result']['error_id'] + " " + data['result']['error_msg'])
+            alert("Error al iniciar sesión. Inténtelo más tarde.")
           }
           /*
           sessionStorage.setItem('id', id);
