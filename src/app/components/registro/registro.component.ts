@@ -74,7 +74,7 @@ export class RegistroComponent implements OnInit {
     let convertirFecha = new Date(fechaNacimiento).getTime();
     let timeDiff = Math.abs(Date.now() - convertirFecha);
     let edad = Math.floor((timeDiff / (1000 * 3600 * 24))/365);
-    return (edad >= 14) ? true : false;
+    return (edad >= 16) ? true : false;
     }
     return true;
   }
@@ -89,7 +89,20 @@ export class RegistroComponent implements OnInit {
       i.classList.replace("bi-eye-fill", "bi-eye-slash-fill");
     } else {
       input.type = "password";
-      i.classList.replace(" bi-eye-slash-fill", "bi-eye-fill");
+      i.classList.replace("bi-eye-slash-fill", "bi-eye-fill");
+    }
+  }
+  //Ver contraseña repetida
+  showHide2() {
+
+    const input = <HTMLInputElement>document.getElementById('iPasswordRepeat');
+    const i = <HTMLInputElement>document.getElementById("ieye2");
+    if (input.type === "password") {
+      input.type = "text";
+      i.classList.replace("bi-eye-fill", "bi-eye-slash-fill");
+    } else {
+      input.type = "password";
+      i.classList.replace("bi-eye-slash-fill", "bi-eye-fill");
     }
   }
 }
