@@ -40,7 +40,7 @@ export class AppService {
         'Content-Type': 'application/json',
       })
     }
-    return this.http.post(this.URLBASE,body,httpOptions)
+    return this.http.post(this.URLBASE2,body,httpOptions)
   }
 
   // Metodo encargado de llamar a la api con PUT y introducir el link deseado y el body de la creacion
