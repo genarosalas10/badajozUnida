@@ -33,6 +33,7 @@ export class RegistroComponent implements OnInit {
   //Coger los datos y comprobar si son correctos
   guardar(forma: FormGroup){
 
+    
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
         if (control instanceof FormGroup)
