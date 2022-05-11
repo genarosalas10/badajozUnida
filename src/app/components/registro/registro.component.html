@@ -11,8 +11,8 @@
               <input type="text" formControlName="nombre" maxlength="60" name="nombre" id="iNombre" placeholder="Nombre" />
               <input type="text" formControlName="apellidos" maxlength="60" name="apellidos" id="iApellidos" placeholder="Apellidos" />
             </div>
-            <p *ngIf="!validar('nombre')" class="error">El nombre es muy corto.</p>
-            <p *ngIf="!validar('apellidos')" class="error">El apellido es muy corto.</p>
+            <p *ngIf="!validar('nombre')" class="error">El nombre es incorrecto.</p>
+            <p *ngIf="!validar('apellidos')" class="error">El apellido es incorrecto.</p>
 
             <div class="input-group">
               <input type="email" formControlName="email" maxlength="100"  name="mail" id="iMail" placeholder="Correo Electrónico" />
