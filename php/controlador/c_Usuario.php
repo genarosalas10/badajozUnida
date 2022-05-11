@@ -43,13 +43,18 @@ class C_Usuario extends modelo {
         //error con los campos
         return $this->_respuestas->error_400();
       }else{
-        if($datos['password']==$datos['password2'])
+        if($datos['password']!=$datos['password2'])
         {
-          $datos['password'] = parent::encriptar($datos['password']);
-          return $this->realizarRegistro($datos);
-        }else
-          //La contraseña no son iguales
-          return $this->_respuestas->error_200("Las contraseñas no son iguales. ");
+          //Las contraseñas no son iguales
+          return $this->_respuestas->error_200("Las contraseñas no coinciden.");
+        }else{
+          if(validarCampos($datos)){
+            $datos['password'] = parent::encriptar($datos['password']);
+            return $this->realizarRegistro($datos);
+          }else{
+            return $this->_respuestas->error_200("Los campos son incorrectos.");
+          }
+        }
       }
     }
 
@@ -64,6 +69,18 @@ class C_Usuario extends modelo {
 
             return 0;
         }
+    }
+
+    private function validarCampos($datos){
+      $mailRegex="/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/";
+      $passRegex="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/";
+      if(!preg_match($mailRegex, $datos['email'])){
+        return false;
+      }
+      if(!preg_match($passRegex, $datos['password'])){
+        return false;
+      }
+      return true;
     }
 
     private function realizarRegistro($datos){
