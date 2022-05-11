@@ -10,13 +10,13 @@
 /*======General======*/
 
 .grid-form-container{
-    min-height: 100vh;
+    height: 100vh;
 }
 
 /*======Formulario======*/
 .grid-form{
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     padding: 2rem;
     display: flex;
     align-items: center;
@@ -45,6 +45,17 @@
     width: 80%;
     display: block;
     margin: 3rem auto;
+}
+
+.grid-form form .input-group.password{
+    position: relative;
+}
+
+.grid-form form .input-group.password i{
+    position: absolute;
+    bottom: .5rem;
+    right: .5rem;
+    cursor: pointer;
 }
 
 .grid-form form input{

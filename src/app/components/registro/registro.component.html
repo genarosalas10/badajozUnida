@@ -17,7 +17,7 @@
               <p *ngIf="!validar('email')" class="error">Ajústese al formato del correo.</p>
             </div>
 
-            <div class="input-group">
+            <div class="input-group password">
               <input type="password" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" oncopy="return false" onpaste="return false"/>
               <i id="ieye"class="bi bi-eye-fill float-end mb-2" (click)="showHide()"></i>
               <p *ngIf="!validar('password')" class="error">
@@ -30,7 +30,7 @@
                 Al menos 1 carácter especial
               </p>
             </div>
-            <div class="input-group">
+            <div class="input-group password">
               <input type="password" formControlName="password2" name="passwordRepeat" id="iPasswordRepeat" placeholder="Repite tu contraseña" oncopy="return false" onpaste="return false"/>
               <i id="ieye2"class="bi bi-eye-fill float-end mb-2" (click)="showHide2()"></i>
               <p *ngIf="!comprobarPasswords || !validar('password2')" class="error">Las contraseñas no son iguales.</p>

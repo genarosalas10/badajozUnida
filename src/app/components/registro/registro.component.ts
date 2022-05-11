@@ -22,7 +22,7 @@ export class RegistroComponent implements OnInit {
   crearFormulario() {
     this.forma = this.formBuilder.group({
       nombre:['',[Validators.required, Validators.minLength(4), Validators.maxLength(60)]],
-      apellidos:['',[Validators.required, Validators.minLength(8), Validators.maxLength(60)]],
+      apellidos:['',[Validators.required, Validators.minLength(4), Validators.maxLength(60)]],
       email:['',[Validators.required, Validators.email, Validators.pattern(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i) ]],
       password:['',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/)]],
       password2:['',[Validators.required ]],
