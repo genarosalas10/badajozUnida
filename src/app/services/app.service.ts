@@ -8,9 +8,9 @@ import {Observable} from "rxjs";
 })
 export class AppService {
 
-  private URLBASE3 = "http://localhost/badajozUnida/php/controlador/index.php";
-  private URLBASE2 = "https://2daw.esvirgua.com/01/php/controlador/index.php";
-  private URLBASE = "http://localhost/proyecto/badajozUnida/php/controlador/index.php";
+  private URLBASE3 = "http://localhost/badajozUnida/php/controlador/index.php"; //Mario Local
+  private URLBASE2 = "https://2daw.esvirgua.com/01/php/controlador/index.php"; //Servidor
+  private URLBASE = "http://localhost/proyecto/badajozUnida/php/controlador/index.php"; //Genaro Local
   constructor( private http: HttpClient) { }
 
   //Para llamar a la Api con el metodo get
@@ -41,7 +41,10 @@ export class AppService {
         'Content-Type': 'application/json',
       })
     }
-    return this.http.post(this.URLBASE3,body,httpOptions)
+
+    //return this.http.post(this.URLBASE3,body,httpOptions)
+    //return this.http.post(this.URLBASE2,body,httpOptions)
+    return this.http.post(this.URLBASE,body,httpOptions)
   }
 
   // Metodo encargado de llamar a la api con PUT y introducir el link deseado y el body de la creacion

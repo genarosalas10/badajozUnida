@@ -48,7 +48,7 @@ class C_Usuario extends modelo {
           //Las contraseñas no son iguales
           return $this->_respuestas->error_200("Las contraseñas no coinciden.");
         }else{
-          if(validarCampos($datos)){
+          if($this->validarCampos($datos)){
             $datos['password'] = parent::encriptar($datos['password']);
             return $this->realizarRegistro($datos);
           }else{
@@ -72,9 +72,9 @@ class C_Usuario extends modelo {
     }
 
     private function validarCampos($datos){
-      $mailRegex="/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/";
-      $passRegex="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/";
-      if(!preg_match($mailRegex, $datos['email'])){
+      //$mailRegex="/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/";
+      $passRegex='/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/';
+      if(!filter_var($datos['email'], FILTER_VALIDATE_EMAIL)){
         return false;
       }
       if(!preg_match($passRegex, $datos['password'])){
@@ -88,7 +88,6 @@ class C_Usuario extends modelo {
                 VALUES ('".$datos['nombre']."', '".$datos['apellidos']."','".$datos['email']."','".$datos['password']."','".$datos['fechaNacimiento']."');";
       $resul = parent::nonQueryId($query);
       if($resul){
-
         return 1;
       }else{
         $error=parent::errorId();
