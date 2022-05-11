@@ -44,7 +44,7 @@
 .grid-form form .input-group{
     width: 80%;
     display: block;
-    margin: 3rem auto;
+    margin: 2rem auto;
 }
 
 .grid-form form .input-group.password{
@@ -72,11 +72,12 @@
 }
 
 .grid-form form p{
-    margin: 1rem auto;
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
     font-family: 'Open Sans', sans-serif;
     color: var(--primary-color);
-    font-style: italic;
+    font-size: .8rem;
+    font-weight: bold;
 }
 
 .grid-form form input[type="submit"]{

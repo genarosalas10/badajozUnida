@@ -6,15 +6,18 @@
       <form [formGroup]="loginForm" (ngSubmit)="guardar(loginForm)">
           <h1>INICIAR SESIÓN</h1>
           <div class="separador"></div>
+
           <div class="input-group">
             <input type="email" maxlength="100" formControlName="email" name="mail" id="iMail" placeholder="Correo Electrónico" />
-            <p *ngIf="!validar('email')" class="error">Ajústese al formato del correo.</p>
           </div>
+          <p *ngIf="!validar('email')" class="error">Ajústese al formato del correo.</p>
+
           <div class="input-group password">
             <input type="password" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" />
             <i id="ieye"class="bi bi-eye-fill float-end mb-2" (click)="showHide()"></i>
-            <p *ngIf="!validar('password')" class="error">La contraseña debe incluir 8 caracteres.</p>
           </div>
+          <p *ngIf="!validar('password')" class="error">La contraseña debe incluir 8 caracteres.</p>
+
           <div class="input-group">
             <input type="submit" value="INICIAR SESIÓN" />
           </div>
