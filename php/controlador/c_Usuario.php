@@ -95,7 +95,7 @@ class C_Usuario extends modelo {
 
           return $this->_respuestas->error_200("El correo ya existe.");
         }else{
-          return $this->_respuestas->error_200("No se puedo realizar el registro.");
+          return $this->_respuestas->error_200("No se pudo realizar el registro.");
         }
       }
     }
