@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 })
 export class AppService {
 
+  private URLBASE3 = "http://localhost/badajozUnida/php/controlador/index.php";
   private URLBASE2 = "https://2daw.esvirgua.com/01/php/controlador/index.php";
   private URLBASE = "http://localhost/proyecto/badajozUnida/php/controlador/index.php";
   constructor( private http: HttpClient) { }
@@ -40,7 +41,7 @@ export class AppService {
         'Content-Type': 'application/json',
       })
     }
-    return this.http.post(this.URLBASE2,body,httpOptions)
+    return this.http.post(this.URLBASE3,body,httpOptions)
   }
 
   // Metodo encargado de llamar a la api con PUT y introducir el link deseado y el body de la creacion
