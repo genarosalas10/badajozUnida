@@ -52,7 +52,7 @@ body{font-family: 'Open Sans', sans-serif;}
 .grid-form form .input-group{
     width: 80%;
     display: block;
-    margin: 2rem auto;
+    margin: 1.5rem auto;
 }
 
 .grid-form form .input-group.flex{
@@ -90,11 +90,12 @@ body{font-family: 'Open Sans', sans-serif;}
 }
 
 .grid-form form p{
-    margin: 1rem auto;
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
     font-family: 'Open Sans', sans-serif;
     color: var(--primary-color);
-    font-style: italic;
+    font-size: .8rem;
+    font-weight: bold;
 }
 
 .grid-form form input[type="submit"]{

@@ -56,9 +56,9 @@ export class RegistroComponent implements OnInit {
     this.appService.postQuery(datos)
       .subscribe(data => {
           if (data['status'] != 'error') {
-            alert('Éxito. Registro completo');
+            this.modal.generateModal('Éxito', `Cuenta creada con éxito.`, 'De acuerdo', 'success');
           } else {
-            alert(`Error. ${data['result']['error_msg']}`);
+            this.modal.generateModal('Algo salió mal', `${data['result']['error_msg']}`, 'De acuerdo', 'error');
           }
 
         }
