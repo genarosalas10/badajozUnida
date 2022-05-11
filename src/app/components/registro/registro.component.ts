@@ -21,8 +21,8 @@ export class RegistroComponent implements OnInit {
   // Crear formulario
   crearFormulario() {
     this.forma = this.formBuilder.group({
-      nombre:['',[Validators.required, Validators.minLength(4), Validators.maxLength(60)]],
-      apellidos:['',[Validators.required, Validators.minLength(4), Validators.maxLength(60)]],
+      nombre:['',[Validators.required, Validators.pattern(/^([a-z]{4,30})(\s{0,1}[a-z]{2,29}){0,1}$/)]],
+      apellidos:['',[Validators.required, Validators.pattern(/^(([A-z]){4,30})(\s{0,1}[A-z]{2,29}){0,1}$/)]],
       email:['',[Validators.required, Validators.email, Validators.pattern(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i) ]],
       password:['',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/)]],
       password2:['',[Validators.required ]],
@@ -32,7 +32,7 @@ export class RegistroComponent implements OnInit {
   }
   //Coger los datos y comprobar si son correctos
   guardar(forma: FormGroup){
-    
+
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
         if (control instanceof FormGroup)
