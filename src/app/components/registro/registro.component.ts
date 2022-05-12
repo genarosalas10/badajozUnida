@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AppService} from "../../services/app.service";
 import {ModalComponent} from "../modal/modal.component";
+import {Router} from "@angular/router";
 
 //504921600000 ms
 @Component({
@@ -12,7 +13,7 @@ import {ModalComponent} from "../modal/modal.component";
 export class RegistroComponent implements OnInit {
   forma!: FormGroup;
   modal=new ModalComponent;
-  constructor(private formBuilder:FormBuilder, private appService:AppService) { }
+  constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router) { }
 
   ngOnInit(): void {
     this.crearFormulario();
@@ -21,8 +22,8 @@ export class RegistroComponent implements OnInit {
   // Crear formulario
   crearFormulario() {
     this.forma = this.formBuilder.group({
-      nombre:['',[Validators.required, Validators.pattern(/^([A-z]{4,30})(\s{0,1}[A-z]{2,29}){0,1}$/)]],
-      apellidos:['',[Validators.required, Validators.pattern(/^(([A-z]){4,30})(\s{0,1}[A-z]{2,29}){0,1}$/)]],
+      nombre:['',[Validators.required, Validators.pattern(/^([a-zA-ZÀ-ÿ\u00f1\u00d1]{4,30})(\s{0,1}[a-zA-ZÀ-ÿ\u00f1\u00d1]{2,29}){0,1}$/)]],
+      apellidos:['',[Validators.required, Validators.pattern(/^(([a-zA-ZÀ-ÿ\u00f1\u00d1]){4,30})(\s{0,1}[a-zA-ZÀ-ÿ\u00f1\u00d1]{2,29}){0,1}$/)]],
       email:['',[Validators.required, Validators.email, Validators.pattern(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i) ]],
       password:['',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/)]],
       password2:['',[Validators.required ]],
@@ -57,6 +58,7 @@ export class RegistroComponent implements OnInit {
       .subscribe(data => {
           if (data['status'] != 'error') {
             this.modal.generateModal('Éxito', `Cuenta creada con éxito.`, 'De acuerdo', 'success');
+            this.router.navigate(['login']);
           } else {
             this.modal.generateModal('Algo salió mal', `${data['result']['error_msg']}`, 'De acuerdo', 'error');
           }

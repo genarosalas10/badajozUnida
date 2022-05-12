@@ -5,9 +5,11 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { ModalComponent } from './components/modal/modal.component';
 
 const routes: Routes = [
-  {path: "", redirectTo: "/login", pathMatch: "full"}, //Temporal
+
   {path: "login", component: LoginComponent},
   {path: "registro", component: RegistroComponent},
+
+  {path: "", redirectTo: "/login", pathMatch: "full"} //Temporal
 ];
 
 @NgModule({
