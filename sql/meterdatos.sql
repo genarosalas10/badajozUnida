@@ -14,7 +14,8 @@ VALUES ('fútbol', 'partido de fútbol',1),
 ('back', 'curso basico de la parte back',3)
 ;
 
-
+-- Isa1234)
+-- Juan1234)
 INSERT INTO Usuario (nombre, apellidos, email, password, fechaNacimiento,tipo)
-VALUES ('Isabel', 'Munoz Perez','isa@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','1987-01-01', 'a'),
- ('juan', 'Perez','juan@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','1987-01-01', 'a');
+VALUES ('Isabel', 'Pérez','isa@gmail.com','d40c12d6df191a844185e1336569806f','1987-01-01', 'a'),
+ ('Juan', 'Pérez','juan@gmail.com','c3edace111ea076f93ee278cf30f006c','1987-01-01', 'u');
