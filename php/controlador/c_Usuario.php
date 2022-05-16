@@ -22,11 +22,12 @@ class C_Usuario extends modelo {
             if($datos){
                 //verificar si la contraseña es correcta
                 if($password==$datos[0]['password']){
+                  unset($datos[0]['password']);
                     return $datos;
 
                 }else{
                     //La contraseña no es igual
-                    return $this->_respuestas->error_200("El correo y/o contraseña son incorrectos. ");
+                    return $this->_respuestas->error_200("El correo y/o contraseña son incorrectos.");
                 }
 
 
@@ -60,7 +61,7 @@ class C_Usuario extends modelo {
 
 
     private function obtenerDatosUsuarioLogin($email){
-        $query = "SELECT nombre,email,password FROM Usuario WHERE email ='$email';";
+        $query = "SELECT nombre,email,password,tipo FROM Usuario WHERE email ='$email';";
         $datos = parent::obtenerDatos($query);
         if(isset($datos[0]["email"])){
 
@@ -95,7 +96,7 @@ class C_Usuario extends modelo {
 
           return $this->_respuestas->error_200("El correo ya existe.");
         }else{
-          return $this->_respuestas->error_200("No se pudo realizar el registro.");
+          return $this->_respuestas->error_200("No se pudo realizar el registro. Formato de campos invalidos.");
         }
       }
     }
