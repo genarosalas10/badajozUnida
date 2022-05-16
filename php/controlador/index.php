@@ -40,6 +40,50 @@ switch($datos['tipo']){
     }
     echo json_encode($datosArray);
     break;
+
+  case 'listado':
+    $datosArray = $c_Usuario->listado();
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'perfilUsuario':
+    $datosArray = $c_Usuario->perfilUsuario($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'modificarPerfilUsuario':
+    $datosArray = $c_Usuario->modificarPerfilUsuario($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+  case 'eliminarUsuario':
+    $datosArray = $c_Usuario->eliminarUsuario($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
   default:
     $datosArray = $_respuestas->error_405();
     echo  json_encode($datosArray);

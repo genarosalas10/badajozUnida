@@ -59,7 +59,58 @@ class C_Usuario extends modelo {
       }
     }
 
+    public function perfilUsuario($datos){
+      if(isset($datos['idUsuario'])){
+        $result = $this->obtenerPerfilUsuario($datos['idUsuario']);
+        if($result!=0){
+          return $result;
+        }else{
+          return $this->_respuestas->error_200("No hay usuario con ese id.");
+        }
+      }else{
+        return $this->_respuestas->error_400();
+      }
+    }
 
+    public function listado()
+    {
+      $result = $this->obtenerListado();
+      if ($result != 0) {
+        return $result;
+      } else {
+        return $this->_respuestas->error_200("No hay usuarios");
+      }
+    }
+    /*
+    public function modificarPerfilUsuario($datos){
+      //comprobar si recibe todos los campos necesarios
+      if(!isset($datos['nombre']) || !isset($datos['apellidos']) || !isset($datos['email'])  ||!isset($datos['fechaNacimiento']) ){
+        //error con los campos
+        return $this->_respuestas->error_400();
+      }else{
+
+          if($this->validarCampos($datos)){
+            $datos['password'] = parent::encriptar($datos['password']);
+            return $this->realizarRegistro($datos);
+          }else{
+            return $this->_respuestas->error_200("Los campos son incorrectos.");
+          }
+      }
+    }
+    */
+    public function eliminarUsuario($datos){
+
+      if(isset($datos['idUsuario'])){
+        $result = $this->realizarEliminacion($datos['idUsuario']);
+        if($result!=0){
+          return 'Cuenta eliminada con éxito';
+        }else{
+          return $this->_respuestas->error_200("No hay usuario con ese id.");
+        }
+      }else{
+        return $this->_respuestas->error_400();
+      }
+    }
     private function obtenerDatosUsuarioLogin($email){
         $query = "SELECT nombre,email,password,tipo FROM Usuario WHERE email ='$email';";
         $datos = parent::obtenerDatos($query);
@@ -72,17 +123,6 @@ class C_Usuario extends modelo {
         }
     }
 
-    private function validarCampos($datos){
-      //$mailRegex="/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/";
-      $passRegex='/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/';
-      if(!filter_var($datos['email'], FILTER_VALIDATE_EMAIL)){
-        return false;
-      }
-      if(!preg_match($passRegex, $datos['password'])){
-        return false;
-      }
-      return true;
-    }
 
     private function realizarRegistro($datos){
       $query = "INSERT INTO Usuario (nombre, apellidos, email, password, fechaNacimiento)
@@ -100,5 +140,50 @@ class C_Usuario extends modelo {
         }
       }
     }
+
+   private function obtenerListado(){
+     $query = "SELECT idUsuario,nombre,email,tipo FROM Usuario;";
+     $datos = parent::obtenerDatos($query);
+     if(isset($datos[0]["email"])){
+       return $datos;
+     }else{
+
+       return 0;
+     }
+   }
+
+
+  private function obtenerPerfilUsuario($idUsuario){
+    $query = "SELECT nombre,apellidos,email,fechaNacimiento FROM Usuario WHERE idUsuario ='$idUsuario';";
+    $datos = parent::obtenerDatos($query);
+    if(isset($datos[0]["email"])){
+
+      return $datos;
+    }else{
+
+      return 0;
+    }
+  }
+
+  private function realizarEliminacion($idUsuario){
+    $query="DELETE FROM Usuario WHERE idUsuario ='$idUsuario';";
+    $datos = parent::nonQuery($query);
+    if($datos!=0){
+      return 1;
+    }else{
+      return 0;
+    }
+  }
+  private function validarCampos($datos){
+
+    $passRegex='/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/';
+    if(!filter_var($datos['email'], FILTER_VALIDATE_EMAIL)){
+      return false;
+    }
+    if(!preg_match($passRegex, $datos['password'])){
+      return false;
+    }
+    return true;
+  }
 }
 
