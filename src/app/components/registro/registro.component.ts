@@ -58,7 +58,10 @@ export class RegistroComponent implements OnInit {
       .subscribe(data => {
           if (data['status'] != 'error') {
             this.modal.generateModal('Éxito', `Cuenta creada con éxito.`, 'De acuerdo', 'success');
-            this.router.navigate(['login']);
+            setTimeout(() => {
+                this.router.navigate(['login'])
+              },
+              2000);
           } else {
             this.modal.generateModal('Algo salió mal', `${data['result']['error_msg']}`, 'De acuerdo', 'error');
           }
