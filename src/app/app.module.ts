@@ -8,13 +8,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { IonicModule } from '@ionic/angular';
 import { ModalComponent } from './components/modal/modal.component';
+import { MenuComponent } from './components/share/menu/menu.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    ModalComponent
+    ModalComponent,
+    MenuComponent,
+    HomeComponent
   ],
     imports: [
         BrowserModule,

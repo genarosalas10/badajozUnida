@@ -1,0 +1,60 @@
+<div id="menu">
+    <div class="app-container">
+        <header>
+            <div class="logo-container">
+                <img src="assets/Logo_Badajoz_Unida.png" alt="Logotipo de Badajoz Unida" />
+                <h1 id="nombreApp">BADAJOZ UNIDA</h1>
+            </div>
+            <div class="account-container">
+                Hola, nombreUsuario
+                <i class="bi bi-person-circle"></i>
+            </div>
+        </header>
+        <main>
+            <app-home *ngIf="router.url==='/home'"></app-home>
+        </main> <!-- Aquí se mostrará el componente que toque -->
+    </div>
+    <div class="menu-container">
+        <footer>
+            footer
+        </footer>
+        <aside>
+            <div class="icono" >
+                <i class="bi bi-house-door-fill" [ngClass]="{'active' : router.url==='/home'}">
+                    <span class="active">INICIO</span>
+                </i>
+            </div>
+            <div class="icono">
+                <i class="bi bi-calendar-event-fill">
+                    <span>MIS EVENTOS</span>
+                </i>
+            </div>
+            <div class="icono">
+                <i class="bi bi-plus-circle-fill">
+                    <span>NUEVO EVENTO</span>
+                </i>
+            </div>
+            <div class="icono">
+                <i class="bi bi-person-circle">
+                    <span>PERFIL</span>
+                </i>
+            </div>
+            <div class="icono">
+                <i class="bi bi-tags-fill">
+                    <span>CATEGORÍAS</span>
+                </i>
+            </div>
+            <div class="icono">
+                <i class="bi bi-geo-alt-fill">
+                    <span>UBICACIONES</span>
+                </i>
+            </div>
+            <div class="icono">
+                <i class="bi bi-people-fill">
+                    <span>USUARIOS</span>
+                </i>
+            </div>
+        </aside>
+    </div>
+</div>
+<router-outlet></router-outlet>
