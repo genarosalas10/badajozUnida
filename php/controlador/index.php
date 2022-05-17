@@ -7,10 +7,12 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
 require_once "../modelo/Respuestas.php";
 require_once "c_Usuario.php";
+require_once "c_Categoria.php";
 
 
 $c_Usuario = new C_Usuario;
 $_respuestas = new Respuestas;
+$c_Categoria = new C_Categoria;
 
 //recibir datos
 $datos=file_get_contents("php://input");
@@ -64,7 +66,7 @@ switch($datos['tipo']){
     break;
 
   case 'modificarPerfilUsuario':
-    $datosArray = $c_Usuario->modificarPerfilUsuario($datos);
+    //$datosArray = $c_Usuario->modificarPerfilUsuario($datos);
 
     if(isset($datosArray["result"]['error_id'])){
       $responseCode = $datosArray["result"]['error_id'];
@@ -75,6 +77,27 @@ switch($datos['tipo']){
     break;
   case 'eliminarUsuario':
     $datosArray = $c_Usuario->eliminarUsuario($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+  case 'crearCategoria':
+    $datosArray = $c_Categoria->crearCategoria($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'listadoCategoria':
+    $datosArray = $c_Categoria->listadoCategoria();
 
     if(isset($datosArray["result"]['error_id'])){
       $responseCode = $datosArray["result"]['error_id'];
