@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: "login", component: LoginComponent},
   {path: "registro", component: RegistroComponent},
   {path: "home", component: MenuComponent},
+  {path: "categoria", component: MenuComponent},
   {path: "", redirectTo: "/login", pathMatch: "full"} //Temporal
 ];
 

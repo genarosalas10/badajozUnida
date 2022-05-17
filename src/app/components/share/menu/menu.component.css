@@ -74,7 +74,7 @@ aside .icono i.active{
     color: var(--primary-color);
 }
 
-aside .icono i span{
+aside .icono i a{
     display: none;
 }
 
@@ -136,9 +136,11 @@ footer{
         border-radius: 15px;
     }
 
-    aside .icono i span{
+    aside .icono i a{
         display: inline-block;
         margin-left: .5rem;
+        text-decoration: none;
+        color: #fff;
     }
 
     main{height: 90vh;}

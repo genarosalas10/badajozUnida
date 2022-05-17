@@ -12,6 +12,7 @@
         </header>
         <main>
             <app-home *ngIf="router.url==='/home'"></app-home>
+            <app-categoria *ngIf="router.url==='/categoria'"></app-categoria>
         </main> <!-- Aquí se mostrará el componente que toque -->
     </div>
     <div class="menu-container">
@@ -19,39 +20,39 @@
             footer
         </footer>
         <aside>
-            <div class="icono" >
+            <div class="icono">
                 <i class="bi bi-house-door-fill" [ngClass]="{'active' : router.url==='/home'}">
-                    <span class="active">INICIO</span>
+                    <a routerLink="/home">INICIO</a>
                 </i>
             </div>
             <div class="icono">
                 <i class="bi bi-calendar-event-fill">
-                    <span>MIS EVENTOS</span>
+                    <a>MIS EVENTOS</a>
                 </i>
             </div>
             <div class="icono">
                 <i class="bi bi-plus-circle-fill">
-                    <span>NUEVO EVENTO</span>
+                    <a>NUEVO EVENTO</a>
                 </i>
             </div>
             <div class="icono">
                 <i class="bi bi-person-circle">
-                    <span>PERFIL</span>
+                    <a>PERFIL</a>
                 </i>
             </div>
             <div class="icono" *ngIf="comprobarTipo()">
                 <i class="bi bi-tags-fill" [ngClass]="{'active' : router.url==='/categorias'}">
-                    <span>CATEGORÍAS</span>
+                    <a routerLink="/categorias">CATEGORÍAS</a>
                 </i>
             </div>
             <div class="icono" *ngIf="comprobarTipo()">
                 <i class="bi bi-geo-alt-fill">
-                    <span>UBICACIONES</span>
+                    <a>UBICACIONES</a>
                 </i>
             </div>
             <div class="icono" *ngIf="comprobarTipo()">
                 <i class="bi bi-people-fill">
-                    <span>USUARIOS</span>
+                    <a>USUARIOS</a>
                 </i>
             </div>
         </aside>
