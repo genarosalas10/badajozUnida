@@ -10,6 +10,10 @@ import { IonicModule } from '@ionic/angular';
 import { ModalComponent } from './components/modal/modal.component';
 import { MenuComponent } from './components/share/menu/menu.component';
 import { HomeComponent } from './components/home/home.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
+import { UbicacionComponent } from './components/ubicacion/ubicacion.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { HomeComponent } from './components/home/home.component';
     RegistroComponent,
     ModalComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    CategoriaComponent,
+    UbicacionComponent,
+    UsuariosComponent,
+    PerfilComponent
   ],
     imports: [
         BrowserModule,
