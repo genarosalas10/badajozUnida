@@ -40,7 +40,7 @@
                 </i>
             </div>
             <div class="icono" *ngIf="comprobarTipo()">
-                <i class="bi bi-tags-fill">
+                <i class="bi bi-tags-fill" [ngClass]="{'active' : router.url==='/categorias'}">
                     <span>CATEGORÍAS</span>
                 </i>
             </div>
