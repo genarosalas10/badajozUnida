@@ -6,8 +6,8 @@
                 <h1 id="nombreApp">BADAJOZ UNIDA</h1>
             </div>
             <div class="account-container">
-                Hola, nombreUsuario
-                <i class="bi bi-person-circle"></i>
+                Hola, {{nombreUsuario}}
+                <i class="bi bi-person-circle" (click)="cerrarSesion()"></i>
             </div>
         </header>
         <main>
@@ -39,17 +39,17 @@
                     <span>PERFIL</span>
                 </i>
             </div>
-            <div class="icono">
+            <div class="icono" *ngIf="comprobarTipo()">
                 <i class="bi bi-tags-fill">
                     <span>CATEGORÍAS</span>
                 </i>
             </div>
-            <div class="icono">
+            <div class="icono" *ngIf="comprobarTipo()">
                 <i class="bi bi-geo-alt-fill">
                     <span>UBICACIONES</span>
                 </i>
             </div>
-            <div class="icono">
+            <div class="icono" *ngIf="comprobarTipo()">
                 <i class="bi bi-people-fill">
                     <span>USUARIOS</span>
                 </i>

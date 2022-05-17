@@ -60,15 +60,15 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
           console.log(data);
           if (data['status'] != 'error') {
+            sessionStorage.setItem('idUsuario', data[0]['idUsuario']);
+            sessionStorage.setItem('nombre', data[0]['nombre']);
+            sessionStorage.setItem('tipo', data[0]['tipo']);
             this.router.navigate(['home']);
           } else {
             this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
           }
           /*
-          sessionStorage.setItem('id', id);
-          sessionStorage.setItem('correo', correo);
            window.location.reload();
-
            */
         }
         , async (errorServicio) =>
