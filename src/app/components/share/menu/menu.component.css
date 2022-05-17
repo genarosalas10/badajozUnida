@@ -63,18 +63,13 @@ aside .icono i{
     font-style: normal;
     font-weight: bold;
     display: inline-block;
-    transition: .3s;
-}
-
-.icono i:hover{
-    color: var(--text-base-color);
 }
 
 aside .icono i.active{
     color: var(--primary-color);
 }
 
-aside .icono i a{
+aside .icono i span{
     display: none;
 }
 
@@ -134,9 +129,14 @@ footer{
     aside .icono i.active{
         background-color: var(--bg-color);
         border-radius: 15px;
+        color: var(--primary-color);
     }
 
-    aside .icono i a{
+    aside .icono i.active span{
+        color: var(--primary-color);
+    }
+
+    aside .icono i span{
         display: inline-block;
         margin-left: .5rem;
         text-decoration: none;
