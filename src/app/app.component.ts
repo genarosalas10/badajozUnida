@@ -12,5 +12,6 @@ export class AppComponent {
     if(!sessionStorage.getItem('id')){
       this.router.navigate(['login']);
     }
+    
   }
 }

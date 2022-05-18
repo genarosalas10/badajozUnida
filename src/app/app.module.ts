@@ -14,6 +14,7 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
 import { UbicacionComponent } from './components/ubicacion/ubicacion.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { DatosCategoriasComponent } from './components/share/datos-categorias/datos-categorias.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     CategoriaComponent,
     UbicacionComponent,
     UsuariosComponent,
-    PerfilComponent
+    PerfilComponent,
+    DatosCategoriasComponent
   ],
     imports: [
         BrowserModule,

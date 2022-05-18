@@ -1,32 +1,35 @@
-<div class="contenedor-categorias">
-    <select name="categorias" id="iCategorias">
-      <option *ngFor="let categoria of categorias"
-              value="{{categoria.id}}">{{categoria.nombre}}
+<!-- <div class="contenedor-categorias">
+    <select name="categorias" id="iCategorias" (change)="listarSub()">
+      <option 
       </option>
     </select>
     <div class="boton-categorias">
-        <button id="catAdd">Añadir categoría</button>
+        <button id="catAdd" (click)="llamarPoppup()">Añadir categoría</button>
         <button id="catOpt"><i class="bi bi-caret-down-fill"></i></button>
         <div class="categorias-desplegable hidden">
-            <button>Editar categoría</button>
+            <button >Editar categoría</button>
             <button>Borrar categoría</button>
         </div>
     </div>
-</div>
-<div class="contenedor-subcategorias">
-    <div class="subcategoria">
-        <h2 class="nombre">Subcategoría</h2>
-        <div class="iconos">
-            <button class="editar"><i class="bi bi-pencil-fill"></i></button>
-            <button class="borrar"><i class="bi bi-trash-fill"></i></button>
+</div> -->
+<div class="contenedor-categorias">
+    <div class="categoria" *ngFor="let categoria of categorias">
+        <div class="categoria-datos">
+            <h2 class="nombre">{{categoria.nombre}}</h2>
+            <div class="iconos">
+                <button><i class="bi bi-pencil-fill"></i></button>
+                <button><i class="bi bi-trash-fill"></i></button>
+            </div>
         </div>
-    </div>
-    <div class="subcategoria">
-        <h2 class="nombre">Subcategoría</h2>
-        <div class="iconos">
-            <button class="editar"><i class="bi bi-pencil-fill"></i></button>
-            <button class="borrar"><i class="bi bi-trash-fill"></i></button>
+        <div class="subcategoria">
+            <h4>Subcategorías</h4>
+            <div class="iconos">
+                <button (click)="editarSub()"><i class="bi bi-pencil-fill"></i></button>
+                <button (click)="borrarSub()"><i class="bi bi-trash-fill"></i></button>
+            </div>
         </div>
+        <button class="add">Añadir subcategoría</button>
     </div>
-    <button>Añadir subcategoría</button>
+    <button class="add">Añadir categoría</button>
 </div>
+<app-datos-categorias></app-datos-categorias>
