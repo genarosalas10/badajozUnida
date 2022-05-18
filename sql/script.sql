@@ -32,9 +32,9 @@ CREATE TABLE Subcategoria(
     CONSTRAINT FK_idCategoria_Subcategoria FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria)
 );
 
---Tabla Localizacion
-CREATE TABLE Localizacion(
-  idLocalizacion tinyint unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
+--Tabla Ubiciacion
+CREATE TABLE Ubicacion(
+  idUbicacion tinyint unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   nombre varchar(100) NOT NULL UNIQUE,
   descripcion varchar(200) NOT NULL
 );
@@ -43,13 +43,14 @@ CREATE TABLE Localizacion(
 CREATE TABLE Evento(
 	idEvento mediumint unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	titulo varchar(100) NOT NULL,
-    descripcion varchar(255) NOT NULL,
+  descripcion varchar(255) NOT NULL,
 	fechaHora datetime NOT NULL,
-    idUbicacion varchar(255) NOT NULL,
-    idUsuario mediumint unsigned NOT NULL ,
-    idSubcategoria tinyint unsigned NOT NULL,
-    CONSTRAINT FK_idSubcategoria_Evento FOREIGN KEY (idSubcategoria) REFERENCES Subcategoria(idSubcategoria),
-    CONSTRAINT FK_idUsario_Evento FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
+  idUbicacion tinyint unsigned NOT NULL,
+  idUsuario mediumint unsigned NOT NULL ,
+  idSubcategoria tinyint unsigned NOT NULL,
+  CONSTRAINT FK_idSubcategoria_Evento FOREIGN KEY (idSubcategoria) REFERENCES Subcategoria(idSubcategoria),
+  CONSTRAINT FK_idUsario_Evento FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
+  CONSTRAINT FK_idLocaliza_Evento FOREIGN KEY (idUbicacion) REFERENCES Ubicacion(idUbicacion)
 
 );
 --Tabla Participante
