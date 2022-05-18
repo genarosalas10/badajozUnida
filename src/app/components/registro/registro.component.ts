@@ -90,7 +90,7 @@ export class RegistroComponent implements OnInit {
     return (pass1 === pass2) ? true : false;
   }
 
-  //Comprobar si tiene mas de 14 años
+  //Comprobar si tiene mas de 16 años
   get comprobarEdad()
   {
     if(this.forma.get('fechaNacimiento')!= null){

@@ -24,7 +24,7 @@
               <i id="ieye"class="bi bi-eye-fill float-end mb-2" (click)="showHide()"></i>
             </div>
             <p *ngIf="!validar('password')" class="error">
-              La contraseña debe incluir mínimo 8 caracteres y contener al menos una letra minúscula, mayúscula, 
+              La contraseña debe incluir mínimo 8 caracteres y contener al menos una letra minúscula, mayúscula,
               un número y un caracter especial. No se permiten espacios en blanco.
             </p>
 
@@ -37,7 +37,7 @@
             <div class="input-group">
               <label for="ifechaNacimiento">Fecha de nacimiento </label><input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" id="ifechaNacimiento" />
             </div>
-            <p *ngIf="!comprobarEdad || !validar('fechaNacimiento')" class="error">Tienes que mayor de 16 años.</p>
+            <p *ngIf="!comprobarEdad || !validar('fechaNacimiento')" class="error">Tienes que ser mayor de 16 años.</p>
 
             <div class="input-group">
               <input type="submit" value="CREAR CUENTA" />
