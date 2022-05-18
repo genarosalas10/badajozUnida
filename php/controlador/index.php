@@ -107,6 +107,50 @@ switch($datos['tipo']){
     echo json_encode($datosArray);
     break;
 
+  case 'eliminarCategoria':
+    $datosArray = $c_Categoria->eliminarCategoria($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'modificarCategoria':
+    $datosArray = $c_Categoria->modificarCategoria($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+    case 'sacarCategoriaId':
+    $datosArray = $c_Categoria->sacarCategoriaId($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'listarSubcategoriaId':
+    $datosArray = $c_Categoria->listarSubcategoriaId($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
   default:
     $datosArray = $_respuestas->error_405();
     echo  json_encode($datosArray);

@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 })
 export class CategoriaComponent implements OnInit {
 
+  categorias:any;
   constructor(private appService:AppService, private router:Router) {
     this.listadoCategoria();
   }
@@ -28,11 +29,10 @@ export class CategoriaComponent implements OnInit {
       .subscribe(data => {
 
           if (data['status'] != 'error') {
-            console.log(data)
+            this.categorias=data;
           } else {
             console.log(data)
           }
-         
         }
         , async (errorServicio) =>
         {

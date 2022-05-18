@@ -57,4 +57,7 @@ class modelo
      return $this->conexion->errno();
     }
 
+    public function errorms(){
+      return $this->conexion->error();
+    }
 }

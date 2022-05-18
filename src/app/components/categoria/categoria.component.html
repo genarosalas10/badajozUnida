@@ -1,9 +1,8 @@
 <div class="contenedor-categorias">
     <select name="categorias" id="iCategorias">
-        <option value="comida">Comida</option>
-        <option value="deportes">Deportes</option>
-        <option value="turismo">Turismo</option>
-        <option value="cultura">Cultura</option>
+      <option *ngFor="let categoria of categorias"
+              value="{{categoria.id}}">{{categoria.nombre}}
+      </option>
     </select>
     <div class="boton-categorias">
         <button id="catAdd">Añadir categoría</button>
