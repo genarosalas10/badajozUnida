@@ -15,7 +15,7 @@ class C_Categoria extends modelo
       return $this->_respuestas->error_200("No categorias");
     }
   }
-  /*
+
   public function crearCategoria($datos)
   {
     //comprobar si recibe todos los campos necesarios
@@ -24,12 +24,21 @@ class C_Categoria extends modelo
       return $this->_respuestas->error_400();
     }else{
 
-          return $this->realizarRegistro($datos);
+          return $this->realizarRegistroCategoria($datos);
 
 
     }
   }
-  */
+
+
+
+  public function eliminarCategoria($datos)
+  {
+  }
+
+  public function modificarCategoria($datos)
+  {
+  }
 
   private function obtenerListadoCategoria(){
     $query = "SELECT idCategoria,nombre,descripcion FROM Categoria;";
@@ -40,5 +49,17 @@ class C_Categoria extends modelo
 
       return 0;
     }
+  }
+
+  private function realizarRegistroCategoria($datos){
+    $query = "INSERT INTO Categoria (nombre, descripcion)
+                VALUES ('".$datos['nombre']."', '".$datos['descripcion']."');";
+    $resul = parent::nonQueryId($query);
+    if($resul){
+      return 1;
+    }else{
+        return $this->_respuestas->error_200("No se pudo realizar el registro.");
+      }
+
   }
 }

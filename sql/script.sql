@@ -17,21 +17,27 @@ CREATE TABLE Usuario(
 );
 
 --Tabla Categoria
-CREATE TABLE Categoria( 
+CREATE TABLE Categoria(
 	idCategoria tinyint unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	nombre varchar(50) NOT NULL,
+	nombre varchar(50) NOT NULL UNIQUE,
 	descripcion varchar(150) NOT NULL
 );
 
 --Tabla Subcategoria
 CREATE TABLE Subcategoria(
 	idSubcategoria tinyint unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	nombre varchar(50) NOT NULL,
+	nombre varchar(50) NOT NULL UNIQUE,
 	descripcion varchar(150) NOT NULL,
     idCategoria tinyint unsigned NOT NULL,
     CONSTRAINT FK_idCategoria_Subcategoria FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria)
 );
 
+--Tabla Localizacion
+CREATE TABLE Localizacion(
+  idLocalizacion tinyint unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  nombre varchar(100) NOT NULL UNIQUE,
+  descripcion varchar(200) NOT NULL
+);
 
 --Tabla Evento
 CREATE TABLE Evento(
@@ -39,11 +45,11 @@ CREATE TABLE Evento(
 	titulo varchar(100) NOT NULL,
     descripcion varchar(255) NOT NULL,
 	fechaHora datetime NOT NULL,
-    ubicacion varchar(255) NOT NULL,
+    idUbicacion varchar(255) NOT NULL,
     idUsuario mediumint unsigned NOT NULL ,
     idSubcategoria tinyint unsigned NOT NULL,
     CONSTRAINT FK_idSubcategoria_Evento FOREIGN KEY (idSubcategoria) REFERENCES Subcategoria(idSubcategoria),
-    CONSTRAINT FK_idUsario_Evento FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario) 
+    CONSTRAINT FK_idUsario_Evento FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
 
 );
 --Tabla Participante
