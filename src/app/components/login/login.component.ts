@@ -11,13 +11,21 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  /**
+   * @ignore
+   */
   constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router) { }
   modal=new ModalComponent;
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
     this.crearFormulario();
   }
-  // Crear formulario
+  /**
+   * Añade los validadores del formulario.
+   */
   crearFormulario() {
     this.loginForm = this.formBuilder.group({
       email:['',[Validators.required, Validators.email]],
@@ -26,9 +34,13 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  //Coger los datos y comprobar si son correctos
+  /**
+   * Comprueba que todos los campos introducidos sean correctos.
+   * 
+   * @param forma - Campos del formulario
+   * @returns - void
+   */
   guardar(forma: FormGroup){
-
 
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
@@ -43,13 +55,21 @@ export class LoginComponent implements OnInit {
 
   }
 
-  //Validador
+  /**
+   * Valida que un campo del formulario sea correcto.
+   * @param campo1 - Valor del campo
+   * @returns - Campo válido y no enfocado
+   */
   validar(campo1: string){
     let campo: any = this.loginForm.get(campo1);
     return !(campo.invalid && campo.touched);
   }
 
-  //LLamar a la Api para saber si el usuario existe
+  /**
+   * Hace una llamada a la API para validar que el usuario exista y los datos sean correctos.
+   * 
+   * @param loginForm - Campos del formulario
+   */
   ComprobarUsuario(loginForm: FormGroup)
   {
     let datos=loginForm.value
@@ -82,7 +102,9 @@ export class LoginComponent implements OnInit {
 
   }
 
-  //Ver contraseña
+  /**
+   * Permite visualizar tu contraseña.
+   */
   showHide() {
 
     const input = <HTMLInputElement>document.getElementById('iPassword');

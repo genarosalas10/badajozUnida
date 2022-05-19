@@ -4,7 +4,6 @@ import {AppService} from "../../services/app.service";
 import {ModalComponent} from "../modal/modal.component";
 import {Router} from "@angular/router";
 
-//504921600000 ms
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -13,13 +12,21 @@ import {Router} from "@angular/router";
 export class RegistroComponent implements OnInit {
   forma!: FormGroup;
   modal=new ModalComponent;
+  /**
+   * @ignore
+   */
   constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router) { }
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
     this.crearFormulario();
   }
 
-  // Crear formulario
+  /**
+   * Añade los validadores del formulario.
+   */
   crearFormulario() {
     this.forma = this.formBuilder.group({
       nombre:['',[Validators.required, Validators.pattern(/^([a-zA-ZÀ-ÿ\u00f1\u00d1]{4,30})(\s{0,1}[a-zA-ZÀ-ÿ\u00f1\u00d1]{2,29}){0,1}$/)]],
@@ -31,7 +38,12 @@ export class RegistroComponent implements OnInit {
 
     })
   }
-  //Coger los datos y comprobar si son correctos
+  /**
+   * Comprueba que todos los campos introducidos sean correctos.
+   * 
+   * @param forma - Campos del formulario
+   * @returns - void
+   */
   guardar(forma: FormGroup){
 
     if (forma.invalid || forma.pending) {
@@ -48,7 +60,10 @@ export class RegistroComponent implements OnInit {
 
   }
 
-//LLamar a la Api para crear usuario
+/**
+ * Llama a la API para dar de alta a un usuario.
+ * @param loginForm - Campos del formulario
+ */
   registro(loginForm: FormGroup)
   {
     let datos=loginForm.value
@@ -77,20 +92,28 @@ export class RegistroComponent implements OnInit {
         });
   }
 
-  //Validador
+   /**
+   * Valida que un campo del formulario sea correcto.
+   * @param campo1 - Valor del campo
+   * @returns - Campo válido y no enfocado
+   */
   validar(campo1: string){
     let campo: any = this.forma.get(campo1);
     return !(campo.invalid && campo.touched);
   }
 
-  //Comprobar si las contraseñas son iguales
+  /**
+   * Verifica que ambas contraseñas coincidan.
+   */
   get comprobarPasswords() {
     let pass1 = this.forma.get('password')?.value;
     let pass2 = this.forma.get('password2')?.value;
     return (pass1 === pass2) ? true : false;
   }
 
-  //Comprobar si tiene mas de 16 años
+  /**
+   * Comprueba que el usuario sea mayor de 16 años.
+   */
   get comprobarEdad()
   {
     if(this.forma.get('fechaNacimiento')!= null){
@@ -103,7 +126,9 @@ export class RegistroComponent implements OnInit {
     return true;
   }
 
-  //Ver contraseña
+  /**
+   * Permite visualizar tu contraseña
+   */
   showHide() {
 
     const input = <HTMLInputElement>document.getElementById('iPassword');
@@ -116,7 +141,9 @@ export class RegistroComponent implements OnInit {
       i.classList.replace("bi-eye-slash-fill", "bi-eye-fill");
     }
   }
-  //Ver contraseña repetida
+  /**
+   * @ignore
+   */
   showHide2() {
 
     const input = <HTMLInputElement>document.getElementById('iPasswordRepeat');

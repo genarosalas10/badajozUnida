@@ -7,11 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
+  /**
+   * @ignore
+   */
   constructor() { }
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
   }
 
+  /**
+   * Crea un modal personalizado.
+   * 
+   * @param title - Título del modal
+   * @param body - Mensaje del modal
+   * @param btnText - Texto del botón del modal
+   * @param type - Tipo del modal (normal, success, error)
+   */
   generateModal(title:string, body:string, btnText:string, type:string){
     const modal=document.createElement('div');
     modal.classList.add('modal-container');
@@ -84,6 +98,9 @@ export class ModalComponent implements OnInit {
     document.querySelector('.modal-body button')!.addEventListener('click', this.deleteModal);
   }
 
+  /**
+   * Elimina el modal.
+   */
   deleteModal(){
     document.querySelector('.modal-container')?.remove();
   }
