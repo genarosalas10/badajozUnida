@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: "registro", component: RegistroComponent},
   {path: "home", component: MenuComponent},
   {path: "categoria", component: MenuComponent},
-  {path: "", redirectTo: "/login", pathMatch: "full"} //Temporal
+  {path: "", redirectTo: "/home", pathMatch: "full"} //Temporal
 ];
 
 @NgModule({
