@@ -176,7 +176,33 @@ class C_Categoria extends modelo
     }else{
       return $this->_respuestas->error_400();
     }
+  }
 
+  public function modificarSubcategoria($datos)
+  {
+    //comprobar si recibe todos los campos necesarios
+    if(!isset($datos['nombre']) || !isset($datos['descripcion']) || !isset($datos['idSubcategoria']) ){
+      //error con los campos
+      return $this->_respuestas->error_400();
+    }else{
+
+      return $this->realizarmodificacionSubcategoria($datos);
+
+    }
+  }
+
+  public function crearSubcategoria($datos)
+  {
+    //comprobar si recibe todos los campos necesarios
+    if(!isset($datos['nombre']) || !isset($datos['descripcion']) || !isset($datos['idCategoria'])){
+      //error con los campos
+      return $this->_respuestas->error_400();
+    }else{
+
+      return $this->realizarRegistroSubcategoria($datos);
+
+
+    }
   }
 
   private function obtenerListadosubcategoriaId($idCategoria)
@@ -215,5 +241,33 @@ class C_Categoria extends modelo
     }
   }
 
+  private function realizarmodificacionSubcategoria($datos)
+  {
+    $query = "UPDATE Subcategoria SET nombre = '".$datos['nombre']."', descripcion = '".$datos['descripcion']."'
+    WHERE idSubcategoria = '".$datos['idSubcategoria']."';";
+    $datos = parent::nonQuery($query);
+    if($datos>0){
+      return 1;
+    }else{
+      return $this->_respuestas->error_200("No se pudo realizar el registro. Ese idSubcategoria no existe.");
+    }
+  }
 
+
+  private function realizarRegistroSubcategoria($datos){
+    $query = "INSERT INTO Subcategoria (nombre, descripcion, idCategoria)
+                VALUES ('".$datos['nombre']."', '".$datos['descripcion']."', '".$datos['idCategoria']."');";
+    $resul = parent::nonQueryId($query);
+    if($resul){
+      return 1;
+    }else{
+      $error=parent::errorId();
+      if($error==1062){
+
+        return $this->_respuestas->error_200("El nombre ya existe en otra Subcategoria.");
+      }else{
+        return $this->_respuestas->error_200("No se pudo realizar el registro");
+      }
+    }
+  }
 }

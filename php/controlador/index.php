@@ -162,7 +162,7 @@ switch($datos['tipo']){
     break;
 
   case 'crearSubcategoria':
-    $datosArray = $c_Categoria->listarSubcategoriaId($datos);
+    $datosArray = $c_Categoria->crearSubcategoria($datos);
 
     if(isset($datosArray["result"]['error_id'])){
       $responseCode = $datosArray["result"]['error_id'];
@@ -184,7 +184,7 @@ switch($datos['tipo']){
     break;
 
   case 'modificarSubcategoria':
-    $datosArray = $c_Categoria->listarSubcategoriaId($datos);
+    $datosArray = $c_Categoria->modificarSubcategoria($datos);
 
     if(isset($datosArray["result"]['error_id'])){
       $responseCode = $datosArray["result"]['error_id'];
