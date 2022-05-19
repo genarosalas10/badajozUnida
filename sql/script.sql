@@ -29,7 +29,7 @@ CREATE TABLE Subcategoria(
 	nombre varchar(50) NOT NULL UNIQUE,
 	descripcion varchar(150) NOT NULL,
     idCategoria tinyint unsigned NOT NULL,
-    CONSTRAINT FK_idCategoria_Subcategoria FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria)
+    CONSTRAINT FK_idCategoria_Subcategoria FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 --Tabla Ubiciacion
