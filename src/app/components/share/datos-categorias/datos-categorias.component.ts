@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AppService} from "../../../services/app.service";
 import {Router} from "@angular/router";
 
@@ -15,6 +15,15 @@ export class DatosCategoriasComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  crearFormulario() {
+    this.forma = this.formBuilder.group({
+      nombre:['',[Validators.required, Validators.minLength(2)]],
+      descripcion:['',[Validators.required, Validators.minLength(10)]]
+
+    })
+  }
+
+  //Formulario Categoria
   public mostrarFormCa(buttonValue:String){
     let container=document.createElement('div');
     container.classList.add('popup-form-container');
@@ -24,10 +33,12 @@ export class DatosCategoriasComponent implements OnInit {
         <label>Descripción:</label><br/>
         <textarea formControlName="descripcion"></textarea><br/>
         <input type="submit" value="${buttonValue}" />
-        <span (click)="borrarForm()">Cerrar</span>
+        <span >Cerrar</span>
       </form>`;
     document.getElementById('showForm')?.appendChild(container);
   }
+
+  //Formulario Subcategoria (añadir input que no se vea)
   public mostrarFormSub(buttonValue:String,idCategoria:any){
     let container=document.createElement('div');
     container.classList.add('popup-form-container');
@@ -41,14 +52,14 @@ export class DatosCategoriasComponent implements OnInit {
       </form>`;
     document.getElementById('showForm')?.appendChild(container);
   }
-
+  //Borrar formulario
   public borrarForm(){
     document.querySelector('.popup-form-container')?.remove();
   }
 
+  //comprobar formulario
   guardar(forma: FormGroup,tipo:any){
 
-    /*
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
         if (control instanceof FormGroup)
@@ -58,7 +69,6 @@ export class DatosCategoriasComponent implements OnInit {
       return;
     }
 
-     */
     if(tipo==0){
       this.anadirCategoria(forma);
     }else{
@@ -66,6 +76,8 @@ export class DatosCategoriasComponent implements OnInit {
     }
 
   }
+
+  //llamar a la api para crear categoria
   anadirCategoria(forma:any){
 
     let datos=forma.value
@@ -77,11 +89,12 @@ export class DatosCategoriasComponent implements OnInit {
           console.log(data);
           if (data['status'] != 'error') {
             console.log('data')
-            this.router.navigate(['/home']);
+            this.borrarForm();
+
           } else {
             //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
             console.log(data)
-            this.router.navigate(['/home']);
+            //this.borrarForm();
           }
 
         }
@@ -89,12 +102,12 @@ export class DatosCategoriasComponent implements OnInit {
         {
           console.log('he fallado')
           console.log(errorServicio);
-          this.router.navigate(['/home']);
+          //this.borrarForm();
 
 
         });
   }
-
+  //llamar a la api para crear subcategoria
   anadirSubcategoria(forma:any){
     let datos=forma.value
     datos.tipo='crearSubcategoria';

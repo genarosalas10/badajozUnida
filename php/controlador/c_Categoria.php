@@ -104,7 +104,7 @@ class C_Categoria extends modelo
   private function realizarEliminacionCategoria($idCategoria){
     $query="DELETE FROM Categoria WHERE idCategoria ='$idCategoria';";
     $datos = parent::nonQuery($query);
-    if($datos!=0){
+    if($datos>0){
       return 1;
     }else{
       return 0;

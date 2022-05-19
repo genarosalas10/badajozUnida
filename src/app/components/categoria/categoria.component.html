@@ -17,8 +17,8 @@
         <div class="categoria-datos">
             <h2 class="nombre" (click)="listarSub(categoria.idCategoria)">{{categoria.nombre}}</h2>
             <div class="iconos">
-                <button><i class="bi bi-pencil-fill"></i></button>
-                <button><i class="bi bi-trash-fill"></i></button>
+               <button> <i class="bi bi-pencil-fill" ></i></button>
+              <button (click)="borrarCat(categoria.idCategoria)"> <i class="bi bi-trash-fill" ></i></button>
             </div>
         </div>
         <div *ngFor="let subcategoria of subcategorias">

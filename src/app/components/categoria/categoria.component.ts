@@ -4,6 +4,7 @@ import {AppService} from "../../services/app.service";
 import {Router} from "@angular/router";
 import { ModalComponent } from '../modal/modal.component';
 import { DatosCategoriasComponent } from '../share/datos-categorias/datos-categorias.component';
+import {LoginComponent} from "../login/login.component";
 
 @Component({
   selector: 'app-categoria',
@@ -44,7 +45,7 @@ export class CategoriaComponent implements OnInit {
 
     this.appService.postQuery(datos)
       .subscribe(data => {
-
+          console.log(data)
           if (data['status'] != 'error') {
             this.categorias=data;
           } else {
@@ -126,5 +127,34 @@ export class CategoriaComponent implements OnInit {
 
   borrarSub(idSubcategoria:any){
     console.log('Borrar');
+  }
+
+  borrarCat(idCategoria: any) {
+    let datos = {
+      tipo: "eliminarCategoria",
+      idCategoria: `${idCategoria}`
+    }
+    console.log(datos)
+    this.appService.postQuery(datos)
+      .subscribe(data => {
+
+          if (data['status'] != 'error') {
+            console.log(data) ;
+            window.location.reload();
+          } else {
+            console.log(data)
+
+          }
+        }
+        , async (errorServicio) =>
+        {
+          console.log('he fallado')
+          console.log(errorServicio);
+          //this.toast=true;
+
+
+        });
+
+
   }
 }
