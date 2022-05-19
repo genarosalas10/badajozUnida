@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {AppService} from "../../services/app.service";
 import {Router} from "@angular/router";
 import { ModalComponent } from '../modal/modal.component';
@@ -13,17 +13,27 @@ import { DatosCategoriasComponent } from '../share/datos-categorias/datos-catego
 export class CategoriaComponent implements OnInit {
 
   categorias:any;
-  categoriasPopup=new DatosCategoriasComponent
-  constructor(private appService:AppService, private router:Router) {
+  subcategorias:any;
+  categoriasPopup:any;
+  constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router) {
     this.listadoCategoria();
+    this.listadoSubcategoria();
+    this.categoriasPopup = new DatosCategoriasComponent(formBuilder, appService, router);
   }
-  
+
 
   ngOnInit(): void {
   }
+  //Crear
+  llamarPoppup(idCategoria?:any){
+    //console.log(idCategoria)
+    if(idCategoria){
+      this.categoriasPopup.mostrarFormSub('Añadir',idCategoria);
+    }
+    else{
+      this.categoriasPopup.mostrarFormCa('Añadir');
+    }
 
-  llamarPoppup(){
-    this.categoriasPopup.mostrarForm('Añadir');
   }
 
   listadoCategoria()
@@ -52,19 +62,49 @@ export class CategoriaComponent implements OnInit {
 
   }
 
-  listarSub(idCategoria:any)
-  {
-    //idCategoria=document.getElementById('iCategorias').value;
-    let datos = {
-      tipo: "listadoSubcategoriaId",
-      id: idCategoria
-  }
 
+  listadoSubcategoria(){
+
+    let datos = {
+      tipo: "listarSubcategoria"
+    }
+    console.log(datos)
     this.appService.postQuery(datos)
       .subscribe(data => {
 
           if (data['status'] != 'error') {
-            this.categorias=data;
+            this.subcategorias=data;
+            console.log(this.subcategorias)
+          } else {
+            console.log(data)
+          }
+        }
+        , async (errorServicio) =>
+        {
+          console.log('he fallado')
+          console.log(errorServicio);
+          //this.toast=true;
+
+
+        });
+
+  }
+  //No se utiliza de momento
+  //Sacar las subcateogrias por idCategoria
+  listarSub(idCategoria:any)
+  {
+    //idCategoria=document.getElementById('iCategorias').value;
+    let datos = {
+      tipo: "listarSubcategoriaId",
+      idCategoria: `${idCategoria}`
+  }
+    console.log(datos)
+    this.appService.postQuery(datos)
+      .subscribe(data => {
+
+          if (data['status'] != 'error') {
+            this.subcategorias=data;
+            console.log(this.subcategorias)
           } else {
             console.log(data)
           }
@@ -80,11 +120,11 @@ export class CategoriaComponent implements OnInit {
 
   }
 
-  editarSub(){
+  editarSub(idSubcategoria:any){
     console.log('Editar');
   }
 
-  borrarSub(){
+  borrarSub(idSubcategoria:any){
     console.log('Borrar');
   }
 }

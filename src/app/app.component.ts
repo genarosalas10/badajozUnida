@@ -9,9 +9,11 @@ import {Router} from "@angular/router";
 export class AppComponent {
   title = 'badajozUnida';
   constructor(public router: Router) {
-    if(!sessionStorage.getItem('id')){
+    /*if(!sessionStorage.getItem('id')){
       this.router.navigate(['login']);
     }
-    
+
+     */
+
   }
 }

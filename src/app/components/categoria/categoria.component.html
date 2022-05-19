@@ -1,6 +1,6 @@
 <!-- <div class="contenedor-categorias">
     <select name="categorias" id="iCategorias" (change)="listarSub()">
-      <option 
+      <option
       </option>
     </select>
     <div class="boton-categorias">
@@ -15,21 +15,23 @@
 <div class="contenedor-categorias">
     <div class="categoria" *ngFor="let categoria of categorias">
         <div class="categoria-datos">
-            <h2 class="nombre">{{categoria.nombre}}</h2>
+            <h2 class="nombre" (click)="listarSub(categoria.idCategoria)">{{categoria.nombre}}</h2>
             <div class="iconos">
                 <button><i class="bi bi-pencil-fill"></i></button>
                 <button><i class="bi bi-trash-fill"></i></button>
             </div>
         </div>
-        <div class="subcategoria">
-            <h4>Subcategorías</h4>
-            <div class="iconos">
-                <button (click)="editarSub()"><i class="bi bi-pencil-fill"></i></button>
-                <button (click)="borrarSub()"><i class="bi bi-trash-fill"></i></button>
-            </div>
+        <div *ngFor="let subcategoria of subcategorias">
+          <div class="subcategoria"  *ngIf="categoria.idCategoria == subcategoria.idCategoria">
+              <h4>{{subcategoria.nombre}}</h4>
+              <div class="iconos">
+                  <button (click)="editarSub(subcategoria.idSubcategoria)"><i class="bi bi-pencil-fill"></i></button>
+                  <button (click)="borrarSub(subcategoria.idSubcategoria)"><i class="bi bi-trash-fill"></i></button>
+              </div>
+          </div>
         </div>
-        <button class="add">Añadir subcategoría</button>
+        <button class="add" (click)="llamarPoppup(categoria.idCategoria)">Añadir subcategoría</button>
     </div>
-    <button class="add">Añadir categoría</button>
+    <button class="add" (click)="llamarPoppup()">Añadir categoría</button>
 </div>
 <app-datos-categorias></app-datos-categorias>

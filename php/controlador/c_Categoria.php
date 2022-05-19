@@ -138,6 +138,16 @@ class C_Categoria extends modelo
 
 
   //Subcategorias
+  public function listarSubcategoria()
+  {
+    $result = $this->obtenerListadoSubategoria();
+    if ($result != 0) {
+      return $result;
+    } else {
+      return $this->_respuestas->error_200("No hay subcategorias");
+    }
+  }
+
   public function listarSubcategoriaId($datos)
   {
     if(isset($datos['idCategoria'])){
@@ -156,7 +166,21 @@ class C_Categoria extends modelo
 
   private function obtenerListadosubcategoriaId($idCategoria)
   {
-    $query = "SELECT idSubcategoria,nombre FROM Subcategoria WHERE idCategoria= '$idCategoria';";
+    $query = "SELECT idSubcategoria,nombre, idCategoria FROM Subcategoria WHERE idCategoria= '$idCategoria';";
+    $datos = parent::obtenerDatos($query);
+    if(isset($datos[0]["idSubcategoria"])){
+      return $datos;
+    }else{
+
+      return 0;
+    }
+  }
+
+
+
+  private function obtenerListadoSubategoria()
+  {
+    $query = "SELECT idSubcategoria,idCategoria,nombre,descripcion FROM Subcategoria;";
     $datos = parent::obtenerDatos($query);
     if(isset($datos[0]["idSubcategoria"])){
       return $datos;
