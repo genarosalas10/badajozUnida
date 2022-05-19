@@ -164,6 +164,21 @@ class C_Categoria extends modelo
     }
   }
 
+  public function eliminarSubcategoria($datos)
+  {
+    if(isset($datos['idSubcategoria'])){
+      $result = $this->realizarEliminacionSubcategoria($datos['idSubcategoria']);
+      if($result!=0){
+        return 'Subcategoria eliminada con éxito';
+      }else{
+        return $this->_respuestas->error_200("No hay subcategoria con ese id.");
+      }
+    }else{
+      return $this->_respuestas->error_400();
+    }
+
+  }
+
   private function obtenerListadosubcategoriaId($idCategoria)
   {
     $query = "SELECT idSubcategoria,nombre, idCategoria FROM Subcategoria WHERE idCategoria= '$idCategoria';";
@@ -186,6 +201,16 @@ class C_Categoria extends modelo
       return $datos;
     }else{
 
+      return 0;
+    }
+  }
+
+  private function realizarEliminacionSubcategoria($idSubcategoria){
+    $query="DELETE FROM Subcategoria WHERE idSubcategoria ='$idSubcategoria';";
+    $datos = parent::nonQuery($query);
+    if($datos>0){
+      return 1;
+    }else{
       return 0;
     }
   }
