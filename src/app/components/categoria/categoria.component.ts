@@ -125,10 +125,7 @@ export class CategoriaComponent implements OnInit {
     console.log('Editar');
   }
 
-  borrarSub(idSubcategoria:any){
-    console.log('Borrar');
-  }
-
+  //Borrar Categoria
   borrarCat(idCategoria: any) {
     let datos = {
       tipo: "eliminarCategoria",
@@ -150,11 +147,32 @@ export class CategoriaComponent implements OnInit {
         {
           console.log('he fallado')
           console.log(errorServicio);
-          //this.toast=true;
 
 
         });
+  }
+  //Borrar Subcategoria
+  borrarSub(idSubcategoria: any) {
+    console.log(idSubcategoria)
+    let datos = {
+      tipo: "eliminarSubcategoria",
+      idSubcategoria: `${idSubcategoria}`
+    }
+    console.log(datos)
+    this.appService.postQuery(datos)
+      .subscribe(data => {
 
-
+          if (data['status'] != 'error') {
+            console.log(data) ;
+            window.location.reload();
+          } else {
+            console.log(data)
+          }
+        }
+        , async (errorServicio) =>
+        {
+          console.log('he fallado')
+          console.log(errorServicio);
+        });
   }
 }
