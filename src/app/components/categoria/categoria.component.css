@@ -29,6 +29,10 @@
     margin: 1rem 0;
 }
 
+.contenedor-categorias .categoria .categoria-datos .nombre{
+    text-transform: uppercase;
+}
+
 .contenedor-categorias .iconos button{
     border: none;
     background: none;

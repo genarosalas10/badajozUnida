@@ -17,7 +17,7 @@
         <div class="categoria-datos">
             <h2 class="nombre" (click)="listarSub(categoria.idCategoria)">{{categoria.nombre}}</h2>
             <div class="iconos">
-               <button> <i class="bi bi-pencil-fill" ></i></button>
+               <button (click)="llamarPoppup(categoria.idCategoria)"> <i class="bi bi-pencil-fill" ></i></button>
               <button (click)="borrarCat(categoria.idCategoria)"> <i class="bi bi-trash-fill" ></i></button>
             </div>
         </div>
@@ -32,6 +32,9 @@
         </div>
         <button class="add" (click)="llamarPoppup(categoria.idCategoria)">Añadir subcategoría</button>
     </div>
-    <button class="add" (click)="llamarPoppup()">Añadir categoría</button>
+    <button class="add" (click)="llamarPoppup(0)">Añadir categoría</button>
 </div>
-<app-datos-categorias></app-datos-categorias>
+<div *ngIf="poppup">
+  <app-datos-categorias></app-datos-categorias>
+</div>
+

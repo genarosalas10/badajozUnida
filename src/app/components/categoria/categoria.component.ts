@@ -4,7 +4,7 @@ import {AppService} from "../../services/app.service";
 import {Router} from "@angular/router";
 import { ModalComponent } from '../modal/modal.component';
 import { DatosCategoriasComponent } from '../share/datos-categorias/datos-categorias.component';
-import {LoginComponent} from "../login/login.component";
+
 
 @Component({
   selector: 'app-categoria',
@@ -16,23 +16,29 @@ export class CategoriaComponent implements OnInit {
   categorias:any;
   subcategorias:any;
   categoriasPopup:any;
+  poppup=false;
+  modal=new ModalComponent;
   constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router) {
     this.listadoCategoria();
     this.listadoSubcategoria();
+    this.poppup=false;
     this.categoriasPopup = new DatosCategoriasComponent(formBuilder, appService, router);
   }
 
 
   ngOnInit(): void {
   }
+
   //Crear
-  llamarPoppup(idCategoria?:any){
+  llamarPoppup(idCategoria:any){
+    this.poppup=true;
     //console.log(idCategoria)
-    if(idCategoria){
-      this.categoriasPopup.mostrarFormSub('Añadir',idCategoria);
+    if(idCategoria!=0){
+      console.log('hola')
+      this.categoriasPopup.recibirIdCategoria(idCategoria);
     }
     else{
-      this.categoriasPopup.mostrarFormCa('Añadir');
+      //this.categoriasPopup.mostrarFormCa('Añadir');
     }
 
   }
@@ -152,6 +158,7 @@ export class CategoriaComponent implements OnInit {
         });
   }
   //Borrar Subcategoria
+
   borrarSub(idSubcategoria: any) {
     console.log(idSubcategoria)
     let datos = {

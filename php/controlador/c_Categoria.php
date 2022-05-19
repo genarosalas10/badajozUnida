@@ -23,10 +23,12 @@ class C_Categoria extends modelo
       //error con los campos
       return $this->_respuestas->error_400();
     }else{
-
-          return $this->realizarRegistroCategoria($datos);
-
-
+      $result= $this->realizarRegistroCategoria($datos);
+    }
+      if($result == 1)
+        return 'Se ha creado con exito';
+      else{
+        return  $result;
     }
   }
 
@@ -196,10 +198,15 @@ class C_Categoria extends modelo
     //comprobar si recibe todos los campos necesarios
     if(!isset($datos['nombre']) || !isset($datos['descripcion']) || !isset($datos['idCategoria'])){
       //error con los campos
+
       return $this->_respuestas->error_400();
     }else{
-
-      return $this->realizarRegistroSubcategoria($datos);
+      $result= $this->realizarRegistroSubcategoria($datos);
+      if($result == 1)
+      return 'Se ha creado con exito';
+      else{
+        return $result;
+      }
 
 
     }

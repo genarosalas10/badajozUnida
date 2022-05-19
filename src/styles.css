@@ -94,7 +94,7 @@ body{
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,.4);
+    background: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,4 +104,5 @@ body{
     padding: 2rem;
     background-color: #fff;
     border-radius: 12px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .5);
 }

@@ -1,3 +1,12 @@
-<div id="showForm">
-
+<div class="popup-form-container">
+    <form class="popup-form" [formGroup]="forma" (ngSubmit)="guardar(this.forma,0)">
+        <label>Nombre:</label><br/>
+        <input type="text" formControlName="nombre"/>{{categoria.nombre}}<br/>
+        <p *ngIf="!this.validar('nombre')" class="error">Nombre muy corto.</p>
+        <label>Descripción:</label><br/>
+        <textarea formControlName="descripcion">{{categoria.descripcion}}}</textarea><br/>
+        <p *ngIf="!this.validar('descripcion')" class="error">Descripción muy corta.</p>
+        <input type="submit" value="Guardar" />
+    </form>
 </div>
+<app-modal></app-modal>

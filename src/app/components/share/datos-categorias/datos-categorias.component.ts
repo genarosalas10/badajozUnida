@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AppService} from "../../../services/app.service";
-import {Router} from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AppService } from "../../../services/app.service";
+import { Router } from "@angular/router";
+import { ModalComponent } from '../../modal/modal.component';
 
 @Component({
   selector: 'app-datos-categorias',
@@ -10,55 +11,32 @@ import {Router} from "@angular/router";
 })
 export class DatosCategoriasComponent implements OnInit {
   forma!: FormGroup;
-  constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router){ }
+  modal=new ModalComponent;
+  categoria={
+    nombre: "",
+    descripcion:"",
+    idCategoria: ""
+  }
+  constructor(private formBuilder: FormBuilder, private appService: AppService, private router: Router ) {
+    this.crearFormulario();
+    //this.cargarDatosFormulario();
+  }
 
   ngOnInit(): void {
   }
 
   crearFormulario() {
     this.forma = this.formBuilder.group({
-      nombre:['',[Validators.required, Validators.minLength(2)]],
-      descripcion:['',[Validators.required, Validators.minLength(10)]]
+      nombre: ['', [Validators.required, Validators.minLength(2)]],
+      descripcion: ['', [Validators.required, Validators.minLength(10)]]
 
     })
   }
 
-  //Formulario Categoria
-  public mostrarFormCa(buttonValue:String){
-    let container=document.createElement('div');
-    container.classList.add('popup-form-container');
-      container.innerHTML=`<form class="popup-form" [formGroup]="forma" (ngSubmit)="guardar(forma,0)">
-        <label>Nombre:</label><br/>
-        <input type="text" formControlName="nombre"/><br/>
-        <label>Descripción:</label><br/>
-        <textarea formControlName="descripcion"></textarea><br/>
-        <input type="submit" value="${buttonValue}" />
-        <span >Cerrar</span>
-      </form>`;
-    document.getElementById('showForm')?.appendChild(container);
-  }
-
-  //Formulario Subcategoria (añadir input que no se vea)
-  public mostrarFormSub(buttonValue:String,idCategoria:any){
-    let container=document.createElement('div');
-    container.classList.add('popup-form-container');
-    container.innerHTML=`<form class="popup-form" [formGroup]="Form" (ngSubmit)="guardar(Form,1)>
-        <label>Nombre:</label><br/>
-        <input type="text"/><br/>
-        <label>Descripción:</label><br/>
-        <textarea></textarea><br/>
-        <button>${buttonValue}</button>
-        <span (click)='this.borrarForm()'>Cerrar</span>
-      </form>`;
-    document.getElementById('showForm')?.appendChild(container);
-  }
-  //Borrar formulario
-  public borrarForm(){
-    document.querySelector('.popup-form-container')?.remove();
-  }
-
   //comprobar formulario
-  guardar(forma: FormGroup,tipo:any){
+  guardar(forma: FormGroup, tipo: any) {
+
+    console.log('guardarFormulario')
 
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
@@ -68,38 +46,43 @@ export class DatosCategoriasComponent implements OnInit {
       })
       return;
     }
-
-    if(tipo==0){
+    if (tipo == 0) {
       this.anadirCategoria(forma);
-    }else{
+    } else {
       this.anadirSubcategoria(forma);
     }
 
   }
 
-  //llamar a la api para crear categoria
-  anadirCategoria(forma:any){
+  validar(campo1: string) {
+    let campo: any = this.forma.get(campo1);
+    return !(campo.invalid && campo.touched);
+  }
 
-    let datos=forma.value
-    datos.tipo='crearCategoria';
+
+  //llamar a la api para crear categoria
+  anadirCategoria(forma: any) {
+
+    let datos = forma.value
+    datos.tipo = 'crearCategoria';
     //console.log(JSON.stringify(datos));
 
     this.appService.postQuery(datos)
       .subscribe(data => {
-          console.log(data);
-          if (data['status'] != 'error') {
-            console.log('data')
-            this.borrarForm();
+        console.log(data);
+        if (data['status'] != 'error') {
+          console.log('data')
+          window.location.reload();
+          //this.borrarForm();
 
-          } else {
-            //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
-            console.log(data)
-            //this.borrarForm();
-          }
-
+        } else {
+          this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
+          console.log(data)
+          //this.borrarForm();
         }
-        , async (errorServicio) =>
-        {
+
+      }
+        , async (errorServicio) => {
           console.log('he fallado')
           console.log(errorServicio);
           //this.borrarForm();
@@ -108,24 +91,23 @@ export class DatosCategoriasComponent implements OnInit {
         });
   }
   //llamar a la api para crear subcategoria
-  anadirSubcategoria(forma:any){
-    let datos=forma.value
-    datos.tipo='crearSubcategoria';
+  anadirSubcategoria(forma: any) {
+    let datos = forma.value
+    datos.tipo = 'crearSubcategoria';
     //console.log(JSON.stringify(datos));
 
     this.appService.postQuery(datos)
       .subscribe(data => {
-          console.log(data);
-          if (data['status'] != 'error') {
-            console.log('data')
-          } else {
-            //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
-            console.log(data)
-          }
-
+        console.log(data);
+        if (data['status'] != 'error') {
+          console.log('data')
+        } else {
+          //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
+          console.log(data)
         }
-        , async (errorServicio) =>
-        {
+
+      }
+        , async (errorServicio) => {
           console.log('he fallado')
           console.log(errorServicio);
           //this.toast=true;
@@ -133,4 +115,51 @@ export class DatosCategoriasComponent implements OnInit {
 
         });
   }
+  volver(){
+    this.router.navigate(['categoria'])
+  }
+
+  recibirIdCategoria(idCategoria:any){
+    this.sacarCategoria(idCategoria);
+  }
+
+  sacarCategoria(idCategoria:any) {
+    let datos = {
+    tipo : 'sacarCategoriaId',
+      idCategoria : idCategoria
+    }
+    //console.log(JSON.stringify(datos));
+
+    this.appService.postQuery(datos)
+      .subscribe(data => {
+
+          if (data['status'] != 'error') {
+            this.categoria=data[0];
+            this.cargarDatosFormulario()
+            console.log(this.categoria);
+          } else {
+            //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
+            console.log(data)
+          }
+
+        }
+        , async (errorServicio) => {
+          console.log('he fallado')
+          console.log(errorServicio);
+          //this.toast=true;
+
+
+        });
+
+}
+  cargarDatosFormulario()  {
+    console.log(this.categoria)
+    this.forma.reset({
+      nombre: 'hola',
+      descripcion: this.categoria.descripcion
+    });
+
+
+  }
+
 }
