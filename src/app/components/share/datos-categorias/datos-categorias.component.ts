@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AppService } from "../../../services/app.service";
-import { Router } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { ModalComponent } from '../../modal/modal.component';
 
 @Component({
@@ -12,44 +12,49 @@ import { ModalComponent } from '../../modal/modal.component';
 export class DatosCategoriasComponent implements OnInit {
   forma!: FormGroup;
   modal=new ModalComponent;
-  categoria={
-    nombre: "",
-    descripcion:"",
-    idCategoria: ""
-  }
-  constructor(private formBuilder: FormBuilder, private appService: AppService, private router: Router ) {
-    this.crearFormulario();
-    //this.cargarDatosFormulario();
+  categoria:any;
+  constructor(private formBuilder: FormBuilder, private appService: AppService, private router: Router, private activatedRoute:ActivatedRoute ) {
+    this.activatedRoute.params.subscribe(parametros => {
+      if(parametros['id']>0){
+        this.sacarCategoria(parametros['id']);
+      }
+    });
+
+
+
   }
 
   ngOnInit(): void {
+    this.crearFormulario();
   }
 
   crearFormulario() {
     this.forma = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
-      descripcion: ['', [Validators.required, Validators.minLength(10)]]
+      descripcion: ['', [Validators.required, Validators.minLength(10)]],
+      idCategoria: ['0', [Validators.minLength(1)]]
 
     })
   }
 
   //comprobar formulario
-  guardar(forma: FormGroup, tipo: any) {
+  guardar(forma: FormGroup) {
 
     console.log('guardarFormulario')
 
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
         if (control instanceof FormGroup)
-          this.guardar(control,tipo);
+          this.guardar(control);
         control.markAsTouched();
       })
       return;
     }
-    if (tipo == 0) {
+    console.log(forma.value)
+    if (forma.value.idCategoria == 0) {
       this.anadirCategoria(forma);
     } else {
-      this.anadirSubcategoria(forma);
+      this.modificarCategoria(forma);
     }
 
   }
@@ -72,7 +77,7 @@ export class DatosCategoriasComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
           console.log('data')
-          window.location.reload();
+          this.router.navigate(['/categoria']);
           //this.borrarForm();
 
         } else {
@@ -82,6 +87,37 @@ export class DatosCategoriasComponent implements OnInit {
         }
 
       }
+        , async (errorServicio) => {
+          console.log('he fallado')
+          console.log(errorServicio);
+          //this.borrarForm();
+
+
+        });
+  }
+
+  //llamar a la api para  modificar categoria
+  modificarCategoria(forma: any) {
+
+    let datos = forma.value
+    datos.tipo = 'modificarCategoria';
+    //console.log(JSON.stringify(datos));
+
+    this.appService.postQuery(datos)
+      .subscribe(data => {
+          console.log(data);
+          if (data['status'] != 'error') {
+            console.log('data')
+            this.router.navigate(['/categoria']);
+            //this.borrarForm();
+
+          } else {
+            this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
+            console.log(data)
+            //this.borrarForm();
+          }
+
+        }
         , async (errorServicio) => {
           console.log('he fallado')
           console.log(errorServicio);
@@ -119,24 +155,21 @@ export class DatosCategoriasComponent implements OnInit {
     this.router.navigate(['categoria'])
   }
 
-  recibirIdCategoria(idCategoria:any){
-    this.sacarCategoria(idCategoria);
-  }
 
   sacarCategoria(idCategoria:any) {
     let datos = {
     tipo : 'sacarCategoriaId',
       idCategoria : idCategoria
     }
-    //console.log(JSON.stringify(datos));
-
+    console.log(JSON.stringify(datos));
+    //this.cargarDatosFormulario('Cargar1','cargar2')
     this.appService.postQuery(datos)
       .subscribe(data => {
-
+          console.log(data)
           if (data['status'] != 'error') {
             this.categoria=data[0];
             this.cargarDatosFormulario()
-            console.log(this.categoria);
+            //console.log(this.categoria);
           } else {
             //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
             console.log(data)
@@ -153,10 +186,11 @@ export class DatosCategoriasComponent implements OnInit {
 
 }
   cargarDatosFormulario()  {
-    console.log(this.categoria)
+    //console.log(this.categoria.nombre)
     this.forma.reset({
-      nombre: 'hola',
-      descripcion: this.categoria.descripcion
+      nombre:this.categoria.nombre,
+      descripcion: this.categoria.descripcion,
+      idCategoria: this.categoria.idCategoria
     });
 
 

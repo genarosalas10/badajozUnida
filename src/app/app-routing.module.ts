@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MenuComponent } from './components/share/menu/menu.component';
+import {DatosCategoriasComponent} from "./components/share/datos-categorias/datos-categorias.component";
 
 const routes: Routes = [
 
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: "registro", component: RegistroComponent},
   {path: "home", component: MenuComponent},
   {path: "categoria", component: MenuComponent},
-  {path: "", redirectTo: "/home", pathMatch: "full"} //Temporal
+  {path: "formulario/:id", component: DatosCategoriasComponent},
+  {path: "**", redirectTo: "/home", pathMatch: "full"} //Temporal
 ];
 
 @NgModule({

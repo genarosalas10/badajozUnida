@@ -22,7 +22,6 @@ export class CategoriaComponent implements OnInit {
     this.listadoCategoria();
     this.listadoSubcategoria();
     this.poppup=false;
-    this.categoriasPopup = new DatosCategoriasComponent(formBuilder, appService, router);
   }
 
 
@@ -32,15 +31,9 @@ export class CategoriaComponent implements OnInit {
   //Crear
   llamarPoppup(idCategoria:any){
     this.poppup=true;
-    //console.log(idCategoria)
-    if(idCategoria!=0){
       console.log('hola')
-      this.categoriasPopup.recibirIdCategoria(idCategoria);
-    }
-    else{
-      //this.categoriasPopup.mostrarFormCa('Añadir');
-    }
-
+      //this.categoriasPopup.recibirIdCategoria(idCategoria);
+    this.router.navigate(['/formulario',idCategoria]);
   }
 
   listadoCategoria()
