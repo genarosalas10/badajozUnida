@@ -4,9 +4,17 @@
 require_once "../modelo/Respuestas.php";
 require_once "../modelo/modelo.php";
 
-
+/**
+ * Controlador del usuario.
+ */
 class C_Usuario extends modelo {
 
+    /**
+     * Método encargado de gestionar el inicio de sesión.
+     * 
+     * @param array $datos - Correo y contraseña introducidos por el usuario
+     * @return string|array - Puede devolver diferentes mensajes de error o los datos de la sesión dependiendo de si el login fue correcto o incorrecto
+     */
     public function login($datos) {
 
       //print_r($datos);
@@ -38,6 +46,12 @@ class C_Usuario extends modelo {
         }
     }
 
+    /**
+     * Método encargado de gestionar el alta de un nuevo usuario.
+     *
+     * @param array $datos - Nombre, apellidos, correo... introducidos por el usuario
+     * @return string|function - Puede devolver diversos mensajes de error o llamar al método para completar el registro en caso de que todo esté correcto
+     */
     public function registro($datos){
       //comprobar si recibe todos los campos necesarios
       if(!isset($datos['nombre']) || !isset($datos['apellidos']) || !isset($datos['email']) || !isset($datos['password']) ||!isset($datos['fechaNacimiento']) || !isset($datos['password2']) ){
@@ -59,6 +73,12 @@ class C_Usuario extends modelo {
       }
     }
 
+    /**
+     * Se encarga de obtener los datos de un usuario.
+     *
+     * @param array $datos - Datos del usuario
+     * @return string|array - Devolverá mensajes de error o los datos del usuario dependiendo de que tenga éxito o no
+     */
     public function perfilUsuario($datos){
       if(isset($datos['idUsuario'])){
         $result = $this->obtenerPerfilUsuario($datos['idUsuario']);
