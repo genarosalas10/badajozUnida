@@ -1,1 +1,18 @@
-<p>datos-subcategorias works!</p>
+<div class="popup-form-container">
+  <form class="popup-form" [formGroup]="forma" (ngSubmit)="guardar(this.forma)">
+    <label>Nombre:</label><br/>
+    <input type="text" formControlName="nombre"/><br/>
+    <p *ngIf="!this.validar('nombre')" class="error">Nombre muy corto.</p>
+    <label>Descripción:</label><br/>
+    <textarea formControlName="descripcion"></textarea><br/>
+    <p *ngIf="!this.validar('descripcion')" class="error">Descripción muy corta.</p>
+    <select class="" formControlName="idCategoria">
+      <option *ngFor="let categorias of categorias"
+              value="{{categorias.idCategoria}}">{{categorias.nombre}}</option>
+    </select>
+    <input type="hidden" formControlName="idSubcategoria" />
+    <input type="submit" value="Guardar" />
+    <span (click)="volver()">Volver</span><br/>
+    <small>Foto de Junior en <a href="https://unsplash.com/es/fotos/0yyspQqVJ5A?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">Unsplash</a></small>
+  </form>
+</div>

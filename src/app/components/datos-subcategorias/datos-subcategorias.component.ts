@@ -14,9 +14,15 @@ export class DatosSubcategoriasComponent implements OnInit {
   forma!: FormGroup;
   modal=new ModalComponent;
   subcategoria:any;
+  categorias:any;
+  idCategoria:any;
   constructor(private formBuilder: FormBuilder, private appService: AppService, private router: Router, private activatedRoute:ActivatedRoute) {
+    this.listadoCategoria();
     this.activatedRoute.params.subscribe(parametros => {
+      this.idCategoria=parametros['idCategoria'];
+      console.log(parametros)
       if(parametros['idSubcategoria']>0){
+        console.log('modificar')
         this.sacarSubcategoria(parametros['idSubcategoria']);
       }
     });
@@ -26,11 +32,42 @@ export class DatosSubcategoriasComponent implements OnInit {
     this.crearFormulario();
   }
 
+  volver(){
+    this.router.navigate(['categoria'])
+  }
+
+  listadoCategoria()
+  {
+    let datos = {
+      tipo: "listadoCategoria"
+    }
+
+    this.appService.postQuery(datos)
+      .subscribe(data => {
+          console.log(data)
+          if (data['status'] != 'error') {
+            this.categorias=data;
+          } else {
+            console.log(data)
+          }
+        }
+        , async (errorServicio) =>
+        {
+          console.log('he fallado')
+          console.log(errorServicio);
+          //this.toast=true;
+
+
+        });
+
+  }
+
   crearFormulario() {
     this.forma = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
       descripcion: ['', [Validators.required, Validators.minLength(10)]],
-      idCategoria: ['0', [Validators.minLength(1)]]
+      idCategoria: [this.idCategoria, [Validators.required]],
+      idSubcategoria: ['0', [Validators.required]]
 
     })
   }
@@ -41,9 +78,39 @@ export class DatosSubcategoriasComponent implements OnInit {
     this.forma.reset({
       nombre: this.subcategoria.nombre,
       descripcion: this.subcategoria.descripcion,
-      idCategoria: this.subcategoria.idCategoria
+      idSubcategoria: this.subcategoria.idSubcategoria,
+      idCategoria:this.idCategoria
     });
   }
+
+
+  //comprobar formulario
+  guardar(forma: FormGroup) {
+
+    console.log('guardarFormulario')
+
+    if (forma.invalid || forma.pending) {
+      Object.values(forma.controls).forEach(control => {
+        if (control instanceof FormGroup)
+          this.guardar(control);
+        control.markAsTouched();
+      })
+      return;
+    }
+    console.log(forma.value)
+    if (forma.value.idSubcategoria == 0) {
+      this.anadirSubcategoria(forma);
+    } else {
+      this.modificarSubcategoria(forma);
+    }
+
+  }
+
+  validar(campo1: string) {
+    let campo: any = this.forma.get(campo1);
+    return !(campo.invalid && campo.touched);
+  }
+
   //llamar a la api para crear subcategoria
   anadirSubcategoria(forma: any) {
     let datos = forma.value
@@ -54,6 +121,7 @@ export class DatosSubcategoriasComponent implements OnInit {
       .subscribe(data => {
           console.log(data);
           if (data['status'] != 'error') {
+            this.router.navigate(['/categoria']);
             console.log('data')
           } else {
             //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
@@ -70,10 +138,41 @@ export class DatosSubcategoriasComponent implements OnInit {
   }
 
 
+  //llamar a la api para  modificar subcategoria
+  modificarSubcategoria(forma: any) {
+
+    let datos = forma.value
+    datos.tipo = 'modificarSubcategoria';
+    //console.log(JSON.stringify(datos));
+
+    this.appService.postQuery(datos)
+      .subscribe(data => {
+          console.log(data);
+          if (data['status'] != 'error') {
+            console.log('data')
+            this.router.navigate(['/categoria']);
+            //this.borrarForm();
+
+          } else {
+            this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
+            console.log(data)
+            //this.borrarForm();
+          }
+
+        }
+        , async (errorServicio) => {
+          console.log('he fallado')
+          console.log(errorServicio);
+          //this.borrarForm();
+
+
+        });
+  }
+
   sacarSubcategoria(idSubcategoria:any) {
     let datos = {
       tipo : 'sacarSubcategoriaId',
-      idCategoria : idSubcategoria
+      idSubcategoria : idSubcategoria
     }
     console.log(JSON.stringify(datos));
     //this.cargarDatosFormulario('Cargar1','cargar2')
