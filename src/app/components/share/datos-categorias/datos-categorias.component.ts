@@ -19,9 +19,6 @@ export class DatosCategoriasComponent implements OnInit {
         this.sacarCategoria(parametros['id']);
       }
     });
-
-
-
   }
 
   ngOnInit(): void {
@@ -126,31 +123,7 @@ export class DatosCategoriasComponent implements OnInit {
 
         });
   }
-  //llamar a la api para crear subcategoria
-  anadirSubcategoria(forma: any) {
-    let datos = forma.value
-    datos.tipo = 'crearSubcategoria';
-    //console.log(JSON.stringify(datos));
 
-    this.appService.postQuery(datos)
-      .subscribe(data => {
-        console.log(data);
-        if (data['status'] != 'error') {
-          console.log('data')
-        } else {
-          //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
-          console.log(data)
-        }
-
-      }
-        , async (errorServicio) => {
-          console.log('he fallado')
-          console.log(errorServicio);
-          //this.toast=true;
-
-
-        });
-  }
   volver(){
     this.router.navigate(['categoria'])
   }
