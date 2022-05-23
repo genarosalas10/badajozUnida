@@ -18,15 +18,15 @@
             <h2 class="nombre" (click)="listarSub(categoria.idCategoria)">{{categoria.nombre}}</h2>
             <div class="iconos">
                <button (click)="llamarFormularioCategoria(categoria.idCategoria)"> <i class="bi bi-pencil-fill" ></i></button>
-              <button (click)="borrarCat(categoria.idCategoria)"> <i class="bi bi-trash-fill" ></i></button>
+              <button (click)="preguntaBorrado(categoria.idCategoria,'c')"> <i class="bi bi-trash-fill" ></i></button>
             </div>
         </div>
         <div *ngFor="let subcategoria of subcategorias">
           <div class="subcategoria"  *ngIf="categoria.idCategoria == subcategoria.idCategoria">
               <h4>{{subcategoria.nombre}}</h4>
               <div class="iconos">
-                  <button (click)="llamarFormularioSubcategoria(categoria.idCategoria,0)"><i class="bi bi-pencil-fill"></i></button>
-                  <button (click)="borrarSub(subcategoria.idSubcategoria)"><i class="bi bi-trash-fill"></i></button>
+                  <button (click)="llamarFormularioSubcategoria(categoria.idCategoria,subcategoria.idSubcategoria)"><i class="bi bi-pencil-fill"></i></button>
+                  <button (click)="preguntaBorrado(subcategoria.idSubcategoria,'s')"><i class="bi bi-trash-fill"></i></button>
               </div>
           </div>
         </div>

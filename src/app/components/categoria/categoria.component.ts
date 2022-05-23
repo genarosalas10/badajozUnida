@@ -125,6 +125,16 @@ export class CategoriaComponent implements OnInit {
   editarSub(idSubcategoria:any){
     console.log('Editar');
   }
+  //Realizar pregunta antes del borrado
+  preguntaBorrado(id: any, tipo:any){
+    //Realizar la pregunta
+    if(tipo=='c')
+    {
+      this.borrarCat(id);
+    }else{
+      this.borrarSub(id);
+    }
+  }
 
   //Borrar Categoria
   borrarCat(idCategoria: any) {
@@ -152,8 +162,9 @@ export class CategoriaComponent implements OnInit {
 
         });
   }
-  //Borrar Subcategoria
 
+
+  //Borrar Subcategoria
   borrarSub(idSubcategoria: any) {
     console.log(idSubcategoria)
     let datos = {
