@@ -218,6 +218,20 @@ class C_Categoria extends modelo
     }
   }
 
+  public function sacarSubcategoriaId($datos)
+  {
+    if(isset($datos['idSubcategoria'])){
+      $result = $this->obtenerSubcategoriaId($datos['idSubcategoria']);
+      if($result!=0){
+        return $result;
+      }else{
+        return $this->_respuestas->error_200("No hay subcategoria con ese id.");
+      }
+    }else{
+      return $this->_respuestas->error_400();
+    }
+  }
+
   private function obtenerListadosubcategoriaId($idCategoria)
   {
     $query = "SELECT idSubcategoria,nombre, idCategoria FROM Subcategoria WHERE idCategoria= '$idCategoria';";
@@ -289,4 +303,18 @@ class C_Categoria extends modelo
       }
     }
   }
+
+  private function obtenerSubcategoriaId($idSubcategoria)
+  {
+    $query = "SELECT idSubcategoria,nombre,descripcion FROM Subcategoria WHERE idSubcategoria ='$idSubcategoria';";
+    $datos = parent::obtenerDatos($query);
+    if(isset($datos[0]["idSubcategoria"])){
+
+      return $datos;
+    }else{
+
+      return 0;
+    }
+  }
+
 }
