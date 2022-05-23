@@ -87,22 +87,3 @@ body{
 .modal-body button:active{
     transform: scale(.98);
 }
-
-.popup-form-container{
-    position: fixed;
-    z-index: 7;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-  
-.popup-form{
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, .5);
-}
