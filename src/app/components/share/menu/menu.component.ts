@@ -11,14 +11,25 @@ import { CategoriaComponent } from '../../categoria/categoria.component';
 export class MenuComponent implements OnInit {
   nombreUsuario: any = ";"
 
+  /**
+   * @ignore
+   */
   constructor(public router: Router) {
     console.log(sessionStorage.getItem('nombre'));
     this.nombreUsuario = sessionStorage.getItem('nombre');
   }
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
   }
 
+  /**
+   * Valida si el usuario que ha iniciado sesión es administrador o no.
+   * 
+   * @returns - Verdadero o falso
+   */
   comprobarTipo() {
     if (sessionStorage.getItem('tipo') == 'u') {
       return false;
@@ -27,6 +38,9 @@ export class MenuComponent implements OnInit {
     }
   }
 
+  /**
+   * Cierra la sesión
+   */
   cerrarSesion() {
     sessionStorage.clear();
     window.location.reload();

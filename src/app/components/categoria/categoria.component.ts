@@ -17,27 +17,44 @@ export class CategoriaComponent implements OnInit {
   subcategorias:any;
   categoriasPopup:any;
   modal=new ModalComponent;
+  /**
+   * @ignore
+   */
   constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router) {
     this.listadoCategoria();
     this.listadoSubcategoria();
   }
 
-
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
   }
 
-  //Ir a modificar o crear Categoria
+  /**
+   * Llama al formulario que gestiona las categorías
+   * 
+   * @param idCategoria - ID de la categoría
+   */
   llamarFormularioCategoria(idCategoria:any){
       console.log('hola')
     this.router.navigate(['/formularioCategorias',idCategoria]);
   }
 
-  //Ir a modificar o crear Subcategoria
+   /**
+   * Llama al formulario que gestiona las subcategorías
+   * 
+   * @param idCategoria - ID de la categoría
+   * @param idSubcategoria - ID de la subcategoría
+   */
   llamarFormularioSubcategoria(idCategoria:any,idSubcategoria:any){
     console.log('hola')
     this.router.navigate(['/formularioSubcategorias',idCategoria,idSubcategoria]);
   }
 
+  /**
+   * Muestra en pantalla las categorías
+   */
   listadoCategoria()
   {
     let datos = {
@@ -64,7 +81,9 @@ export class CategoriaComponent implements OnInit {
 
   }
 
-
+  /**
+   * Muestra en pantalla las subcategorías
+   */
   listadoSubcategoria(){
 
     let datos = {
@@ -92,7 +111,9 @@ export class CategoriaComponent implements OnInit {
 
   }
   //No se utiliza de momento
-  //Sacar las subcateogrias por idCategoria
+  /**
+   * @ignore
+   */
   listarSub(idCategoria:any)
   {
     //idCategoria=document.getElementById('iCategorias').value;
@@ -122,21 +143,40 @@ export class CategoriaComponent implements OnInit {
 
   }
 
+  /**
+   * Permite modificar una subcategoría.
+   * 
+   * @param idSubcategoria - ID de la subcategoría
+   */
   editarSub(idSubcategoria:any){
     console.log('Editar');
   }
-  //Realizar pregunta antes del borrado
+
+  /**
+   * Realiza una pregunta antes de efectuar un borrado.
+   * 
+   * @param id - ID de la categoría/subcategoría
+   * @param tipo - Categoría o Subcategoría 
+   */
   preguntaBorrado(id: any, tipo:any){
     //Realizar la pregunta
     if(tipo=='c')
     {
-      this.borrarCat(id);
+      if(confirm('¿Desea borrar la categoría?')==true){
+        this.borrarCat(id);
+      }
     }else{
-      this.borrarSub(id);
+      if(confirm('¿Desea borrar la subcategoría?')==true){
+        this.borrarSub(id);
+      }
     }
   }
 
-  //Borrar Categoria
+  /**
+   * Borra una categoría.
+   * 
+   * @param id - ID de la categoría
+   */
   borrarCat(idCategoria: any) {
     let datos = {
       tipo: "eliminarCategoria",
@@ -164,7 +204,11 @@ export class CategoriaComponent implements OnInit {
   }
 
 
-  //Borrar Subcategoria
+  /**
+   * Borra una subcategoría.
+   * 
+   * @param id - ID de la subcategoría
+   */
   borrarSub(idSubcategoria: any) {
     console.log(idSubcategoria)
     let datos = {

@@ -15,7 +15,7 @@
 <div class="contenedor-categorias">
     <div class="categoria" *ngFor="let categoria of categorias">
         <div class="categoria-datos">
-            <h2 class="nombre" (click)="listarSub(categoria.idCategoria)">{{categoria.nombre}}</h2>
+            <h2 class="nombre">{{categoria.nombre}}</h2>
             <div class="iconos">
                <button (click)="llamarFormularioCategoria(categoria.idCategoria)"> <i class="bi bi-pencil-fill" ></i></button>
               <button (click)="preguntaBorrado(categoria.idCategoria,'c')"> <i class="bi bi-trash-fill" ></i></button>
@@ -34,5 +34,3 @@
     </div>
     <button class="add" (click)="llamarFormularioCategoria(0)">Añadir categoría</button>
 </div>
-
-
