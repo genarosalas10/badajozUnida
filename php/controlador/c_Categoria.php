@@ -121,7 +121,13 @@ class C_Categoria extends modelo
     if($datos>0){
       return 1;
     }else{
-      return $this->_respuestas->error_200("No se pudo realizar el registro. Ese idCategoria no esta.");
+      $error=parent::errorId();
+      if($error==1062){
+
+        return $this->_respuestas->error_200("El nombre ya existe en otra categoria.");
+      }else{
+        return $this->_respuestas->error_200("No se pudo realizar la modificación");
+      }
     }
   }
 
@@ -256,7 +262,13 @@ class C_Categoria extends modelo
     if($datos>0){
       return 1;
     }else{
-      return $this->_respuestas->error_200("No se pudo realizar el registro. Ese idSubcategoria no existe.");
+      $error=parent::errorId();
+      if($error==1062){
+
+        return $this->_respuestas->error_200("El nombre ya existe en otra Subcategoria.");
+      }else{
+        return $this->_respuestas->error_200("No se pudo realizar la modificación.");
+      }
     }
   }
 
