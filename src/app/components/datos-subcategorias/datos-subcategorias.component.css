@@ -1,0 +1,47 @@
+.popup-form-container{
+  background-image: url('/assets/junior-0yyspQqVJ5A-unsplash.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-form{
+  padding: 2rem;
+  background: rgba(255,255,255,0.5);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+}
+
+.popup-form .error{
+  color: red;
+}
+
+.popup-form textarea{
+  resize: none;
+  width: 16em;
+  height: 6em;
+}
+
+.popup-form input, textarea, select{
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  padding: .5rem;
+}
+
+.popup-form input[type="submit"]{
+  background: none;
+  cursor: pointer;
+  margin-right: 1rem;
+  padding: 0;
+}
+
+.popup-form span{
+  cursor: pointer;
+}

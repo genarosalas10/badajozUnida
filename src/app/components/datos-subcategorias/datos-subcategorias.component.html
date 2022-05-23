@@ -9,7 +9,7 @@
     <select class="" formControlName="idCategoria">
       <option *ngFor="let categorias of categorias"
               value="{{categorias.idCategoria}}">{{categorias.nombre}}</option>
-    </select>
+    </select> <br/>
     <input type="hidden" formControlName="idSubcategoria" />
     <input type="submit" value="Guardar" />
     <span (click)="volver()">Volver</span><br/>
