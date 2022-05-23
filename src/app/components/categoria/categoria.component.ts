@@ -16,24 +16,26 @@ export class CategoriaComponent implements OnInit {
   categorias:any;
   subcategorias:any;
   categoriasPopup:any;
-  poppup=false;
   modal=new ModalComponent;
   constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router) {
     this.listadoCategoria();
     this.listadoSubcategoria();
-    this.poppup=false;
   }
 
 
   ngOnInit(): void {
   }
 
-  //Crear
-  llamarPoppup(idCategoria:any){
-    this.poppup=true;
+  //Ir a modificar o crear Categoria
+  llamarFormularioCategoria(idCategoria:any){
       console.log('hola')
-      //this.categoriasPopup.recibirIdCategoria(idCategoria);
-    this.router.navigate(['/formulario',idCategoria]);
+    this.router.navigate(['/formularioCategorias',idCategoria]);
+  }
+
+  //Ir a modificar o crear Subcategoria
+  llamarFormularioSubcategoria(idCategoria:any,idSubcategoria:any){
+    console.log('hola')
+    this.router.navigate(['/formularioSubcategorias',idCategoria,idSubcategoria]);
   }
 
   listadoCategoria()

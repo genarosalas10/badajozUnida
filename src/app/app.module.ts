@@ -15,6 +15,7 @@ import { UbicacionComponent } from './components/ubicacion/ubicacion.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { DatosCategoriasComponent } from './components/share/datos-categorias/datos-categorias.component';
+import { DatosSubcategoriasComponent } from './components/datos-subcategorias/datos-subcategorias.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DatosCategoriasComponent } from './components/share/datos-categorias/da
     UbicacionComponent,
     UsuariosComponent,
     PerfilComponent,
-    DatosCategoriasComponent
+    DatosCategoriasComponent,
+    DatosSubcategoriasComponent
   ],
     imports: [
         BrowserModule,

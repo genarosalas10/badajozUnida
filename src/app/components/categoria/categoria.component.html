@@ -17,7 +17,7 @@
         <div class="categoria-datos">
             <h2 class="nombre" (click)="listarSub(categoria.idCategoria)">{{categoria.nombre}}</h2>
             <div class="iconos">
-               <button (click)="llamarPoppup(categoria.idCategoria)"> <i class="bi bi-pencil-fill" ></i></button>
+               <button (click)="llamarFormularioCategoria(categoria.idCategoria)"> <i class="bi bi-pencil-fill" ></i></button>
               <button (click)="borrarCat(categoria.idCategoria)"> <i class="bi bi-trash-fill" ></i></button>
             </div>
         </div>
@@ -25,14 +25,14 @@
           <div class="subcategoria"  *ngIf="categoria.idCategoria == subcategoria.idCategoria">
               <h4>{{subcategoria.nombre}}</h4>
               <div class="iconos">
-                  <button (click)="editarSub(subcategoria.idSubcategoria)"><i class="bi bi-pencil-fill"></i></button>
+                  <button (click)="llamarFormularioSubcategoria(categoria.idCategoria,0)"><i class="bi bi-pencil-fill"></i></button>
                   <button (click)="borrarSub(subcategoria.idSubcategoria)"><i class="bi bi-trash-fill"></i></button>
               </div>
           </div>
         </div>
-        <button class="add" (click)="llamarPoppup(categoria.idCategoria)">Añadir subcategoría</button>
+        <button class="add" (click)="llamarFormularioSubcategoria(categoria.idCategoria,0)">Añadir subcategoría</button>
     </div>
-    <button class="add" (click)="llamarPoppup(0)">Añadir categoría</button>
+    <button class="add" (click)="llamarFormularioCategoria(0)">Añadir categoría</button>
 </div>
 
 

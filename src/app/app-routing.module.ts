@@ -5,6 +5,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MenuComponent } from './components/share/menu/menu.component';
 import {DatosCategoriasComponent} from "./components/share/datos-categorias/datos-categorias.component";
+import {DatosSubcategoriasComponent} from "./components/datos-subcategorias/datos-subcategorias.component";
 
 const routes: Routes = [
 
@@ -12,7 +13,9 @@ const routes: Routes = [
   {path: "registro", component: RegistroComponent},
   {path: "home", component: MenuComponent},
   {path: "categoria", component: MenuComponent},
-  {path: "formulario/:id", component: DatosCategoriasComponent},
+  {path: "formularioCategorias/:id", component: DatosCategoriasComponent},
+  {path: "formularioSubcategorias/:idCategoria/:idSubcategoria", component: DatosSubcategoriasComponent},
+
   {path: "**", redirectTo: "/home", pathMatch: "full"} //Temporal
 ];
 
