@@ -8,17 +8,19 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 require_once "../modelo/Respuestas.php";
 require_once "c_Usuario.php";
 require_once "c_Categoria.php";
+require_once "c_Ubicacion.php";
 
 
 $c_Usuario = new C_Usuario;
 $_respuestas = new Respuestas;
 $c_Categoria = new C_Categoria;
+$c_Ubicacion = new C_Ubicacion;
 
 //recibir datos
 $datos=file_get_contents("php://input");
 $datos=json_decode($datos, true);
 switch($datos['tipo']){
-
+  //Relacionadas con Usuarios
   case 'login':
     //enviar datos al controlador
     $datosArray = $c_Usuario->login($datos);
@@ -85,6 +87,8 @@ switch($datos['tipo']){
     }
     echo json_encode($datosArray);
     break;
+
+  //Relacionadas con Categorias
   case 'crearCategoria':
     $datosArray = $c_Categoria->crearCategoria($datos);
 
@@ -140,6 +144,7 @@ switch($datos['tipo']){
     echo json_encode($datosArray);
     break;
 
+  //Relacionadas con Subcategorias
   case 'listarSubcategoria':
     $datosArray = $c_Categoria->listarSubcategoria();
 
@@ -150,6 +155,7 @@ switch($datos['tipo']){
     }
     echo json_encode($datosArray);
     break;
+
   case 'listarSubcategoriaId':
     $datosArray = $c_Categoria->listarSubcategoriaId($datos);
 
@@ -205,6 +211,30 @@ switch($datos['tipo']){
     echo json_encode($datosArray);
     break;
 
+  //Relacionadas con Ubicaciones
+  case 'listarUbicaciones':
+    $datosArray = $c_Ubicacion->listarUbicaciones();
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'listarUbicacionesPorNombre':
+    $datosArray = $c_Ubicacion->listarUbicacionesPorNombre($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  //Por defecto
   default:
     $datosArray = $_respuestas->error_405();
     echo  json_encode($datosArray);
