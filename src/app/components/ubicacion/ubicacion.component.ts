@@ -81,4 +81,43 @@ export class UbicacionComponent implements OnInit {
         });
 
   }
+
+  llamarFormulario(idUbicacion:number){
+    console.log('Llamada');
+    this.router.navigate(['/formularioUbicacion',idUbicacion]);
+  }
+
+  preguntaBorrado(id: any){
+    //Realizar la pregunta
+
+      if(confirm('¿Desea borrar la ubicacion?')==true){
+        this.borrarUbicacion(id);
+      }
+  }
+  borrarUbicacion(idUbicacion:any){
+    console.log('Borro');
+    let datos = {
+      tipo: "eliminarUbicacion",
+      idCategoria: `${idUbicacion}`
+    }
+    console.log(datos)
+    this.appService.postQuery(datos)
+      .subscribe(data => {
+
+          if (data['status'] != 'error') {
+            console.log(data) ;
+            window.location.reload();
+          } else {
+            console.log(data)
+
+          }
+        }
+        , async (errorServicio) =>
+        {
+          console.log('he fallado')
+          console.log(errorServicio);
+
+        });
+
+  }
 }

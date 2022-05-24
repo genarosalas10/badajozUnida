@@ -1,0 +1,15 @@
+<div class="popup-form-container">
+    <form class="popup-form" [formGroup]="forma" (ngSubmit)="guardar(this.forma)">
+      <label>Nombre:</label><br/>
+      <input type="text" formControlName="nombre"/><br/>
+      <p *ngIf="!this.validar('nombre')" class="error">Nombre muy corto.</p>
+      <label>Descripción:</label><br/>
+      <textarea formControlName="descripcion"></textarea><br/>
+      <p *ngIf="!this.validar('descripcion')" class="error">Descripción muy corta.</p>
+      <input type="hidden" formControlName="idUbicacion" />
+      <input type="submit" value="Guardar" />
+      <span (click)="volver()">Volver</span><br/>
+      <small>Foto de Annie Spratt en <a href="https://unsplash.com/es/fotos/AFB6S2kibuk">Unsplash</a></small>
+    </form>
+</div>
+<app-modal></app-modal>

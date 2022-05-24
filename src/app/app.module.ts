@@ -16,6 +16,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { DatosCategoriasComponent } from './components/share/datos-categorias/datos-categorias.component';
 import { DatosSubcategoriasComponent } from './components/datos-subcategorias/datos-subcategorias.component';
+import { DatosUbicacionesComponent } from './components/datos-ubicaciones/datos-ubicaciones.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DatosSubcategoriasComponent } from './components/datos-subcategorias/da
     UsuariosComponent,
     PerfilComponent,
     DatosCategoriasComponent,
-    DatosSubcategoriasComponent
+    DatosSubcategoriasComponent,
+    DatosUbicacionesComponent
   ],
     imports: [
         BrowserModule,

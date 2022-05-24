@@ -144,15 +144,6 @@ export class CategoriaComponent implements OnInit {
   }
 
   /**
-   * Permite modificar una subcategoría.
-   * 
-   * @param idSubcategoria - ID de la subcategoría
-   */
-  editarSub(idSubcategoria:any){
-    console.log('Editar');
-  }
-
-  /**
    * Realiza una pregunta antes de efectuar un borrado.
    * 
    * @param id - ID de la categoría/subcategoría

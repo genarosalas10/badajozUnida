@@ -31,6 +31,13 @@
 
 .contenedor-categorias .categoria .categoria-datos .nombre{
     text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.contenedor-categorias .iconos{
+    display: flex;
 }
 
 .contenedor-categorias .iconos button{

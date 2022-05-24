@@ -1,0 +1,78 @@
+:host{
+    --bg-color: white;
+    --primary-color: #D10000;
+    --secondary-color: #939393;
+    --text-base-color: black;
+}
+
+#nombreUbicacion{
+    max-width: 375px;
+    border-radius: 12px;
+    padding: .5rem;
+}
+
+.contenedor-ubicaciones{
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 1rem;
+}
+
+.contenedor-ubicaciones .ubicacion{
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 12px;
+    color: #fff;
+}
+
+.contenedor-ubicaciones .ubicacion .ubicacion-datos, .contenedor-ubicaciones .ubicacion .descripcion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.contenedor-ubicaciones .ubicacion .ubicacion-datos .nombre{
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.contenedor-ubicaciones .iconos{
+    display: flex;
+}
+
+.contenedor-ubicaciones .iconos button{
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0 .5rem;
+    cursor: pointer;
+}
+
+.contenedor-ubicaciones .add{
+    background-color: var(--primary-color);
+    border: none;
+    padding: 1.2rem 1rem;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 12px;
+    margin: 1rem 0;
+}
+
+.contenedor-ubicaciones>.add{
+    width: fit-content;
+    height: fit-content;
+}
+
+.contenedor-ubicaciones>button:hover{
+    opacity: .7;
+    transform: scale(1.03);
+}

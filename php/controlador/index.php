@@ -234,6 +234,50 @@ switch($datos['tipo']){
     echo json_encode($datosArray);
     break;
 
+  case 'crearUbicacion':
+    $datosArray = $c_Ubicacion->crearUbicacion($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'eliminarUbicacion':
+    $datosArray = $c_Ubicacion->eliminarUbicacion($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'modificarUbicacion':
+    $datosArray = $c_Ubicacion->modificarUbicacion($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'sacarUbicacionId':
+    $datosArray = $c_Ubicacion->sacarUbicacionId($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
   //Por defecto
   default:
     $datosArray = $_respuestas->error_405();
