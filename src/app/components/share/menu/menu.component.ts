@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeComponent } from '../../home/home.component';
 import { CategoriaComponent } from '../../categoria/categoria.component';
+import {UsuarioService} from "../../../services/usuario.service";
 
 @Component({
   selector: 'app-menu',
@@ -14,7 +15,7 @@ export class MenuComponent implements OnInit {
   /**
    * @ignore
    */
-  constructor(public router: Router) {
+  constructor(public router: Router,private usuarioService:UsuarioService) {
     console.log(sessionStorage.getItem('nombre'));
     this.nombreUsuario = sessionStorage.getItem('nombre');
   }
@@ -27,11 +28,11 @@ export class MenuComponent implements OnInit {
 
   /**
    * Valida si el usuario que ha iniciado sesión es administrador o no.
-   * 
+   *
    * @returns - Verdadero o falso
    */
   comprobarTipo() {
-    if (sessionStorage.getItem('tipo') == 'u') {
+    if (this.usuarioService.tipo == 'u') {
       return false;
     } else {
       return true;
