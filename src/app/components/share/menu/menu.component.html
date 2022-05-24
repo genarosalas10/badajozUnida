@@ -13,7 +13,7 @@
         <main>
             <app-home *ngIf="router.url==='/home'"></app-home>
             <app-categoria *ngIf="router.url==='/categoria'"></app-categoria>
-          <!-- <app-datos-categorias *ngIf="router.url==='/formulario/:id'"></app-datos-categorias> -->
+           <app-ubicacion *ngIf="router.url==='/ubicacion'"></app-ubicacion>
          </main> <!-- Aquí se mostrará el componente que toque -->
     </div>
     <div class="menu-container">
@@ -51,12 +51,14 @@
                 </a>
             </div>
             <div class="icono" *ngIf="comprobarTipo()">
-                <i class="bi bi-geo-alt-fill">
+              <a routerLink="/ubicacion">
+                <i class="bi bi-geo-alt-fill" [ngClass]="{'active' : router.url==='/ubicacion'}">
                     <span>UBICACIONES</span>
                 </i>
+              </a>
             </div>
             <div class="icono" *ngIf="comprobarTipo()">
-                <i class="bi bi-people-fill">
+                <i class="bi bi-people-fill" [ngClass]="{'active' : router.url==='/usuario'}">
                     <span>USUARIOS</span>
                 </i>
             </div>
