@@ -19,3 +19,8 @@ VALUES ('fútbol', 'partido de fútbol',1),
 INSERT INTO Usuario (nombre, apellidos, email, password, fechaNacimiento,tipo)
 VALUES ('Isabel', 'Pérez','isa@gmail.com','d40c12d6df191a844185e1336569806f','1987-01-01', 'a'),
  ('Juan', 'Pérez','juan@gmail.com','c3edace111ea076f93ee278cf30f006c','1987-01-01', 'u');
+
+
+INSERT INTO Ubicacion (nombre, descripcion)
+VALUES ('la granadilla', 'instalacion deportiva'),
+('la granja del cruce', 'instalacion deportiva');
