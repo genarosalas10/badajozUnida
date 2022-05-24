@@ -19,10 +19,25 @@ class Procesos_bd{
     public function extraerFila($resultado){
         return $this->fila =$resultado->fetch_array();
     }
-    public function consultasMultiple($consulta){
+    public function prepareConsulta($consulta){
 
-        $this->resultado=$this->mysqli->multi_query($consulta);
+        return $this->sentencia=$this->mysqli->prepare($consulta);
+
     }
+    /*
+  public function vincularValoresConsulta($valores,$tipo){
+    for (j=0;j< sizeof($valores);j+1){
+      $this->sentencia>bind_param("i", $id);
+    }
+    return $this->sentencia>bind_param("i", $id);
+
+  }
+    */
+  public function realizarConsulta($consulta){
+
+    return $this->sentencia=$this->mysqli->prepare($consulta);
+
+  }
     public function filasAfectadas(){
          return $this->mysqli->affected_rows;
 
