@@ -11,7 +11,7 @@ class C_Usuario extends modelo {
 
     /**
      * Método encargado de gestionar el inicio de sesión.
-     * 
+     *
      * @param array $datos - Correo y contraseña introducidos por el usuario
      * @return string|array - Puede devolver diferentes mensajes de error o los datos de la sesión dependiendo de si el login fue correcto o incorrecto
      */
@@ -146,7 +146,7 @@ class C_Usuario extends modelo {
      * @return array|int - Datos del usuario o valor vacío según encuentre o no al usuario
      */
     private function obtenerDatosUsuarioLogin($email){
-        $query = "SELECT nombre,email,password,tipo FROM Usuario WHERE email ='$email';";
+        $query = "SELECT idUsuario,nombre,email,password,tipo FROM Usuario WHERE email ='$email';";
         $datos = parent::obtenerDatos($query);
         if(isset($datos[0]["email"])){
 
