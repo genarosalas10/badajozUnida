@@ -118,6 +118,13 @@ class C_Usuario extends modelo {
       }
     }
     */
+
+    /**
+     * Elimina a un usuario de la BD.
+     *
+     * @param array $datos - Datos del usuario
+     * @return string - Mensaje de éxito o error
+     */
     public function eliminarUsuario($datos){
 
       if(isset($datos['idUsuario'])){
@@ -131,6 +138,13 @@ class C_Usuario extends modelo {
         return $this->_respuestas->error_400();
       }
     }
+
+    /**
+     * Obtiene los datos de un usuario para gestionar el inicio de sesión.
+     *
+     * @param string $email
+     * @return array|int - Datos del usuario o valor vacío según encuentre o no al usuario
+     */
     private function obtenerDatosUsuarioLogin($email){
         $query = "SELECT nombre,email,password,tipo FROM Usuario WHERE email ='$email';";
         $datos = parent::obtenerDatos($query);
@@ -143,7 +157,12 @@ class C_Usuario extends modelo {
         }
     }
 
-
+    /**
+     * Completa el proceso de registro.
+     *
+     * @param array $datos - Datos del usuario
+     * @return int|string - Éxito o mensajes de error
+     */
     private function realizarRegistro($datos){
       $query = "INSERT INTO Usuario (nombre, apellidos, email, password, fechaNacimiento)
                 VALUES ('".$datos['nombre']."', '".$datos['apellidos']."','".$datos['email']."','".$datos['password']."','".$datos['fechaNacimiento']."');";
@@ -161,18 +180,28 @@ class C_Usuario extends modelo {
       }
     }
 
-   private function obtenerListado(){
-     $query = "SELECT idUsuario,nombre,email,tipo FROM Usuario;";
-     $datos = parent::obtenerDatos($query);
-     if(isset($datos[0]["email"])){
-       return $datos;
-     }else{
+  /**
+   * Lista a todos los usuarios.
+   *
+   * @return array|int - Datos de los usuarios o error
+   */
+  private function obtenerListado(){
+    $query = "SELECT idUsuario,nombre,email,tipo FROM Usuario;";
+    $datos = parent::obtenerDatos($query);
+    if(isset($datos[0]["email"])){
+      return $datos;
+    }else{
 
-       return 0;
-     }
-   }
+      return 0;
+    }
+  }
 
-
+  /**
+   * Obtiene los datos de un usuario específico.
+   *
+   * @param int $idUsuario - ID del usuario
+   * @return array|int - Datos del usuario o error
+   */
   private function obtenerPerfilUsuario($idUsuario){
     $query = "SELECT nombre,apellidos,email,fechaNacimiento FROM Usuario WHERE idUsuario ='$idUsuario';";
     $datos = parent::obtenerDatos($query);
@@ -185,6 +214,12 @@ class C_Usuario extends modelo {
     }
   }
 
+  /**
+   * Borra un usuario específico.
+   *
+   * @param int $idUsuario
+   * @return int - Éxito o error
+   */
   private function realizarEliminacion($idUsuario){
     $query="DELETE FROM Usuario WHERE idUsuario ='$idUsuario';";
     $datos = parent::nonQuery($query);
@@ -194,6 +229,13 @@ class C_Usuario extends modelo {
       return 0;
     }
   }
+
+  /**
+   * Valida los campos introducidos.
+   *
+   * @param array $datos
+   * @return boolean - Datos validados o no
+   */
   private function validarCampos($datos){
 
     $passRegex='/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,20}$/';
