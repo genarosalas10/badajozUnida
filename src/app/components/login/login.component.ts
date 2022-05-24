@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AppService} from "../../services/app.service";
 import { ModalComponent } from '../modal/modal.component';
 import { Router } from '@angular/router';
+import {UsuarioService} from "../../services/usuario.service";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   /**
    * @ignore
    */
-  constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router) { }
+  constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router, private usuarioService:UsuarioService) { }
   modal=new ModalComponent;
 
   /**
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   /**
    * Comprueba que todos los campos introducidos sean correctos.
-   * 
+   *
    * @param forma - Campos del formulario
    * @returns - void
    */
@@ -67,7 +68,7 @@ export class LoginComponent implements OnInit {
 
   /**
    * Hace una llamada a la API para validar que el usuario exista y los datos sean correctos.
-   * 
+   *
    * @param loginForm - Campos del formulario
    */
   ComprobarUsuario(loginForm: FormGroup)
@@ -80,6 +81,7 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
           console.log(data);
           if (data['status'] != 'error') {
+            this.usuarioService.recogerUsuario(data[0]['idUsuario'],data[0]['tipo'])
             sessionStorage.setItem('idUsuario', data[0]['idUsuario']);
             sessionStorage.setItem('nombre', data[0]['nombre']);
             sessionStorage.setItem('tipo', data[0]['tipo']);
