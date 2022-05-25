@@ -16,6 +16,10 @@ export class DatosSubcategoriasComponent implements OnInit {
   subcategoria:any;
   categorias:any;
   idCategoria:any;
+
+  /**
+   * @ignore
+   */
   constructor(private formBuilder: FormBuilder, private appService: AppService, private router: Router, private activatedRoute:ActivatedRoute) {
     this.listadoCategoria();
     this.activatedRoute.params.subscribe(parametros => {
@@ -28,14 +32,23 @@ export class DatosSubcategoriasComponent implements OnInit {
     });
   }
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
     this.crearFormulario();
   }
 
+  /**
+   * @ignore
+   */
   volver(){
     this.router.navigate(['categoria'])
   }
 
+  /**
+   * Lista todas las categorías.
+   */
   listadoCategoria()
   {
     let datos = {
@@ -62,6 +75,9 @@ export class DatosSubcategoriasComponent implements OnInit {
 
   }
 
+  /**
+   * Inizializa los validadores del formulario.
+   */
   crearFormulario() {
     this.forma = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
@@ -72,7 +88,9 @@ export class DatosSubcategoriasComponent implements OnInit {
     })
   }
 
-  //meter valores en el formulario
+  /**
+   * En caso de edición, añade los valores anteriores de los campos al formulario.
+   */
   cargarDatosFormulario() {
     //console.log(this.categoria.nombre)
     this.forma.reset({
@@ -84,7 +102,11 @@ export class DatosSubcategoriasComponent implements OnInit {
   }
 
 
-  //comprobar formulario
+  /**
+   * Comprueba los campos del formulario.
+   * @param forma - Campos del formulario
+   * @returns - void
+   */
   guardar(forma: FormGroup) {
 
     console.log('guardarFormulario')
@@ -106,12 +128,20 @@ export class DatosSubcategoriasComponent implements OnInit {
 
   }
 
+  /**
+   * Valida un campo del formulario.
+   * @param campo1 - Campo del formulario
+   * @returns - Campo válido y no enfocado
+   */
   validar(campo1: string) {
     let campo: any = this.forma.get(campo1);
     return !(campo.invalid && campo.touched);
   }
 
-  //llamar a la api para crear subcategoria
+  /**
+   * Añade una nueva subcategoría.
+   * @param forma - Datos de la subcategoría
+   */
   anadirSubcategoria(forma: any) {
     let datos = forma.value
     datos.tipo = 'crearSubcategoria';
@@ -138,7 +168,10 @@ export class DatosSubcategoriasComponent implements OnInit {
   }
 
 
-  //llamar a la api para  modificar subcategoria
+  /**
+   * Modifica una subcategoría.
+   * @param forma - Datos de la subcategoría
+   */
   modificarSubcategoria(forma: any) {
 
     let datos = forma.value
@@ -169,6 +202,10 @@ export class DatosSubcategoriasComponent implements OnInit {
         });
   }
 
+  /**
+   * Obtiene los datos de una subcategoría.
+   * @param idSubcategoria - ID de la subcategoría
+   */
   sacarSubcategoria(idSubcategoria:any) {
     let datos = {
       tipo : 'sacarSubcategoriaId',

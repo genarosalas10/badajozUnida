@@ -1,0 +1,1286 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>badajoz-unida documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">badajoz-unida documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  DatosSubcategoriasComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/datos-subcategorias/datos-subcategorias.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-datos-subcategorias</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./datos-subcategorias.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./datos-subcategorias.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#categorias" >categorias</a>
+                            </li>
+                            <li>
+                                <a href="#forma" >forma</a>
+                            </li>
+                            <li>
+                                <a href="#idCategoria" >idCategoria</a>
+                            </li>
+                            <li>
+                                <a href="#modal" >modal</a>
+                            </li>
+                            <li>
+                                <a href="#subcategoria" >subcategoria</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#anadirSubcategoria" >anadirSubcategoria</a>
+                            </li>
+                            <li>
+                                <a href="#cargarDatosFormulario" >cargarDatosFormulario</a>
+                            </li>
+                            <li>
+                                <a href="#crearFormulario" >crearFormulario</a>
+                            </li>
+                            <li>
+                                <a href="#guardar" >guardar</a>
+                            </li>
+                            <li>
+                                <a href="#listadoCategoria" >listadoCategoria</a>
+                            </li>
+                            <li>
+                                <a href="#modificarSubcategoria" >modificarSubcategoria</a>
+                            </li>
+                            <li>
+                                <a href="#sacarSubcategoria" >sacarSubcategoria</a>
+                            </li>
+                            <li>
+                                <a href="#validar" >validar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="anadirSubcategoria"></a>
+                    <span class="name">
+                        <span ><b>anadirSubcategoria</b></span>
+                        <a href="#anadirSubcategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>anadirSubcategoria(forma: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:145</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Añade una nueva subcategoría.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>forma</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>Datos de la subcategoría</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarDatosFormulario"></a>
+                    <span class="name">
+                        <span ><b>cargarDatosFormulario</b></span>
+                        <a href="#cargarDatosFormulario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarDatosFormulario()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>En caso de edición, añade los valores anteriores de los campos al formulario.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="crearFormulario"></a>
+                    <span class="name">
+                        <span ><b>crearFormulario</b></span>
+                        <a href="#crearFormulario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>crearFormulario()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Inizializa los validadores del formulario.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardar"></a>
+                    <span class="name">
+                        <span ><b>guardar</b></span>
+                        <a href="#guardar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardar(forma: <a href="https://angular.io/api/forms/FormGroup" target="_blank">FormGroup</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Comprueba los campos del formulario.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>forma</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>Campos del formulario</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <ul>
+<li>void</li>
+</ul>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listadoCategoria"></a>
+                    <span class="name">
+                        <span ><b>listadoCategoria</b></span>
+                        <a href="#listadoCategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listadoCategoria()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista todas las categorías.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modificarSubcategoria"></a>
+                    <span class="name">
+                        <span ><b>modificarSubcategoria</b></span>
+                        <a href="#modificarSubcategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>modificarSubcategoria(forma: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="175"
+                            class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:175</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Modifica una subcategoría.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>forma</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>Datos de la subcategoría</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sacarSubcategoria"></a>
+                    <span class="name">
+                        <span ><b>sacarSubcategoria</b></span>
+                        <a href="#sacarSubcategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sacarSubcategoria(idSubcategoria: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="209"
+                            class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:209</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene los datos de una subcategoría.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idSubcategoria</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>ID de la subcategoría</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validar"></a>
+                    <span class="name">
+                        <span ><b>validar</b></span>
+                        <a href="#validar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validar(campo1: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:136</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Valida un campo del formulario.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>campo1</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>Campo del formulario</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <ul>
+<li>Campo válido y no enfocado</li>
+</ul>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categorias"></a>
+                    <span class="name">
+                        <span ><b>categorias</b></span>
+                        <a href="#categorias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forma"></a>
+                    <span class="name">
+                        <span ><b>forma</b></span>
+                        <a href="#forma"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idCategoria"></a>
+                    <span class="name">
+                        <span ><b>idCategoria</b></span>
+                        <a href="#idCategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modal"></a>
+                    <span class="name">
+                        <span ><b>modal</b></span>
+                        <a href="#modal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ModalComponent</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subcategoria"></a>
+                    <span class="name">
+                        <span ><b>subcategoria</b></span>
+                        <a href="#subcategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/datos-subcategorias/datos-subcategorias.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import {FormBuilder, FormGroup, Validators} from &quot;@angular/forms&quot;;
+import {AppService} from &quot;../../services/app.service&quot;;
+import {ActivatedRoute, Router} from &quot;@angular/router&quot;;
+import {ModalComponent} from &quot;../modal/modal.component&quot;;
+
+@Component({
+  selector: &#x27;app-datos-subcategorias&#x27;,
+  templateUrl: &#x27;./datos-subcategorias.component.html&#x27;,
+  styleUrls: [&#x27;./datos-subcategorias.component.css&#x27;]
+})
+export class DatosSubcategoriasComponent implements OnInit {
+
+  forma!: FormGroup;
+  modal&#x3D;new ModalComponent;
+  subcategoria:any;
+  categorias:any;
+  idCategoria:any;
+
+  /**
+   * @ignore
+   */
+  constructor(private formBuilder: FormBuilder, private appService: AppService, private router: Router, private activatedRoute:ActivatedRoute) {
+    this.listadoCategoria();
+    this.activatedRoute.params.subscribe(parametros &#x3D;&gt; {
+      this.idCategoria&#x3D;parametros[&#x27;idCategoria&#x27;];
+      console.log(parametros)
+      if(parametros[&#x27;idSubcategoria&#x27;]&gt;0){
+        console.log(&#x27;modificar&#x27;)
+        this.sacarSubcategoria(parametros[&#x27;idSubcategoria&#x27;]);
+      }
+    });
+  }
+
+  /**
+   * @ignore
+   */
+  ngOnInit(): void {
+    this.crearFormulario();
+  }
+
+  /**
+   * @ignore
+   */
+  volver(){
+    this.router.navigate([&#x27;categoria&#x27;])
+  }
+
+  /**
+   * Lista todas las categorías.
+   */
+  listadoCategoria()
+  {
+    let datos &#x3D; {
+      tipo: &quot;listadoCategoria&quot;
+    }
+
+    this.appService.postQuery(datos)
+      .subscribe(data &#x3D;&gt; {
+          console.log(data)
+          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+            this.categorias&#x3D;data;
+          } else {
+            console.log(data)
+          }
+        }
+        , async (errorServicio) &#x3D;&gt;
+        {
+          console.log(&#x27;he fallado&#x27;)
+          console.log(errorServicio);
+          //this.toast&#x3D;true;
+
+
+        });
+
+  }
+
+  /**
+   * Inizializa los validadores del formulario.
+   */
+  crearFormulario() {
+    this.forma &#x3D; this.formBuilder.group({
+      nombre: [&#x27;&#x27;, [Validators.required, Validators.minLength(2)]],
+      descripcion: [&#x27;&#x27;, [Validators.required, Validators.minLength(10)]],
+      idCategoria: [this.idCategoria, [Validators.required]],
+      idSubcategoria: [&#x27;0&#x27;, [Validators.required]]
+
+    })
+  }
+
+  /**
+   * En caso de edición, añade los valores anteriores de los campos al formulario.
+   */
+  cargarDatosFormulario() {
+    //console.log(this.categoria.nombre)
+    this.forma.reset({
+      nombre: this.subcategoria.nombre,
+      descripcion: this.subcategoria.descripcion,
+      idSubcategoria: this.subcategoria.idSubcategoria,
+      idCategoria:this.idCategoria
+    });
+  }
+
+
+  /**
+   * Comprueba los campos del formulario.
+   * @param forma - Campos del formulario
+   * @returns - void
+   */
+  guardar(forma: FormGroup) {
+
+    console.log(&#x27;guardarFormulario&#x27;)
+
+    if (forma.invalid || forma.pending) {
+      Object.values(forma.controls).forEach(control &#x3D;&gt; {
+        if (control instanceof FormGroup)
+          this.guardar(control);
+        control.markAsTouched();
+      })
+      return;
+    }
+    console.log(forma.value)
+    if (forma.value.idSubcategoria &#x3D;&#x3D; 0) {
+      this.anadirSubcategoria(forma);
+    } else {
+      this.modificarSubcategoria(forma);
+    }
+
+  }
+
+  /**
+   * Valida un campo del formulario.
+   * @param campo1 - Campo del formulario
+   * @returns - Campo válido y no enfocado
+   */
+  validar(campo1: string) {
+    let campo: any &#x3D; this.forma.get(campo1);
+    return !(campo.invalid &amp;&amp; campo.touched);
+  }
+
+  /**
+   * Añade una nueva subcategoría.
+   * @param forma - Datos de la subcategoría
+   */
+  anadirSubcategoria(forma: any) {
+    let datos &#x3D; forma.value
+    datos.tipo &#x3D; &#x27;crearSubcategoria&#x27;;
+    //console.log(JSON.stringify(datos));
+
+    this.appService.postQuery(datos)
+      .subscribe(data &#x3D;&gt; {
+          console.log(data);
+          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+            this.router.navigate([&#x27;/categoria&#x27;]);
+            console.log(&#x27;data&#x27;)
+          } else {
+            //this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
+            console.log(data)
+          }
+
+        }
+        , async (errorServicio) &#x3D;&gt; {
+          console.log(&#x27;he fallado&#x27;)
+          console.log(errorServicio);
+          //this.toast&#x3D;true;
+
+        });
+  }
+
+
+  /**
+   * Modifica una subcategoría.
+   * @param forma - Datos de la subcategoría
+   */
+  modificarSubcategoria(forma: any) {
+
+    let datos &#x3D; forma.value
+    datos.tipo &#x3D; &#x27;modificarSubcategoria&#x27;;
+    //console.log(JSON.stringify(datos));
+
+    this.appService.postQuery(datos)
+      .subscribe(data &#x3D;&gt; {
+          console.log(data);
+          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+            console.log(&#x27;data&#x27;)
+            this.router.navigate([&#x27;/categoria&#x27;]);
+            //this.borrarForm();
+
+          } else {
+            this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
+            console.log(data)
+            //this.borrarForm();
+          }
+
+        }
+        , async (errorServicio) &#x3D;&gt; {
+          console.log(&#x27;he fallado&#x27;)
+          console.log(errorServicio);
+          //this.borrarForm();
+
+
+        });
+  }
+
+  /**
+   * Obtiene los datos de una subcategoría.
+   * @param idSubcategoria - ID de la subcategoría
+   */
+  sacarSubcategoria(idSubcategoria:any) {
+    let datos &#x3D; {
+      tipo : &#x27;sacarSubcategoriaId&#x27;,
+      idSubcategoria : idSubcategoria
+    }
+    console.log(JSON.stringify(datos));
+    //this.cargarDatosFormulario(&#x27;Cargar1&#x27;,&#x27;cargar2&#x27;)
+    this.appService.postQuery(datos)
+      .subscribe(data &#x3D;&gt; {
+          console.log(data)
+          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+            this.subcategoria&#x3D;data[0];
+            this.cargarDatosFormulario()
+            //console.log(this.categoria);
+          } else {
+            //this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
+            console.log(data)
+          }
+
+        }
+        , async (errorServicio) &#x3D;&gt; {
+          console.log(&#x27;he fallado&#x27;)
+          console.log(errorServicio);
+          //this.toast&#x3D;true;
+
+
+        });
+
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;popup-form-container&quot;&gt;
+  &lt;form class&#x3D;&quot;popup-form&quot; [formGroup]&#x3D;&quot;forma&quot; (ngSubmit)&#x3D;&quot;guardar(this.forma)&quot;&gt;
+    &lt;label&gt;Nombre:&lt;/label&gt;&lt;br/&gt;
+    &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;nombre&quot;/&gt;&lt;br/&gt;
+    &lt;p *ngIf&#x3D;&quot;!this.validar(&#x27;nombre&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;Nombre muy corto.&lt;/p&gt;
+    &lt;label&gt;Descripción:&lt;/label&gt;&lt;br/&gt;
+    &lt;textarea formControlName&#x3D;&quot;descripcion&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;
+    &lt;p *ngIf&#x3D;&quot;!this.validar(&#x27;descripcion&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;Descripción muy corta.&lt;/p&gt;
+    &lt;select class&#x3D;&quot;&quot; formControlName&#x3D;&quot;idCategoria&quot;&gt;
+      &lt;option *ngFor&#x3D;&quot;let categorias of categorias&quot;
+              value&#x3D;&quot;{{categorias.idCategoria}}&quot;&gt;{{categorias.nombre}}&lt;/option&gt;
+    &lt;/select&gt; &lt;br/&gt;
+    &lt;input type&#x3D;&quot;hidden&quot; formControlName&#x3D;&quot;idSubcategoria&quot; /&gt;
+    &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;Guardar&quot; /&gt;
+    &lt;span (click)&#x3D;&quot;volver()&quot;&gt;Volver&lt;/span&gt;&lt;br/&gt;
+    &lt;small&gt;Foto de Junior en &lt;a href&#x3D;&quot;https://unsplash.com/es/fotos/0yyspQqVJ5A?utm_source&#x3D;unsplash&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;creditShareLink&quot;&gt;Unsplash&lt;/a&gt;&lt;/small&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./datos-subcategorias.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.popup-form-container{
+  background-image: url(&#x27;/assets/junior-0yyspQqVJ5A-unsplash.jpg&#x27;);
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-form{
+  padding: 2rem;
+  background: rgba(255,255,255,0.5);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+}
+
+.popup-form .error{
+  color: red;
+}
+
+.popup-form textarea{
+  resize: none;
+  width: 16em;
+  height: 6em;
+}
+
+.popup-form input, textarea, select{
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  padding: .5rem;
+}
+
+.popup-form input[type&#x3D;&quot;submit&quot;]{
+  background: none;
+  cursor: pointer;
+  margin-right: 1rem;
+  padding: 0;
+}
+
+.popup-form span{
+  cursor: pointer;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="popup-form-container">  <form class="popup-form" [formGroup]="forma" (ngSubmit)="guardar(this.forma)">    <label>Nombre:</label><br/>    <input type="text" formControlName="nombre"/><br/>    <p *ngIf="!this.validar(\'nombre\')" class="error">Nombre muy corto.</p>    <label>Descripción:</label><br/>    <textarea formControlName="descripcion"></textarea><br/>    <p *ngIf="!this.validar(\'descripcion\')" class="error">Descripción muy corta.</p>    <select class="" formControlName="idCategoria">      <option *ngFor="let categorias of categorias"              value="{{categorias.idCategoria}}">{{categorias.nombre}}</option>    </select> <br/>    <input type="hidden" formControlName="idSubcategoria" />    <input type="submit" value="Guardar" />    <span (click)="volver()">Volver</span><br/>    <small>Foto de Junior en <a href="https://unsplash.com/es/fotos/0yyspQqVJ5A?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">Unsplash</a></small>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DatosSubcategoriasComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DatosSubcategoriasComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

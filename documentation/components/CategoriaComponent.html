@@ -139,6 +139,12 @@
                             <li>
                                 <a href="#categoriasPopup" >categoriasPopup</a>
                             </li>
+                            <li>
+                                <a href="#modal" >modal</a>
+                            </li>
+                            <li>
+                                <a href="#subcategorias" >subcategorias</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -152,22 +158,25 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#borrarSub" >borrarSub</a>
+                                <a href="#borrarCat" >borrarCat</a>
                             </li>
                             <li>
-                                <a href="#editarSub" >editarSub</a>
+                                <a href="#borrarSub" >borrarSub</a>
                             </li>
                             <li>
                                 <a href="#listadoCategoria" >listadoCategoria</a>
                             </li>
                             <li>
-                                <a href="#listarSub" >listarSub</a>
+                                <a href="#listadoSubcategoria" >listadoSubcategoria</a>
                             </li>
                             <li>
-                                <a href="#llamarPoppup" >llamarPoppup</a>
+                                <a href="#llamarFormularioCategoria" >llamarFormularioCategoria</a>
                             </li>
                             <li>
-                                <a href="#ngOnInit" >ngOnInit</a>
+                                <a href="#llamarFormularioSubcategoria" >llamarFormularioSubcategoria</a>
+                            </li>
+                            <li>
+                                <a href="#preguntaBorrado" >preguntaBorrado</a>
                             </li>
                         </ul>
                     </td>
@@ -181,66 +190,6 @@
     </table>
 </section>
 
-    <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(appService: <a href="../injectables/AppService.html" target="_self">AppService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/categoria/categoria.component.ts:16</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>appService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AppService.html" target="_self" >AppService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>router</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -255,141 +204,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="borrarSub"></a>
+                    <a name="borrarCat"></a>
                     <span class="name">
-                        <span ><b>borrarSub</b></span>
-                        <a href="#borrarSub"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>borrarCat</b></span>
+                        <a href="#borrarCat"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>borrarSub()</code>
+<code>borrarCat(idCategoria: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:171</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="editarSub"></a>
-                    <span class="name">
-                        <span ><b>editarSub</b></span>
-                        <a href="#editarSub"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>editarSub()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:83</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="listadoCategoria"></a>
-                    <span class="name">
-                        <span ><b>listadoCategoria</b></span>
-                        <a href="#listadoCategoria"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>listadoCategoria()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:29</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="listarSub"></a>
-                    <span class="name">
-                        <span ><b>listarSub</b></span>
-                        <a href="#listarSub"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>listarSub(idCategoria: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:55</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
+                    <div class="io-description"><p>Borra una categoría.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -435,30 +275,103 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="llamarPoppup"></a>
+                    <a name="borrarSub"></a>
                     <span class="name">
-                        <span ><b>llamarPoppup</b></span>
-                        <a href="#llamarPoppup"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>borrarSub</b></span>
+                        <a href="#borrarSub"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>llamarPoppup()</code>
+<code>borrarSub(idSubcategoria: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:203</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Borra una subcategoría.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idSubcategoria</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listadoCategoria"></a>
+                    <span class="name">
+                        <span ><b>listadoCategoria</b></span>
+                        <a href="#listadoCategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listadoCategoria()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Muestra en pantalla las categorías</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -472,34 +385,306 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnInit"></a>
+                    <a name="listadoSubcategoria"></a>
                     <span class="name">
-                        <span ><b>ngOnInit</b></span>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>listadoSubcategoria</b></span>
+                        <a href="#listadoSubcategoria"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnInit()</code>
+<code>listadoSubcategoria()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:87</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Muestra en pantalla las subcategorías</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="llamarFormularioCategoria"></a>
+                    <span class="name">
+                        <span ><b>llamarFormularioCategoria</b></span>
+                        <a href="#llamarFormularioCategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>llamarFormularioCategoria(idCategoria: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Llama al formulario que gestiona las categorías</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idCategoria</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>ID de la categoría</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="llamarFormularioSubcategoria"></a>
+                    <span class="name">
+                        <span ><b>llamarFormularioSubcategoria</b></span>
+                        <a href="#llamarFormularioSubcategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>llamarFormularioSubcategoria(idCategoria: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, idSubcategoria: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Llama al formulario que gestiona las subcategorías</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idCategoria</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>ID de la categoría</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>idSubcategoria</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>ID de la subcategoría</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="preguntaBorrado"></a>
+                    <span class="name">
+                        <span ><b>preguntaBorrado</b></span>
+                        <a href="#preguntaBorrado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>preguntaBorrado(id: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, tipo: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">src/app/components/categoria/categoria.component.ts:152</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Realiza una pregunta antes de efectuar un borrado.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>ID de la categoría/subcategoría</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>tipo</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>Categoría o Subcategoría</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -530,7 +715,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/categoria/categoria.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/categoria/categoria.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -550,12 +735,64 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new DatosCategoriasComponent</code>
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/categoria/categoria.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/categoria/categoria.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modal"></a>
+                    <span class="name">
+                        <span ><b>modal</b></span>
+                        <a href="#modal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ModalComponent</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/categoria/categoria.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subcategorias"></a>
+                    <span class="name">
+                        <span ><b>subcategorias</b></span>
+                        <a href="#subcategorias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/categoria/categoria.component.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -569,11 +806,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import {FormGroup} from &quot;@angular/forms&quot;;
+import {FormBuilder, FormGroup} from &quot;@angular/forms&quot;;
 import {AppService} from &quot;../../services/app.service&quot;;
 import {Router} from &quot;@angular/router&quot;;
 import { ModalComponent } from &#x27;../modal/modal.component&#x27;;
 import { DatosCategoriasComponent } from &#x27;../share/datos-categorias/datos-categorias.component&#x27;;
+
 
 @Component({
   selector: &#x27;app-categoria&#x27;,
@@ -583,19 +821,47 @@ import { DatosCategoriasComponent } from &#x27;../share/datos-categorias/datos-c
 export class CategoriaComponent implements OnInit {
 
   categorias:any;
-  categoriasPopup&#x3D;new DatosCategoriasComponent
-  constructor(private appService:AppService, private router:Router) {
+  subcategorias:any;
+  categoriasPopup:any;
+  modal&#x3D;new ModalComponent;
+  /**
+   * @ignore
+   */
+  constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router) {
     this.listadoCategoria();
+    this.listadoSubcategoria();
   }
-  
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
   }
 
-  llamarPoppup(){
-    this.categoriasPopup.mostrarForm(&#x27;Añadir&#x27;);
+  /**
+   * Llama al formulario que gestiona las categorías
+   * 
+   * @param idCategoria - ID de la categoría
+   */
+  llamarFormularioCategoria(idCategoria:any){
+      console.log(&#x27;hola&#x27;)
+    this.router.navigate([&#x27;/formularioCategorias&#x27;,idCategoria]);
   }
 
+   /**
+   * Llama al formulario que gestiona las subcategorías
+   * 
+   * @param idCategoria - ID de la categoría
+   * @param idSubcategoria - ID de la subcategoría
+   */
+  llamarFormularioSubcategoria(idCategoria:any,idSubcategoria:any){
+    console.log(&#x27;hola&#x27;)
+    this.router.navigate([&#x27;/formularioSubcategorias&#x27;,idCategoria,idSubcategoria]);
+  }
+
+  /**
+   * Muestra en pantalla las categorías
+   */
   listadoCategoria()
   {
     let datos &#x3D; {
@@ -604,7 +870,7 @@ export class CategoriaComponent implements OnInit {
 
     this.appService.postQuery(datos)
       .subscribe(data &#x3D;&gt; {
-
+          console.log(data)
           if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
             this.categorias&#x3D;data;
           } else {
@@ -622,19 +888,53 @@ export class CategoriaComponent implements OnInit {
 
   }
 
-  listarSub(idCategoria:any)
-  {
-    //idCategoria&#x3D;document.getElementById(&#x27;iCategorias&#x27;).value;
-    let datos &#x3D; {
-      tipo: &quot;listadoSubcategoriaId&quot;,
-      id: idCategoria
-  }
+  /**
+   * Muestra en pantalla las subcategorías
+   */
+  listadoSubcategoria(){
 
+    let datos &#x3D; {
+      tipo: &quot;listarSubcategoria&quot;
+    }
+    console.log(datos)
     this.appService.postQuery(datos)
       .subscribe(data &#x3D;&gt; {
 
           if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
-            this.categorias&#x3D;data;
+            this.subcategorias&#x3D;data;
+            console.log(this.subcategorias)
+          } else {
+            console.log(data)
+          }
+        }
+        , async (errorServicio) &#x3D;&gt;
+        {
+          console.log(&#x27;he fallado&#x27;)
+          console.log(errorServicio);
+          //this.toast&#x3D;true;
+
+
+        });
+
+  }
+  //No se utiliza de momento
+  /**
+   * @ignore
+   */
+  listarSub(idCategoria:any)
+  {
+    //idCategoria&#x3D;document.getElementById(&#x27;iCategorias&#x27;).value;
+    let datos &#x3D; {
+      tipo: &quot;listarSubcategoriaId&quot;,
+      idCategoria: &#x60;${idCategoria}&#x60;
+  }
+    console.log(datos)
+    this.appService.postQuery(datos)
+      .subscribe(data &#x3D;&gt; {
+
+          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+            this.subcategorias&#x3D;data;
+            console.log(this.subcategorias)
           } else {
             console.log(data)
           }
@@ -650,53 +950,113 @@ export class CategoriaComponent implements OnInit {
 
   }
 
-  editarSub(){
-    console.log(&#x27;Editar&#x27;);
+  /**
+   * Realiza una pregunta antes de efectuar un borrado.
+   * 
+   * @param id - ID de la categoría/subcategoría
+   * @param tipo - Categoría o Subcategoría 
+   */
+  preguntaBorrado(id: any, tipo:any){
+    //Realizar la pregunta
+    if(tipo&#x3D;&#x3D;&#x27;c&#x27;)
+    {
+      if(confirm(&#x27;¿Desea borrar la categoría?&#x27;)&#x3D;&#x3D;true){
+        this.borrarCat(id);
+      }
+    }else{
+      if(confirm(&#x27;¿Desea borrar la subcategoría?&#x27;)&#x3D;&#x3D;true){
+        this.borrarSub(id);
+      }
+    }
   }
 
-  borrarSub(){
-    console.log(&#x27;Borrar&#x27;);
+  /**
+   * Borra una categoría.
+   * 
+   * @param id - ID de la categoría
+   */
+  borrarCat(idCategoria: any) {
+    let datos &#x3D; {
+      tipo: &quot;eliminarCategoria&quot;,
+      idCategoria: &#x60;${idCategoria}&#x60;
+    }
+    console.log(datos)
+    this.appService.postQuery(datos)
+      .subscribe(data &#x3D;&gt; {
+
+          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+            console.log(data) ;
+            window.location.reload();
+          } else {
+            console.log(data)
+
+          }
+        }
+        , async (errorServicio) &#x3D;&gt;
+        {
+          console.log(&#x27;he fallado&#x27;)
+          console.log(errorServicio);
+
+
+        });
+  }
+
+
+  /**
+   * Borra una subcategoría.
+   * 
+   * @param id - ID de la subcategoría
+   */
+  borrarSub(idSubcategoria: any) {
+    console.log(idSubcategoria)
+    let datos &#x3D; {
+      tipo: &quot;eliminarSubcategoria&quot;,
+      idSubcategoria: &#x60;${idSubcategoria}&#x60;
+    }
+    console.log(datos)
+    this.appService.postQuery(datos)
+      .subscribe(data &#x3D;&gt; {
+
+          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+            console.log(data) ;
+            window.location.reload();
+          } else {
+            console.log(data)
+          }
+        }
+        , async (errorServicio) &#x3D;&gt;
+        {
+          console.log(&#x27;he fallado&#x27;)
+          console.log(errorServicio);
+        });
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;!-- &lt;div class&#x3D;&quot;contenedor-categorias&quot;&gt;
-    &lt;select name&#x3D;&quot;categorias&quot; id&#x3D;&quot;iCategorias&quot; (change)&#x3D;&quot;listarSub()&quot;&gt;
-      &lt;option 
-      &lt;/option&gt;
-    &lt;/select&gt;
-    &lt;div class&#x3D;&quot;boton-categorias&quot;&gt;
-        &lt;button id&#x3D;&quot;catAdd&quot; (click)&#x3D;&quot;llamarPoppup()&quot;&gt;Añadir categoría&lt;/button&gt;
-        &lt;button id&#x3D;&quot;catOpt&quot;&gt;&lt;i class&#x3D;&quot;bi bi-caret-down-fill&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-        &lt;div class&#x3D;&quot;categorias-desplegable hidden&quot;&gt;
-            &lt;button &gt;Editar categoría&lt;/button&gt;
-            &lt;button&gt;Borrar categoría&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt; --&gt;
-&lt;div class&#x3D;&quot;contenedor-categorias&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;contenedor-categorias&quot;&gt;
     &lt;div class&#x3D;&quot;categoria&quot; *ngFor&#x3D;&quot;let categoria of categorias&quot;&gt;
         &lt;div class&#x3D;&quot;categoria-datos&quot;&gt;
             &lt;h2 class&#x3D;&quot;nombre&quot;&gt;{{categoria.nombre}}&lt;/h2&gt;
             &lt;div class&#x3D;&quot;iconos&quot;&gt;
-                &lt;button&gt;&lt;i class&#x3D;&quot;bi bi-pencil-fill&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-                &lt;button&gt;&lt;i class&#x3D;&quot;bi bi-trash-fill&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+               &lt;button (click)&#x3D;&quot;llamarFormularioCategoria(categoria.idCategoria)&quot;&gt; &lt;i class&#x3D;&quot;bi bi-pencil-fill&quot; &gt;&lt;/i&gt;&lt;/button&gt;
+              &lt;button (click)&#x3D;&quot;preguntaBorrado(categoria.idCategoria,&#x27;c&#x27;)&quot;&gt; &lt;i class&#x3D;&quot;bi bi-trash-fill&quot; &gt;&lt;/i&gt;&lt;/button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class&#x3D;&quot;subcategoria&quot;&gt;
-            &lt;h4&gt;Subcategorías&lt;/h4&gt;
-            &lt;div class&#x3D;&quot;iconos&quot;&gt;
-                &lt;button (click)&#x3D;&quot;editarSub()&quot;&gt;&lt;i class&#x3D;&quot;bi bi-pencil-fill&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-                &lt;button (click)&#x3D;&quot;borrarSub()&quot;&gt;&lt;i class&#x3D;&quot;bi bi-trash-fill&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-            &lt;/div&gt;
+        &lt;div *ngFor&#x3D;&quot;let subcategoria of subcategorias&quot;&gt;
+          &lt;div class&#x3D;&quot;subcategoria&quot;  *ngIf&#x3D;&quot;categoria.idCategoria &#x3D;&#x3D; subcategoria.idCategoria&quot;&gt;
+              &lt;h4&gt;{{subcategoria.nombre}}&lt;/h4&gt;
+              &lt;div class&#x3D;&quot;iconos&quot;&gt;
+                  &lt;button (click)&#x3D;&quot;llamarFormularioSubcategoria(categoria.idCategoria,subcategoria.idSubcategoria)&quot;&gt;&lt;i class&#x3D;&quot;bi bi-pencil-fill&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+                  &lt;button (click)&#x3D;&quot;preguntaBorrado(subcategoria.idSubcategoria,&#x27;s&#x27;)&quot;&gt;&lt;i class&#x3D;&quot;bi bi-trash-fill&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+              &lt;/div&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
-        &lt;button class&#x3D;&quot;add&quot;&gt;Añadir subcategoría&lt;/button&gt;
+        &lt;button class&#x3D;&quot;add&quot; (click)&#x3D;&quot;llamarFormularioSubcategoria(categoria.idCategoria,0)&quot;&gt;Añadir subcategoría&lt;/button&gt;
     &lt;/div&gt;
-    &lt;button class&#x3D;&quot;add&quot;&gt;Añadir categoría&lt;/button&gt;
-&lt;/div&gt;
-&lt;app-datos-categorias&gt;&lt;/app-datos-categorias&gt;</code></pre>
+    &lt;button class&#x3D;&quot;add&quot; (click)&#x3D;&quot;llamarFormularioCategoria(0)&quot;&gt;Añadir categoría&lt;/button&gt;
+&lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -732,6 +1092,17 @@ export class CategoriaComponent implements OnInit {
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
+}
+
+.contenedor-categorias .categoria .categoria-datos .nombre{
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.contenedor-categorias .iconos{
+    display: flex;
 }
 
 .contenedor-categorias .iconos button{
@@ -792,8 +1163,8 @@ export class CategoriaComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- <div class="contenedor-categorias">    <select name="categorias" id="iCategorias" (change)="listarSub()">      <option       </option>    </select>    <div class="boton-categorias">        <button id="catAdd" (click)="llamarPoppup()">Añadir categoría</button>        <button id="catOpt"><i class="bi bi-caret-down-fill"></i></button>        <div class="categorias-desplegable hidden">            <button >Editar categoría</button>            <button>Borrar categoría</button>        </div>    </div></div> --><div class="contenedor-categorias">    <div class="categoria" *ngFor="let categoria of categorias">        <div class="categoria-datos">            <h2 class="nombre">{{categoria.nombre}}</h2>            <div class="iconos">                <button><i class="bi bi-pencil-fill"></i></button>                <button><i class="bi bi-trash-fill"></i></button>            </div>        </div>        <div class="subcategoria">            <h4>Subcategorías</h4>            <div class="iconos">                <button (click)="editarSub()"><i class="bi bi-pencil-fill"></i></button>                <button (click)="borrarSub()"><i class="bi bi-trash-fill"></i></button>            </div>        </div>        <button class="add">Añadir subcategoría</button>    </div>    <button class="add">Añadir categoría</button></div><app-datos-categorias></app-datos-categorias></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+        var COMPONENT_TEMPLATE = '<div><div class="contenedor-categorias">    <div class="categoria" *ngFor="let categoria of categorias">        <div class="categoria-datos">            <h2 class="nombre">{{categoria.nombre}}</h2>            <div class="iconos">               <button (click)="llamarFormularioCategoria(categoria.idCategoria)"> <i class="bi bi-pencil-fill" ></i></button>              <button (click)="preguntaBorrado(categoria.idCategoria,\'c\')"> <i class="bi bi-trash-fill" ></i></button>            </div>        </div>        <div *ngFor="let subcategoria of subcategorias">          <div class="subcategoria"  *ngIf="categoria.idCategoria == subcategoria.idCategoria">              <h4>{{subcategoria.nombre}}</h4>              <div class="iconos">                  <button (click)="llamarFormularioSubcategoria(categoria.idCategoria,subcategoria.idSubcategoria)"><i class="bi bi-pencil-fill"></i></button>                  <button (click)="preguntaBorrado(subcategoria.idSubcategoria,\'s\')"><i class="bi bi-trash-fill"></i></button>              </div>          </div>        </div>        <button class="add" (click)="llamarFormularioSubcategoria(categoria.idCategoria,0)">Añadir subcategoría</button>    </div>    <button class="add" (click)="llamarFormularioCategoria(0)">Añadir categoría</button></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CategoriaComponent'};
 </script>

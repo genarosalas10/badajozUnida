@@ -1,27 +1,27 @@
 # BadajozUnida
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
+Proyecto que intenta construir una aplicación de caracter social :heart: e inclusivo :open_hands: que permita a gente migrante integrarse con la sociedad pacense mediante la organización de eventos multiculturales :iphone:.
 
-## Development server
+## Información técnica :white_check_mark:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Este proyecto está siendo construido con Angular para el frontend y PHP para el backend. Adicionalmente se está empleando Ionic para facilitar el porteo de la aplicación a Android e iOS. La versión de producción puede encontrarse en <a href="https://2daw.esvirgua.com/01/badajoz-unida">este enlace</a>.
 
-## Code scaffolding
+## Despliegue en entorno de desarrollo :computer:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<ul>
+    <li>Requerimientos:</li>
+    <ul>
+        <li>NodeJS</li>
+        <li>Node Package Manager (NPM)
+    </ul>
+    <li>Proceso:</li>
+    <ol>
+        <li>Clonamos el repositorio con <code>git clone</code>.</li>
+        <li>Ejecutamos el comando <code>npm install</code>.</li>
+        <li>Con el comando <code>ng serve --open</code> podremos probar la aplicación en el navegador.</li>
+    </ol>
+</ul>
 
-## Build
+## Sobre el proyecto :link:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Este proyecto utiliza una licencia <a href="./LICENSE">GPL-3.0 :page_facing_up:</a> y ha sido desarrollado por: Genaro Salas Galindo, Mario Pérez Pizarro y Jose Angel Fernandez Betancourt.

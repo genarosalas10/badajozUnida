@@ -726,7 +726,7 @@ export class AppService {
 
   getQuery(ruta:string):Observable&lt;any&gt;
   {
-    return this.http.get(this.URLBASE+ruta)
+    return this.http.get(this.URLBASE2+ruta)
   }
 
   getQuery2(body:any):Observable&lt;any&gt;
@@ -766,7 +766,7 @@ export class AppService {
         &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
       })
     }
-    return this.http.put(this.URLBASE,body, httpOptions)
+    return this.http.put(this.URLBASE2,body, httpOptions)
   }
 
 
@@ -775,7 +775,7 @@ export class AppService {
   deleteQuery(ruta:string):Observable&lt;any&gt;
   {
 
-    return this.http.delete(this.URLBASE+ruta)
+    return this.http.delete(this.URLBASE2+ruta)
   }
 
   //Metodo para la subida de archivos
@@ -783,7 +783,7 @@ export class AppService {
     const formData: FormData &#x3D; new FormData();
     formData.append(&#x27;files&#x27;, file);
 
-    const req &#x3D; new HttpRequest(&#x27;POST&#x27;, &#x60;${this.URLBASE}FicheroUsuario/subir&#x60;, formData, {
+    const req &#x3D; new HttpRequest(&#x27;POST&#x27;, &#x60;${this.URLBASE2}FicheroUsuario/subir&#x60;, formData, {
       reportProgress: true,
       responseType: &#x27;json&#x27;
     });
