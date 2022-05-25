@@ -24,6 +24,7 @@ export class DatosUbicacionesComponent implements OnInit {
         this.sacarUbicacion(parametros['idUbicacion']);
       }
     });
+
   }
 
   ngOnInit(): void {
@@ -34,7 +35,7 @@ export class DatosUbicacionesComponent implements OnInit {
     this.forma = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
       descripcion: ['', [Validators.required, Validators.minLength(10)]],
-      idCategoria: ['0', [Validators.minLength(1)]]
+      idUbicacion: ['0', [Validators.minLength(1)]]
 
     })
   }
@@ -53,7 +54,7 @@ export class DatosUbicacionesComponent implements OnInit {
       return;
     }
     console.log(forma.value)
-    if (forma.value.idCategoria == 0) {
+    if (forma.value.idUbicacion == 0) {
       this.anadirUbicacion(forma);
     } else {
       this.modificarUbicacion(forma);
@@ -79,7 +80,7 @@ export class DatosUbicacionesComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
           console.log('data')
-          this.router.navigate(['/categoria']);
+          this.router.navigate(['/ubicacion']);
           //this.borrarForm();
 
         } else {
@@ -110,7 +111,7 @@ export class DatosUbicacionesComponent implements OnInit {
           console.log(data);
           if (data['status'] != 'error') {
             console.log('data')
-            this.router.navigate(['/categoria']);
+            this.router.navigate(['/ubicacion']);
             //this.borrarForm();
 
           } else {
@@ -136,11 +137,11 @@ export class DatosUbicacionesComponent implements OnInit {
 
   sacarUbicacion(idUbicacion:any) {
     let datos = {
-    tipo : 'sacarUbicacionaId',
-      idCategoria : idUbicacion
+    tipo : 'sacarUbicacionId',
+      idUbicacion : idUbicacion
     }
     console.log(JSON.stringify(datos));
-  
+
     this.appService.postQuery(datos)
       .subscribe(data => {
           console.log(data)
@@ -168,6 +169,7 @@ export class DatosUbicacionesComponent implements OnInit {
     this.forma.reset({
       nombre:this.ubicacion.nombre,
       descripcion: this.ubicacion.descripcion,
+      idUbicacion: this.idUbicacion
     });
 
 
