@@ -55,7 +55,7 @@
     cursor: pointer;
 }
 
-.contenedor-ubicaciones .add{
+.add{
     background-color: var(--primary-color);
     border: none;
     padding: 1.2rem 1rem;
@@ -67,7 +67,7 @@
     margin: 1rem 0;
 }
 
-.contenedor-ubicaciones>.add{
+.add{
     width: fit-content;
     height: fit-content;
 }

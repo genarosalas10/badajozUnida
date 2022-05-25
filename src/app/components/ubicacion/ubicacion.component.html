@@ -1,6 +1,6 @@
 <p><input #nombreUbicacion type="text" (keyup)="buscar(nombreUbicacion.value)" placeholder="Buscar ubicaciones..." /></p>
-<div class="contenedor-ubicaciones">
-    <div class="ubicacion" *ngFor="let ubicacion of ubicaciones">
+<div class="contenedor-ubicaciones" *ngIf="mostrar">
+    <div class="ubicacion"  *ngFor="let ubicacion of ubicaciones" >
         <div class="ubicacion-datos">
             <h2 class="nombre" title={{ubicacion.nombre}}>{{ubicacion.nombre}}</h2>
             <div class="iconos">
@@ -10,5 +10,6 @@
         </div>
         <div class="descripcion">{{ubicacion.descripcion}}</div>
     </div>
-    <button class="add" (click)="llamarFormulario(0)">Añadir ubicación</button>
 </div>
+<p *ngIf="!mostrar">No se han encontrado resultados</p>
+<button class="add" (click)="llamarFormulario(0)">Añadir ubicación</button>
