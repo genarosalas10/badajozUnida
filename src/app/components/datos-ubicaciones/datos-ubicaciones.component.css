@@ -1,5 +1,5 @@
 .popup-form-container{
-    background-image: url('/assets/annie-spratt-AFB6S2kibuk-unsplash.jpg');
+    background-image: url('^assets/annie-spratt-AFB6S2kibuk-unsplash.jpg');
     background-position: center;
     background-size: cover;
     width: 100vw;
