@@ -168,7 +168,7 @@ export class CategoriaComponent implements OnInit {
       (data) => {
         if (data['status'] != 'error') {
           console.log(data);
-          window.location.reload();
+          this.listadoCategoria();
         } else {
           console.log(data);
         }
@@ -196,7 +196,7 @@ export class CategoriaComponent implements OnInit {
       (data) => {
         if (data['status'] != 'error') {
           console.log(data);
-          window.location.reload();
+          this.listadoSubcategoria();
         } else {
           console.log(data);
         }

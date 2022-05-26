@@ -72,7 +72,7 @@ export class UbicacionComponent implements OnInit {
 
   /**
    * Lista ubicaciones que contengan un nombre específico.
-   * 
+   *
    * @param nombreUbicacion - Nombre de la ubicación
    */
   listadoUbicacionPorNombre(nombreUbicacion: any) {
@@ -104,7 +104,7 @@ export class UbicacionComponent implements OnInit {
 
   /**
    * Llama al formulario que gestiona las ubicaciones.
-   * 
+   *
    * @param idUbicacion - ID de la ubicación
    */
   llamarFormulario(idUbicacion: number) {
@@ -114,7 +114,7 @@ export class UbicacionComponent implements OnInit {
 
   /**
    * Valida si quieres borrar una ubicación.
-   * 
+   *
    * @param id - ID de la ubicación
    */
   preguntaBorrado(id: any) {
@@ -127,7 +127,7 @@ export class UbicacionComponent implements OnInit {
 
    /**
    * Borrar una ubicación específica.
-   * 
+   *
    * @param id - ID de la ubicación
    */
   borrarUbicacion(idUbicacion: any) {
@@ -141,7 +141,7 @@ export class UbicacionComponent implements OnInit {
       (data) => {
         if (data['status'] != 'error') {
           console.log(data);
-          window.location.reload();
+          this.listadoUbicacion();
         } else {
           console.log(data);
         }
