@@ -92,6 +92,12 @@ class C_Usuario extends modelo {
       }
     }
 
+  /**
+   * Se encarga de listar los usuarios
+   *
+   * @return string|array Devolverá un mensaje de error o la lista con todos los usuarios
+   */
+
     public function listado()
     {
       $result = $this->obtenerListado();
@@ -120,7 +126,7 @@ class C_Usuario extends modelo {
     */
 
     /**
-     * Elimina a un usuario de la BD.
+     * Elimina a un usuario.
      *
      * @param array $datos - Datos del usuario
      * @return string - Mensaje de éxito o error
@@ -157,10 +163,15 @@ class C_Usuario extends modelo {
         }
     }
 
+  /**
+   * Obtiene los datos de un usuario para gestionar el inicio de sesión.
+   *
+   * @param string $email
+   * @return array|int - Datos del usuario o valor vacío según encuentre o no al usuario
+   */
   private function obtenerDatosUsuarioLoginConsultaPreparada($email){
     $query = "SELECT idUsuario,nombre,email,password,tipo FROM Usuario WHERE email =?";
     $datos = parent::nonQueryConsultaPreparada($query,$email);
-    return $datos;
     if(isset($datos[0]["email"])){
 
       return $datos;
@@ -194,7 +205,7 @@ class C_Usuario extends modelo {
     }
 
   /**
-   * Lista a todos los usuarios.
+   * Saca una lista  con todos los usuarios de la BD.
    *
    * @return array|int - Datos de los usuarios o error
    */
@@ -210,7 +221,7 @@ class C_Usuario extends modelo {
   }
 
   /**
-   * Obtiene los datos de un usuario específico.
+   * Obtiene los datos de un usuario específico de la BD.
    *
    * @param int $idUsuario - ID del usuario
    * @return array|int - Datos del usuario o error
@@ -228,7 +239,7 @@ class C_Usuario extends modelo {
   }
 
   /**
-   * Borra un usuario específico.
+   * Borra un usuario específico de la BD.
    *
    * @param int $idUsuario
    * @return int - Éxito o error
