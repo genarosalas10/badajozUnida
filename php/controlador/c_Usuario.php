@@ -26,7 +26,7 @@ class C_Usuario extends modelo {
             $email = $datos['email'];
             $password = $datos['password'];
             $password =parent::encriptar($password);
-            $datos = $this->obtenerDatosUsuarioLogin($email);
+            $datos = $this->obtenerDatosUsuarioLoginConsultaPreparada($email);
             if($datos){
                 //verificar si la contraseña es correcta
                 if($password==$datos[0]['password']){
@@ -156,6 +156,19 @@ class C_Usuario extends modelo {
             return 0;
         }
     }
+
+  private function obtenerDatosUsuarioLoginConsultaPreparada($email){
+    $query = "SELECT idUsuario,nombre,email,password,tipo FROM Usuario WHERE email =?";
+    $datos = parent::nonQueryConsultaPreparada($query,$email);
+    return $datos;
+    if(isset($datos[0]["email"])){
+
+      return $datos;
+    }else{
+
+      return 0;
+    }
+  }
 
     /**
      * Completa el proceso de registro.

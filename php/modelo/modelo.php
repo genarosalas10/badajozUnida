@@ -48,6 +48,17 @@ class modelo
             return $resultado;
         }
     }
+    public function nonQueryConsultaPreparada($query, $valor){
+      $results=$this->conexion->consultaPreparada($query,"s",$valor);
+      if(!$results){
+        return 'Fallo la consulta preparada';
+      }
+      $resultArray = array();
+      foreach ($results as $key){
+        $resultArray[] = $key;
+      }
+      return $this->convertirUTF8($resultArray);
+    }
     //encriptar
     protected function encriptar($string){
         return md5($string);

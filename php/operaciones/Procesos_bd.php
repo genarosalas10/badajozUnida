@@ -4,10 +4,10 @@ mysqli_report(MYSQLI_REPORT_STRICT); //Desactivar reportes de mysqli
 
 class Procesos_bd{
 
-
     function __construct() {
 
         $this->mysqli = new mysqli(SERVIDOR,USUARIO,PASSWORD,DB);
+        $this->sentencia="";
     }
     public function consulta($consulta){
       try {
@@ -19,25 +19,27 @@ class Procesos_bd{
     public function extraerFila($resultado){
         return $this->fila =$resultado->fetch_array();
     }
-    public function prepareConsulta($consulta){
+    public function consultaPreparada($consulta,$tipo,$email){
 
-        return $this->sentencia=$this->mysqli->prepare($consulta);
+
+      if(!$sentencia=$this->mysqli->prepare($consulta)){
+        return 0;
+      }
+      if(!$sentencia->bind_param("$tipo", $email)){
+        return 0;
+      }
+
+      $result=$sentencia->execute();
+      if($result){
+        return  $sentencia->get_result();
+      }
+      return 0;
 
     }
-    /*
-  public function vincularValoresConsulta($valores,$tipo){
-    for (j=0;j< sizeof($valores);j+1){
-      $this->sentencia>bind_param("i", $id);
-    }
-    return $this->sentencia>bind_param("i", $id);
 
-  }
-    */
-  public function realizarConsulta($consulta){
 
-    return $this->sentencia=$this->mysqli->prepare($consulta);
 
-  }
+
     public function filasAfectadas(){
          return $this->mysqli->affected_rows;
 
