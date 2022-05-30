@@ -5,7 +5,11 @@ require_once "../modelo/modelo.php";
 
 class C_Categoria extends modelo
 {
-
+/*
+ * Metodo encargado de devolver la lista con todos las categorias
+ *
+ * @return string|array - Puede devolver diferentes mensajes de error o los datos dependiendo de si hay o no categorias
+ */
   public function listadoCategoria()
   {
     $result = $this->obtenerListadoCategoria();
@@ -316,7 +320,5 @@ class C_Categoria extends modelo
       return 0;
     }
   }
-
-
 
 }
