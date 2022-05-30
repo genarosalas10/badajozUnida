@@ -154,11 +154,9 @@ class C_Usuario extends modelo {
   public function cambiarPermisosUsuarios($datos){
 
     if(isset($datos['idUsuario']) && isset($datos['tipoUsuario']) ){
-      echo $datos['tipoUsuario'];
       if($datos['tipoUsuario']=='u'){
         $result = $this->modificarTipoUsuario($datos['idUsuario'],'a');
       }elseif ($datos['tipoUsuario']=='a'){
-        echo 'hola';
         $result = $this->modificarTipoUsuario($datos['idUsuario'],'u');
       }
       if($result!=0){
@@ -292,10 +290,8 @@ class C_Usuario extends modelo {
     $query="UPDATE Usuario SET tipo = '$tipo'
     WHERE idUsuario = '$idUsuario';";
     $datos = parent::nonQuery($query);
-    echo $query;
-    echo $datos;
     if($datos!=0){
-      return 1;
+      return 'El tipo de usuario ha sido modificado on exito.';
     }else{
       return 0;
     }

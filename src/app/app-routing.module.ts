@@ -17,6 +17,7 @@ const routes: Routes = [
   {path: "formularioCategorias/:id", component: DatosCategoriasComponent},
   {path: "formularioSubcategorias/:idCategoria/:idSubcategoria", component: DatosSubcategoriasComponent},
   {path: "ubicacion", component: MenuComponent},
+  {path: "usuario", component: MenuComponent},
   {path: "formularioUbicacion/:idUbicacion", component: DatosUbicacionesComponent},
 
   {path: "**", redirectTo: "/home", pathMatch: "full"} //Temporal

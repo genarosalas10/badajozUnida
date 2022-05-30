@@ -1,1 +1,22 @@
-<p>usuarios works!</p>
+<div class="contenedor-usuarios">
+  <input type="text" name="" id="" placeholder="Buscar usuario..." />
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>NOMBRE</th>
+      <th>CORREO</th>
+      <th>GESTIÓN</th>
+    </tr>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{usuario.idUsuario}}</td>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.email}}</td>
+      <td>
+        <i class="bi bi-lock-fill" *ngIf="usuario.tipo=='u'" (click)="preguntaCambiar(usuario.idUsuario,usuario.tipo)"></i>
+        <i class="bi bi-unlock-fill" *ngIf="usuario.tipo=='a'" (click)="preguntaCambiar(usuario.idUsuario,usuario.tipo)"></i>
+        <i class="bi bi-trash-fill" (click)="preguntaBorrado(usuario.idUsuario)"></i>
+      </td>
+    </tr>
+  </table>
+</div>
+<app-modal></app-modal>

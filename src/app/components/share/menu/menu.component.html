@@ -14,6 +14,7 @@
             <app-home *ngIf="router.url==='/home'"></app-home>
             <app-categoria *ngIf="router.url==='/categoria'"></app-categoria>
            <app-ubicacion *ngIf="router.url==='/ubicacion'"></app-ubicacion>
+          <app-usuarios *ngIf="router.url==='/usuario'"></app-usuarios>
          </main> <!-- Aquí se mostrará el componente que toque -->
     </div>
     <div class="menu-container">
@@ -58,9 +59,11 @@
               </a>
             </div>
             <div class="icono" *ngIf="comprobarTipo()">
+              <a routerLink="/usuario">
                 <i class="bi bi-people-fill" [ngClass]="{'active' : router.url==='/usuario'}">
                     <span>USUARIOS</span>
                 </i>
+              </a>
             </div>
         </aside>
     </div>
