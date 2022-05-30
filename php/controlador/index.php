@@ -88,6 +88,18 @@ switch($datos['tipo']){
     echo json_encode($datosArray);
     break;
 
+  case 'cambiarPermisosUsuarios':
+    $datosArray = $c_Usuario->cambiarPermisosUsuarios($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+
   //Relacionadas con Categorias
   case 'crearCategoria':
     $datosArray = $c_Categoria->crearCategoria($datos);

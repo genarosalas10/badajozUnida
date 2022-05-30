@@ -145,7 +145,34 @@ class C_Usuario extends modelo {
       }
     }
 
-    /**
+  /**
+   * Da permiso de administrador al usuario.
+   *
+   * @param array $datos - Datos del usuario
+   * @return string - Mensaje de éxito o error
+   */
+  public function cambiarPermisosUsuarios($datos){
+
+    if(isset($datos['idUsuario']) && isset($datos['tipoUsuario']) ){
+      echo $datos['tipoUsuario'];
+      if($datos['tipoUsuario']=='u'){
+        $result = $this->modificarTipoUsuario($datos['idUsuario'],'a');
+      }elseif ($datos['tipoUsuario']=='a'){
+        echo 'hola';
+        $result = $this->modificarTipoUsuario($datos['idUsuario'],'u');
+      }
+      if($result!=0){
+        return 'Se han cambiado los permisos con exito';
+      }else{
+        return $this->_respuestas->error_200("No se ha podido realizar el cambio de tipo de usuario.");
+      }
+    }else{
+      return $this->_respuestas->error_400();
+    }
+  }
+
+
+  /**
      * Obtiene los datos de un usuario para gestionar el inicio de sesión.
      *
      * @param string $email
@@ -247,6 +274,26 @@ class C_Usuario extends modelo {
   private function realizarEliminacion($idUsuario){
     $query="DELETE FROM Usuario WHERE idUsuario ='$idUsuario';";
     $datos = parent::nonQuery($query);
+    if($datos!=0){
+      return 1;
+    }else{
+      return 0;
+    }
+
+  }
+
+  /**
+   * Cambiar el tipo de un usuario en concreto en la BD.
+   *
+   * @param int $idUsuario
+   * @return int - Éxito o error
+   */
+  private function modificarTipoUsuario($idUsuario,$tipo){
+    $query="UPDATE Usuario SET tipo = '$tipo'
+    WHERE idUsuario = '$idUsuario';";
+    $datos = parent::nonQuery($query);
+    echo $query;
+    echo $datos;
     if($datos!=0){
       return 1;
     }else{
