@@ -134,7 +134,7 @@ export class UbicacionComponent implements OnInit {
     console.log('Borro');
     let datos = {
       tipo: 'eliminarUbicacion',
-      idCategoria: `${idUbicacion}`,
+      idUbicacion: `${idUbicacion}`,
     };
     console.log(datos);
     this.appService.postQuery(datos).subscribe(
