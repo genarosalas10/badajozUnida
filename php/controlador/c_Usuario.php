@@ -146,6 +146,28 @@ class C_Usuario extends modelo {
     }
 
   /**
+   * Para buscar usuarios por el nombre
+   * @param $datos
+   * @return array|int
+   */
+  public function listarUsuariosByNombre($datos)
+  {
+    if(isset($datos['nombre'])){
+
+      $result = $this->obtenerListadUsuarioByNombre($datos['nombre']);
+      if ($result != 0) {
+        return $result;
+      } else {
+        return $this->_respuestas->error_200("No hay coincidencias con ningún nombre de usuario");
+      }
+    }
+    else{
+      return $this->_respuestas->error_400();
+    }
+
+  }
+
+  /**
    * Da permiso de administrador al usuario.
    *
    * @param array $datos - Datos del usuario
@@ -166,6 +188,22 @@ class C_Usuario extends modelo {
       }
     }else{
       return $this->_respuestas->error_400();
+    }
+  }
+
+  /**
+   * Obtiene un listado con los usuarios que tengan coincidencias en el nombre
+   * @param $datos
+   * @return array|int
+   */
+  public function obtenerListadUsuarioByNombre($nombreUsuario)
+  {
+    $query = "SELECT idUsuario,nombre,email,tipo FROM Usuario WHERE replace(lower(nombre),' ','') like replace(lower('%$nombreUsuario%'),' ','');";
+    $datos = parent::obtenerDatos($query);
+    if(isset($datos[0]["idUsuario"])){
+      return $datos;
+    }else{
+      return 0;
     }
   }
 
