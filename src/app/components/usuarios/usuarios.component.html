@@ -1,6 +1,7 @@
-<div class="contenedor-usuarios">
-  <input type="text" name="" id="" placeholder="Buscar usuario..." />
-  <table>
+<p></p>
+<div class="contenedor-usuarios " >
+  <input #nombreUsuario type="text" name="" id="" placeholder="Buscar usuario..." (keyup)="buscar(nombreUsuario.value)"/>
+  <table *ngIf="mostrar">
     <tr>
       <th>ID</th>
       <th>NOMBRE</th>
@@ -18,5 +19,6 @@
       </td>
     </tr>
   </table>
+  <p *ngIf="!mostrar">No se han encontrado resultados</p>
 </div>
 <app-modal></app-modal>

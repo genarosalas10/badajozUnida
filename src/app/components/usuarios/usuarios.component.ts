@@ -12,6 +12,7 @@ import { ModalComponent } from '../modal/modal.component';
 export class UsuariosComponent implements OnInit {
   usuarios:any
   modal=new ModalComponent()
+  mostrar=true
   constructor(private formBuilder: FormBuilder,
               private appService: AppService,
               private router: Router) {
@@ -34,6 +35,7 @@ export class UsuariosComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
           this.usuarios = data;
+          this.mostrar = true;
         } else {
           console.log(data);
         }
@@ -86,10 +88,10 @@ export class UsuariosComponent implements OnInit {
       }
     );
   }
-  
+
   /**
    * Valida si quieres cambiar el tipo de usuario.
-   * 
+   *
    * @param tipo - Tipo del usuario
    */
   preguntaCambiar(idUsuario:any,tipo:string){
@@ -99,7 +101,7 @@ export class UsuariosComponent implements OnInit {
         this.cambiarTipo(idUsuario,tipo);
       }else{
         console.log(`Cambio no realizado`);
-        
+
       }
     }else {
       if(confirm('¿Desea dar permisos de administrador?')){
@@ -107,15 +109,15 @@ export class UsuariosComponent implements OnInit {
         this.cambiarTipo(idUsuario,tipo);
       }else{
         console.log(`Cambio no realizado`);
-        
+
       }
     }
-   
+
   }
-  
+
   /**
    * Cambia el tipo de un usuario.
-   * 
+   *
    * @param idUsuario - ID del usuario
    */
   cambiarTipo(idUsuario: any, tipo:any) {
@@ -123,7 +125,7 @@ export class UsuariosComponent implements OnInit {
     let datos = {
       tipo: 'cambiarPermisosUsuarios',
       idUsuario: idUsuario,
-      tipoUsuario: tipo  
+      tipoUsuario: tipo
     };
     console.log(datos);
     this.appService.postQuery(datos).subscribe(
@@ -133,6 +135,49 @@ export class UsuariosComponent implements OnInit {
           this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoUsuario();
         } else {
+          console.log(data);
+        }
+      },
+      async (errorServicio) => {
+        console.log('he fallado');
+        console.log(errorServicio);
+      }
+    );
+  }
+
+  /**
+   * Permite filtrar usuarios.
+   *
+   * @param nombreUbicacion - Nombre de la ubicación
+   */
+  buscar(nombreUbicacion: any) {
+    //nombreUbicacion=nombreUbicacion.trim();
+
+    nombreUbicacion = nombreUbicacion.toLowerCase().replace(/\s/g, '');
+    console.log(nombreUbicacion);
+    if (nombreUbicacion == '') {
+      this.listadoUsuario();
+    } else {
+      this.listadoUsuarioPorNombre(nombreUbicacion);
+    }
+  }
+
+  listadoUsuarioPorNombre(nombreUsuario: any) {
+    let datos = {
+      tipo: 'listarUsuariosByNombre',
+      nombre: nombreUsuario,
+    };
+
+    this.appService.postQuery(datos).subscribe(
+      (data) => {
+        console.log(data);
+        if (data['status'] != 'error') {
+          this.mostrar = true;
+          this.usuarios = data;
+        } else {
+          if (data['result']['error_id'] == '200') {
+            this.mostrar = false;
+          }
           console.log(data);
         }
       },

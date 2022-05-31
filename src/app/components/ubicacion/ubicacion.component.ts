@@ -65,7 +65,6 @@ export class UbicacionComponent implements OnInit {
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.toast=true;
       }
     );
   }
@@ -97,7 +96,6 @@ export class UbicacionComponent implements OnInit {
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.toast=true;
       }
     );
   }
