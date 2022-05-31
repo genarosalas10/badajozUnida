@@ -9,7 +9,7 @@ class Respuestas
 
   /**
    * Para devolver un error 405
-   * @return array devuelve el número de error y un mensaje de error
+   * @return array - devuelve el número de error y un mensaje de error
    */
     public function error_405(){
         $this->response['status'] = "error";
@@ -21,7 +21,7 @@ class Respuestas
 
   /**
    * Para devolver un error 200
-   * @param $valor || Puede recibir un mensaje especifico
+   * @param $valor - Puede recibir un mensaje especifico
    * @return array devuelve el número de error y un mensaje de error
    */
     public function error_200($valor = "Datos incorrectos"){
@@ -46,7 +46,7 @@ class Respuestas
 
   /**
    * Para devolver un error 500
-   * @param $valor ||  puede recibir un mensaje especifico
+   * @param $valor -  puede recibir un mensaje especifico
    * @return array devuelve el número de error y un mensaje de error
    */
     public function error_500($valor = "Error interno en el servidor"){
