@@ -3,12 +3,15 @@
 require_once "../modelo/Respuestas.php";
 require_once "../modelo/modelo.php";
 
+/**
+ * Controlador de categorías
+ */
 class C_Categoria extends modelo
 {
 /*
- * Metodo encargado de devolver la lista con todos las categorias
+ * Método encargado de devolver la lista con todos las categorías
  *
- * @return string|array - Puede devolver diferentes mensajes de error o los datos dependiendo de si hay o no categorias
+ * @return string|array - Puede devolver diferentes mensajes de error o los datos dependiendo de si hay o no categorías
  */
   public function listadoCategoria()
   {
@@ -20,6 +23,11 @@ class C_Categoria extends modelo
     }
   }
 
+  /**
+   * Método encargado de crear categorías
+   * @param $datos
+   * @return array|int|string -- Puede devolver diferentes mensajes de error o un mensaje de éxito
+   */
   public function crearCategoria($datos)
   {
     //comprobar si recibe todos los campos necesarios
