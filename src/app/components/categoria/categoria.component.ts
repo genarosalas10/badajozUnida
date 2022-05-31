@@ -168,6 +168,7 @@ export class CategoriaComponent implements OnInit {
       (data) => {
         if (data['status'] != 'error') {
           console.log(data);
+          this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoCategoria();
         } else {
           console.log(data);
@@ -196,6 +197,7 @@ export class CategoriaComponent implements OnInit {
       (data) => {
         if (data['status'] != 'error') {
           console.log(data);
+          this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoSubcategoria();
         } else {
           console.log(data);
