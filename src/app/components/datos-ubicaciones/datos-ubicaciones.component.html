@@ -5,7 +5,7 @@
       <p *ngIf="!this.validar('nombre')" class="error">Nombre muy corto.</p>
       <label>Direccion:</label><br/>
       <textarea formControlName="direccion"></textarea><br/>
-      <p *ngIf="!this.validar('descripcion')" class="error">Descripción muy corta.</p>
+      <p *ngIf="!this.validar('direccion')" class="error">Descripción muy corta.</p>
       <input type="hidden" formControlName="idUbicacion" />
       <input type="submit" value="Guardar" />
       <span (click)="volver()">Volver</span><br/>
