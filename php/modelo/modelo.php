@@ -5,7 +5,7 @@ require_once "Respuestas.php";
 
 /**
  * La clase modelo
- * Se encarga de llamar a porcesos_bd.php para que haga lo relacionado con la base de datos
+ * Se encarga de llamar a procesos_bd.php para que haga lo relacionado con la base de datos
  */
 class modelo
 {
