@@ -107,23 +107,22 @@ class C_Usuario extends modelo {
         return $this->_respuestas->error_200("No hay usuarios");
       }
     }
-    /*
+
+  /**
+   * Método para modificar los datos del usuario
+   * @param $datos
+   * @return array|int|string
+   */
     public function modificarPerfilUsuario($datos){
       //comprobar si recibe todos los campos necesarios
-      if(!isset($datos['nombre']) || !isset($datos['apellidos']) || !isset($datos['email'])  ||!isset($datos['fechaNacimiento']) ){
+      if(!isset($datos['nombre']) || !isset($datos['apellidos']) || !isset($datos['email']) || !isset($datos['idUsuario']) ){
         //error con los campos
         return $this->_respuestas->error_400();
       }else{
+            return $this->realizarModificacion($datos);
 
-          if($this->validarCampos($datos)){
-            $datos['password'] = parent::encriptar($datos['password']);
-            return $this->realizarRegistro($datos);
-          }else{
-            return $this->_respuestas->error_200("Los campos son incorrectos.");
-          }
       }
     }
-    */
 
     /**
      * Elimina a un usuario.
@@ -315,7 +314,32 @@ class C_Usuario extends modelo {
     }else{
       return 0;
     }
+  }
 
+  /**
+   * Para realizar la modificación de un usuario en la bd
+   * @param $datos
+   * @return array|int Devuelve un mensaje de error si falla y un 1 si es correcto
+   */
+  private function realizarModificacion($datos)
+  {
+    $query = "UPDATE Usuario SET nombre = '".$datos['nombre']."', apellidos = '".$datos['apellidos']."', email = '".$datos['email']."'
+    WHERE idUsuario = '".$datos['idUsuario']."';";
+    $datos = parent::nonQuery($query);
+    if($datos>0){
+      return "Se han modificado los datos con éxito";
+    }else{
+      $error=parent::errorId();
+      if($error==0){
+        return $this->_respuestas->error_200("No has realizado ninguna modificación en tus datos.");
+      }
+      if($error==1062){
+
+        return $this->_respuestas->error_200("El correo ya existe.");
+      }else{
+        return $this->_respuestas->error_200("No se pudo realizar la modificación.");
+      }
+    }
   }
 
   /**
@@ -352,5 +376,6 @@ class C_Usuario extends modelo {
     }
     return true;
   }
+
 }
 
