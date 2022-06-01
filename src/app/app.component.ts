@@ -10,7 +10,7 @@ import {UsuarioService} from "./services/usuario.service";
 export class AppComponent {
   title = 'badajozUnida';
   constructor(public router: Router,private usuarioService: UsuarioService) {
-    if(!usuarioService.idUsuario){
+    if(!usuarioService.idUsuario || !usuarioService.tipo){
       this.router.navigate(['login']);
     }
 
