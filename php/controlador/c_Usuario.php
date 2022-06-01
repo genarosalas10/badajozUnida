@@ -352,8 +352,8 @@ class C_Usuario extends modelo {
     $query="UPDATE Usuario SET tipo = '$tipo'
     WHERE idUsuario = '$idUsuario';";
     $datos = parent::nonQuery($query);
-    if($datos!=0){
-      return 'El tipo de usuario ha sido modificado on exito.';
+    if($datos>0){
+      return '1';
     }else{
       return 0;
     }
