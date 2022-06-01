@@ -1,8 +1,14 @@
 <?php
 
+/**
+ * Controlador de ubicaciones
+ */
 class C_Ubicacion extends modelo
 {
-
+  /** Método encargado de devolver la lista con todos las ubicaciones
+  *
+  * @return array - Puede devolver diferentes mensajes de error o los datos dependiendo de si hay o no hay ubicaciones
+  */
   public function listarUbicaciones()
   {
     $result = $this->obtenerListadoUbicaciones();
@@ -14,6 +20,11 @@ class C_Ubicacion extends modelo
   }
 
 
+  /**
+   * Método encargado de devolver la lista con todos las ubicaciones filtradas por el nombre introducido
+   * @param $datos
+   * @return array|int Puede devolver diferentes mensajes de error o los datos dependiendo de si hay o no ubicaciones
+   */
   public function listarUbicacionesPorNombre($datos)
   {
     if(isset($datos['nombre'])){
@@ -28,9 +39,13 @@ class C_Ubicacion extends modelo
     else{
       return $this->_respuestas->error_400();
     }
-
   }
 
+  /**
+   * Método encargado de crear ubicaciones
+   * @param $datos
+   * @return array|string -- Puede devolver diferentes mensajes de error o un mensaje de éxito
+   */
   public function crearUbicacion($datos)
   {
     //comprobar si recibe todos los campos necesarios
@@ -47,6 +62,12 @@ class C_Ubicacion extends modelo
     }
   }
 
+
+  /**
+   * Método encargado de eliminar una ubicación
+   * @param $datos
+   * @return array|string Puede devolver diferentes mensajes de error o un mensaje de éxito
+   */
   public function eliminarUbicacion($datos)
   {
     if(isset($datos['idUbicacion'])){
@@ -61,6 +82,11 @@ class C_Ubicacion extends modelo
     }
   }
 
+  /**
+   * Método para modificar una ubicación
+   * @param $datos
+   * @return array|int  Puede devolver diferentes mensajes de error o un mensaje de éxito
+   */
   public function modificarUbicacion($datos)
   {
     //comprobar si recibe todos los campos necesarios
@@ -73,6 +99,12 @@ class C_Ubicacion extends modelo
 
     }
   }
+
+  /**
+   * Método para sacar una ubicación con el id
+   * @param $datos
+   * @return array|string  Puede devolver diferentes mensajes de error o los datos de la ubicación
+   */
   public function sacarUbicacionId($datos)
   {
     if(isset($datos['idUbicacion'])){
@@ -89,6 +121,10 @@ class C_Ubicacion extends modelo
     }
   }
 
+  /**
+   * Para obtener el listado de ubicaciones de la bd
+   * @return array|int  Puede devolver 0 si falla o los datos de las ubicaciones
+   */
   private function obtenerListadoUbicaciones(){
     $query = "SELECT idUbicacion,nombre,descripcion FROM Ubicacion;";
     $datos = parent::obtenerDatos($query);
@@ -100,6 +136,10 @@ class C_Ubicacion extends modelo
     }
   }
 
+  /**
+   * Para obtener el listado de ubicaciones de la bd filtrados por el nombre introducido
+   * @return array|int  Puede devolver 0 si falla o los datos de las ubicaciones
+   */
   private function obtenerlistarUbicacionesPorNombre($nombreUbicacion)
   {
     $query = "SELECT idUbicacion,nombre,descripcion FROM Ubicacion WHERE replace(lower(nombre),' ','') like replace(lower('%$nombreUbicacion%'),' ','');";
@@ -112,7 +152,11 @@ class C_Ubicacion extends modelo
     }
   }
 
-
+  /**
+   * Para registrar una ubicación en la bd
+   * @param $datos
+   * @return array|int  Puede devolver diferentes mensajes de error o 1 si se ha creado con éxito
+   */
   private function realizarRegistroUbicacion($datos)
   {
     $query = "INSERT INTO Ubicacion (nombre, descripcion)
@@ -131,6 +175,11 @@ class C_Ubicacion extends modelo
     }
   }
 
+  /**
+   * Para eliminar una ubicación de la bd
+   * @param $idUbicacion
+   * @return int devuelve 0 si ha fallado y 1 si ha realizado con éxito
+   */
   private function realizarEliminacionUbicacion($idUbicacion){
     $query="DELETE FROM Ubicacion WHERE idUbicacion ='$idUbicacion';";
     $datos = parent::nonQuery($query);
@@ -141,6 +190,11 @@ class C_Ubicacion extends modelo
     }
   }
 
+  /**
+   * Para realizar una modificación de una ubicación en la bd
+   * @param $datos
+   * @return array|int
+   */
   private function realizarmodificacionUbicacion($datos)
   {
     $query = "UPDATE Ubicacion SET nombre = '".$datos['nombre']."', descripcion = '".$datos['descripcion']."'
@@ -159,7 +213,11 @@ class C_Ubicacion extends modelo
     }
   }
 
-
+  /**
+   * Para obtener los datos de una ubicación de la bd
+   * @param $idUbicacion
+   * @return array|int  Puede devuelve 0 si falla o los datos si se ha funcionado
+   */
   private function obtenerUbicacionId($idUbicacion)
   {
     $query = "SELECT idUbicacion,nombre,descripcion FROM Ubicacion WHERE idUbicacion ='$idUbicacion';";
