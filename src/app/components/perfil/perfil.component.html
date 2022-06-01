@@ -1,17 +1,17 @@
 <div class="contenedor-perfil">
   <h1>MI PERFIL</h1>
-  <form action="">
+  <form [formGroup]="forma" (ngSubmit)="guardar(forma)">
     <div class="input-group_">
-      <label for="">Nombre:</label>
-      <input type="text" name="" id="" />
+      <label for="iNombre">Nombre:</label>
+      <input type="text"  formControlName="nombre" maxlength="60" name="nombre" id="iNombre" />
     </div>
     <div class="input-group_">
       <label for="">Apellidos:</label>
-      <input type="text" name="" id="" />
+      <input type="text" formControlName="apellidos" maxlength="60" name="apellidos" id="iApellidos" />
     </div>
     <div class="input-group_">
       <label for="">Correo:</label>
-      <input type="email" name="" id="" />
+      <input type="email" formControlName="email" maxlength="100"  name="mail" id="iMail" placeholder="Correo Electrónico"/>
     </div>
     <div class="submit-container">
       <input type="submit" value="GUARDAR" />

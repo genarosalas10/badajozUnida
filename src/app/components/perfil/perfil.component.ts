@@ -82,7 +82,7 @@ export class PerfilComponent implements OnInit {
   cargarDatosFormulario() {
     this.forma.reset({
       nombre: this.usuario.nombre,
-      direccion: this.usuario.direccion,
+     apellidos: this.usuario.apellidos,
       email: this.usuario.email,
     });
   }
@@ -123,6 +123,7 @@ export class PerfilComponent implements OnInit {
   modificarUsuario(forma: FormGroup) {
     let datos = forma.value;
     datos.tipo = 'modificarPerfilUsuario';
+    datos.idUsuario = this.usuarioService.idUsuario;
     console.log(JSON.stringify(datos));
     this.appService.postQuery(datos).subscribe(
       (data) => {
