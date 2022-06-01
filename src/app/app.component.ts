@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {UsuarioService} from "./services/usuario.service";
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,8 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'badajozUnida';
-  constructor(public router: Router) {
-    if(!sessionStorage.getItem('id')){
+  constructor(public router: Router,private usuarioService: UsuarioService) {
+    if(!usuarioService.idUsuario){
       this.router.navigate(['login']);
     }
 
