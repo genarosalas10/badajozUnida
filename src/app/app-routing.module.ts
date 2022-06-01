@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: "registro", component: RegistroComponent},
   {path: "home", component: MenuComponent},
   {path: "categoria", component: MenuComponent},
+  {path: "perfil", component: MenuComponent},
   {path: "formularioCategorias/:id", component: DatosCategoriasComponent},
   {path: "formularioSubcategorias/:idCategoria/:idSubcategoria", component: DatosSubcategoriasComponent},
   {path: "ubicacion", component: MenuComponent},

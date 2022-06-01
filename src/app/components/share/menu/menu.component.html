@@ -15,6 +15,7 @@
             <app-categoria *ngIf="router.url==='/categoria'"></app-categoria>
            <app-ubicacion *ngIf="router.url==='/ubicacion'"></app-ubicacion>
           <app-usuarios *ngIf="router.url==='/usuario'"></app-usuarios>
+          <app-perfil *ngIf="router.url==='/perfil'"></app-perfil>
          </main> <!-- Aquí se mostrará el componente que toque -->
     </div>
     <div class="menu-container">
@@ -40,9 +41,11 @@
                 </i>
             </div>
             <div class="icono">
-                <i class="bi bi-person-circle">
+              <a routerLink="/perfil">
+                <i class="bi bi-person-circle" [ngClass]="{'active' : router.url==='/perfil'}">
                     <span>PERFIL</span>
                 </i>
+              </a>
             </div>
             <div class="icono" *ngIf="comprobarTipo()">
                 <a routerLink="/categoria">
