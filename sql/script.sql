@@ -36,7 +36,7 @@ CREATE TABLE Subcategoria(
 CREATE TABLE Ubicacion(
   idUbicacion tinyint unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   nombre varchar(100) NOT NULL UNIQUE,
-  descripcion varchar(200) NOT NULL
+  direccion varchar(200) NOT NULL
 );
 
 --Tabla Evento

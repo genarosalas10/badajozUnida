@@ -21,6 +21,6 @@ VALUES ('Isabel', 'Pérez','isa@gmail.com','d40c12d6df191a844185e1336569806f','1
  ('Juan', 'Pérez','juan@gmail.com','c3edace111ea076f93ee278cf30f006c','1987-01-01', 'u');
 
 
-INSERT INTO Ubicacion (nombre, descripcion)
-VALUES ('la granadilla', 'instalacion deportiva'),
-('la granja del cruce', 'instalacion deportiva');
+INSERT INTO Ubicacion (nombre, direccion)
+VALUES ('la granadilla', 'calle Augusto Vázquez'),
+('la granja del cruce', 'Corte de Pelea');
