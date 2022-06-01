@@ -47,7 +47,7 @@ export class DatosUbicacionesComponent implements OnInit {
   crearFormulario() {
     this.forma = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
-      descripcion: ['', [Validators.required, Validators.minLength(10)]],
+      direccion: ['', [Validators.required, Validators.minLength(10)]],
       idUbicacion: ['0', [Validators.minLength(1)]],
     });
   }
@@ -200,7 +200,7 @@ export class DatosUbicacionesComponent implements OnInit {
     //console.log(this.categoria.nombre)
     this.forma.reset({
       nombre: this.ubicacion.nombre,
-      descripcion: this.ubicacion.descripcion,
+      direccion: this.ubicacion.direccion,
       idUbicacion: this.idUbicacion,
     });
   }
