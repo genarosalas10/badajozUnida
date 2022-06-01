@@ -376,8 +376,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="161"
-                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:161</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="159"
+                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:159</a></div>
                 </td>
             </tr>
 
@@ -413,8 +413,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:33</a></div>
                 </td>
             </tr>
 
@@ -450,8 +450,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:42</a></div>
                 </td>
             </tr>
 
@@ -519,8 +519,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:98</a></div>
                 </td>
             </tr>
 
@@ -588,8 +588,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:29</a></div>
                 </td>
             </tr>
 
@@ -625,8 +625,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:132</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:133</a></div>
                 </td>
             </tr>
 
@@ -694,8 +694,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:60</a></div>
                 </td>
             </tr>
 
@@ -763,8 +763,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="127"
-                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:127</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">src/app/components/share/datos-categorias/datos-categorias.component.ts:129</a></div>
                 </td>
             </tr>
 
@@ -851,7 +851,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new ModalComponent</code>
+                        <i>Default value : </i><code>new ModalComponent()</code>
                     </td>
                 </tr>
                     <tr>
@@ -870,23 +870,28 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { FormBuilder, FormGroup, Validators } from &quot;@angular/forms&quot;;
-import { AppService } from &quot;../../../services/app.service&quot;;
-import {ActivatedRoute, Router} from &quot;@angular/router&quot;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { AppService } from &#x27;../../../services/app.service&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { ModalComponent } from &#x27;../../modal/modal.component&#x27;;
 
 @Component({
   selector: &#x27;app-datos-categorias&#x27;,
   templateUrl: &#x27;./datos-categorias.component.html&#x27;,
-  styleUrls: [&#x27;./datos-categorias.component.css&#x27;]
+  styleUrls: [&#x27;./datos-categorias.component.css&#x27;],
 })
 export class DatosCategoriasComponent implements OnInit {
   forma!: FormGroup;
-  modal&#x3D;new ModalComponent;
-  categoria:any;
-  constructor(private formBuilder: FormBuilder, private appService: AppService, private router: Router, private activatedRoute:ActivatedRoute ) {
-    this.activatedRoute.params.subscribe(parametros &#x3D;&gt; {
-      if(parametros[&#x27;id&#x27;]&gt;0){
+  modal &#x3D; new ModalComponent();
+  categoria: any;
+  constructor(
+    private formBuilder: FormBuilder,
+    private appService: AppService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.params.subscribe((parametros) &#x3D;&gt; {
+      if (parametros[&#x27;id&#x27;] &gt; 0) {
         this.sacarCategoria(parametros[&#x27;id&#x27;]);
       }
     });
@@ -900,31 +905,27 @@ export class DatosCategoriasComponent implements OnInit {
     this.forma &#x3D; this.formBuilder.group({
       nombre: [&#x27;&#x27;, [Validators.required, Validators.minLength(2)]],
       descripcion: [&#x27;&#x27;, [Validators.required, Validators.minLength(10)]],
-      idCategoria: [&#x27;0&#x27;, [Validators.minLength(1)]]
-
-    })
+      idCategoria: [&#x27;0&#x27;, [Validators.minLength(1)]],
+    });
   }
 
   //comprobar formulario
   guardar(forma: FormGroup) {
-
-    console.log(&#x27;guardarFormulario&#x27;)
+    console.log(&#x27;guardarFormulario&#x27;);
 
     if (forma.invalid || forma.pending) {
-      Object.values(forma.controls).forEach(control &#x3D;&gt; {
-        if (control instanceof FormGroup)
-          this.guardar(control);
+      Object.values(forma.controls).forEach((control) &#x3D;&gt; {
+        if (control instanceof FormGroup) this.guardar(control);
         control.markAsTouched();
-      })
+      });
       return;
     }
-    console.log(forma.value)
+    console.log(forma.value);
     if (forma.value.idCategoria &#x3D;&#x3D; 0) {
       this.anadirCategoria(forma);
     } else {
       this.modificarCategoria(forma);
     }
-
   }
 
   validar(campo1: string) {
@@ -932,114 +933,108 @@ export class DatosCategoriasComponent implements OnInit {
     return !(campo.invalid &amp;&amp; campo.touched);
   }
 
-
   //llamar a la api para crear categoria
   anadirCategoria(forma: any) {
-
-    let datos &#x3D; forma.value
+    let datos &#x3D; forma.value;
     datos.tipo &#x3D; &#x27;crearCategoria&#x27;;
     //console.log(JSON.stringify(datos));
 
-    this.appService.postQuery(datos)
-      .subscribe(data &#x3D;&gt; {
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
         console.log(data);
         if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
-          console.log(&#x27;data&#x27;)
+          console.log(&#x27;data&#x27;);
           this.router.navigate([&#x27;/categoria&#x27;]);
           //this.borrarForm();
-
         } else {
-          this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
-          console.log(data)
+          this.modal.generateModal(
+            &#x60;Algo salió mal&#x60;,
+            &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;,
+            &#x27;De acuerdo&#x27;,
+            &#x27;error&#x27;
+          );
+          console.log(data);
           //this.borrarForm();
         }
-
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+        //this.borrarForm();
       }
-        , async (errorServicio) &#x3D;&gt; {
-          console.log(&#x27;he fallado&#x27;)
-          console.log(errorServicio);
-          //this.borrarForm();
-
-
-        });
+    );
   }
 
   //llamar a la api para  modificar categoria
   modificarCategoria(forma: any) {
-
-    let datos &#x3D; forma.value
+    let datos &#x3D; forma.value;
     datos.tipo &#x3D; &#x27;modificarCategoria&#x27;;
     //console.log(JSON.stringify(datos));
 
-    this.appService.postQuery(datos)
-      .subscribe(data &#x3D;&gt; {
-          console.log(data);
-          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
-            console.log(&#x27;data&#x27;)
-            this.router.navigate([&#x27;/categoria&#x27;]);
-            //this.borrarForm();
-
-          } else {
-            this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
-            console.log(data)
-            //this.borrarForm();
-          }
-
-        }
-        , async (errorServicio) &#x3D;&gt; {
-          console.log(&#x27;he fallado&#x27;)
-          console.log(errorServicio);
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        console.log(data);
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          console.log(&#x27;data&#x27;);
+          this.router.navigate([&#x27;/categoria&#x27;]);
           //this.borrarForm();
-
-
-        });
+        } else {
+          this.modal.generateModal(
+            &#x60;Algo salió mal&#x60;,
+            &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;,
+            &#x27;De acuerdo&#x27;,
+            &#x27;error&#x27;
+          );
+          console.log(data);
+          //this.borrarForm();
+        }
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+        //this.borrarForm();
+      }
+    );
   }
 
-  volver(){
-    this.router.navigate([&#x27;categoria&#x27;])
+  volver() {
+    this.router.navigate([&#x27;categoria&#x27;]);
   }
 
-
-  sacarCategoria(idCategoria:any) {
+  sacarCategoria(idCategoria: any) {
     let datos &#x3D; {
-    tipo : &#x27;sacarCategoriaId&#x27;,
-      idCategoria : idCategoria
-    }
+      tipo: &#x27;sacarCategoriaId&#x27;,
+      idCategoria: idCategoria,
+    };
     console.log(JSON.stringify(datos));
     //this.cargarDatosFormulario(&#x27;Cargar1&#x27;,&#x27;cargar2&#x27;)
-    this.appService.postQuery(datos)
-      .subscribe(data &#x3D;&gt; {
-          console.log(data)
-          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
-            this.categoria&#x3D;data[0];
-            this.cargarDatosFormulario()
-            //console.log(this.categoria);
-          } else {
-            //this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
-            console.log(data)
-          }
-
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        console.log(data);
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          this.categoria &#x3D; data[0];
+          this.cargarDatosFormulario();
+          //console.log(this.categoria);
+        } else {
+          //this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
+          console.log(data);
         }
-        , async (errorServicio) &#x3D;&gt; {
-          console.log(&#x27;he fallado&#x27;)
-          console.log(errorServicio);
-          //this.toast&#x3D;true;
-
-
-        });
-
-}
-  cargarDatosFormulario()  {
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+        //this.toast&#x3D;true;
+      }
+    );
+  }
+  cargarDatosFormulario() {
     //console.log(this.categoria.nombre)
     this.forma.reset({
-      nombre:this.categoria.nombre,
+      nombre: this.categoria.nombre,
       descripcion: this.categoria.descripcion,
-      idCategoria: this.categoria.idCategoria
+      idCategoria: this.categoria.idCategoria,
     });
-
-
   }
-
 }
 </code></pre>
     </div>
@@ -1068,7 +1063,7 @@ export class DatosCategoriasComponent implements OnInit {
                     <code>./datos-categorias.component.css</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.popup-form-container{
-    background-image: url(&#x27;/assets/junior-0yyspQqVJ5A-unsplash.jpg&#x27;);
+    background-image: url(&#x27;^assets/junior-0yyspQqVJ5A-unsplash.jpg&#x27;);
     background-position: center;
     background-size: cover;
     width: 100vw;

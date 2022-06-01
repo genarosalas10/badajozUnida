@@ -208,8 +208,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">src/app/components/login/login.component.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/components/login/login.component.ts:75</a></div>
                 </td>
             </tr>
 
@@ -286,8 +286,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/components/login/login.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/components/login/login.component.ts:35</a></div>
                 </td>
             </tr>
 
@@ -325,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/app/components/login/login.component.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/components/login/login.component.ts:48</a></div>
                 </td>
             </tr>
 
@@ -406,8 +406,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">src/app/components/login/login.component.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">src/app/components/login/login.component.ts:115</a></div>
                 </td>
             </tr>
 
@@ -445,8 +445,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">src/app/components/login/login.component.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/components/login/login.component.ts:65</a></div>
                 </td>
             </tr>
 
@@ -551,12 +551,12 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new ModalComponent</code>
+                        <i>Default value : </i><code>new ModalComponent()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/login/login.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/login/login.component.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -570,24 +570,29 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import {FormBuilder, FormGroup, Validators} from &quot;@angular/forms&quot;;
-import {AppService} from &quot;../../services/app.service&quot;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { AppService } from &#x27;../../services/app.service&#x27;;
 import { ModalComponent } from &#x27;../modal/modal.component&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
-import {UsuarioService} from &quot;../../services/usuario.service&quot;;
+import { UsuarioService } from &#x27;../../services/usuario.service&#x27;;
 
 @Component({
   selector: &#x27;app-login&#x27;,
   templateUrl: &#x27;./login.component.html&#x27;,
-  styleUrls: [&#x27;./login.component.css&#x27;]
+  styleUrls: [&#x27;./login.component.css&#x27;],
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   /**
    * @ignore
    */
-  constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router, private usuarioService:UsuarioService) { }
-  modal&#x3D;new ModalComponent;
+  constructor(
+    private formBuilder: FormBuilder,
+    private appService: AppService,
+    private router: Router,
+    private usuarioService: UsuarioService
+  ) {}
+  modal &#x3D; new ModalComponent();
 
   /**
    * @ignore
@@ -600,10 +605,9 @@ export class LoginComponent implements OnInit {
    */
   crearFormulario() {
     this.loginForm &#x3D; this.formBuilder.group({
-      email:[&#x27;&#x27;,[Validators.required, Validators.email]],
-      password:[&#x27;&#x27;,[Validators.required, Validators.minLength(8)]]
-
-    })
+      email: [&#x27;&#x27;, [Validators.required, Validators.email]],
+      password: [&#x27;&#x27;, [Validators.required, Validators.minLength(8)]],
+    });
   }
 
   /**
@@ -612,19 +616,16 @@ export class LoginComponent implements OnInit {
    * @param forma - Campos del formulario
    * @returns - void
    */
-  guardar(forma: FormGroup){
-
+  guardar(forma: FormGroup) {
     if (forma.invalid || forma.pending) {
-      Object.values(forma.controls).forEach(control &#x3D;&gt; {
-        if (control instanceof FormGroup)
-          this.guardar(control);
+      Object.values(forma.controls).forEach((control) &#x3D;&gt; {
+        if (control instanceof FormGroup) this.guardar(control);
         control.markAsTouched();
-      })
+      });
       return;
     }
     this.ComprobarUsuario(forma);
     //this.forma.reset();
-
   }
 
   /**
@@ -632,7 +633,7 @@ export class LoginComponent implements OnInit {
    * @param campo1 - Valor del campo
    * @returns - Campo válido y no enfocado
    */
-  validar(campo1: string){
+  validar(campo1: string) {
     let campo: any &#x3D; this.loginForm.get(campo1);
     return !(campo.invalid &amp;&amp; campo.touched);
   }
@@ -642,52 +643,55 @@ export class LoginComponent implements OnInit {
    *
    * @param loginForm - Campos del formulario
    */
-  ComprobarUsuario(loginForm: FormGroup)
-  {
-    let datos&#x3D;loginForm.value
-    datos.tipo&#x3D;&#x27;login&#x27;;
+  ComprobarUsuario(loginForm: FormGroup) {
+    let datos &#x3D; loginForm.value;
+    datos.tipo &#x3D; &#x27;login&#x27;;
     //console.log(JSON.stringify(datos));
 
-    this.appService.postQuery(datos)
-      .subscribe(data &#x3D;&gt; {
-          console.log(data);
-          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
-            this.usuarioService.recogerUsuario(data[0][&#x27;idUsuario&#x27;],data[0][&#x27;tipo&#x27;])
-            sessionStorage.setItem(&#x27;idUsuario&#x27;, data[0][&#x27;idUsuario&#x27;]);
-            sessionStorage.setItem(&#x27;nombre&#x27;, data[0][&#x27;nombre&#x27;]);
-            sessionStorage.setItem(&#x27;tipo&#x27;, data[0][&#x27;tipo&#x27;]);
-            this.router.navigate([&#x27;home&#x27;]);
-          } else {
-            this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
-          }
-          /*
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        console.log(data);
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          this.usuarioService.recogerUsuario(
+            data[0][&#x27;idUsuario&#x27;],
+            data[0][&#x27;tipo&#x27;]
+          );
+          sessionStorage.setItem(&#x27;idUsuario&#x27;, data[0][&#x27;idUsuario&#x27;]);
+          sessionStorage.setItem(&#x27;nombre&#x27;, data[0][&#x27;nombre&#x27;]);
+          sessionStorage.setItem(&#x27;tipo&#x27;, data[0][&#x27;tipo&#x27;]);
+          this.router.navigate([&#x27;home&#x27;]);
+        } else {
+          this.modal.generateModal(
+            &#x60;Algo salió mal&#x60;,
+            &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;,
+            &#x27;De acuerdo&#x27;,
+            &#x27;error&#x27;
+          );
+        }
+        /*
            window.location.reload();
            */
-        }
-        , async (errorServicio) &#x3D;&gt;
-        {
-          console.log(&#x27;he fallado&#x27;)
-          console.log(errorServicio);
-          //this.toast&#x3D;true;
-
-
-        });
-
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+        //this.toast&#x3D;true;
+      }
+    );
   }
 
   /**
    * Permite visualizar tu contraseña.
    */
   showHide() {
-
     const input &#x3D; &lt;HTMLInputElement&gt;document.getElementById(&#x27;iPassword&#x27;);
-    const i &#x3D; &lt;HTMLInputElement&gt;document.getElementById(&quot;ieye&quot;);
-    if (input.type &#x3D;&#x3D;&#x3D; &quot;password&quot;) {
-      input.type &#x3D; &quot;text&quot;;
-      i.classList.replace(&quot;bi-eye-fill&quot;, &quot;bi-eye-slash-fill&quot;);
+    const i &#x3D; &lt;HTMLInputElement&gt;document.getElementById(&#x27;ieye&#x27;);
+    if (input.type &#x3D;&#x3D;&#x3D; &#x27;password&#x27;) {
+      input.type &#x3D; &#x27;text&#x27;;
+      i.classList.replace(&#x27;bi-eye-fill&#x27;, &#x27;bi-eye-slash-fill&#x27;);
     } else {
-      input.type &#x3D; &quot;password&quot;;
-      i.classList.replace(&quot;bi-eye-slash-fill&quot;, &quot;bi-eye-fill&quot;);
+      input.type &#x3D; &#x27;password&#x27;;
+      i.classList.replace(&#x27;bi-eye-slash-fill&#x27;, &#x27;bi-eye-fill&#x27;);
     }
   }
 }
@@ -697,7 +701,7 @@ export class LoginComponent implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;grid-form-container&quot;&gt;
   &lt;div class&#x3D;&quot;grid-form-image&quot;&gt;
-    &lt;img src&#x3D;&quot;assets/Logo_Badajoz_Unida.png&quot; alt&#x3D;&quot;&quot;&gt;
+    &lt;img src&#x3D;&quot;assets/Logo_Badajoz_Unida2.png&quot; alt&#x3D;&quot;&quot;&gt;
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;grid-form&quot;&gt;
       &lt;form [formGroup]&#x3D;&quot;loginForm&quot; (ngSubmit)&#x3D;&quot;guardar(loginForm)&quot;&gt;
@@ -890,7 +894,7 @@ export class LoginComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="grid-form-container">  <div class="grid-form-image">    <img src="assets/Logo_Badajoz_Unida.png" alt="">  </div>  <div class="grid-form">      <form [formGroup]="loginForm" (ngSubmit)="guardar(loginForm)">          <h1>INICIAR SESIÓN</h1>          <div class="separador"></div>          <div class="input-group">            <input type="email" maxlength="100" formControlName="email" name="mail" id="iMail" placeholder="Correo Electrónico" />          </div>          <p *ngIf="!validar(\'email\')" class="error">Ajústese al formato del correo.</p>          <div class="input-group password">            <input type="password" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" />            <i id="ieye"class="bi bi-eye-fill float-end mb-2" (click)="showHide()"></i>          </div>          <p *ngIf="!validar(\'password\')" class="error">La contraseña debe incluir 8 caracteres.</p>          <div class="input-group">            <input type="submit" value="INICIAR SESIÓN" />          </div>          <a routerLink="/registro">¿No tienes cuenta? Crea una ahora.</a>      </form>  </div></div><app-modal></app-modal></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="grid-form-container">  <div class="grid-form-image">    <img src="assets/Logo_Badajoz_Unida2.png" alt="">  </div>  <div class="grid-form">      <form [formGroup]="loginForm" (ngSubmit)="guardar(loginForm)">          <h1>INICIAR SESIÓN</h1>          <div class="separador"></div>          <div class="input-group">            <input type="email" maxlength="100" formControlName="email" name="mail" id="iMail" placeholder="Correo Electrónico" />          </div>          <p *ngIf="!validar(\'email\')" class="error">Ajústese al formato del correo.</p>          <div class="input-group password">            <input type="password" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" />            <i id="ieye"class="bi bi-eye-fill float-end mb-2" (click)="showHide()"></i>          </div>          <p *ngIf="!validar(\'password\')" class="error">La contraseña debe incluir 8 caracteres.</p>          <div class="input-group">            <input type="submit" value="INICIAR SESIÓN" />          </div>          <a routerLink="/registro">¿No tienes cuenta? Crea una ahora.</a>      </form>  </div></div><app-modal></app-modal></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};

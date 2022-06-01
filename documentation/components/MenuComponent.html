@@ -363,7 +363,7 @@ export class MenuComponent implements OnInit {
     &lt;div class&#x3D;&quot;app-container&quot;&gt;
         &lt;header&gt;
             &lt;div class&#x3D;&quot;logo-container&quot;&gt;
-                &lt;img src&#x3D;&quot;assets/Logo_Badajoz_Unida.png&quot; alt&#x3D;&quot;Logotipo de Badajoz Unida&quot; /&gt;
+                &lt;img src&#x3D;&quot;assets/header_logo.png&quot; alt&#x3D;&quot;Logotipo de Badajoz Unida&quot; /&gt;
                 &lt;h1 id&#x3D;&quot;nombreApp&quot;&gt;BADAJOZ UNIDA&lt;/h1&gt;
             &lt;/div&gt;
             &lt;div class&#x3D;&quot;account-container&quot;&gt;
@@ -375,6 +375,8 @@ export class MenuComponent implements OnInit {
             &lt;app-home *ngIf&#x3D;&quot;router.url&#x3D;&#x3D;&#x3D;&#x27;/home&#x27;&quot;&gt;&lt;/app-home&gt;
             &lt;app-categoria *ngIf&#x3D;&quot;router.url&#x3D;&#x3D;&#x3D;&#x27;/categoria&#x27;&quot;&gt;&lt;/app-categoria&gt;
            &lt;app-ubicacion *ngIf&#x3D;&quot;router.url&#x3D;&#x3D;&#x3D;&#x27;/ubicacion&#x27;&quot;&gt;&lt;/app-ubicacion&gt;
+          &lt;app-usuarios *ngIf&#x3D;&quot;router.url&#x3D;&#x3D;&#x3D;&#x27;/usuario&#x27;&quot;&gt;&lt;/app-usuarios&gt;
+          &lt;app-perfil *ngIf&#x3D;&quot;router.url&#x3D;&#x3D;&#x3D;&#x27;/perfil&#x27;&quot;&gt;&lt;/app-perfil&gt;
          &lt;/main&gt; &lt;!-- Aquí se mostrará el componente que toque --&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;menu-container&quot;&gt;
@@ -400,9 +402,11 @@ export class MenuComponent implements OnInit {
                 &lt;/i&gt;
             &lt;/div&gt;
             &lt;div class&#x3D;&quot;icono&quot;&gt;
-                &lt;i class&#x3D;&quot;bi bi-person-circle&quot;&gt;
+              &lt;a routerLink&#x3D;&quot;/perfil&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-person-circle&quot; [ngClass]&#x3D;&quot;{&#x27;active&#x27; : router.url&#x3D;&#x3D;&#x3D;&#x27;/perfil&#x27;}&quot;&gt;
                     &lt;span&gt;PERFIL&lt;/span&gt;
                 &lt;/i&gt;
+              &lt;/a&gt;
             &lt;/div&gt;
             &lt;div class&#x3D;&quot;icono&quot; *ngIf&#x3D;&quot;comprobarTipo()&quot;&gt;
                 &lt;a routerLink&#x3D;&quot;/categoria&quot;&gt;
@@ -419,9 +423,11 @@ export class MenuComponent implements OnInit {
               &lt;/a&gt;
             &lt;/div&gt;
             &lt;div class&#x3D;&quot;icono&quot; *ngIf&#x3D;&quot;comprobarTipo()&quot;&gt;
+              &lt;a routerLink&#x3D;&quot;/usuario&quot;&gt;
                 &lt;i class&#x3D;&quot;bi bi-people-fill&quot; [ngClass]&#x3D;&quot;{&#x27;active&#x27; : router.url&#x3D;&#x3D;&#x3D;&#x27;/usuario&#x27;}&quot;&gt;
                     &lt;span&gt;USUARIOS&lt;/span&gt;
                 &lt;/i&gt;
+              &lt;/a&gt;
             &lt;/div&gt;
         &lt;/aside&gt;
     &lt;/div&gt;
@@ -611,7 +617,7 @@ footer{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div id="menu">    <div class="app-container">        <header>            <div class="logo-container">                <img src="assets/Logo_Badajoz_Unida.png" alt="Logotipo de Badajoz Unida" />                <h1 id="nombreApp">BADAJOZ UNIDA</h1>            </div>            <div class="account-container">                Hola, {{nombreUsuario}}                <i class="bi bi-person-circle" (click)="cerrarSesion()"></i>            </div>        </header>        <main>            <app-home *ngIf="router.url===\'/home\'"></app-home>            <app-categoria *ngIf="router.url===\'/categoria\'"></app-categoria>           <app-ubicacion *ngIf="router.url===\'/ubicacion\'"></app-ubicacion>         </main> <!-- Aquí se mostrará el componente que toque -->    </div>    <div class="menu-container">        <footer>            footer        </footer>        <aside>            <div class="icono">                <a routerLink="/home">                    <i class="bi bi-house-door-fill" [ngClass]="{\'active\' : router.url===\'/home\'}">                        <span>INICIO</span>                    </i>                </a>            </div>            <div class="icono">                <i class="bi bi-calendar-event-fill">                    <span>MIS EVENTOS</span>                </i>            </div>            <div class="icono">                <i class="bi bi-plus-circle-fill">                    <span>NUEVO EVENTO</span>                </i>            </div>            <div class="icono">                <i class="bi bi-person-circle">                    <span>PERFIL</span>                </i>            </div>            <div class="icono" *ngIf="comprobarTipo()">                <a routerLink="/categoria">                    <i class="bi bi-tags-fill" [ngClass]="{\'active\' : router.url===\'/categoria\'}">                        <span>CATEGORÍAS</span>                    </i>                </a>            </div>            <div class="icono" *ngIf="comprobarTipo()">              <a routerLink="/ubicacion">                <i class="bi bi-geo-alt-fill" [ngClass]="{\'active\' : router.url===\'/ubicacion\'}">                    <span>UBICACIONES</span>                </i>              </a>            </div>            <div class="icono" *ngIf="comprobarTipo()">                <i class="bi bi-people-fill" [ngClass]="{\'active\' : router.url===\'/usuario\'}">                    <span>USUARIOS</span>                </i>            </div>        </aside>    </div></div><router-outlet></router-outlet></div>'
+        var COMPONENT_TEMPLATE = '<div><div id="menu">    <div class="app-container">        <header>            <div class="logo-container">                <img src="assets/header_logo.png" alt="Logotipo de Badajoz Unida" />                <h1 id="nombreApp">BADAJOZ UNIDA</h1>            </div>            <div class="account-container">                Hola, {{nombreUsuario}}                <i class="bi bi-person-circle" (click)="cerrarSesion()"></i>            </div>        </header>        <main>            <app-home *ngIf="router.url===\'/home\'"></app-home>            <app-categoria *ngIf="router.url===\'/categoria\'"></app-categoria>           <app-ubicacion *ngIf="router.url===\'/ubicacion\'"></app-ubicacion>          <app-usuarios *ngIf="router.url===\'/usuario\'"></app-usuarios>          <app-perfil *ngIf="router.url===\'/perfil\'"></app-perfil>         </main> <!-- Aquí se mostrará el componente que toque -->    </div>    <div class="menu-container">        <footer>            footer        </footer>        <aside>            <div class="icono">                <a routerLink="/home">                    <i class="bi bi-house-door-fill" [ngClass]="{\'active\' : router.url===\'/home\'}">                        <span>INICIO</span>                    </i>                </a>            </div>            <div class="icono">                <i class="bi bi-calendar-event-fill">                    <span>MIS EVENTOS</span>                </i>            </div>            <div class="icono">                <i class="bi bi-plus-circle-fill">                    <span>NUEVO EVENTO</span>                </i>            </div>            <div class="icono">              <a routerLink="/perfil">                <i class="bi bi-person-circle" [ngClass]="{\'active\' : router.url===\'/perfil\'}">                    <span>PERFIL</span>                </i>              </a>            </div>            <div class="icono" *ngIf="comprobarTipo()">                <a routerLink="/categoria">                    <i class="bi bi-tags-fill" [ngClass]="{\'active\' : router.url===\'/categoria\'}">                        <span>CATEGORÍAS</span>                    </i>                </a>            </div>            <div class="icono" *ngIf="comprobarTipo()">              <a routerLink="/ubicacion">                <i class="bi bi-geo-alt-fill" [ngClass]="{\'active\' : router.url===\'/ubicacion\'}">                    <span>UBICACIONES</span>                </i>              </a>            </div>            <div class="icono" *ngIf="comprobarTipo()">              <a routerLink="/usuario">                <i class="bi bi-people-fill" [ngClass]="{\'active\' : router.url===\'/usuario\'}">                    <span>USUARIOS</span>                </i>              </a>            </div>        </aside>    </div></div><router-outlet></router-outlet></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MenuComponent'};

@@ -162,6 +162,11 @@ export class UsuariosComponent implements OnInit {
     }
   }
 
+  /**
+   * Filtra los usuarios por el nombre.
+   * 
+   * @param nombreUsuario - Nombre del usuario/s
+   */
   listadoUsuarioPorNombre(nombreUsuario: any) {
     let datos = {
       tipo: 'listarUsuariosByNombre',

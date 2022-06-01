@@ -13,6 +13,9 @@ export class PerfilComponent implements OnInit {
   usuario:any;
   forma!: FormGroup;
   modal = new ModalComponent();
+  /**
+   * @ignore 
+   */
   constructor(private formBuilder: FormBuilder,
               private appService: AppService,
               private usuarioService: UsuarioService) {
@@ -20,6 +23,9 @@ export class PerfilComponent implements OnInit {
     this.sacarUsuario(usuarioService.idUsuario);
   }
 
+  /**
+   * @ignore 
+   */
   ngOnInit(): void {
   }
 
@@ -88,7 +94,7 @@ export class PerfilComponent implements OnInit {
   }
 
   /**
-   * Obtiene los datos de una .
+   * Obtiene los datos de un usuario.
    * @param idUsuario - ID del usuario
    */
   sacarUsuario(idUsuario: any) {
@@ -117,7 +123,7 @@ export class PerfilComponent implements OnInit {
   }
 
   /**
-   * Llama a la API para dar de modificar a un usuario.
+   * Llama a la API para modificar a un usuario.
    * @param forma - Campos del formulario
    */
   modificarUsuario(forma: FormGroup) {

@@ -125,6 +125,26 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#modal" >modal</a>
+                            </li>
+                            <li>
+                                <a href="#mostrar" >mostrar</a>
+                            </li>
+                            <li>
+                                <a href="#usuarios" >usuarios</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -135,7 +155,28 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#borrarUsuario" >borrarUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#buscar" >buscar</a>
+                            </li>
+                            <li>
+                                <a href="#cambiarTipo" >cambiarTipo</a>
+                            </li>
+                            <li>
+                                <a href="#listadoUsuario" >listadoUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#listadoUsuarioPorNombre" >listadoUsuarioPorNombre</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#preguntaBorrado" >preguntaBorrado</a>
+                            </li>
+                            <li>
+                                <a href="#preguntaCambiar" >preguntaCambiar</a>
                             </li>
                         </ul>
                     </td>
@@ -155,15 +196,69 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, appService: <a href="../injectables/AppService.html" target="_self">AppService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:15</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>appService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AppService.html" target="_self" >AppService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -177,6 +272,364 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="borrarUsuario"></a>
+                    <span class="name">
+                        <span ><b>borrarUsuario</b></span>
+                        <a href="#borrarUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>borrarUsuario(idUsuario: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Borrar un usuario específico.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idUsuario</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buscar"></a>
+                    <span class="name">
+                        <span ><b>buscar</b></span>
+                        <a href="#buscar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buscar(nombreUbicacion: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="153"
+                            class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:153</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Permite filtrar usuarios.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>nombreUbicacion</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>Nombre de la ubicación</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cambiarTipo"></a>
+                    <span class="name">
+                        <span ><b>cambiarTipo</b></span>
+                        <a href="#cambiarTipo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cambiarTipo(idUsuario: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, tipo: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:123</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cambia el tipo de un usuario.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idUsuario</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>ID del usuario</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>tipo</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listadoUsuario"></a>
+                    <span class="name">
+                        <span ><b>listadoUsuario</b></span>
+                        <a href="#listadoUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listadoUsuario()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista todas los usuarios.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listadoUsuarioPorNombre"></a>
+                    <span class="name">
+                        <span ><b>listadoUsuarioPorNombre</b></span>
+                        <a href="#listadoUsuarioPorNombre"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listadoUsuarioPorNombre(nombreUsuario: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Filtra los usuarios por el nombre.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>nombreUsuario</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>Nombre del usuario/s</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -197,8 +650,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:22</a></div>
                 </td>
             </tr>
 
@@ -214,6 +667,258 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="preguntaBorrado"></a>
+                    <span class="name">
+                        <span ><b>preguntaBorrado</b></span>
+                        <a href="#preguntaBorrado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>preguntaBorrado(id: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:55</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Valida si quieres borrar un usuario.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>ID del usuario</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="preguntaCambiar"></a>
+                    <span class="name">
+                        <span ><b>preguntaCambiar</b></span>
+                        <a href="#preguntaCambiar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>preguntaCambiar(idUsuario: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, tipo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Valida si quieres cambiar el tipo de usuario.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idUsuario</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>tipo</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>Tipo del usuario</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modal"></a>
+                    <span class="name">
+                        <span ><b>modal</b></span>
+                        <a href="#modal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ModalComponent()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrar"></a>
+                    <span class="name">
+                        <span ><b>mostrar</b></span>
+                        <a href="#mostrar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarios"></a>
+                    <span class="name">
+                        <span ><b>usuarios</b></span>
+                        <a href="#usuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/usuarios/usuarios.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -221,6 +926,10 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import {FormBuilder} from &quot;@angular/forms&quot;;
+import {AppService} from &quot;../../services/app.service&quot;;
+import {Router} from &quot;@angular/router&quot;;
+import { ModalComponent } from &#x27;../modal/modal.component&#x27;;
 
 @Component({
   selector: &#x27;app-usuarios&#x27;,
@@ -228,18 +937,217 @@
   styleUrls: [&#x27;./usuarios.component.css&#x27;]
 })
 export class UsuariosComponent implements OnInit {
-
-  constructor() { }
+  usuarios:any
+  modal&#x3D;new ModalComponent()
+  mostrar&#x3D;true
+  constructor(private formBuilder: FormBuilder,
+              private appService: AppService,
+              private router: Router) {
+    this.listadoUsuario();
+  }
 
   ngOnInit(): void {
   }
 
+  /**
+   * Lista todas los usuarios.
+   */
+  listadoUsuario() {
+    let datos &#x3D; {
+      tipo: &#x27;listado&#x27;,
+    };
+
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        console.log(data);
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          this.usuarios &#x3D; data;
+          this.mostrar &#x3D; true;
+        } else {
+          console.log(data);
+        }
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+      }
+    );
+  }
+
+  /**
+   * Valida si quieres borrar un usuario.
+   *
+   * @param id - ID del usuario
+   */
+  preguntaBorrado(id: any) {
+    //Realizar la pregunta
+
+    if (confirm(&#x27;¿Desea borrar el usuario?&#x27;) &#x3D;&#x3D; true) {
+      this.borrarUsuario(id);
+    }
+  }
+
+  /**
+   * Borrar un usuario específico.
+   *
+   * @param id - ID del usuario
+   */
+  borrarUsuario(idUsuario: any) {
+    console.log(&#x27;Borro&#x27;);
+    let datos &#x3D; {
+      tipo: &#x27;eliminarUsuario&#x27;,
+      idUsuario: &#x60;${idUsuario}&#x60;
+    };
+    console.log(datos);
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          console.log(data);
+          this.modal.generateModal(&#x27;Éxito&#x27;, data, &#x27;¡De acuerdo!&#x27;, &#x27;success&#x27;)
+          this.listadoUsuario();
+        } else {
+          console.log(data);
+        }
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+      }
+    );
+  }
+
+  /**
+   * Valida si quieres cambiar el tipo de usuario.
+   *
+   * @param tipo - Tipo del usuario
+   */
+  preguntaCambiar(idUsuario:any,tipo:string){
+    if(tipo&#x3D;&#x3D;&#x27;a&#x27;){
+      if(confirm(&#x27;¿Desea quitar permisos de administrador?&#x27;)){
+        console.log(&#x60;Usuario tipo ${tipo}&#x60;);
+        this.cambiarTipo(idUsuario,tipo);
+      }else{
+        console.log(&#x60;Cambio no realizado&#x60;);
+
+      }
+    }else {
+      if(confirm(&#x27;¿Desea dar permisos de administrador?&#x27;)){
+        console.log(&#x60;Usuario tipo ${tipo}&#x60;);
+        this.cambiarTipo(idUsuario,tipo);
+      }else{
+        console.log(&#x60;Cambio no realizado&#x60;);
+
+      }
+    }
+
+  }
+
+  /**
+   * Cambia el tipo de un usuario.
+   *
+   * @param idUsuario - ID del usuario
+   */
+  cambiarTipo(idUsuario: any, tipo:any) {
+    console.log(&#x27;Cmabio&#x27;);
+    let datos &#x3D; {
+      tipo: &#x27;cambiarPermisosUsuarios&#x27;,
+      idUsuario: idUsuario,
+      tipoUsuario: tipo
+    };
+    console.log(datos);
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          console.log(data);
+          this.modal.generateModal(&#x27;Éxito&#x27;, data, &#x27;¡De acuerdo!&#x27;, &#x27;success&#x27;)
+          this.listadoUsuario();
+        } else {
+          console.log(data);
+        }
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+      }
+    );
+  }
+
+  /**
+   * Permite filtrar usuarios.
+   *
+   * @param nombreUbicacion - Nombre de la ubicación
+   */
+  buscar(nombreUbicacion: any) {
+    //nombreUbicacion&#x3D;nombreUbicacion.trim();
+
+    nombreUbicacion &#x3D; nombreUbicacion.toLowerCase().replace(/\s/g, &#x27;&#x27;);
+    console.log(nombreUbicacion);
+    if (nombreUbicacion &#x3D;&#x3D; &#x27;&#x27;) {
+      this.listadoUsuario();
+    } else {
+      this.listadoUsuarioPorNombre(nombreUbicacion);
+    }
+  }
+
+  /**
+   * Filtra los usuarios por el nombre.
+   * 
+   * @param nombreUsuario - Nombre del usuario/s
+   */
+  listadoUsuarioPorNombre(nombreUsuario: any) {
+    let datos &#x3D; {
+      tipo: &#x27;listarUsuariosByNombre&#x27;,
+      nombre: nombreUsuario,
+    };
+
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        console.log(data);
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          this.mostrar &#x3D; true;
+          this.usuarios &#x3D; data;
+        } else {
+          if (data[&#x27;result&#x27;][&#x27;error_id&#x27;] &#x3D;&#x3D; &#x27;200&#x27;) {
+            this.mostrar &#x3D; false;
+          }
+          console.log(data);
+        }
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+      }
+    );
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;usuarios works!&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;p&gt;&lt;/p&gt;
+&lt;div class&#x3D;&quot;contenedor-usuarios &quot; &gt;
+  &lt;input #nombreUsuario type&#x3D;&quot;text&quot; name&#x3D;&quot;&quot; id&#x3D;&quot;&quot; placeholder&#x3D;&quot;Buscar usuario...&quot; (keyup)&#x3D;&quot;buscar(nombreUsuario.value)&quot;/&gt;
+  &lt;table *ngIf&#x3D;&quot;mostrar&quot;&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ID&lt;/th&gt;
+      &lt;th&gt;NOMBRE&lt;/th&gt;
+      &lt;th&gt;CORREO&lt;/th&gt;
+      &lt;th&gt;GESTIÓN&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr *ngFor&#x3D;&quot;let usuario of usuarios&quot;&gt;
+      &lt;td&gt;{{usuario.idUsuario}}&lt;/td&gt;
+      &lt;td&gt;{{usuario.nombre}}&lt;/td&gt;
+      &lt;td&gt;{{usuario.email}}&lt;/td&gt;
+      &lt;td&gt;
+        &lt;i class&#x3D;&quot;bi bi-lock-fill&quot; *ngIf&#x3D;&quot;usuario.tipo&#x3D;&#x3D;&#x27;u&#x27;&quot; (click)&#x3D;&quot;preguntaCambiar(usuario.idUsuario,usuario.tipo)&quot;&gt;&lt;/i&gt;
+        &lt;i class&#x3D;&quot;bi bi-unlock-fill&quot; *ngIf&#x3D;&quot;usuario.tipo&#x3D;&#x3D;&#x27;a&#x27;&quot; (click)&#x3D;&quot;preguntaCambiar(usuario.idUsuario,usuario.tipo)&quot;&gt;&lt;/i&gt;
+        &lt;i class&#x3D;&quot;bi bi-trash-fill&quot; (click)&#x3D;&quot;preguntaBorrado(usuario.idUsuario)&quot;&gt;&lt;/i&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;p *ngIf&#x3D;&quot;!mostrar&quot;&gt;No se han encontrado resultados&lt;/p&gt;
+&lt;/div&gt;
+&lt;app-modal&gt;&lt;/app-modal&gt;
 </code></pre>
     </div>
 
@@ -247,7 +1155,60 @@ export class UsuariosComponent implements OnInit {
                 <p class="comment">
                     <code>./usuarios.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">:host{
+    --bg-color: white;
+    --primary-color: #D10000;
+    --secondary-color: #939393;
+    --secondary-color-alt: #5f5f5f;
+    --text-base-color: black;
+}
+
+.contenedor-usuarios {
+    overflow-x: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-usuarios input{
+    min-width: 250px;
+    border: 3px solid black;
+    border-radius: 6px;
+    padding: .2rem;
+    background-color: #fff;
+    margin: 1rem 0;
+}
+
+.contenedor-usuarios table{
+    padding: 0;
+    border-collapse: collapse;
+    color: var(--bg-color);
+    box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+    text-align: center;
+}
+
+.contenedor-usuarios table tr:nth-child(odd){
+    background-color: var(--secondary-color);
+}
+
+.contenedor-usuarios table tr:nth-child(even){
+    background-color: var(--secondary-color-alt);
+}
+
+.contenedor-usuarios table tr td{
+    padding: 1rem;
+}
+
+.contenedor-usuarios table tr th{
+    padding: .5rem;
+}
+
+.contenedor-usuarios table tr td i{
+    cursor: pointer;
+    margin: 0 1rem;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -275,7 +1236,7 @@ export class UsuariosComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>usuarios works!</p></div>'
+        var COMPONENT_TEMPLATE = '<div><p></p><div class="contenedor-usuarios " >  <input #nombreUsuario type="text" name="" id="" placeholder="Buscar usuario..." (keyup)="buscar(nombreUsuario.value)"/>  <table *ngIf="mostrar">    <tr>      <th>ID</th>      <th>NOMBRE</th>      <th>CORREO</th>      <th>GESTIÓN</th>    </tr>    <tr *ngFor="let usuario of usuarios">      <td>{{usuario.idUsuario}}</td>      <td>{{usuario.nombre}}</td>      <td>{{usuario.email}}</td>      <td>        <i class="bi bi-lock-fill" *ngIf="usuario.tipo==\'u\'" (click)="preguntaCambiar(usuario.idUsuario,usuario.tipo)"></i>        <i class="bi bi-unlock-fill" *ngIf="usuario.tipo==\'a\'" (click)="preguntaCambiar(usuario.idUsuario,usuario.tipo)"></i>        <i class="bi bi-trash-fill" (click)="preguntaBorrado(usuario.idUsuario)"></i>      </td>    </tr>  </table>  <p *ngIf="!mostrar">No se han encontrado resultados</p></div><app-modal></app-modal></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UsuariosComponent'};

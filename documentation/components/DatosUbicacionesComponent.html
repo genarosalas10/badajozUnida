@@ -173,16 +173,10 @@
                                 <a href="#modificarUbicacion" >modificarUbicacion</a>
                             </li>
                             <li>
-                                <a href="#ngOnInit" >ngOnInit</a>
-                            </li>
-                            <li>
                                 <a href="#sacarUbicacion" >sacarUbicacion</a>
                             </li>
                             <li>
                                 <a href="#validar" >validar</a>
-                            </li>
-                            <li>
-                                <a href="#volver" >volver</a>
                             </li>
                         </ul>
                     </td>
@@ -196,90 +190,6 @@
     </table>
 </section>
 
-    <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, appService: <a href="../injectables/AppService.html" target="_self">AppService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, activatedRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:17</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>formBuilder</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>appService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AppService.html" target="_self" >AppService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>router</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>activatedRoute</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -310,14 +220,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:92</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Añade una nueva ubicación.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -328,6 +240,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -342,6 +255,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>Datos de la ubicación</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -379,14 +298,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="167"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:167</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="199"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:199</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>En caso de edición, añade los valores anteriores de los campos al formulario.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -416,14 +337,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:47</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Inizializa los validadores del formulario.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -453,14 +376,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:60</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Comprueba los campos del formulario.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -471,6 +396,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -485,6 +411,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>Campos del formulario</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -496,7 +428,10 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <ul>
+<li>void</li>
+</ul>
+
                     </div>
                 </td>
             </tr>
@@ -522,14 +457,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:127</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Modifica una ubicación.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -540,6 +477,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -554,6 +492,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>Datos de la ubicación</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -566,43 +510,6 @@
                     </div>
                     <div class="io-description">
                         
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <span ><b>ngOnInit</b></span>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:30</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
                     </div>
                 </td>
             </tr>
@@ -628,14 +535,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="138"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:138</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="169"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:169</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene los datos de una ubicación.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -646,6 +555,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -660,6 +570,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>ID de la ubicación</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -697,14 +613,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:83</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Valida un campo del formulario.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -715,6 +633,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -729,6 +648,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>Campo del formulario</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -740,43 +665,9 @@
 
                     </div>
                     <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="volver"></a>
-                    <span class="name">
-                        <span ><b>volver</b></span>
-                        <a href="#volver"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>volver()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="133"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:133</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <ul>
+<li>Campo válido y no enfocado</li>
+</ul>
 
                     </div>
                 </td>
@@ -808,7 +699,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -834,7 +725,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -854,12 +745,12 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new ModalComponent</code>
+                        <i>Default value : </i><code>new ModalComponent()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -885,7 +776,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -899,185 +790,212 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { FormBuilder, FormGroup, Validators } from &quot;@angular/forms&quot;;
-import { AppService } from &quot;../../services/app.service&quot;;
-import {ActivatedRoute, Router} from &quot;@angular/router&quot;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { AppService } from &#x27;../../services/app.service&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { ModalComponent } from &#x27;../modal/modal.component&#x27;;
 
 @Component({
   selector: &#x27;app-datos-ubicaciones&#x27;,
   templateUrl: &#x27;./datos-ubicaciones.component.html&#x27;,
-  styleUrls: [&#x27;./datos-ubicaciones.component.css&#x27;]
+  styleUrls: [&#x27;./datos-ubicaciones.component.css&#x27;],
 })
 export class DatosUbicacionesComponent implements OnInit {
-
   forma!: FormGroup;
-  modal&#x3D;new ModalComponent;
-  idUbicacion:any;
-  ubicacion:any;
-  constructor(private formBuilder: FormBuilder, private appService: AppService, private router: Router, private activatedRoute:ActivatedRoute) {
-    this.activatedRoute.params.subscribe(parametros &#x3D;&gt; {
-      this.idUbicacion&#x3D;parametros[&#x27;idUbicacion&#x27;];
-      console.log(parametros)
-      if(parametros[&#x27;idUbicacion&#x27;]&gt;0){
-        console.log(&#x27;modificar&#x27;)
+  modal &#x3D; new ModalComponent();
+  idUbicacion: any;
+  ubicacion: any;
+
+  /**
+   * @ignore
+   */
+  constructor(
+    private formBuilder: FormBuilder,
+    private appService: AppService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.params.subscribe((parametros) &#x3D;&gt; {
+      this.idUbicacion &#x3D; parametros[&#x27;idUbicacion&#x27;];
+      console.log(parametros);
+      if (parametros[&#x27;idUbicacion&#x27;] &gt; 0) {
+        console.log(&#x27;modificar&#x27;);
         this.sacarUbicacion(parametros[&#x27;idUbicacion&#x27;]);
       }
     });
-
   }
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
     this.crearFormulario();
   }
 
+  /**
+   * Inizializa los validadores del formulario.
+   */
   crearFormulario() {
     this.forma &#x3D; this.formBuilder.group({
       nombre: [&#x27;&#x27;, [Validators.required, Validators.minLength(2)]],
-      descripcion: [&#x27;&#x27;, [Validators.required, Validators.minLength(10)]],
-      idUbicacion: [&#x27;0&#x27;, [Validators.minLength(1)]]
-
-    })
+      direccion: [&#x27;&#x27;, [Validators.required, Validators.minLength(10)]],
+      idUbicacion: [&#x27;0&#x27;, [Validators.minLength(1)]],
+    });
   }
 
-  //comprobar formulario
+  /**
+   * Comprueba los campos del formulario.
+   * @param forma - Campos del formulario
+   * @returns - void
+   */
   guardar(forma: FormGroup) {
-
-    console.log(&#x27;guardarFormulario&#x27;)
+    console.log(&#x27;guardarFormulario&#x27;);
 
     if (forma.invalid || forma.pending) {
-      Object.values(forma.controls).forEach(control &#x3D;&gt; {
-        if (control instanceof FormGroup)
-          this.guardar(control);
+      Object.values(forma.controls).forEach((control) &#x3D;&gt; {
+        if (control instanceof FormGroup) this.guardar(control);
         control.markAsTouched();
-      })
+      });
       return;
     }
-    console.log(forma.value)
+    console.log(forma.value);
     if (forma.value.idUbicacion &#x3D;&#x3D; 0) {
       this.anadirUbicacion(forma);
     } else {
       this.modificarUbicacion(forma);
     }
-
   }
 
+  /**
+   * Valida un campo del formulario.
+   * @param campo1 - Campo del formulario
+   * @returns - Campo válido y no enfocado
+   */
   validar(campo1: string) {
     let campo: any &#x3D; this.forma.get(campo1);
     return !(campo.invalid &amp;&amp; campo.touched);
   }
 
-
-  //llamar a la api para crear categoria
+  /**
+   * Añade una nueva ubicación.
+   * @param forma - Datos de la ubicación
+   */
   anadirUbicacion(forma: any) {
-
-    let datos &#x3D; forma.value
+    let datos &#x3D; forma.value;
     datos.tipo &#x3D; &#x27;crearUbicacion&#x27;;
     //console.log(JSON.stringify(datos));
 
-    this.appService.postQuery(datos)
-      .subscribe(data &#x3D;&gt; {
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
         console.log(data);
         if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
-          console.log(&#x27;data&#x27;)
+          console.log(&#x27;data&#x27;);
           this.router.navigate([&#x27;/ubicacion&#x27;]);
           //this.borrarForm();
-
         } else {
-          this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
-          console.log(data)
+          this.modal.generateModal(
+            &#x60;Algo salió mal&#x60;,
+            &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;,
+            &#x27;De acuerdo&#x27;,
+            &#x27;error&#x27;
+          );
+          console.log(data);
           //this.borrarForm();
         }
-
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+        //this.borrarForm();
       }
-        , async (errorServicio) &#x3D;&gt; {
-          console.log(&#x27;he fallado&#x27;)
-          console.log(errorServicio);
-          //this.borrarForm();
-
-
-        });
+    );
   }
 
-  //llamar a la api para  modificar categoria
+  /**
+   * Modifica una ubicación.
+   * @param forma - Datos de la ubicación
+   */
   modificarUbicacion(forma: any) {
-
-    let datos &#x3D; forma.value
+    let datos &#x3D; forma.value;
     datos.tipo &#x3D; &#x27;modificarUbicacion&#x27;;
     //console.log(JSON.stringify(datos));
 
-    this.appService.postQuery(datos)
-      .subscribe(data &#x3D;&gt; {
-          console.log(data);
-          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
-            console.log(&#x27;data&#x27;)
-            this.router.navigate([&#x27;/ubicacion&#x27;]);
-            //this.borrarForm();
-
-          } else {
-            this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
-            console.log(data)
-            //this.borrarForm();
-          }
-
-        }
-        , async (errorServicio) &#x3D;&gt; {
-          console.log(&#x27;he fallado&#x27;)
-          console.log(errorServicio);
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        console.log(data);
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          console.log(&#x27;data&#x27;);
+          this.router.navigate([&#x27;/ubicacion&#x27;]);
           //this.borrarForm();
-
-
-        });
+        } else {
+          this.modal.generateModal(
+            &#x60;Algo salió mal&#x60;,
+            &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;,
+            &#x27;De acuerdo&#x27;,
+            &#x27;error&#x27;
+          );
+          console.log(data);
+          //this.borrarForm();
+        }
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+        //this.borrarForm();
+      }
+    );
   }
 
-  volver(){
-    this.router.navigate([&#x27;ubicacion&#x27;])
+  /**
+   * @ignore
+   */
+  volver() {
+    this.router.navigate([&#x27;ubicacion&#x27;]);
   }
 
-
-  sacarUbicacion(idUbicacion:any) {
+  /**
+   * Obtiene los datos de una ubicación.
+   * @param idUbicacion - ID de la ubicación
+   */
+  sacarUbicacion(idUbicacion: any) {
     let datos &#x3D; {
-    tipo : &#x27;sacarUbicacionId&#x27;,
-      idUbicacion : idUbicacion
-    }
+      tipo: &#x27;sacarUbicacionId&#x27;,
+      idUbicacion: idUbicacion,
+    };
     console.log(JSON.stringify(datos));
 
-    this.appService.postQuery(datos)
-      .subscribe(data &#x3D;&gt; {
-          console.log(data)
-          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
-            this.ubicacion&#x3D;data[0];
-            this.cargarDatosFormulario()
-            //console.log(this.categoria);
-          } else {
-            //this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
-            console.log(data)
-          }
-
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        console.log(data);
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          this.ubicacion &#x3D; data[0];
+          this.cargarDatosFormulario();
+          //console.log(this.categoria);
+        } else {
+          //this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
+          console.log(data);
         }
-        , async (errorServicio) &#x3D;&gt; {
-          console.log(&#x27;he fallado&#x27;)
-          console.log(errorServicio);
-          //this.toast&#x3D;true;
-
-
-        });
-
-}
-  cargarDatosFormulario()  {
-    //console.log(this.categoria.nombre)
-    this.forma.reset({
-      nombre:this.ubicacion.nombre,
-      descripcion: this.ubicacion.descripcion,
-      idUbicacion: this.idUbicacion
-    });
-
-
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+        //this.toast&#x3D;true;
+      }
+    );
   }
 
-
+  /**
+   * En caso de edición, añade los valores anteriores de los campos al formulario.
+   */
+  cargarDatosFormulario() {
+    //console.log(this.categoria.nombre)
+    this.forma.reset({
+      nombre: this.ubicacion.nombre,
+      direccion: this.ubicacion.direccion,
+      idUbicacion: this.idUbicacion,
+    });
+  }
 }
-
 </code></pre>
     </div>
 
@@ -1087,8 +1005,8 @@ export class DatosUbicacionesComponent implements OnInit {
       &lt;label&gt;Nombre:&lt;/label&gt;&lt;br/&gt;
       &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;nombre&quot;/&gt;&lt;br/&gt;
       &lt;p *ngIf&#x3D;&quot;!this.validar(&#x27;nombre&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;Nombre muy corto.&lt;/p&gt;
-      &lt;label&gt;Descripción:&lt;/label&gt;&lt;br/&gt;
-      &lt;textarea formControlName&#x3D;&quot;descripcion&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;
+      &lt;label&gt;Direccion:&lt;/label&gt;&lt;br/&gt;
+      &lt;textarea formControlName&#x3D;&quot;direccion&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;
       &lt;p *ngIf&#x3D;&quot;!this.validar(&#x27;descripcion&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;Descripción muy corta.&lt;/p&gt;
       &lt;input type&#x3D;&quot;hidden&quot; formControlName&#x3D;&quot;idUbicacion&quot; /&gt;
       &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;Guardar&quot; /&gt;
@@ -1096,7 +1014,8 @@ export class DatosUbicacionesComponent implements OnInit {
       &lt;small&gt;Foto de Annie Spratt en &lt;a href&#x3D;&quot;https://unsplash.com/es/fotos/AFB6S2kibuk&quot;&gt;Unsplash&lt;/a&gt;&lt;/small&gt;
     &lt;/form&gt;
 &lt;/div&gt;
-&lt;app-modal&gt;&lt;/app-modal&gt;</code></pre>
+&lt;app-modal&gt;&lt;/app-modal&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -1104,7 +1023,7 @@ export class DatosUbicacionesComponent implements OnInit {
                     <code>./datos-ubicaciones.component.css</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.popup-form-container{
-    background-image: url(&#x27;/assets/annie-spratt-AFB6S2kibuk-unsplash.jpg&#x27;);
+    background-image: url(&#x27;^assets/annie-spratt-AFB6S2kibuk-unsplash.jpg&#x27;);
     background-position: center;
     background-size: cover;
     width: 100vw;
@@ -1177,7 +1096,7 @@ export class DatosUbicacionesComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="popup-form-container">    <form class="popup-form" [formGroup]="forma" (ngSubmit)="guardar(this.forma)">      <label>Nombre:</label><br/>      <input type="text" formControlName="nombre"/><br/>      <p *ngIf="!this.validar(\'nombre\')" class="error">Nombre muy corto.</p>      <label>Descripción:</label><br/>      <textarea formControlName="descripcion"></textarea><br/>      <p *ngIf="!this.validar(\'descripcion\')" class="error">Descripción muy corta.</p>      <input type="hidden" formControlName="idUbicacion" />      <input type="submit" value="Guardar" />      <span (click)="volver()">Volver</span><br/>      <small>Foto de Annie Spratt en <a href="https://unsplash.com/es/fotos/AFB6S2kibuk">Unsplash</a></small>    </form></div><app-modal></app-modal></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="popup-form-container">    <form class="popup-form" [formGroup]="forma" (ngSubmit)="guardar(this.forma)">      <label>Nombre:</label><br/>      <input type="text" formControlName="nombre"/><br/>      <p *ngIf="!this.validar(\'nombre\')" class="error">Nombre muy corto.</p>      <label>Direccion:</label><br/>      <textarea formControlName="direccion"></textarea><br/>      <p *ngIf="!this.validar(\'descripcion\')" class="error">Descripción muy corta.</p>      <input type="hidden" formControlName="idUbicacion" />      <input type="submit" value="Guardar" />      <span (click)="volver()">Volver</span><br/>      <small>Foto de Annie Spratt en <a href="https://unsplash.com/es/fotos/AFB6S2kibuk">Unsplash</a></small>    </form></div><app-modal></app-modal></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DatosUbicacionesComponent'};

@@ -225,8 +225,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/components/registro/registro.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/components/registro/registro.component.ts:34</a></div>
                 </td>
             </tr>
 
@@ -264,8 +264,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/components/registro/registro.component.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/components/registro/registro.component.ts:83</a></div>
                 </td>
             </tr>
 
@@ -345,8 +345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">src/app/components/registro/registro.component.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/app/components/registro/registro.component.ts:100</a></div>
                 </td>
             </tr>
 
@@ -423,8 +423,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">src/app/components/registro/registro.component.ts:132</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="169"
+                            class="link-to-prism">src/app/components/registro/registro.component.ts:169</a></div>
                 </td>
             </tr>
 
@@ -462,8 +462,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">src/app/components/registro/registro.component.ts:100</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">src/app/components/registro/registro.component.ts:138</a></div>
                 </td>
             </tr>
 
@@ -568,7 +568,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new ModalComponent</code>
+                        <i>Default value : </i><code>new ModalComponent()</code>
                     </td>
                 </tr>
                     <tr>
@@ -602,7 +602,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/components/registro/registro.component.ts:108</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">src/app/components/registro/registro.component.ts:146</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -631,7 +631,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/app/components/registro/registro.component.ts:117</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/app/components/registro/registro.component.ts:155</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -650,23 +650,27 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import {FormBuilder, FormGroup, Validators} from &quot;@angular/forms&quot;;
-import {AppService} from &quot;../../services/app.service&quot;;
-import {ModalComponent} from &quot;../modal/modal.component&quot;;
-import {Router} from &quot;@angular/router&quot;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { AppService } from &#x27;../../services/app.service&#x27;;
+import { ModalComponent } from &#x27;../modal/modal.component&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 
 @Component({
   selector: &#x27;app-registro&#x27;,
   templateUrl: &#x27;./registro.component.html&#x27;,
-  styleUrls: [&#x27;./registro.component.css&#x27;]
+  styleUrls: [&#x27;./registro.component.css&#x27;],
 })
 export class RegistroComponent implements OnInit {
   forma!: FormGroup;
-  modal&#x3D;new ModalComponent;
+  modal &#x3D; new ModalComponent();
   /**
    * @ignore
    */
-  constructor(private formBuilder:FormBuilder, private appService:AppService, private router:Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private appService: AppService,
+    private router: Router
+  ) {}
 
   /**
    * @ignore
@@ -680,75 +684,109 @@ export class RegistroComponent implements OnInit {
    */
   crearFormulario() {
     this.forma &#x3D; this.formBuilder.group({
-      nombre:[&#x27;&#x27;,[Validators.required, Validators.pattern(/^([a-zA-ZÀ-ÿ\u00f1\u00d1]{4,30})(\s{0,1}[a-zA-ZÀ-ÿ\u00f1\u00d1]{2,29}){0,1}$/)]],
-      apellidos:[&#x27;&#x27;,[Validators.required, Validators.pattern(/^(([a-zA-ZÀ-ÿ\u00f1\u00d1]){4,30})(\s{0,1}[a-zA-ZÀ-ÿ\u00f1\u00d1]{2,29}){0,1}$/)]],
-      email:[&#x27;&#x27;,[Validators.required, Validators.email, Validators.pattern(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i) ]],
-      password:[&#x27;&#x27;,[Validators.required, Validators.pattern(/^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\d)(?&#x3D;.*[$@$!%*?&amp;#.$($)$-$_])[A-Za-z\d$@$!%*?&amp;#.$($)$-$_]{8,20}$/)]],
-      password2:[&#x27;&#x27;,[Validators.required ]],
-      fechaNacimiento:[null,[Validators.required ]]
-
-    })
+      nombre: [
+        &#x27;&#x27;,
+        [
+          Validators.required,
+          Validators.pattern(
+            /^([a-zA-ZÀ-ÿ\u00f1\u00d1]{4,30})(\s{0,1}[a-zA-ZÀ-ÿ\u00f1\u00d1]{2,29}){0,1}$/
+          ),
+        ],
+      ],
+      apellidos: [
+        &#x27;&#x27;,
+        [
+          Validators.required,
+          Validators.pattern(
+            /^(([a-zA-ZÀ-ÿ\u00f1\u00d1]){4,30})(\s{0,1}[a-zA-ZÀ-ÿ\u00f1\u00d1]{2,29}){0,1}$/
+          ),
+        ],
+      ],
+      email: [
+        &#x27;&#x27;,
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern(
+            /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
+          ),
+        ],
+      ],
+      password: [
+        &#x27;&#x27;,
+        [
+          Validators.required,
+          Validators.pattern(
+            /^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\d)(?&#x3D;.*[$@$!%*?&amp;#.$($)$-$_])[A-Za-z\d$@$!%*?&amp;#.$($)$-$_]{8,20}$/
+          ),
+        ],
+      ],
+      password2: [&#x27;&#x27;, [Validators.required]],
+      fechaNacimiento: [null, [Validators.required]],
+    });
   }
   /**
    * Comprueba que todos los campos introducidos sean correctos.
-   * 
+   *
    * @param forma - Campos del formulario
    * @returns - void
    */
-  guardar(forma: FormGroup){
-
+  guardar(forma: FormGroup) {
     if (forma.invalid || forma.pending) {
-      Object.values(forma.controls).forEach(control &#x3D;&gt; {
-        if (control instanceof FormGroup)
-          this.guardar(control);
+      Object.values(forma.controls).forEach((control) &#x3D;&gt; {
+        if (control instanceof FormGroup) this.guardar(control);
         control.markAsTouched();
-      })
+      });
 
       return;
     }
     this.registro(forma);
     //this.forma.reset();
-
   }
 
-/**
- * Llama a la API para dar de alta a un usuario.
- * @param loginForm - Campos del formulario
- */
-  registro(loginForm: FormGroup)
-  {
-    let datos&#x3D;loginForm.value
-    datos.tipo&#x3D;&#x27;registro&#x27;;
+  /**
+   * Llama a la API para dar de alta a un usuario.
+   * @param loginForm - Campos del formulario
+   */
+  registro(loginForm: FormGroup) {
+    let datos &#x3D; loginForm.value;
+    datos.tipo &#x3D; &#x27;registro&#x27;;
     console.log(JSON.stringify(datos));
-    this.appService.postQuery(datos)
-      .subscribe(data &#x3D;&gt; {
-          if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
-            this.modal.generateModal(&#x27;Éxito&#x27;, &#x60;Cuenta creada con éxito.&#x60;, &#x27;De acuerdo&#x27;, &#x27;success&#x27;);
-            setTimeout(() &#x3D;&gt; {
-                this.router.navigate([&#x27;login&#x27;])
-              },
-              2000);
-          } else {
-            this.modal.generateModal(&#x27;Algo salió mal&#x27;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
-          }
-
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          this.modal.generateModal(
+            &#x27;Éxito&#x27;,
+            &#x60;Cuenta creada con éxito.&#x60;,
+            &#x27;De acuerdo&#x27;,
+            &#x27;success&#x27;
+          );
+          setTimeout(() &#x3D;&gt; {
+            this.router.navigate([&#x27;login&#x27;]);
+          }, 2000);
+        } else {
+          this.modal.generateModal(
+            &#x27;Algo salió mal&#x27;,
+            &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;,
+            &#x27;De acuerdo&#x27;,
+            &#x27;error&#x27;
+          );
         }
-        , async (errorServicio) &#x3D;&gt;
-        {
-          console.log(&#x27;he fallado&#x27;)
-          console.log(errorServicio);
-          //this.toast&#x3D;true;
-
-
-        });
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+        //this.toast&#x3D;true;
+      }
+    );
   }
 
-   /**
+  /**
    * Valida que un campo del formulario sea correcto.
    * @param campo1 - Valor del campo
    * @returns - Campo válido y no enfocado
    */
-  validar(campo1: string){
+  validar(campo1: string) {
     let campo: any &#x3D; this.forma.get(campo1);
     return !(campo.invalid &amp;&amp; campo.touched);
   }
@@ -759,20 +797,19 @@ export class RegistroComponent implements OnInit {
   get comprobarPasswords() {
     let pass1 &#x3D; this.forma.get(&#x27;password&#x27;)?.value;
     let pass2 &#x3D; this.forma.get(&#x27;password2&#x27;)?.value;
-    return (pass1 &#x3D;&#x3D;&#x3D; pass2) ? true : false;
+    return pass1 &#x3D;&#x3D;&#x3D; pass2 ? true : false;
   }
 
   /**
    * Comprueba que el usuario sea mayor de 16 años.
    */
-  get comprobarEdad()
-  {
-    if(this.forma.get(&#x27;fechaNacimiento&#x27;)!&#x3D; null){
-    let fechaNacimiento &#x3D; this.forma.get(&#x27;fechaNacimiento&#x27;)?.value;
-    let convertirFecha &#x3D; new Date(fechaNacimiento).getTime();
-    let timeDiff &#x3D; Math.abs(Date.now() - convertirFecha);
-    let edad &#x3D; Math.floor((timeDiff / (1000 * 3600 * 24))/365);
-    return (edad &gt;&#x3D; 16) ? true : false;
+  get comprobarEdad() {
+    if (this.forma.get(&#x27;fechaNacimiento&#x27;) !&#x3D; null) {
+      let fechaNacimiento &#x3D; this.forma.get(&#x27;fechaNacimiento&#x27;)?.value;
+      let convertirFecha &#x3D; new Date(fechaNacimiento).getTime();
+      let timeDiff &#x3D; Math.abs(Date.now() - convertirFecha);
+      let edad &#x3D; Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
+      return edad &gt;&#x3D; 16 ? true : false;
     }
     return true;
   }
@@ -781,30 +818,28 @@ export class RegistroComponent implements OnInit {
    * Permite visualizar tu contraseña
    */
   showHide() {
-
     const input &#x3D; &lt;HTMLInputElement&gt;document.getElementById(&#x27;iPassword&#x27;);
-    const i &#x3D; &lt;HTMLInputElement&gt;document.getElementById(&quot;ieye&quot;);
-    if (input.type &#x3D;&#x3D;&#x3D; &quot;password&quot;) {
-      input.type &#x3D; &quot;text&quot;;
-      i.classList.replace(&quot;bi-eye-fill&quot;, &quot;bi-eye-slash-fill&quot;);
+    const i &#x3D; &lt;HTMLInputElement&gt;document.getElementById(&#x27;ieye&#x27;);
+    if (input.type &#x3D;&#x3D;&#x3D; &#x27;password&#x27;) {
+      input.type &#x3D; &#x27;text&#x27;;
+      i.classList.replace(&#x27;bi-eye-fill&#x27;, &#x27;bi-eye-slash-fill&#x27;);
     } else {
-      input.type &#x3D; &quot;password&quot;;
-      i.classList.replace(&quot;bi-eye-slash-fill&quot;, &quot;bi-eye-fill&quot;);
+      input.type &#x3D; &#x27;password&#x27;;
+      i.classList.replace(&#x27;bi-eye-slash-fill&#x27;, &#x27;bi-eye-fill&#x27;);
     }
   }
   /**
    * @ignore
    */
   showHide2() {
-
     const input &#x3D; &lt;HTMLInputElement&gt;document.getElementById(&#x27;iPasswordRepeat&#x27;);
-    const i &#x3D; &lt;HTMLInputElement&gt;document.getElementById(&quot;ieye2&quot;);
-    if (input.type &#x3D;&#x3D;&#x3D; &quot;password&quot;) {
-      input.type &#x3D; &quot;text&quot;;
-      i.classList.replace(&quot;bi-eye-fill&quot;, &quot;bi-eye-slash-fill&quot;);
+    const i &#x3D; &lt;HTMLInputElement&gt;document.getElementById(&#x27;ieye2&#x27;);
+    if (input.type &#x3D;&#x3D;&#x3D; &#x27;password&#x27;) {
+      input.type &#x3D; &#x27;text&#x27;;
+      i.classList.replace(&#x27;bi-eye-fill&#x27;, &#x27;bi-eye-slash-fill&#x27;);
     } else {
-      input.type &#x3D; &quot;password&quot;;
-      i.classList.replace(&quot;bi-eye-slash-fill&quot;, &quot;bi-eye-fill&quot;);
+      input.type &#x3D; &#x27;password&#x27;;
+      i.classList.replace(&#x27;bi-eye-slash-fill&#x27;, &#x27;bi-eye-fill&#x27;);
     }
   }
 }
