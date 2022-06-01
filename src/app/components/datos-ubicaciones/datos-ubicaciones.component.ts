@@ -164,7 +164,7 @@ export class DatosUbicacionesComponent implements OnInit {
 
   /**
    * Obtiene los datos de una ubicación.
-   * @param idSubcategoria - ID de la ubicación
+   * @param idUbicacion - ID de la ubicación
    */
   sacarUbicacion(idUbicacion: any) {
     let datos = {
