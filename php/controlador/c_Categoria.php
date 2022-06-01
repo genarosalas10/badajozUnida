@@ -46,7 +46,7 @@ class C_Categoria extends modelo
 
 
   /**
-   * Método encargado de eliminar una categoria
+   * Método encargado de eliminar una categoría
    * @param $datos
    * @return array|string Puede devolver diferentes mensajes de error o un mensaje de éxito
    */
@@ -117,7 +117,7 @@ class C_Categoria extends modelo
   }
 
   /**
-   * Para registar una categoría en la bd
+   * Para registrar una categoría en la bd
    * @param $datos
    * @return array|int  Puede devolver diferentes mensajes de error o 1 si se ha creado con éxito
    */

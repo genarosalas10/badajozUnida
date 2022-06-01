@@ -68,7 +68,7 @@ switch($datos['tipo']){
     break;
 
   case 'modificarPerfilUsuario':
-    //$datosArray = $c_Usuario->modificarPerfilUsuario($datos);
+    $datosArray = $c_Usuario->modificarPerfilUsuario($datos);
 
     if(isset($datosArray["result"]['error_id'])){
       $responseCode = $datosArray["result"]['error_id'];
