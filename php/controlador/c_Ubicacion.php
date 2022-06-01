@@ -49,7 +49,7 @@ class C_Ubicacion extends modelo
   public function crearUbicacion($datos)
   {
     //comprobar si recibe todos los campos necesarios
-    if(!isset($datos['nombre']) || !isset($datos['descripcion'])  ){
+    if(!isset($datos['nombre']) || !isset($datos['direccion'])  ){
       //error con los campos
       return $this->_respuestas->error_400();
     }else{
@@ -90,7 +90,7 @@ class C_Ubicacion extends modelo
   public function modificarUbicacion($datos)
   {
     //comprobar si recibe todos los campos necesarios
-    if(!isset($datos['nombre']) || !isset($datos['descripcion']) || !isset($datos['idUbicacion']) ){
+    if(!isset($datos['nombre']) || !isset($datos['direccion']) || !isset($datos['idUbicacion']) ){
       //error con los campos
       return $this->_respuestas->error_400();
     }else{
@@ -126,7 +126,7 @@ class C_Ubicacion extends modelo
    * @return array|int  Puede devolver 0 si falla o los datos de las ubicaciones
    */
   private function obtenerListadoUbicaciones(){
-    $query = "SELECT idUbicacion,nombre,descripcion FROM Ubicacion;";
+    $query = "SELECT idUbicacion,nombre,direccion FROM Ubicacion;";
     $datos = parent::obtenerDatos($query);
     if(isset($datos[0]["idUbicacion"])){
       return $datos;
@@ -142,7 +142,7 @@ class C_Ubicacion extends modelo
    */
   private function obtenerlistarUbicacionesPorNombre($nombreUbicacion)
   {
-    $query = "SELECT idUbicacion,nombre,descripcion FROM Ubicacion WHERE replace(lower(nombre),' ','') like replace(lower('%$nombreUbicacion%'),' ','');";
+    $query = "SELECT idUbicacion,nombre,direccion FROM Ubicacion WHERE replace(lower(nombre),' ','') like replace(lower('%$nombreUbicacion%'),' ','');";
     $datos = parent::obtenerDatos($query);
     if(isset($datos[0]["idUbicacion"])){
       return $datos;
@@ -159,8 +159,8 @@ class C_Ubicacion extends modelo
    */
   private function realizarRegistroUbicacion($datos)
   {
-    $query = "INSERT INTO Ubicacion (nombre, descripcion)
-                VALUES ('".$datos['nombre']."', '".$datos['descripcion']."');";
+    $query = "INSERT INTO Ubicacion (nombre, direccion)
+                VALUES ('".$datos['nombre']."', '".$datos['direccion']."');";
     $resul = parent::nonQueryId($query);
     if($resul){
       return 1;
@@ -197,7 +197,7 @@ class C_Ubicacion extends modelo
    */
   private function realizarmodificacionUbicacion($datos)
   {
-    $query = "UPDATE Ubicacion SET nombre = '".$datos['nombre']."', descripcion = '".$datos['descripcion']."'
+    $query = "UPDATE Ubicacion SET nombre = '".$datos['nombre']."', direccion = '".$datos['direccion']."'
     WHERE idUbicacion = '".$datos['idUbicacion']."';";
     $datos = parent::nonQuery($query);
     if($datos>0){
@@ -220,7 +220,7 @@ class C_Ubicacion extends modelo
    */
   private function obtenerUbicacionId($idUbicacion)
   {
-    $query = "SELECT idUbicacion,nombre,descripcion FROM Ubicacion WHERE idUbicacion ='$idUbicacion';";
+    $query = "SELECT idUbicacion,nombre,direccion FROM Ubicacion WHERE idUbicacion ='$idUbicacion';";
     $datos = parent::obtenerDatos($query);
     if(isset($datos[0]["idUbicacion"])){
 
