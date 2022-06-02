@@ -82,12 +82,8 @@ export class LoginComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
           this.usuarioService.recogerUsuario(
-            data[0]['idUsuario'],
-            data[0]['tipo']
+            data[0]
           );
-          sessionStorage.setItem('idUsuario', data[0]['idUsuario']);
-          sessionStorage.setItem('nombre', data[0]['nombre']);
-          sessionStorage.setItem('tipo', data[0]['tipo']);
           this.router.navigate(['home']);
         } else {
           this.modal.generateModal(

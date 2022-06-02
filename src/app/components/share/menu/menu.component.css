@@ -44,6 +44,51 @@ header .logo-container #nombreApp{
     display: none;
 }
 
+header .account-container>button{
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+header .account-container>.desplegable{
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: fit-content;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
+}
+
+header .account-container>.desplegable.hidden{
+    display: none;
+}
+
+header .account-container>.desplegable ul li{
+    list-style: none;
+    text-align: right;
+    margin: .5rem 0;
+}
+
+header .account-container>.desplegable ul li button{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+header .account-container>.desplegable ul li button a{
+    text-decoration: none;
+    color: black;
+}
+
+header .account-container>.desplegable ul li button a:visited{
+    text-decoration: none;
+    color: black;
+}
+
 /*======Menú======*/
 aside{
     background-color: var(--secondary-color);

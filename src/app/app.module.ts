@@ -17,6 +17,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { DatosCategoriasComponent } from './components/share/datos-categorias/datos-categorias.component';
 import { DatosSubcategoriasComponent } from './components/datos-subcategorias/datos-subcategorias.component';
 import { DatosUbicacionesComponent } from './components/datos-ubicaciones/datos-ubicaciones.component';
+import {Autorizacion} from "./components/autorizacion/Autorizacion";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DatosUbicacionesComponent } from './components/datos-ubicaciones/datos-
     PerfilComponent,
     DatosCategoriasComponent,
     DatosSubcategoriasComponent,
-    DatosUbicacionesComponent
+    DatosUbicacionesComponent,
+
   ],
     imports: [
         BrowserModule,
@@ -42,7 +44,7 @@ import { DatosUbicacionesComponent } from './components/datos-ubicaciones/datos-
         AppRoutingModule,
         IonicModule.forRoot()
     ],
-  providers: [],
+  providers: [Autorizacion],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

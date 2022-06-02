@@ -14,17 +14,17 @@ export class PerfilComponent implements OnInit {
   forma!: FormGroup;
   modal = new ModalComponent();
   /**
-   * @ignore 
+   * @ignore
    */
   constructor(private formBuilder: FormBuilder,
               private appService: AppService,
               private usuarioService: UsuarioService) {
     this.crearFormulario();
-    this.sacarUsuario(usuarioService.idUsuario);
+    this.sacarUsuario(usuarioService.getIdUsuarioActual());
   }
 
   /**
-   * @ignore 
+   * @ignore
    */
   ngOnInit(): void {
   }

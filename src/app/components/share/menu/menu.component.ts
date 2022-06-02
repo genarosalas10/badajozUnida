@@ -16,8 +16,8 @@ export class MenuComponent implements OnInit {
    * @ignore
    */
   constructor(public router: Router,private usuarioService:UsuarioService) {
-    console.log(sessionStorage.getItem('nombre'));
-    this.nombreUsuario = sessionStorage.getItem('nombre');
+
+    this.nombreUsuario = usuarioService.getNombreActual();
   }
 
   /**
@@ -32,10 +32,10 @@ export class MenuComponent implements OnInit {
    * @returns - Verdadero o falso
    */
   comprobarTipo() {
-    if (this.usuarioService.tipo == 'u') {
-      return false;
-    } else {
+    if (this.usuarioService.getTipoActual() == 'a') {
       return true;
+    } else {
+      return false;
     }
   }
 
@@ -43,8 +43,21 @@ export class MenuComponent implements OnInit {
    * Cierra la sesión
    */
   cerrarSesion() {
-    sessionStorage.clear();
-    window.location.reload();
+    this.usuarioService.cerrarSesion();
 
+  }
+
+  /**
+   * Muestra u oculta el desplegable.
+   */
+  toggleOpt(){
+    document.querySelector('.account-container>.desplegable')?.classList.toggle('hidden');
+  }
+
+  /**
+   * Oculta el desplegable.
+   */
+  hideOpt(){
+    document.querySelector('.account-container>.desplegable')?.classList.add('hidden');
   }
 }
