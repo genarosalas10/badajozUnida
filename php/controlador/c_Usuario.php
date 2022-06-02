@@ -31,7 +31,8 @@ class C_Usuario extends modelo {
                 //verificar si la contraseña es correcta
                 if($password==$datos[0]['password']){
                   unset($datos[0]['password']);
-                    return $datos;
+                  unset($datos[0]['email']);
+                  return $datos;
 
                 }else{
                     //La contraseña no es igual
