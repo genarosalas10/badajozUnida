@@ -49,7 +49,7 @@
     cursor: pointer;
 }
 
-.contenedor-categorias .add{
+.add{
     background-color: var(--primary-color);
     border: none;
     padding: 1.2rem 1rem;

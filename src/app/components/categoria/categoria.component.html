@@ -1,3 +1,4 @@
+<button class="add" (click)="llamarFormularioCategoria(0)">Añadir categoría</button>
 <div class="contenedor-categorias">
     <div class="categoria" *ngFor="let categoria of categorias">
         <div class="categoria-datos">
@@ -18,6 +19,5 @@
         </div>
         <button class="add" (click)="llamarFormularioSubcategoria(categoria.idCategoria,0)">Añadir subcategoría</button>
     </div>
-    <button class="add" (click)="llamarFormularioCategoria(0)">Añadir categoría</button>
 </div>
 <app-modal></app-modal>
