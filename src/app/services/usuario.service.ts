@@ -11,8 +11,7 @@ export class UsuarioService {
     nombre:null,
     tipo:null
   };
-  idUsuario:any;
-  tipo:any;
+
   constructor(private router: Router) {
 
     this.sesion=this.getDatosSesion();
@@ -51,6 +50,9 @@ export class UsuarioService {
     return (session && session.tipo) ? session.tipo : null;
   };
 
+  setNombreActual(nombre:string):void{
+    this.sesion.nombre=nombre;
+  }
 
   removeSesionActual(): void {
     this.sesion.tipo = null;

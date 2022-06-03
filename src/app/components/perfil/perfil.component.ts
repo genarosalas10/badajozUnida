@@ -109,6 +109,7 @@ export class PerfilComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
           this.usuario = data[0];
+          this.usuarioService.setNombreActual(data[0]['nombre']);
           this.cargarDatosFormulario();
         } else {
           this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
@@ -129,7 +130,7 @@ export class PerfilComponent implements OnInit {
   modificarUsuario(forma: FormGroup) {
     let datos = forma.value;
     datos.tipo = 'modificarPerfilUsuario';
-    datos.idUsuario = this.usuarioService.idUsuario;
+    datos.idUsuario = this.usuarioService.getIdUsuarioActual();
     console.log(JSON.stringify(datos));
     this.appService.postQuery(datos).subscribe(
       (data) => {

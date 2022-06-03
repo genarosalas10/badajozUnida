@@ -20,7 +20,9 @@ export class LoginComponent implements OnInit {
     private appService: AppService,
     private router: Router,
     private usuarioService: UsuarioService
-  ) {}
+  ) {
+    this.usuarioService.removeSesionActual();
+  }
   modal = new ModalComponent();
 
   /**
