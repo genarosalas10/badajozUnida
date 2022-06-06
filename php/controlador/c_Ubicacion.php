@@ -75,7 +75,7 @@ class C_Ubicacion extends modelo
       if($result!=0){
         return 'Ubicación eliminada con éxito';
       }else{
-        return $this->_respuestas->error_200("No hay categoria con ese id.");
+        return $this->_respuestas->error_200("No hay ubicación con ese id.");
       }
     }else{
       return $this->_respuestas->error_400();
@@ -167,7 +167,6 @@ class C_Ubicacion extends modelo
     }else{
       $error=parent::errorId();
       if($error==1062){
-
         return $this->_respuestas->error_200("El nombre ya existe en otra ubicación.");
       }else{
         return $this->_respuestas->error_200("No se pudo realizar el registro");
