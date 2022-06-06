@@ -302,34 +302,55 @@ switch($datos['tipo']){
     echo json_encode($datosArray);
     break;
 
+  //Relacionadas con Eventos
+  case 'listarEventos':
+    $datosArray = $c_Evento->listarEventos();
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'listarEventosbyCreador':
+    $datosArray = $c_Evento->listarEventosbyCreador($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'anadirParticipante':
+    $datosArray = $c_Evento->anadirParticipante($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
+  case 'eliminarParticipante':
+    $datosArray = $c_Evento->eliminarParticipante($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
   //Por defecto
   default:
     $datosArray = $_respuestas->error_405();
     echo  json_encode($datosArray);
     break;
 }
-/*
-if($_SERVER['REQUEST_METHOD'] =="POST"){
 
-    //recibir datos
-    $postBody = file_get_contents("php://input");
-
-    //enviar datos al manejador
-    $datosArray = $c_Usario ->login($postBody);
-
-    //devolvemos una respuesta
-
-    if(isset($datosArray["result"]['error_id'])){
-        $responseCode = $datosArray["result"]['error_id'];
-    }else{
-        http_response_code(200);
-
-    }
-    echo json_encode($datosArray);
-}else{
-
-    $datosArray = $_respuestas->error_405();
-    echo json_encode($datosArray);
-}
-*/
 ?>
