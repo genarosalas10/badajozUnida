@@ -9,12 +9,14 @@ require_once "../modelo/Respuestas.php";
 require_once "c_Usuario.php";
 require_once "c_Categoria.php";
 require_once "c_Ubicacion.php";
+require_once "c_Evento.php";
 
 
 $c_Usuario = new C_Usuario;
 $_respuestas = new Respuestas;
 $c_Categoria = new C_Categoria;
 $c_Ubicacion = new C_Ubicacion;
+$c_Evento = new C_Evento;
 
 //recibir datos
 $datos=file_get_contents("php://input");
