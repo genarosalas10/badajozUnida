@@ -24,3 +24,12 @@ VALUES ('Isabel', 'Pérez','isa@gmail.com','d40c12d6df191a844185e1336569806f','1
 INSERT INTO Ubicacion (nombre, direccion)
 VALUES ('la granadilla', 'calle Augusto Vázquez'),
 ('la granja del cruce', 'Corte de Pelea');
+
+
+INSERT INTO Evento (titulo, imagen, descripcion, fechaHora, idUbicacion,idUsuario, idSubcategoria)
+VALUES ('Graduacion', 'asqwertyifgshdfghghj','Graduacion de 2daw','2022-06-22 20:00','1', '1','1'),
+       ('Graduacion', 'asqwertyifgshdfghghj','Graduacion de 2daw','2022-06-22 20:00','2', '1','2');
+
+INSERT INTO Parcitipante (idUsuario, idEvento)
+VALUES ('1', '1'),
+       ('1', '2');
