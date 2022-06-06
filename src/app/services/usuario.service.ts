@@ -42,6 +42,7 @@ export class UsuarioService {
 
   getNombreActual(): any {
     var session: UsuarioInterfaces = this.getDatosSesion();
+    console.log(session.nombre);
     return (session && session.nombre) ? session.nombre : null;
   };
 
@@ -50,8 +51,10 @@ export class UsuarioService {
     return (session && session.tipo) ? session.tipo : null;
   };
 
-  setNombreActual(nombre:string):void{
+  setNombreActual(nombre:string){
+    console.log(nombre)
     this.sesion.nombre=nombre;
+    console.log(this.sesion.nombre)
   }
 
   removeSesionActual(): void {
