@@ -19,22 +19,38 @@ class C_Evento extends modelo
   }
 
 
-
   /** Método encargado de devolver la lista de los eventos creados por un usuario
    *
    * @return array - Puede devolver diferentes mensajes de error o los datos dependiendo de si hay o no hay eventos
    */
   public function listarEventosbyCreador($datos)
   {
-    if(isset($datos['idCreador'])){
+    if (isset($datos['idCreador'])) {
       $result = $this->obtenerListadoEventosByCreador($datos['idCreador']);
       if ($result != 0) {
         return $result;
       } else {
         return $this->_respuestas->error_200("No has creado ningún evento.");
       }
+    } else {
+      return $this->_respuestas->error_400();
     }
-    else{
+  }
+
+  /** Método encargado de devolver la lista de los eventos a los que participa un usuario
+   *
+   * @return array - Puede devolver diferentes mensajes de error o los datos dependiendo de si hay o no hay eventos
+   */
+  public function listarEventosbyParticipante($datos)
+  {
+    if (isset($datos['idParticipante'])) {
+      $result = $this->obtenerListadoEventosByParticipante($datos['idParticipante']);
+      if ($result != 0) {
+        return $result;
+      } else {
+        return $this->_respuestas->error_200("No te has has apuntado ningún evento.");
+      }
+    } else {
       return $this->_respuestas->error_400();
     }
   }
@@ -47,18 +63,18 @@ class C_Evento extends modelo
   public function crearEvento($datos)
   {
     //comprobar si recibe todos los campos necesarios
-    if(!isset($datos['titulo']) || !isset($datos['direccion'])  || !isset($datos['fechaHora']) ||
+    if (!isset($datos['titulo']) || !isset($datos['direccion']) || !isset($datos['fechaHora']) ||
       !isset($datos['imagen']) || !isset($datos['idUsuario']) || !isset($datos['idSubcategoria'])
-      || !isset($datos['idUbicacion'])){
+      || !isset($datos['idUbicacion'])) {
       //error con los campos
       return $this->_respuestas->error_400();
-    }else{
-      $result= $this->realizarRegistroEvento($datos);
+    } else {
+      $result = $this->realizarRegistroEvento($datos);
     }
-    if($result == 1)
+    if ($result == 1)
       return 'Se ha creado con exito';
-    else{
-      return  $this->_respuestas->error_200("No se pudo realizar el registro");
+    else {
+      return $this->_respuestas->error_200("No se pudo realizar el registro");
     }
   }
 
@@ -67,9 +83,11 @@ class C_Evento extends modelo
    * Para obtener el listado de eventos de la bd
    * @return array|int  Puede devolver 0 si falla o los datos de las eventos
    */
-  private function obtenerListadoEventos(){
+  private function obtenerListadoEventos()
+  {
     $query = "SELECT e.idEvento, e.titulo, e.imagen, e.descripcion, e.fechaHora ,
-              u.nombre as 'nombreUbicacion', s.nombre as 'nombreSubcateogria', concat(u2.nombre,' ', u2.apellidos) as 'nombreCreador'
+              u.nombre as 'nombreUbicacion', s.nombre as 'nombreSubcateogria', concat(u2.nombre,' ', u2.apellidos) as 'nombreCreador',
+              (SELECT count(participante.idEvento) FROM participante INNER JOIN evento ON participante.idEvento= evento.idEvento) as 'numParticipantes'
               FROM Evento e
               INNER JOIN Ubicacion u
               ON e.idUbicacion = u.idUbicacion
@@ -79,10 +97,10 @@ class C_Evento extends modelo
               ON e.idUsuario = u2.idUsuario
               ORDER BY e.fechaHora;";
     $datos = parent::obtenerDatos($query);
-    if(isset($datos[0]["idEvento"])){
+    if (isset($datos[0]["idEvento"])) {
       return $datos;
-    }else{
-     return 0;
+    } else {
+      return 0;
     }
   }
 
@@ -90,9 +108,11 @@ class C_Evento extends modelo
    * Para obtener el listado de eventos creado por idUsuario de la bd
    * @return array|int  Puede devolver 0 si falla o los datos de los eventos
    */
-  private function obtenerListadoEventosByCreador($idCreador){
+  private function obtenerListadoEventosByCreador($idCreador)
+  {
     $query = "select e.idEvento, e.titulo, e.imagen, e.descripcion, e.fechaHora ,
-              u.nombre as 'nombreUbicacion', s.nombre as 'nombreSubcateogria', concat(u2.nombre,' ', u2.apellidos) as 'nombreCreador'
+              u.nombre as 'nombreUbicacion', s.nombre as 'nombreSubcateogria', concat(u2.nombre,' ', u2.apellidos) as 'nombreCreador',
+              (SELECT count(participante.idEvento) FROM participante INNER JOIN evento ON participante.idEvento= evento.idEvento) as 'numParticipantes'
               from  Evento e
               inner join Usuario u2
               ON e.idUsuario = u2.idUsuario
@@ -103,9 +123,37 @@ class C_Evento extends modelo
               WHERE e.idUsuario ='$idCreador'
               ORDER BY e.fechaHora;";
     $datos = parent::obtenerDatos($query);
-    if(isset($datos[0]["idEvento"])){
+    if (isset($datos[0]["idEvento"])) {
       return $datos;
-    }else{
+    } else {
+      return 0;
+    }
+  }
+
+  /**
+   * Para obtener el listado de eventos en los que participa un idUsuario de la bd
+   * @return array|int  Puede devolver 0 si falla o los datos de los eventos
+   */
+  private function obtenerListadoEventosByParticipante($idParticipante)
+  {
+    $query = "select e.idEvento, e.titulo, e.imagen, e.descripcion, e.fechaHora ,
+              u.nombre as 'nombreUbicacion', s.nombre as 'nombreSubcateogria', u2.nombre as 'nombreCreador',
+              (SELECT count(participante.idEvento) FROM participante INNER JOIN evento ON participante.idEvento= evento.idEvento) as 'numParticipantes'
+              from evento e
+              inner join usuario u2
+              ON e.idUsuario = u2.idUsuario
+              INNER JOIN ubicacion u
+              ON e.idUbicacion = u.idUbicacion
+              INNER JOIN subcategoria s
+              ON e.idSubcategoria = s.idSubcategoria
+              INNER JOIN Participante p
+              ON e.idEvento = p.idEvento
+              where P.idUsuario = '$idParticipante'
+              order by e.fechaHora;";
+    $datos = parent::obtenerDatos($query);
+    if (isset($datos[0]["idEvento"])) {
+      return $datos;
+    } else {
       return 0;
     }
   }
@@ -118,14 +166,14 @@ class C_Evento extends modelo
   function realizarRegistroEvento($datos)
   {
     $query = "INSERT INTO Evento (titulo, imagen, descripcion, fechaHora, idUbicacion,idUsuario, idSubcategoria)
-                VALUES ('".$datos['titulo']."', '".$datos['imagen']."', '".$datos['descripcion']."', '".$datos['fechaHora']."'
-                , '".$datos['idUbicacion']."', '".$datos['idUsuario']."', '".$datos['idSubcategoria']."');";
+                VALUES ('" . $datos['titulo'] . "', '" . $datos['imagen'] . "', '" . $datos['descripcion'] . "', '" . $datos['fechaHora'] . "'
+                , '" . $datos['idUbicacion'] . "', '" . $datos['idUsuario'] . "', '" . $datos['idSubcategoria'] . "');";
     $resul = parent::nonQueryId($query);
-    if($resul){
+    if ($resul) {
       return 1;
-    }else{
+    } else {
 
-        return 0;
+      return 0;
     }
   }
 
@@ -140,16 +188,16 @@ class C_Evento extends modelo
   public function anadirParticipante($datos)
   {
     //comprobar si recibe todos los campos necesarios
-    if(!isset($datos['idUsuario']) || !isset($datos['idEvento'])){
+    if (!isset($datos['idUsuario']) || !isset($datos['idEvento'])) {
       //error con los campos
       return $this->_respuestas->error_400();
-    }else{
-      $result= $this->realizarAnadirParticipante($datos);
+    } else {
+      $result = $this->realizarAnadirParticipante($datos);
     }
-    if($result == 1)
+    if ($result == 1)
       return 'Te has apuntado con éxito';
-    else{
-      return  $result;
+    else {
+      return $result;
     }
   }
 
@@ -160,17 +208,18 @@ class C_Evento extends modelo
    */
   public function eliminarParticipante($datos)
   {
-    if(isset($datos['idUsuario']) && isset($datos['idEvento'])){
+    if (isset($datos['idUsuario']) && isset($datos['idEvento'])) {
       $result = $this->realizarEliminacionParticipante($datos['idUsuario'], $datos['idEvento']);
-      if($result==1){
+      if ($result == 1) {
         return 'Te has desapuntado con éxito.';
-      }else{
+      } else {
         return $result;
       }
-    }else{
+    } else {
       return $this->_respuestas->error_400();
     }
   }
+
 
   /**
    * Para añadir un participante a un evento en la bd
@@ -180,15 +229,15 @@ class C_Evento extends modelo
   function realizarAnadirParticipante($datos)
   {
     $query = "INSERT INTO Participante (idUsuario, idEvento)
-                VALUES ('".$datos['idUsuario']."', '".$datos['idEvento']."');";
+                VALUES ('" . $datos['idUsuario'] . "', '" . $datos['idEvento'] . "');";
     $resul = parent::nonQueryId($query);
-    if($resul){
+    if ($resul) {
       return 1;
-    }else{
-      $error=parent::errorId();
-      if($error==1062){
+    } else {
+      $error = parent::errorId();
+      if ($error == 1062) {
         return $this->_respuestas->error_200("Ya estás apuntado a este evento.");
-      }else{
+      } else {
         return $this->_respuestas->error_200("No te has podido desapuntar. Inténtelo de nuevo.");
       }
     }
@@ -200,16 +249,17 @@ class C_Evento extends modelo
    * @param $idEvento
    * @return array|int Devuelve un 1 si es correcto o un mensaje de error
    */
-  private function realizarEliminacionParticipante($idUsuario, $idEvento){
-    $query="DELETE FROM Participante WHERE idUsuario ='$idUsuario' AND '$idEvento';";
+  private function realizarEliminacionParticipante($idUsuario, $idEvento)
+  {
+    $query = "DELETE FROM Participante WHERE idUsuario ='$idUsuario' AND '$idEvento';";
     $datos = parent::nonQuery($query);
-    if($datos>0){
+    if ($datos > 0) {
       return 1;
-    }else{
-      $error=parent::errorId();
-      if($error==0){
+    } else {
+      $error = parent::errorId();
+      if ($error == 0) {
         return $this->_respuestas->error_200("No estás apuntado a este evento.");
-      }else{
+      } else {
         return $this->_respuestas->error_200("No te has podido apuntar. Inténtelo de nuevo.");
       }
     }
