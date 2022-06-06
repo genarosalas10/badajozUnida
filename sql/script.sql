@@ -43,6 +43,7 @@ CREATE TABLE Ubicacion(
 CREATE TABLE Evento(
 	idEvento mediumint unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	titulo varchar(100) NOT NULL,
+	imagen varchar(255) NOT NULL,
   descripcion varchar(255) NOT NULL,
 	fechaHora datetime NOT NULL,
   idUbicacion tinyint unsigned NOT NULL,
