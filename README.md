@@ -4,7 +4,7 @@ Proyecto que intenta construir una aplicación de caracter social :heart: e incl
 
 ## Información técnica :white_check_mark:
 
-Este proyecto está siendo construido con Angular para el frontend y PHP para el backend. Adicionalmente se está empleando Ionic para facilitar el porteo de la aplicación a Android e iOS. La versión de producción puede encontrarse en <a href="https://2daw.esvirgua.com/01/badajoz-unida">este enlace</a>.
+Este proyecto está siendo construido con Angular para el frontend y PHP para el backend. Adicionalmente se está empleando Ionic para facilitar el paso de la aplicación a Android e iOS. La versión de producción puede encontrarse en <a href="https://2daw.esvirgua.com/01/badajoz-unida">este enlace</a>.
 
 ## Despliegue en entorno de desarrollo :computer:
 
