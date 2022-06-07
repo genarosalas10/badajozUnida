@@ -40,13 +40,13 @@ class Procesos_bd{
    * @param $email
    * @return false|mysqli_result Devuelve 0 si ha fallado o el resultado si ha sido correcta
    */
-    public function consultaPreparada($consulta,$tipo,$email){
+    public function consultaPreparada($consulta,$tipo,$valor){
 
 
       if(!$sentencia=$this->mysqli->prepare($consulta)){
         return 0;
       }
-      if(!$sentencia->bind_param("$tipo", $email)){
+      if(!$sentencia->bind_param("$tipo", $valor)){
         return 0;
       }
 
