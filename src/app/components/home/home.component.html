@@ -1,1 +1,17 @@
-<p>home works!</p>
+<div class="contenedor-eventos">
+    <div class="evento" *ngFor="let evento of eventos">
+        <div class="imagen-evento" [ngStyle]="{'background-image': 'url(' + evento.imagen + ')'}"></div>
+        <h2>{{evento.titulo}}</h2>
+        <p>{{evento.descripcion}}</p>
+        <div class="info">
+            <span><strong>Fecha y hora: </strong> {{evento.fechaHora}}</span>
+            <span><strong>Lugar: </strong> {{evento.nombreUbicacion}} </span>
+            <span><strong>Organizador/a: </strong> {{evento.nombreCreador}}</span>
+            <span><strong>Nº asistentes: </strong> {{evento.numParticipantes}}</span>
+            <span><strong>{{evento.nombreSubcateogria}}</strong></span>
+        </div>
+        <button (click)="anadirParticipante(evento.idEvento)"><i class="bi bi-check-circle-fill"></i></button>
+        <!-- <button><i class="bi bi-dash-circle-fill"></i></button> -->
+    </div>
+</div>
+<app-modal></app-modal>

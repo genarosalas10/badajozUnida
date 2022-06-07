@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {UsuarioService} from "../../services/usuario.service";
+import {FormBuilder} from "@angular/forms";
+import {AppService} from "../../services/app.service";
+import {ModalComponent} from "../modal/modal.component";
 
 @Component({
   selector: 'app-home',
@@ -9,11 +12,79 @@ import {UsuarioService} from "../../services/usuario.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private usuarioService: UsuarioService) {
+  eventos:any;
+  modal=new ModalComponent();
+  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder,
+              private appService: AppService,
+              private router: Router) {
     this.usuarioService.comprobarAutenticacion();
+    this.listadoEvento();
   }
 
   ngOnInit(): void {
   }
 
+
+  /**
+   * Lista todas los eventos.
+   */
+  listadoEvento() {
+    let datos = {
+      tipo: 'listarEventos',
+    };
+
+    this.appService.postQuery(datos).subscribe(
+      (data) => {
+        console.log(data);
+        if (data['status'] != 'error') {
+
+          this.eventos = this.decodificarImagen(data);
+        } else {
+          //this.mostrar = true;
+          console.log(data);
+        }
+      },
+      async (errorServicio) => {
+        console.log('he fallado');
+        console.log(errorServicio);
+      }
+    );
+  }
+
+
+  /**
+   * Añadir participante a un evento.
+   *
+   * @param idEvento - ID de evento
+   */
+  anadirParticipante(idEvento: any) {
+    let datos = {
+      tipo: 'anadirParticipante',
+      idEvento: `${idEvento}`,
+      idUsuario: this.usuarioService.getIdUsuarioActual()
+    };
+    console.log(datos);
+    this.appService.postQuery(datos).subscribe(
+      (data) => {
+        if (data['status'] != 'error') {
+          console.log(data);
+          this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
+        } else {
+          console.log(data);
+          this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
+        }
+      },
+      async (errorServicio) => {
+        console.log('he fallado');
+        console.log(errorServicio);
+      }
+    );
+  }
+
+  decodificarImagen(datos:any){
+    for (let i=0;i<datos.length;i++){
+      datos[i]['imagen']=atob(datos[i]['imagen']);
+    }
+    return datos;
+  }
 }

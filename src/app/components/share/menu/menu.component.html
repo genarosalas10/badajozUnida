@@ -30,6 +30,7 @@
       <app-ubicacion *ngIf="router.url==='/ubicacion'"></app-ubicacion>
       <app-usuarios *ngIf="router.url==='/usuario'"></app-usuarios>
       <app-perfil *ngIf="router.url==='/perfil'"></app-perfil>
+      <app-crear-evento *ngIf="router.url==='/crear-evento'"></app-crear-evento>
     </main> <!-- Aquí se mostrará el componente que toque -->
   </div>
   <div class="menu-container">
@@ -48,9 +49,12 @@
         </i>
       </div>
       <div class="icono">
-        <i class="bi bi-plus-circle-fill">
-          <span>NUEVO EVENTO</span>
-        </i>
+        <a routerLink="/crear-evento">
+          <i class="bi bi-plus-circle-fill" [ngClass]="{'active' :
+            router.url==='/crear-evento'}">
+            <span>NUEVO EVENTO</span>
+          </i>
+        </a>
       </div>
       <div class="icono">
         <a routerLink="/perfil">

@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: "formularioSubcategorias/:idCategoria/:idSubcategoria", component: DatosSubcategoriasComponent, canActivate: [ Autorizacion ]},
   {path: "ubicacion", component: MenuComponent, canActivate: [ Autorizacion ]},
   {path: "usuario", component: MenuComponent, canActivate: [ Autorizacion ]},
+  {path: "crear-evento", component: MenuComponent, canActivate: [ Autorizacion ]},
   {path: "formularioUbicacion/:idUbicacion", component: DatosUbicacionesComponent, canActivate: [ Autorizacion ]},
 
   {path: "**", redirectTo: "/home", pathMatch: "full"},

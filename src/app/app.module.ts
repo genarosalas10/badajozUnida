@@ -18,6 +18,8 @@ import { DatosCategoriasComponent } from './components/share/datos-categorias/da
 import { DatosSubcategoriasComponent } from './components/datos-subcategorias/datos-subcategorias.component';
 import { DatosUbicacionesComponent } from './components/datos-ubicaciones/datos-ubicaciones.component';
 import {Autorizacion} from "./components/autorizacion/Autorizacion";
+import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
+import { MisEventosComponent } from './components/mis-eventos/mis-eventos.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import {Autorizacion} from "./components/autorizacion/Autorizacion";
     DatosCategoriasComponent,
     DatosSubcategoriasComponent,
     DatosUbicacionesComponent,
+    CrearEventoComponent,
+    MisEventosComponent,
 
   ],
     imports: [
