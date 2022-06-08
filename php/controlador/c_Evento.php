@@ -222,6 +222,27 @@ class C_Evento extends modelo
 
 
   /**
+   * Método encargado de sacar los eventos a los que se ha apuntado un usuario.
+   * @param $datos
+   * @return array Devuelve el resultado o el mensaje de error
+   */
+  public function listarEventosbyParticipanteSoloId($datos)
+  {
+    if(isset($datos['idUsuario'])){
+      $result = $this->obtenerListarEventosbyParticipanteSoloId($datos['idUsuario']);
+      if($result!=0){
+        return $result;
+      }else{
+        return $this->_respuestas->error_200("No hay usuario con ese id.");
+      }
+    }else{
+      return $this->_respuestas->error_400();
+    }
+}
+
+
+
+  /**
    * Para añadir un participante a un evento en la bd
    * @param $datos
    * @return array|int Devuelve un 1 si es correcto o un mensaje de error
@@ -264,6 +285,23 @@ class C_Evento extends modelo
       }
     }
   }
+
+  /**
+   * Para obtener los eventos a los que está apuntado un usuario
+   * @param $idUsuario
+   * @return array|int Devuelve el resultado si es correcto o 0 si no hay
+   */
+  private function obtenerListarEventosbyParticipanteSoloId($idUsuario)
+  {
+    $query = "select idEvento, idUsuario from Participante where idUsuario ='$idUsuario';";
+    $datos = parent::obtenerDatos($query);
+    if(isset($datos[0]["idUsuario"])){
+      return $datos;
+    }else{
+      return 0;
+    }
+  }
+
 }
 
 
