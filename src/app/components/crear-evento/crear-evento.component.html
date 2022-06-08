@@ -20,21 +20,15 @@
           <p *ngIf="!this.validar('fechaHora')" class="error">Fecha.</p>
         </div>
         <div class="input-container">
-          <label>
-            <input list="ubicaciones" formControlName="idUbicacion" autocomplete="off"/></label>
-            <datalist id="ubicaciones" >
-                <option  *ngFor="let ubicacion of ubicaciones" value="{{ubicacion.nombre}}" ></option> <!-- El value puede ser el ID --->
-            </datalist>
+            <select id="ubicaciones" >
+                <option  *ngFor="let ubicacion of ubicaciones" value="{{ubicacion.idUbicacion}}" >{{ubicacion.nombre}}</option> <!-- El value puede ser el ID --->
+            </select>
           <strong class="add-button">Añadir ubicación <i class="bi bi-geo-alt-fill"></i></strong>
           <p *ngIf="!this.validar('idUbicacion')" class="error">Ubicaciones</p>
         </div>
         <div class="input-container">
             <select formControlName="idSubcategoria">
-                <option value="1">Comida valenciana</option>
-                <option value="2">Comida mexicana</option>
-                <option value="3">Frontend</option>
-                <option value="4">Backend</option>
-                <option value="5">Tenis</option>
+                <option *ngFor="let subcategoria of subcategorias" value="{{subcategoria.idSubcategoria}}">{{subcategoria.nombre}}</option>
             </select>
           <p *ngIf="!this.validar('idSubcategoria')" class="error">Subcateogira</p>
         </div>

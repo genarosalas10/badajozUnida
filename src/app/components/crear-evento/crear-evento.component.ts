@@ -25,10 +25,11 @@ export class CrearEventoComponent implements OnInit {
   ) {
     this.listadoUbicacion();
     this.listadoSubcategoria();
-    this.crearFormulario();
+
   }
 
   ngOnInit(): void {
+    this.crearFormulario();
   }
 
   /**
@@ -103,9 +104,6 @@ export class CrearEventoComponent implements OnInit {
   }
 
   guardar(forma: FormGroup){
-    let prueba=forma.value;
-    prueba.idUbicacion=this.idUbicacion;
-    console.log(forma.value)
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
         if (control instanceof FormGroup)
