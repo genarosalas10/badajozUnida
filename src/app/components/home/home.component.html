@@ -10,8 +10,9 @@
             <span><strong>Nº asistentes: </strong> {{evento.numParticipantes}}</span>
             <span><strong>{{evento.nombreSubcateogria}}</strong></span>
         </div>
-        <button (click)="anadirParticipante(evento.idEvento)"><i class="bi bi-check-circle-fill"></i></button>
-        <!-- <button><i class="bi bi-dash-circle-fill"></i></button> -->
+        <button *ngIf="comprobarParticipante(evento.idEvento)"(click)="anadirParticipante(evento.idEvento)"><i class="bi bi-check-circle-fill"></i></button>
+        <button *ngIf="!comprobarParticipante(evento.idEvento)"><i class="bi bi-check-circle-fill" style="opacity: 10%; cursor: default;"></i></button>
+      <!--<button *ngIf="!comprobarParticipante(evento.idEvento)"><i class="bi bi-dash-circle-fill" style="opacity: 10%"></i></button>-->
     </div>
 </div>
 <app-modal></app-modal>

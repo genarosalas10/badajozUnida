@@ -14,11 +14,13 @@ export class HomeComponent implements OnInit {
 
   eventos:any;
   modal=new ModalComponent();
+  eventosByUsuario: any;
   constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder,
               private appService: AppService,
               private router: Router) {
     this.usuarioService.comprobarAutenticacion();
     this.listadoEvento();
+    this.listadoEventoByUsuario(usuarioService.getIdUsuarioActual());
   }
 
   ngOnInit(): void {
@@ -69,6 +71,8 @@ export class HomeComponent implements OnInit {
         if (data['status'] != 'error') {
           console.log(data);
           this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
+          this.listadoEvento();
+          this.listadoEventoByUsuario(this.usuarioService.getIdUsuarioActual());
         } else {
           console.log(data);
           this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
@@ -86,5 +90,42 @@ export class HomeComponent implements OnInit {
       datos[i]['imagen']=atob(datos[i]['imagen']);
     }
     return datos;
+  }
+
+
+
+  /**
+   * Lista todas los eventos.
+   */
+  listadoEventoByUsuario(idUsuario:any) {
+    let datos = {
+      tipo: 'listarEventosbyParticipanteSoloId',
+      idUsuario: idUsuario
+    };
+
+    this.appService.postQuery(datos).subscribe(
+      (data) => {
+        console.log(data);
+        if (data['status'] != 'error') {
+
+          this.eventosByUsuario = data;
+        } else {
+          //this.mostrar = true;
+          console.log(data);
+        }
+      },
+      async (errorServicio) => {
+        console.log('he fallado');
+        console.log(errorServicio);
+      }
+    );
+  }
+  comprobarParticipante(idEvento:any) {
+    for (let i=0;i<this.eventosByUsuario.length;i++){
+      if(this.eventosByUsuario[i]['idEvento']==idEvento){
+        return false
+      }
+    }
+    return true;
   }
 }
