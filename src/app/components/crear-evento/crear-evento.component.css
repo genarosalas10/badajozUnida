@@ -37,7 +37,7 @@
     cursor: pointer;
 }
 
-.contenedor-crear form .input-container .imagen button{
+.contenedor-crear form .input-container .add-button{
     outline: none;
     border: none;
     background: none;
