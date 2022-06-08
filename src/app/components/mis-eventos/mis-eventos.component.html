@@ -1,6 +1,10 @@
+<div class="contenedor-filtros">
+    <input type="checkbox" name="creados" checked><label for="">Eventos creados</label>
+    <input type="checkbox" name="apuntados" checked><label for="">Eventos apuntados</label>
+</div>
 <div class="contenedor-eventos creados">
     <div class="evento">
-        <div class="imagen-evento" [ngStyle]="{'background-image': 'url(' +  + ')'}"></div>
+        <div class="imagen-evento" [ngStyle]="{'background-image': 'url(' + 'https://via.placeholder.com/500x300/' + ')'}"></div>
         <h2>Título</h2>
         <p>Descripción</p>
         <div class="info">
@@ -10,26 +14,24 @@
             <span><strong>Nº asistentes: </strong></span>
             <span><strong></strong></span>
         </div>
-        <button><i class="bi bi-check-circle-fill"></i></button>
-        <button><i class="bi bi-check-circle-fill" style="opacity: 10%; cursor: default;"></i></button>
-      <!--<button *ngIf="!comprobarParticipante(evento.idEvento)"><i class="bi bi-dash-circle-fill" style="opacity: 10%"></i></button>-->
+        <button><i class="bi bi-trash-fill"></i></button>
     </div>
 </div>
+<hr />
 <div class="contenedor-eventos apuntados">
-    <div class="evento">
-        <div class="imagen-evento" [ngStyle]="{'background-image': 'url(' +  + ')'}"></div>
+    <div class="evento" *ngFor="let eventoParticipo of eventosParticipo">
+        <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + eventoParticipo.imagen + ')'}"></div>
         <h2>Título</h2>
         <p>Descripción</p>
         <div class="info">
-            <span><strong>Fecha y hora: </strong></span>
-            <span><strong>Lugar: </strong></span>
-            <span><strong>Organizador/a: </strong></span>
-            <span><strong>Nº asistentes: </strong></span>
-            <span><strong></strong></span>
+            <span><strong>Fecha y hora: </strong> {{eventoParticipo.fechaHora}}</span>
+            <span><strong>Lugar: </strong> {{eventoParticipo.nombreUbicacion}}</span>
+            <span><strong>Organizador/a: </strong>{{eventoParticipo.nombreCreador}}</span>
+            <span><strong>Nº asistentes: </strong>{{eventoParticipo.numParticipantes}}</span>
+            <span><strong>{{eventoParticipo.nombreSubcategoria}}</strong></span>
         </div>
-        <button><i class="bi bi-check-circle-fill"></i></button>
-        <button><i class="bi bi-check-circle-fill" style="opacity: 10%; cursor: default;"></i></button>
-      <!--<button *ngIf="!comprobarParticipante(evento.idEvento)"><i class="bi bi-dash-circle-fill" style="opacity: 10%"></i></button>-->
+        <button><i class="bi bi-dash-circle-fill"></i></button>
+        <button><i class="bi bi-dash-circle-fill" style="opacity: 10%; cursor: default;"></i></button>
     </div>
 </div>
 <app-modal></app-modal>

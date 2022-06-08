@@ -326,7 +326,7 @@ switch($datos['tipo']){
     break;
 
   case 'listarEventosbyParticipante':
-    $datosArray = $c_Evento->listarEventosbyCreador($datos);
+    $datosArray = $c_Evento->listarEventosbyParticipante($datos);
 
     if(isset($datosArray["result"]['error_id'])){
       $responseCode = $datosArray["result"]['error_id'];

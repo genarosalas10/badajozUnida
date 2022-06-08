@@ -137,7 +137,7 @@ class C_Evento extends modelo
   private function obtenerListadoEventosByParticipante($idParticipante)
   {
     $query = "select e.idEvento, e.titulo, e.imagen, e.descripcion, e.fechaHora ,
-              u.nombre as 'nombreUbicacion', s.nombre as 'nombreSubcateogria', u2.nombre as 'nombreCreador',
+              u.nombre as 'nombreUbicacion', s.nombre as 'nombreSubcateogria', concat(u2.nombre,' ', u2.apellidos) as 'nombreCreador',
               (SELECT count(participante.idEvento) FROM participante INNER JOIN evento ON participante.idEvento= evento.idEvento) as 'numParticipantes'
               from evento e
               inner join usuario u2

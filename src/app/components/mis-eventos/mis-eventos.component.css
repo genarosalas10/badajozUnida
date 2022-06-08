@@ -5,6 +5,12 @@
     --text-base-color: black;
   }
   
+  .contenedor-filtros{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
   .contenedor-eventos {
     padding: 1rem;
     display: grid;
