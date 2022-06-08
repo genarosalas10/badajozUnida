@@ -1,0 +1,58 @@
+:host {
+    --bg-color: white;
+    --primary-color: #d10000;
+    --secondary-color: #939393;
+    --text-base-color: black;
+  }
+  
+  .contenedor-eventos {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 360px);
+    gap: 1rem;
+  }
+  
+  .contenedor-eventos .evento {
+    background-color: #fff;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    height: 385px;
+    border-radius: 12px;
+    padding: 1rem;
+    position: relative;
+  }
+  
+  .contenedor-eventos .evento .imagen-evento {
+    height: 130px;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .contenedor-eventos .evento h2 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: #d10000;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .contenedor-eventos .evento p,
+  .contenedor-eventos .evento .info {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+  }
+  
+  .contenedor-eventos .evento .info span {
+    display: block;
+  }
+  
+  .contenedor-eventos .evento button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  

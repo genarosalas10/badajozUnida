@@ -1,0 +1,35 @@
+<div class="contenedor-eventos creados">
+    <div class="evento">
+        <div class="imagen-evento" [ngStyle]="{'background-image': 'url(' +  + ')'}"></div>
+        <h2>Título</h2>
+        <p>Descripción</p>
+        <div class="info">
+            <span><strong>Fecha y hora: </strong></span>
+            <span><strong>Lugar: </strong></span>
+            <span><strong>Organizador/a: </strong></span>
+            <span><strong>Nº asistentes: </strong></span>
+            <span><strong></strong></span>
+        </div>
+        <button><i class="bi bi-check-circle-fill"></i></button>
+        <button><i class="bi bi-check-circle-fill" style="opacity: 10%; cursor: default;"></i></button>
+      <!--<button *ngIf="!comprobarParticipante(evento.idEvento)"><i class="bi bi-dash-circle-fill" style="opacity: 10%"></i></button>-->
+    </div>
+</div>
+<div class="contenedor-eventos apuntados">
+    <div class="evento">
+        <div class="imagen-evento" [ngStyle]="{'background-image': 'url(' +  + ')'}"></div>
+        <h2>Título</h2>
+        <p>Descripción</p>
+        <div class="info">
+            <span><strong>Fecha y hora: </strong></span>
+            <span><strong>Lugar: </strong></span>
+            <span><strong>Organizador/a: </strong></span>
+            <span><strong>Nº asistentes: </strong></span>
+            <span><strong></strong></span>
+        </div>
+        <button><i class="bi bi-check-circle-fill"></i></button>
+        <button><i class="bi bi-check-circle-fill" style="opacity: 10%; cursor: default;"></i></button>
+      <!--<button *ngIf="!comprobarParticipante(evento.idEvento)"><i class="bi bi-dash-circle-fill" style="opacity: 10%"></i></button>-->
+    </div>
+</div>
+<app-modal></app-modal>
