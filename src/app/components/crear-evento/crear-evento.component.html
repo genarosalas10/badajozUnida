@@ -20,7 +20,7 @@
           <p *ngIf="!this.validar('fechaHora')" class="error">Fecha.</p>
         </div>
         <div class="input-container">
-            <select id="ubicaciones" >
+            <select formControlName="idUbicaciones" >
                 <option  *ngFor="let ubicacion of ubicaciones" value="{{ubicacion.idUbicacion}}" >{{ubicacion.nombre}}</option> <!-- El value puede ser el ID --->
             </select>
           <strong class="add-button">Añadir ubicación <i class="bi bi-geo-alt-fill"></i></strong>

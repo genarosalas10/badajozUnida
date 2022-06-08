@@ -41,8 +41,8 @@ export class CrearEventoComponent implements OnInit {
       imagen: ['', [Validators.required, Validators.minLength(10)]],
       descripcion: ['', [Validators.required, Validators.minLength(10)]],
       fechaHora: ['', [Validators.required, Validators.minLength(10)]],
-      idSubcategoria: ['', [Validators.required]],
-      idUbicacion: ['', [Validators.required]]
+      idSubcategoria: ['0', [Validators.required]],
+      idUbicacion: ['0', [Validators.required]]
     });
   }
 
