@@ -30,6 +30,6 @@ INSERT INTO Evento (titulo, imagen, descripcion, fechaHora, idUbicacion,idUsuari
 VALUES ('Graduacion', 'asqwertyifgshdfghghj','Graduacion de 2daw','2022-06-22 20:00','1', '1','1'),
        ('Graduacion', 'asqwertyifgshdfghghj','Graduacion de 2daw','2022-06-22 20:00','2', '1','2');
 
-INSERT INTO Parcitipante (idUsuario, idEvento)
+INSERT INTO Participante (idUsuario, idEvento)
 VALUES ('1', '1'),
        ('1', '2');

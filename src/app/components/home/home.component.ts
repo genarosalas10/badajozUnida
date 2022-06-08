@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
               private appService: AppService,
               private router: Router) {
     this.usuarioService.comprobarAutenticacion();
-    this.listadoEvento();
     this.listadoEventoByUsuario(usuarioService.getIdUsuarioActual());
+    this.listadoEvento();
   }
 
   ngOnInit(): void {
@@ -121,6 +121,7 @@ export class HomeComponent implements OnInit {
     );
   }
   comprobarParticipante(idEvento:any) {
+    console.log(this.eventosByUsuario)
     for (let i=0;i<this.eventosByUsuario.length;i++){
       if(this.eventosByUsuario[i]['idEvento']==idEvento){
         return false

@@ -1,38 +1,37 @@
 <div class="contenedor-crear">
-    <form action="" enctype="multipart/form-data">
+    <form [formGroup]="forma" (ngSubmit)="guardar(this.forma)" > <!--enctype="multipart/form-data"-->
         <div class="input-container">
-            <input type="text" name="" id="" placeholder="Título">
+            <input type="text" formControlName="titulo" placeholder="Título">
+          <p *ngIf="!this.validar('titulo')" class="error">Título muy corta.</p>
         </div>
         <div class="input-container">
             <div class="imagen">
-                <input type="file" accept="image/*">
-                <button class="add-button"><strong>Añadir portada <i class="bi bi-image-fill"></i></strong></button>
+              <input type="file" accept="image/*" formControlName="imagen">
+              <button ><strong class="add-button">Añadir portada <i class="bi bi-image-fill"></i></strong></button>
             </div>
+          <p *ngIf="!this.validar('imagen')" class="error">No hay imagen.</p>
         </div>
         <div class="input-container">
-            <textarea name="" id="" placeholder="Descripción..."></textarea>
+            <textarea formControlName="descripcion" placeholder="Descripción..."></textarea>
+          <p *ngIf="!this.validar('descripcion')" class="error">Descripción muy corta.</p>
         </div>
         <div class="input-container">
-            <input type="datetime-local" name="" id="">
+            <input type="datetime-local" formControlName="fechaHora">
+          <p *ngIf="!this.validar('fechaHora')" class="error">Fecha.</p>
         </div>
         <div class="input-container">
-            <select name="" id="">
-                <option value="1">La Granadilla</option> <!-- El value puede ser el ID --->
-                <option value="2">La Rana Loca</option>
-                <option value="3">Casino Badajoz</option>
-                <option value="4">Escuela Virgen de Guadalupe</option>
-                <option value="5">Río Guadiana</option>
+            <select formControlName="idUbicacion" >
+                <option  *ngFor="let ubicacion of ubicaciones" value="{{ubicacion.idUbicacion}}" >{{ubicacion.nombre}}</option> <!-- El value puede ser el ID --->
             </select>
-            <button class="add-button"><strong>Añadir ubicación <i class="bi bi-geo-alt-fill"></i></strong></button>
+          <strong class="add-button">Añadir ubicación <i class="bi bi-geo-alt-fill"></i></strong>
+          <p *ngIf="!this.validar('idUbicacion')" class="error">Ubicaciones</p>
         </div>
         <div class="input-container">
-            <select name="" id="">
-                <option value="1">Comida valenciana</option>
-                <option value="2">Comida mexicana</option>
-                <option value="3">Frontend</option>
-                <option value="4">Backend</option>
-                <option value="5">Tenis</option>
+            <select formControlName="idSubcategoria">
+                <option *ngFor="let subcategoria of subcategorias" value="{{subcategoria.idSubcategoria}}">{{subcategoria.nombre}}</option>
             </select>
+          <p *ngIf="!this.validar('idSubcategoria')" class="error">Subcateogira</p>
         </div>
+      <input type="submit" value="Guardar" />
     </form>
 </div>
