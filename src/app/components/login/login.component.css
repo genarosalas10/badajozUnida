@@ -11,6 +11,7 @@
 
 .grid-form-container{
     height: 100vh;
+    overflow-y: auto;
 }
 
 /*======Formulario======*/

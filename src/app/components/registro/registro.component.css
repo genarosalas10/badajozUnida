@@ -19,6 +19,8 @@ body{font-family: 'Open Sans', sans-serif;}
 
 .grid-form-container{
     height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
 }
 
 /*======Formulario======*/
@@ -53,10 +55,6 @@ body{font-family: 'Open Sans', sans-serif;}
     width: 80%;
     display: block;
     margin: 1.5rem auto;
-}
-
-.grid-form form .input-group.flex{
-    display: flex;
 }
 
 .grid-form form .input-group.password{
