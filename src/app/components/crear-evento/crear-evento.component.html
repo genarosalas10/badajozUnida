@@ -6,7 +6,7 @@
         </div>
         <div class="input-container">
             <div class="imagen">
-              <input type="file" accept="image/*" formControlName="imagen">
+              <input type="file" accept="image/*" formControlName="imagen" (onFileChanged)="guardarFile($event)" alife-file-to-base64>
               <button ><strong class="add-button">Añadir portada <i class="bi bi-image-fill"></i></strong></button>
             </div>
           <p *ngIf="!this.validar('imagen')" class="error">No hay imagen.</p>
@@ -35,3 +35,4 @@
       <input type="submit" value="Guardar" />
     </form>
 </div>
+<app-modal></app-modal>

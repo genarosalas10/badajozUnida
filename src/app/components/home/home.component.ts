@@ -40,7 +40,8 @@ export class HomeComponent implements OnInit {
         console.log('hola');
         if (data['status'] != 'error') {
 
-          this.eventos = this.decodificarImagen(data);
+          this.eventos = data;
+          console.log(this.eventos[0]['imagen'])
         } else {
           //this.mostrar = true;
           console.log(data);
@@ -84,13 +85,15 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-
+/*
   decodificarImagen(datos:any){
     for (let i=0;i<datos.length;i++){
       datos[i]['imagen']=atob(datos[i]['imagen']);
     }
     return datos;
   }
+
+ */
 
 
 

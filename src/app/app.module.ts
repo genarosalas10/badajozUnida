@@ -20,6 +20,7 @@ import { DatosUbicacionesComponent } from './components/datos-ubicaciones/datos-
 import {Autorizacion} from "./components/autorizacion/Autorizacion";
 import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
 import { MisEventosComponent } from './components/mis-eventos/mis-eventos.component';
+import {AlifeFileToBase64Module} from "alife-file-to-base64";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MisEventosComponent } from './components/mis-eventos/mis-eventos.compon
         FormsModule,
         HttpClientModule,
         AppRoutingModule,
-        IonicModule.forRoot()
+        IonicModule.forRoot(),
+        AlifeFileToBase64Module
     ],
   providers: [Autorizacion],
   bootstrap: [AppComponent]

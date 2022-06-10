@@ -63,16 +63,18 @@ class C_Evento extends modelo
   public function crearEvento($datos)
   {
     //comprobar si recibe todos los campos necesarios
-    if (!isset($datos['titulo']) || !isset($datos['direccion']) || !isset($datos['fechaHora']) ||
+    if (!isset($datos['titulo']) || !isset($datos['descripcion']) || !isset($datos['fechaHora']) ||
       !isset($datos['imagen']) || !isset($datos['idUsuario']) || !isset($datos['idSubcategoria'])
       || !isset($datos['idUbicacion'])) {
       //error con los campos
       return $this->_respuestas->error_400();
     } else {
-      $result = $this->realizarRegistroEvento($datos);
+      $datos['imagen']=$this->procesarImage($datos['imagen']);
+        $result = $this->realizarRegistroEvento($datos);
     }
-    if ($result == 1)
+    if ($result == 1){
       return 'Se ha creado con exito';
+    }
     else {
       return $this->_respuestas->error_200("No se pudo realizar el registro");
     }
@@ -335,6 +337,20 @@ class C_Evento extends modelo
     }else{
       return 0;
     }
+  }
+
+  private function procesarImage($img)
+  {
+    $direccion = dirname(__DIR__)."\\eventos\imagenes\\";
+    $partes = explode(";base64",$img);
+    $extension = explode('/',mime_content_type($img))[1];
+    $imagen_base64 = base64_decode($partes[1]);
+    $nombre= uniqid().".".$extension;
+    $file = $direccion.$nombre;
+    file_put_contents($file,$imagen_base64);
+    $nuevaDireccion = str_replace('\\','/',$file);
+    print_r($nombre);
+    return $nombre;
   }
 
 }

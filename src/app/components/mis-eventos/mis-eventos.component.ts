@@ -21,8 +21,8 @@ export class MisEventosComponent implements OnInit {
   constructor( private usuarioService: UsuarioService, private formBuilder: FormBuilder,
                private appService: AppService,
                private router: Router) {
-    this.listadoEventoByUsuario(usuarioService.getIdUsuarioActual());
     this.listadoEventoByCreador(usuarioService.getIdUsuarioActual());
+    this.listadoEventoByUsuario(usuarioService.getIdUsuarioActual());
     this.idUsuario=usuarioService.getIdUsuarioActual();
   }
 
@@ -42,7 +42,7 @@ export class MisEventosComponent implements OnInit {
       (data) => {
         console.log(data);
         if (data['status'] != 'error') {
-          this.eventosParticipo = this.decodificarImagen(data);
+          this.eventosParticipo =data;
           this.mostrarP=true;
         } else {
           if (data['result']['error_id'] == '200') {
@@ -72,7 +72,7 @@ export class MisEventosComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
 
-          this.eventosCreados = this.decodificarImagen(data);
+          this.eventosCreados = data;
           this.mostrarC=true;
         } else {
           console.log(data);
@@ -88,12 +88,6 @@ export class MisEventosComponent implements OnInit {
     );
   }
 
-  decodificarImagen(datos:any){
-    for (let i=0;i<datos.length;i++){
-      datos[i]['imagen']=atob(datos[i]['imagen']);
-    }
-    return datos;
-  }
 
   mostrar(valor:any) {
     console.log('cambio')

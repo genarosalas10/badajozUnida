@@ -347,6 +347,17 @@ switch($datos['tipo']){
     echo json_encode($datosArray);
     break;
 
+  case 'crearEvento':
+    $datosArray = $c_Evento->crearEvento($datos);
+
+    if(isset($datosArray["result"]['error_id'])){
+      $responseCode = $datosArray["result"]['error_id'];
+    }else{
+      http_response_code(200);
+    }
+    echo json_encode($datosArray);
+    break;
+
   case 'listarEventosbyParticipanteSoloId':
     $datosArray = $c_Evento->listarEventosbyParticipanteSoloId($datos);
 

@@ -4,7 +4,7 @@
 </div>
 <div class="contenedor-eventos creados" *ngIf="mostrarCreados && mostrarP">
   <div class="evento" *ngFor="let eventoCreado of eventosCreados">
-    <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + eventoCreado.imagen + ')'}"></div>
+    <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + 'http://localhost/proyecto/badajozUnida/php/eventos/imagenes/'+eventoCreado.imagen + ')'}"></div>
     <h2>{{eventoCreado.titulo}}</h2>
     <p>{{eventoCreado.descripcion}}</p>
     <div class="info">
@@ -21,7 +21,7 @@
 <hr *ngIf="mostrarParticipo && mostrarCreados"/>
 <div class="contenedor-eventos apuntados" *ngIf="mostrarParticipo">
     <div class="evento" *ngFor="let eventoParticipo of eventosParticipo">
-        <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + eventoParticipo.imagen + ')'}"></div>
+        <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + 'http://localhost/proyecto/badajozUnida/php/eventos/imagenes/'+eventoParticipo.imagen + ')'}"></div>
         <h2>{{eventoParticipo.titulo}}</h2>
         <p>{{eventoParticipo.descripcion}}</p>
         <div class="info">

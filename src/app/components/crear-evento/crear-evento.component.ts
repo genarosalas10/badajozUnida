@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AppService} from "../../services/app.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ModalComponent} from "../modal/modal.component";
+import {UsuarioService} from "../../services/usuario.service";
 
 @Component({
   selector: 'app-crear-evento',
@@ -16,16 +17,19 @@ export class CrearEventoComponent implements OnInit {
   subcategorias:any;
   idUbicacion:any;
   idSubcategoria:any;
+  idUsuario:any;
+  imagen:any;
 
   constructor(
     private formBuilder: FormBuilder,
     private appService: AppService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private usuarioService: UsuarioService
   ) {
     this.listadoUbicacion();
     this.listadoSubcategoria();
-
+    this.idUsuario=usuarioService.getIdUsuarioActual();
   }
 
   ngOnInit(): void {
@@ -41,8 +45,8 @@ export class CrearEventoComponent implements OnInit {
       imagen: ['', [Validators.required, Validators.minLength(10)]],
       descripcion: ['', [Validators.required, Validators.minLength(10)]],
       fechaHora: ['', [Validators.required, Validators.minLength(10)]],
-      idSubcategoria: ['0', [Validators.required]],
-      idUbicacion: ['0', [Validators.required]]
+      idSubcategoria: ['', [Validators.required]],
+      idUbicacion: ['', [Validators.required]]
     });
   }
 
@@ -114,11 +118,56 @@ export class CrearEventoComponent implements OnInit {
     }
 
     console.log(forma.value);
-    //this.actualizarUsuario(forma);
+    this.crearEvento(forma);
   }
   validar(campo1: string){
     let campo: any = this.forma.get(campo1);
 
     return !(campo.invalid && campo.touched);
   }
+  /**
+   * Crea un nuevo evento.
+   * @param forma - Datos del evento
+   */
+  crearEvento(forma: any) {
+    console.log(forma.value)
+    let datos = forma.value;
+    datos.tipo = 'crearEvento'
+    datos.imagen= this.imagen;
+    datos.idUsuario=this.idUsuario;
+    console.log(datos)
+
+
+    this.appService.postQuery(datos).subscribe(
+      (data) => {
+        console.log(data);
+        if (data['status'] != 'error') {
+          console.log('data');
+          this.router.navigate(['/ubicacion']);
+          //this.borrarForm();
+        } else {
+          this.modal.generateModal(
+            `Algo salió mal`,
+            `${data['result']['error_msg']}`,
+            'De acuerdo',
+            'error'
+          );
+          console.log(data);
+          //this.borrarForm();
+        }
+      },
+      async (errorServicio) => {
+        console.log('he fallado');
+        console.log(errorServicio);
+        //this.borrarForm();
+      }
+    );
+  }
+
+  guardarFile(event: any) {
+    this.imagen=event[0]['base64']
+    console.log(event[0]['base64'])
+  }
 }
+
+
