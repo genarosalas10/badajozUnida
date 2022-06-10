@@ -220,6 +220,25 @@ class C_Evento extends modelo
     }
   }
 
+  /**
+   * Método encargado de eliminar un evento
+   * @param $datos
+   * @return array|string Devuelve un mensaje de éxito o un mensaje de error
+   */
+  public function eliminarEvento($datos)
+  {
+    if (isset($datos['idUsuario']) && isset($datos['idEvento'])) {
+      $result = $this->realizarEliminacionEvento($datos['idUsuario'], $datos['idEvento']);
+      if ($result == 1) {
+        return 'Te has desapuntado con éxito.';
+      } else {
+        return $result;
+      }
+    } else {
+      return $this->_respuestas->error_400();
+    }
+  }
+
 
   /**
    * Método encargado de sacar los eventos a los que se ha apuntado un usuario.
@@ -272,7 +291,7 @@ class C_Evento extends modelo
    */
   private function realizarEliminacionParticipante($idUsuario, $idEvento)
   {
-    $query = "DELETE FROM Participante WHERE idUsuario ='$idUsuario' AND '$idEvento';";
+    $query = "DELETE FROM Participante WHERE idUsuario ='$idUsuario' AND idEvento ='$idEvento';";
     $datos = parent::nonQuery($query);
     if ($datos > 0) {
       return 1;
@@ -282,6 +301,22 @@ class C_Evento extends modelo
         return $this->_respuestas->error_200("No estás apuntado a este evento.");
       } else {
         return $this->_respuestas->error_200("No te has podido apuntar. Inténtelo de nuevo.");
+      }
+    }
+  }
+
+    private function realizarEliminacionEvento($idUsuario, $idEvento)
+  {
+    $query = "DELETE FROM Evento WHERE idUsuario ='$idUsuario' AND idEvento ='$idEvento';";
+    $datos = parent::nonQuery($query);
+    if ($datos > 0) {
+      return 1;
+    } else {
+      $error = parent::errorId();
+      if ($error == 0) {
+        return $this->_respuestas->error_200("No has creado este evento.");
+      } else {
+        return $this->_respuestas->error_200("Fallo. Inténtelo de nuevo.");
       }
     }
   }

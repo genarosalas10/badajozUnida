@@ -1,28 +1,29 @@
 <div class="contenedor-filtros">
-    <input type="checkbox" name="creados" checked><label for="">Eventos creados</label>
-    <input type="checkbox" name="apuntados" checked><label for="">Eventos apuntados</label>
+    <input type="checkbox" name="creados" #creados value="1" (change)="mostrar(creados.value)" checked><label for="">Eventos creados</label>
+    <input type="checkbox" name="apuntados" #apuntados value="2" (change)="mostrar(apuntados.value)" checked><label for="">Eventos apuntados</label>
 </div>
-<div class="contenedor-eventos creados">
-    <div class="evento">
-        <div class="imagen-evento" [ngStyle]="{'background-image': 'url(' + 'https://via.placeholder.com/500x300/' + ')'}"></div>
-        <h2>Título</h2>
-        <p>Descripción</p>
-        <div class="info">
-            <span><strong>Fecha y hora: </strong></span>
-            <span><strong>Lugar: </strong></span>
-            <span><strong>Organizador/a: </strong></span>
-            <span><strong>Nº asistentes: </strong></span>
-            <span><strong></strong></span>
-        </div>
-        <button><i class="bi bi-trash-fill"></i></button>
+<div class="contenedor-eventos creados" *ngIf="mostrarCreados && mostrarP">
+  <div class="evento" *ngFor="let eventoCreado of eventosCreados">
+    <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + eventoCreado.imagen + ')'}"></div>
+    <h2>{{eventoCreado.titulo}}</h2>
+    <p>{{eventoCreado.descripcion}}</p>
+    <div class="info">
+      <span><strong>Fecha y hora: </strong> {{eventoCreado.fechaHora}}</span>
+      <span><strong>Lugar: </strong> {{eventoCreado.nombreUbicacion}}</span>
+      <span><strong>Organizador/a: </strong>{{eventoCreado.nombreCreador}}</span>
+      <span><strong>Nº asistentes: </strong>{{eventoCreado.numParticipantes}}</span>
+      <span><strong>{{eventoCreado.nombreSubcategoria}}</strong></span>
+    </div>
+        <button (click)="preguntaBorrado(eventoCreado.idEvento,1)"><i class="bi bi-trash-fill"></i></button >
     </div>
 </div>
-<hr />
-<div class="contenedor-eventos apuntados">
+<p *ngIf="!mostrarC && mostrarCreados">No has creado ningún evento.</p>
+<hr *ngIf="mostrarParticipo && mostrarCreados"/>
+<div class="contenedor-eventos apuntados" *ngIf="mostrarParticipo">
     <div class="evento" *ngFor="let eventoParticipo of eventosParticipo">
         <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + eventoParticipo.imagen + ')'}"></div>
-        <h2>Título</h2>
-        <p>Descripción</p>
+        <h2>{{eventoParticipo.titulo}}</h2>
+        <p>{{eventoParticipo.descripcion}}</p>
         <div class="info">
             <span><strong>Fecha y hora: </strong> {{eventoParticipo.fechaHora}}</span>
             <span><strong>Lugar: </strong> {{eventoParticipo.nombreUbicacion}}</span>
@@ -30,8 +31,8 @@
             <span><strong>Nº asistentes: </strong>{{eventoParticipo.numParticipantes}}</span>
             <span><strong>{{eventoParticipo.nombreSubcategoria}}</strong></span>
         </div>
-        <button><i class="bi bi-dash-circle-fill"></i></button>
-        <button><i class="bi bi-dash-circle-fill" style="opacity: 10%; cursor: default;"></i></button>
+        <button (click)="preguntaBorrado(eventoParticipo.idEvento,2)"><i class="bi bi-dash-circle-fill"></i></button>
     </div>
 </div>
+<p *ngIf="!mostrarP && mostrarParticipo">No participas en ningún evento.</p>
 <app-modal></app-modal>

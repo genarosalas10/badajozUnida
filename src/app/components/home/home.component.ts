@@ -18,9 +18,9 @@ export class HomeComponent implements OnInit {
   constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder,
               private appService: AppService,
               private router: Router) {
+    this.listadoEvento();
     this.usuarioService.comprobarAutenticacion();
     this.listadoEventoByUsuario(usuarioService.getIdUsuarioActual());
-    this.listadoEvento();
   }
 
   ngOnInit(): void {
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
+        console.log('hola');
         if (data['status'] != 'error') {
 
           this.eventos = this.decodificarImagen(data);
@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit {
       (data) => {
         console.log(data);
         if (data['status'] != 'error') {
-
+          console.log('data');
           this.eventosByUsuario = data;
         } else {
           //this.mostrar = true;
@@ -121,12 +121,15 @@ export class HomeComponent implements OnInit {
     );
   }
   comprobarParticipante(idEvento:any) {
-    console.log(this.eventosByUsuario)
-    for (let i=0;i<this.eventosByUsuario.length;i++){
-      if(this.eventosByUsuario[i]['idEvento']==idEvento){
-        return false
+    if (this.eventosByUsuario) {
+      for (let i = 0; i < this.eventosByUsuario.length; i++) {
+        if (this.eventosByUsuario[i]['idEvento'] == idEvento) {
+          return false
+        }
       }
+      return true;
     }
+
     return true;
   }
 }

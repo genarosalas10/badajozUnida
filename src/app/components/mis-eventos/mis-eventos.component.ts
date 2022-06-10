@@ -13,11 +13,17 @@ export class MisEventosComponent implements OnInit {
 
   eventosParticipo:any;
   eventosCreados:any;
-
+  mostrarCreados=true;
+  mostrarParticipo=true;
+  mostrarC=false;
+  mostrarP=false;
+  idUsuario:any;
   constructor( private usuarioService: UsuarioService, private formBuilder: FormBuilder,
                private appService: AppService,
                private router: Router) {
     this.listadoEventoByUsuario(usuarioService.getIdUsuarioActual());
+    this.listadoEventoByCreador(usuarioService.getIdUsuarioActual());
+    this.idUsuario=usuarioService.getIdUsuarioActual();
   }
 
   ngOnInit(): void {
@@ -36,11 +42,43 @@ export class MisEventosComponent implements OnInit {
       (data) => {
         console.log(data);
         if (data['status'] != 'error') {
-
           this.eventosParticipo = this.decodificarImagen(data);
+          this.mostrarP=true;
         } else {
-          //this.mostrar = true;
+          if (data['result']['error_id'] == '200') {
+            this.mostrarP=false;
+          }
+        }
+      },
+      async (errorServicio) => {
+        console.log('he fallado');
+        console.log(errorServicio);
+      }
+    );
+  }
+
+
+  /**
+   * Lista todos los eventos creados por un usuario.
+   */
+  listadoEventoByCreador(idUsuario:any) {
+    let datos = {
+      tipo: 'listarEventosbyCreador',
+      idCreador: idUsuario
+    };
+
+    this.appService.postQuery(datos).subscribe(
+      (data) => {
+        console.log(data);
+        if (data['status'] != 'error') {
+
+          this.eventosCreados = this.decodificarImagen(data);
+          this.mostrarC=true;
+        } else {
           console.log(data);
+          if (data['result']['error_id'] == '200') {
+            this.mostrarC=false;
+          }
         }
       },
       async (errorServicio) => {
@@ -57,4 +95,100 @@ export class MisEventosComponent implements OnInit {
     return datos;
   }
 
+  mostrar(valor:any) {
+    console.log('cambio')
+    if(valor==1){
+      if(this.mostrarCreados){
+        this.mostrarCreados=false;
+      }else{
+        this.mostrarCreados=true;
+      }
+    }
+    if(valor==2){
+      if(this.mostrarParticipo){
+        this.mostrarParticipo=false;
+      }else{
+        this.mostrarParticipo=true;
+      }
+    }
+  }
+  /**
+   * Valida si quieres borrar un evento o desapuntarte de un evento.
+   *
+   * @param id - ID del evento
+   */
+  preguntaBorrado(id: any,valor:any) {
+    //Realizar la pregunta
+    if(valor==1){
+      if (confirm('¿Desea borrar el evento?') == true) {
+        this.borrarEvento(id);
+      }
+    }else{
+      if (confirm('¿Desea desapuntarte del evento?') == true) {
+        this.borrarParticipante(id);
+      }
+    }
+  }
+
+  /**
+   * Borrar a un participante de un evento.
+   *
+   * @param id - ID del Evento
+   */
+  borrarParticipante(idEvento: any) {
+    console.log('idEvento');
+    let datos = {
+      tipo: 'eliminarParticipante',
+      idEvento: `${idEvento}`,
+      idUsuario: `${this.idUsuario}`
+
+    };
+    console.log(datos);
+    this.appService.postQuery(datos).subscribe(
+      (data) => {
+        if (data['status'] != 'error') {
+          console.log(data);
+          this.listadoEventoByUsuario(this.idUsuario);
+          this.listadoEventoByCreador(this.idUsuario);
+        } else {
+          console.log(data);
+        }
+      },
+      async (errorServicio) => {
+        console.log('he fallado');
+        console.log(errorServicio);
+      }
+    );
+  }
+
+  /**
+   * Borrar a un participante de un evento.
+   *
+   * @param id - ID del Evento
+   */
+  borrarEvento(idEvento: any) {
+    console.log('idEvento');
+    let datos = {
+      tipo: 'eliminarEvento',
+      idEvento: `${idEvento}`,
+      idUsuario: `${this.idUsuario}`
+
+    };
+    console.log(datos);
+    this.appService.postQuery(datos).subscribe(
+      (data) => {
+        if (data['status'] != 'error') {
+          console.log(data);
+          this.listadoEventoByUsuario(this.idUsuario);
+          this.listadoEventoByCreador(this.idUsuario);
+        } else {
+          console.log(data);
+        }
+      },
+      async (errorServicio) => {
+        console.log('he fallado');
+        console.log(errorServicio);
+      }
+    );
+  }
 }
