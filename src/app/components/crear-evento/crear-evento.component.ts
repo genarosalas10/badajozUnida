@@ -10,6 +10,7 @@ import {UsuarioService} from "../../services/usuario.service";
   templateUrl: './crear-evento.component.html',
   styleUrls: ['./crear-evento.component.css']
 })
+
 export class CrearEventoComponent implements OnInit {
   forma!: FormGroup;
   modal = new ModalComponent();
@@ -20,6 +21,9 @@ export class CrearEventoComponent implements OnInit {
   idUsuario:any;
   imagen:any;
 
+  /**
+   * @ignore
+   */
   constructor(
     private formBuilder: FormBuilder,
     private appService: AppService,
@@ -32,6 +36,9 @@ export class CrearEventoComponent implements OnInit {
     this.idUsuario=usuarioService.getIdUsuarioActual();
   }
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
     this.crearFormulario();
   }
@@ -76,7 +83,7 @@ export class CrearEventoComponent implements OnInit {
 
 
   /**
-   * Muestra en pantalla las subcategorías
+   * Muestra en pantalla las subcategorías.
    */
   listadoSubcategoria() {
     let datos = {
@@ -99,14 +106,28 @@ export class CrearEventoComponent implements OnInit {
     );
   }
 
+  /**
+   * Guarda el ID de una ubicación.
+   * @param idUbicacion - ID de la ubicación
+   */
   guardarIdUicacion(idUbicacion: any) {
     console.log(idUbicacion)
     this.idUbicacion=idUbicacion;
   }
+
+  /**
+   * Guarda el ID de una subcategoría.
+   * @param idSubcategoria - ID de la subcategoría
+   */
   guardarIdSubcategoria(idSubcategoria: any) {
     this.idUbicacion=idSubcategoria;
   }
 
+  /**
+   * Guarda los datos del formulario.
+   * @param forma - Datos del formulario
+   * @returns void
+   */
   guardar(forma: FormGroup){
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach(control => {
@@ -120,11 +141,18 @@ export class CrearEventoComponent implements OnInit {
     console.log(forma.value);
     this.crearEvento(forma);
   }
+
+  /**
+   * Valida un campo del formulario.
+   * @param campo1 - Campo del formulario
+   * @returns Campo inválido y modificado
+   */
   validar(campo1: string){
     let campo: any = this.forma.get(campo1);
 
     return !(campo.invalid && campo.touched);
   }
+
   /**
    * Crea un nuevo evento.
    * @param forma - Datos del evento
@@ -164,6 +192,10 @@ export class CrearEventoComponent implements OnInit {
     );
   }
 
+  /**
+   * Guarda una imagen en el servidor.
+   * @param event - Imagen
+   */
   guardarFile(event: any) {
     this.imagen=event[0]['base64']
     console.log(event[0]['base64'])

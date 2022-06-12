@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
   eventos:any;
   modal=new ModalComponent();
   eventosByUsuario: any;
+  /** 
+   * @ignore
+  */
   constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder,
               private appService: AppService,
               private router: Router) {
@@ -23,6 +26,9 @@ export class HomeComponent implements OnInit {
     this.listadoEventoByUsuario(usuarioService.getIdUsuarioActual());
   }
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
   }
 
@@ -125,9 +131,9 @@ export class HomeComponent implements OnInit {
   }
 
   /**
-   * 
-   * @param idEvento 
-   * @returns 
+   * Comprueba si el usuario está apuntado al evento.
+   * @param idEvento - ID el evento
+   * @returns true o false
    */
   comprobarParticipante(idEvento:any) {
     if (this.eventosByUsuario) {

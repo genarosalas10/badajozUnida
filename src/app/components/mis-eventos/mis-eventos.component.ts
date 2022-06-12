@@ -18,6 +18,9 @@ export class MisEventosComponent implements OnInit {
   mostrarC=false;
   mostrarP=false;
   idUsuario:any;
+  /**
+   * @ignore
+   */
   constructor( private usuarioService: UsuarioService, private formBuilder: FormBuilder,
                private appService: AppService,
                private router: Router) {
@@ -26,6 +29,9 @@ export class MisEventosComponent implements OnInit {
     this.idUsuario=usuarioService.getIdUsuarioActual();
   }
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
   }
 
