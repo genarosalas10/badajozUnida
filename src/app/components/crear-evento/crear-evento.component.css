@@ -57,3 +57,7 @@
     min-height: 140px;
     font-family: 'Open Sans', sans-serif;
 }
+
+.error{
+    color: red;
+}

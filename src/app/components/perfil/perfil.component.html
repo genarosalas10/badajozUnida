@@ -4,18 +4,18 @@
     <div class="input-group_">
       <label for="iNombre">Nombre:</label>
       <input type="text"  formControlName="nombre" maxlength="60" name="nombre" id="iNombre" />
-      <p *ngIf="!validar('nombre')" class="error">El nombre es incorrecto.</p>
     </div>
+    <p *ngIf="!validar('nombre')" class="error">El nombre es incorrecto.</p>
     <div class="input-group_">
       <label for="">Apellidos:</label>
       <input type="text" formControlName="apellidos" maxlength="60" name="apellidos" id="iApellidos" />
-      <p *ngIf="!validar('apellidos')" class="error">El apellido es incorrecto.</p>
     </div>
+    <p *ngIf="!validar('apellidos')" class="error">El apellido es incorrecto.</p>
     <div class="input-group_">
       <label for="">Correo:</label>
       <input type="email" formControlName="email" maxlength="100"  name="mail" id="iMail" placeholder="Correo Electrónico"/>
-      <p *ngIf="!validar('email')" class="error">Ajústese al formato del correo.</p>
     </div>
+    <p *ngIf="!validar('email')" class="error">Ajústese al formato del correo.</p>
     <div class="submit-container">
       <input type="submit" value="GUARDAR" />
     </div>

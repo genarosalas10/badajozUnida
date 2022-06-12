@@ -2,7 +2,7 @@
     <form [formGroup]="forma" (ngSubmit)="guardar(this.forma)" > <!--enctype="multipart/form-data"-->
         <div class="input-container">
             <input type="text" formControlName="titulo" placeholder="Título">
-          <p *ngIf="!this.validar('titulo')" class="error">Título muy corta.</p>
+          <p *ngIf="!this.validar('titulo')" class="error">Título muy corto.</p>
         </div>
         <div class="input-container">
             <div class="imagen">
@@ -30,7 +30,7 @@
             <select formControlName="idSubcategoria">
                 <option *ngFor="let subcategoria of subcategorias" value="{{subcategoria.idSubcategoria}}">{{subcategoria.nombre}}</option>
             </select>
-          <p *ngIf="!this.validar('idSubcategoria')" class="error">Subcateogira</p>
+          <p *ngIf="!this.validar('idSubcategoria')" class="error">Subcategoría</p>
         </div>
       <input type="submit" value="Guardar" />
     </form>

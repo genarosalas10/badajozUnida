@@ -123,6 +123,12 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+  /**
+   * 
+   * @param idEvento 
+   * @returns 
+   */
   comprobarParticipante(idEvento:any) {
     if (this.eventosByUsuario) {
       for (let i = 0; i < this.eventosByUsuario.length; i++) {

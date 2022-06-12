@@ -56,6 +56,10 @@
     transition: .3s;
 }
 
+.error{
+    color: red;
+}
+
 @media screen and (max-width: 420px) {
     .contenedor-perfil form .input-group_{
         grid-template-columns: 1fr;
