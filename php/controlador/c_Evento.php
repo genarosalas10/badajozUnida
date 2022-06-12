@@ -229,13 +229,18 @@ class C_Evento extends modelo
    */
   public function eliminarEvento($datos)
   {
-    if (isset($datos['idUsuario']) && isset($datos['idEvento'])) {
-      $result = $this->realizarEliminacionEvento($datos['idUsuario'], $datos['idEvento']);
-      if ($result == 1) {
-        return 'Te has desapuntado con éxito.';
-      } else {
-        return $result;
+    if (isset($datos['idUsuario']) && isset($datos['idEvento']) && isset($datos['imagen'])) {
+      if($this->eliminarImagen($datos['imagen'])){
+        $result = $this->realizarEliminacionEvento($datos['idUsuario'], $datos['idEvento']);
+        if ($result == 1) {
+          return 'Te has desapuntado con éxito.';
+        } else {
+          return $result;
+        }
+      } else{
+        $this->_respuestas->error_200("No se ha podido borrar la iamgen");
       }
+
     } else {
       return $this->_respuestas->error_400();
     }
@@ -349,8 +354,18 @@ class C_Evento extends modelo
     $file = $direccion.$nombre;
     file_put_contents($file,$imagen_base64);
     $nuevaDireccion = str_replace('\\','/',$file);
-    print_r($nombre);
+    //print_r($nombre);
     return $nombre;
+  }
+  private function eliminarImagen($img){
+    $direccion = dirname(__DIR__)."\\eventos\imagenes\\";
+    $file=$direccion.$img;
+    if(unlink($file))
+    {
+      return true;
+    }else{
+      return false;
+    }
   }
 
 }

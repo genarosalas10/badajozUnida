@@ -14,6 +14,8 @@ export class MisEventosComponent implements OnInit {
   eventosParticipo:any;
   eventosCreados:any;
   mostrarCreados=true;
+  mostrarCreadosArray=false;
+  mostrarParticipoArray=false;
   mostrarParticipo=true;
   mostrarC=false;
   mostrarP=false;
@@ -53,6 +55,7 @@ export class MisEventosComponent implements OnInit {
         } else {
           if (data['result']['error_id'] == '200') {
             this.mostrarP=false;
+            this.eventosParticipo =false;
           }
         }
       },
@@ -84,6 +87,7 @@ export class MisEventosComponent implements OnInit {
           console.log(data);
           if (data['result']['error_id'] == '200') {
             this.mostrarC=false;
+            this.eventosCreados = false;
           }
         }
       },
@@ -117,11 +121,11 @@ export class MisEventosComponent implements OnInit {
    *
    * @param id - ID del evento
    */
-  preguntaBorrado(id: any,valor:any) {
+  preguntaBorrado(id: any,imagen:any,valor:any) {
     //Realizar la pregunta
     if(valor==1){
       if (confirm('¿Desea borrar el evento?') == true) {
-        this.borrarEvento(id);
+        this.borrarEvento(id,imagen);
       }
     }else{
       if (confirm('¿Desea desapuntarte del evento?') == true) {
@@ -166,12 +170,13 @@ export class MisEventosComponent implements OnInit {
    *
    * @param id - ID del Evento
    */
-  borrarEvento(idEvento: any) {
+  borrarEvento(idEvento: any, imagen:any) {
     console.log('idEvento');
     let datos = {
       tipo: 'eliminarEvento',
       idEvento: `${idEvento}`,
-      idUsuario: `${this.idUsuario}`
+      idUsuario: `${this.idUsuario}`,
+      imagen:imagen
 
     };
     console.log(datos);
