@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
   eventos:any;
   modal=new ModalComponent();
   eventosByUsuario: any;
-  /** 
+  mostrar=true
+  /**
    * @ignore
   */
   constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder,
@@ -45,11 +46,11 @@ export class HomeComponent implements OnInit {
       (data) => {
         console.log('hola');
         if (data['status'] != 'error') {
-
           this.eventos = data;
+          this.mostrar=true;
           console.log(this.eventos[0]['imagen'])
         } else {
-          //this.mostrar = true;
+          this.mostrar=false;
           console.log(data);
         }
       },
