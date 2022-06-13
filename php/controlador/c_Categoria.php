@@ -54,10 +54,10 @@ class C_Categoria extends modelo
   {
     if(isset($datos['idCategoria'])){
       $result = $this->realizarEliminacionCategoria($datos['idCategoria']);
-      if($result!=0){
+      if($result==1){
         return 'Categoria eliminada con éxito';
       }else{
-        return $this->_respuestas->error_200("No hay categoria con ese id.");
+        return $result;
       }
     }else{
       return $this->_respuestas->error_400();
@@ -141,7 +141,7 @@ class C_Categoria extends modelo
   /**
    * Para eliminar una categoría de la bd
    * @param $idCategoria
-   * @return int devuelve 0 si ha fallado y 1 si ha realizado con éxito
+   * @return int|array devuelve mensaje de error si ha fallado y 1 si ha realizado con éxito
    */
   private function realizarEliminacionCategoria($idCategoria){
     $query="DELETE FROM Categoria WHERE idCategoria ='$idCategoria';";
@@ -149,7 +149,11 @@ class C_Categoria extends modelo
     if($datos>0){
       return 1;
     }else{
-      return 0;
+      if(parent::errorId()==1451){
+        return $this->_respuestas->error_200("La categoría está asociada a un evento.");
+      }else{
+        return $this->_respuestas->error_200("No se pudo borrar la categoría.");
+      }
     }
   }
 
@@ -243,10 +247,10 @@ class C_Categoria extends modelo
   {
     if(isset($datos['idSubcategoria'])){
       $result = $this->realizarEliminacionSubcategoria($datos['idSubcategoria']);
-      if($result!=0){
+      if($result==1){
         return 'Subcategoria eliminada con éxito';
       }else{
-        return $this->_respuestas->error_200("No hay subcategoria con ese id.");
+        return $result;
       }
     }else{
       return $this->_respuestas->error_400();
@@ -358,7 +362,11 @@ class C_Categoria extends modelo
     if($datos>0){
       return 1;
     }else{
-      return 0;
+      if(parent::errorId()==1451){
+        return $this->_respuestas->error_200("La subcategoría está asociada a un evento.");
+      }else{
+        return $this->_respuestas->error_200("No se pudo borrar la subcategoría");
+      }
     }
   }
 

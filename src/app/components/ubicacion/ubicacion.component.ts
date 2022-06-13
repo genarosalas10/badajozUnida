@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { AppService } from '../../services/app.service';
 import { Router } from '@angular/router';
+import {ModalComponent} from "../modal/modal.component";
 
 @Component({
   selector: 'app-ubicacion',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class UbicacionComponent implements OnInit {
   ubicaciones: any;
   mostrar = true;
+  modal = new ModalComponent();
   /**
    * @ignore
    */
@@ -57,8 +59,9 @@ export class UbicacionComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
           this.ubicaciones = data;
-        } else {
           this.mostrar = true;
+        } else {
+          this.mostrar = false;
           console.log(data);
         }
       },
@@ -138,10 +141,11 @@ export class UbicacionComponent implements OnInit {
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {
-          console.log(data);
+          this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoUbicacion();
         } else {
-          console.log(data);
+          this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
+
         }
       },
       async (errorServicio) => {

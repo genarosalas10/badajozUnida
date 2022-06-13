@@ -79,7 +79,7 @@ export class UsuariosComponent implements OnInit {
           this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoUsuario();
         } else {
-          console.log(data);
+          this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
         }
       },
       async (errorServicio) => {
@@ -164,7 +164,7 @@ export class UsuariosComponent implements OnInit {
 
   /**
    * Filtra los usuarios por el nombre.
-   * 
+   *
    * @param nombreUsuario - Nombre del usuario/s
    */
   listadoUsuarioPorNombre(nombreUsuario: any) {

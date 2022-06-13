@@ -72,10 +72,10 @@ class C_Ubicacion extends modelo
   {
     if(isset($datos['idUbicacion'])){
       $result = $this->realizarEliminacionUbicacion($datos['idUbicacion']);
-      if($result!=0){
+      if($result==1){
         return 'Ubicación eliminada con éxito';
       }else{
-        return $this->_respuestas->error_200("No hay ubicación con ese id.");
+        return $result;
       }
     }else{
       return $this->_respuestas->error_400();
@@ -177,7 +177,7 @@ class C_Ubicacion extends modelo
   /**
    * Para eliminar una ubicación de la bd
    * @param $idUbicacion
-   * @return int devuelve 0 si ha fallado y 1 si ha realizado con éxito
+   * @return int|array devuelve el mensaje de error si ha fallado y 1 si ha realizado con éxito
    */
   private function realizarEliminacionUbicacion($idUbicacion){
     $query="DELETE FROM Ubicacion WHERE idUbicacion ='$idUbicacion';";
@@ -185,7 +185,11 @@ class C_Ubicacion extends modelo
     if($datos>0){
       return 1;
     }else{
-      return 0;
+      if(parent::errorId()==1451){
+        return $this->_respuestas->error_200("La ubicacion está asociada a un evento.");
+      }else{
+        return $this->_respuestas->error_200("No se pudo borrar la ubicación");
+      }
     }
   }
 
