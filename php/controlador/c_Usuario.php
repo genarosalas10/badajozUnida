@@ -133,15 +133,13 @@ class C_Usuario extends modelo {
      */
     public function eliminarUsuario($datos){
 
-      if(isset($datos['idUsuario'])){
+      if(isset($datos['idUsuario'])) {
         $result = $this->realizarEliminacion($datos['idUsuario']);
-        if($result!=0){
+        if ($result == 1) {
           return 'Cuenta eliminada con éxito';
-        }else{
-          return $this->_respuestas->error_200("No hay usuario con ese id.");
+        } else {
+          return $result;
         }
-      }else{
-        return $this->_respuestas->error_400();
       }
     }
 
@@ -305,15 +303,19 @@ class C_Usuario extends modelo {
    * Borra un usuario específico de la BD.
    *
    * @param int $idUsuario
-   * @return int - Éxito o error
+   * @return int|array devuelve mensaje de error si ha fallado y 1 si ha realizado con éxito
    */
   private function realizarEliminacion($idUsuario){
     $query="DELETE FROM Usuario WHERE idUsuario ='$idUsuario';";
     $datos = parent::nonQuery($query);
-    if($datos!=0){
+    if($datos>0){
       return 1;
     }else{
-      return 0;
+      if(parent::errorId()==1451){
+        return $this->_respuestas->error_200("El usuario está asociada a un evento.");
+      }else{
+        return $this->_respuestas->error_200("No se pudo borrar el usuario.");
+      }
     }
   }
 
