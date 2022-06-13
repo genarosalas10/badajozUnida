@@ -171,7 +171,15 @@ export class CrearEventoComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
           console.log('data');
-          this.router.navigate(['/ubicacion']);
+          this.modal.generateModal(
+            'Éxito',
+            `Evento creado con éxito.`,
+            'De acuerdo',
+            'success'
+          );
+          setTimeout(() => {
+            this.router.navigate(['/mis-eventos']);
+          }, 2000);
           //this.borrarForm();
         } else {
           this.modal.generateModal(
@@ -199,6 +207,10 @@ export class CrearEventoComponent implements OnInit {
   guardarFile(event: any) {
     this.imagen=event[0]['base64']
     console.log(event[0]['base64'])
+  }
+
+  anadirUbicacion() {
+    this.router.navigate(['/formularioUbicacion', 0]);
   }
 }
 

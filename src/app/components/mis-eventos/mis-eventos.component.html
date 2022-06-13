@@ -2,6 +2,8 @@
     <input type="checkbox" name="creados" #creados value="1" (change)="mostrar(creados.value)" checked><label for="">Eventos creados</label>
     <input type="checkbox" name="apuntados" #apuntados value="2" (change)="mostrar(apuntados.value)" checked><label for="">Eventos apuntados</label>
 </div>
+<div class="separador"></div>
+<h2 *ngIf="mostrarCreados">Eventos creados</h2>
 <div class="contenedor-eventos creados" *ngIf="mostrarCreados && mostrarC">
   <div class="evento" *ngFor="let eventoCreado of eventosCreados">
     <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + 'http://localhost/proyecto/badajozUnida/php/eventos/imagenes/'+eventoCreado.imagen + ')'}"></div>
@@ -19,6 +21,7 @@
 </div>
 <p *ngIf="!mostrarC && mostrarCreados">No has creado ningún evento.</p>
 <hr *ngIf="mostrarParticipo && mostrarCreados"/>
+<h2 *ngIf="mostrarParticipo">Eventos apuntados</h2>
 <div class="contenedor-eventos apuntados" *ngIf="mostrarParticipo && mostrarP">
     <div class="evento" *ngFor="let eventoParticipo of eventosParticipo">
         <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + 'http://localhost/proyecto/badajozUnida/php/eventos/imagenes/'+eventoParticipo.imagen + ')'}"></div>
@@ -31,7 +34,7 @@
             <span><strong>Nº asistentes: </strong>{{eventoParticipo.numParticipantes}}</span>
             <span><strong>{{eventoParticipo.nombreSubcategoria}}</strong></span>
         </div>
-        <button (click)="preguntaBorrado(eventoParticipo.idEvento,eventoParticipo.imange,2)"><i class="bi bi-dash-circle-fill"></i></button>
+        <button (click)="preguntaBorrado(eventoParticipo.idEvento,eventoParticipo.imange,2)">Desapuntarme <i class="bi bi-dash-circle-fill"></i></button>
     </div>
 </div>
 <p *ngIf="!mostrarP && mostrarParticipo">No participas en ningún evento.</p>

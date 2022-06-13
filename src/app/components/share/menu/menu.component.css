@@ -53,6 +53,7 @@ header .account-container>button{
 
 header .account-container>.desplegable{
     position: absolute;
+    z-index: 12;
     top: 60px;
     right: 10px;
     width: fit-content;

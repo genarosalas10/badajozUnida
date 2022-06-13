@@ -23,6 +23,7 @@ export class DatosUbicacionesComponent implements OnInit {
     private appService: AppService,
     private router: Router,
     private activatedRoute: ActivatedRoute
+
   ) {
     this.activatedRoute.params.subscribe((parametros) => {
       this.idUbicacion = parametros['idUbicacion'];
@@ -99,7 +100,7 @@ export class DatosUbicacionesComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
           console.log('data');
-          this.router.navigate(['/ubicacion']);
+          window.history.back();
           //this.borrarForm();
         } else {
           this.modal.generateModal(
@@ -134,8 +135,7 @@ export class DatosUbicacionesComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
           console.log('data');
-          this.router.navigate(['/ubicacion']);
-          //this.borrarForm();
+          window.history.back();
         } else {
           this.modal.generateModal(
             `Algo salió mal`,
@@ -159,7 +159,7 @@ export class DatosUbicacionesComponent implements OnInit {
    * @ignore
    */
   volver() {
-    this.router.navigate(['ubicacion']);
+    window.history.back();
   }
 
   /**

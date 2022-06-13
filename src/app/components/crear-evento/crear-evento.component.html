@@ -21,13 +21,15 @@
         </div>
         <div class="input-container">
             <select formControlName="idUbicacion" >
+              <option value="" selected="selected">Seleccione Ubicación</option>
                 <option  *ngFor="let ubicacion of ubicaciones" value="{{ubicacion.idUbicacion}}" >{{ubicacion.nombre}}</option> <!-- El value puede ser el ID --->
             </select>
-          <strong class="add-button">Añadir ubicación <i class="bi bi-geo-alt-fill"></i></strong>
+          <strong class="add-button" (click)="anadirUbicacion()">Añadir ubicación <i class="bi bi-geo-alt-fill"></i></strong>
           <p *ngIf="!this.validar('idUbicacion')" class="error">Ubicaciones</p>
         </div>
         <div class="input-container">
             <select formControlName="idSubcategoria">
+              <option value="" selected="selected">Seleccione Subcategoría</option>
                 <option *ngFor="let subcategoria of subcategorias" value="{{subcategoria.idSubcategoria}}">{{subcategoria.nombre}}</option>
             </select>
           <p *ngIf="!this.validar('idSubcategoria')" class="error">Subcategoría</p>
