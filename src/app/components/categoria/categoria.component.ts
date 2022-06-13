@@ -14,6 +14,7 @@ export class CategoriaComponent implements OnInit {
   categorias: any;
   subcategorias: any;
   categoriasPopup: any;
+  mostrar = true;
   modal = new ModalComponent();
   /**
    * @ignore
@@ -70,7 +71,9 @@ export class CategoriaComponent implements OnInit {
         console.log(data);
         if (data['status'] != 'error') {
           this.categorias = data;
+          this.mostrar = true;
         } else {
+          this.mostrar = false;
           console.log(data);
         }
       },
@@ -171,7 +174,7 @@ export class CategoriaComponent implements OnInit {
           this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoCategoria();
         } else {
-          console.log(data);
+          this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
         }
       },
       async (errorServicio) => {
@@ -200,7 +203,7 @@ export class CategoriaComponent implements OnInit {
           this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoSubcategoria();
         } else {
-          console.log(data);
+          this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
         }
       },
       async (errorServicio) => {
