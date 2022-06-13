@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 --Crear base de datos
 /* DROP DATABASE IF EXISTS BadajozUnida;
 CREATE DATABASE IF NOT EXISTS BadajozUnida DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
