@@ -6,7 +6,7 @@
 <h2 *ngIf="mostrarCreados">Eventos creados</h2>
 <div class="contenedor-eventos creados" *ngIf="mostrarCreados && mostrarC">
   <div class="evento" *ngFor="let eventoCreado of eventosCreados">
-    <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + 'http://localhost/proyecto/badajozUnida/php/eventos/imagenes/'+eventoCreado.imagen + ')'}"></div>
+    <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + 'https://2daw.esvirgua.com/01/php/eventos/imagenes/'+eventoCreado.imagen + ')'}"></div>
     <h2>{{eventoCreado.titulo}}</h2>
     <p>{{eventoCreado.descripcion}}</p>
     <div class="info">
@@ -24,7 +24,7 @@
 <h2 *ngIf="mostrarParticipo">Eventos apuntados</h2>
 <div class="contenedor-eventos apuntados" *ngIf="mostrarParticipo && mostrarP">
     <div class="evento" *ngFor="let eventoParticipo of eventosParticipo">
-        <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + 'http://localhost/proyecto/badajozUnida/php/eventos/imagenes/'+eventoParticipo.imagen + ')'}"></div>
+        <div class="imagen-evento"  [ngStyle]="{'background-image': 'url(' + 'https://2daw.esvirgua.com/01/php/eventos/imagenes/'+eventoParticipo.imagen + ')'}"></div>
         <h2>{{eventoParticipo.titulo}}</h2>
         <p>{{eventoParticipo.descripcion}}</p>
         <div class="info">
