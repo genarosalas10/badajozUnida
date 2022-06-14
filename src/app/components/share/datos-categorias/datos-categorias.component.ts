@@ -40,7 +40,6 @@ export class DatosCategoriasComponent implements OnInit {
 
   //comprobar formulario
   guardar(forma: FormGroup) {
-    console.log('guardarFormulario');
 
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach((control) => {
@@ -49,7 +48,6 @@ export class DatosCategoriasComponent implements OnInit {
       });
       return;
     }
-    console.log(forma.value);
     if (forma.value.idCategoria == 0) {
       this.anadirCategoria(forma);
     } else {
@@ -66,15 +64,11 @@ export class DatosCategoriasComponent implements OnInit {
   anadirCategoria(forma: any) {
     let datos = forma.value;
     datos.tipo = 'crearCategoria';
-    //console.log(JSON.stringify(datos));
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
-          console.log('data');
           this.router.navigate(['/categoria']);
-          //this.borrarForm();
         } else {
           this.modal.generateModal(
             `Algo salió mal`,
@@ -82,14 +76,11 @@ export class DatosCategoriasComponent implements OnInit {
             'De acuerdo',
             'error'
           );
-          console.log(data);
-          //this.borrarForm();
         }
       },
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.borrarForm();
       }
     );
   }
@@ -98,15 +89,11 @@ export class DatosCategoriasComponent implements OnInit {
   modificarCategoria(forma: any) {
     let datos = forma.value;
     datos.tipo = 'modificarCategoria';
-    //console.log(JSON.stringify(datos));
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
-          console.log('data');
           this.router.navigate(['/categoria']);
-          //this.borrarForm();
         } else {
           this.modal.generateModal(
             `Algo salió mal`,
@@ -114,14 +101,11 @@ export class DatosCategoriasComponent implements OnInit {
             'De acuerdo',
             'error'
           );
-          console.log(data);
-          //this.borrarForm();
         }
       },
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.borrarForm();
       }
     );
   }
@@ -135,29 +119,25 @@ export class DatosCategoriasComponent implements OnInit {
       tipo: 'sacarCategoriaId',
       idCategoria: idCategoria,
     };
-    console.log(JSON.stringify(datos));
-    //this.cargarDatosFormulario('Cargar1','cargar2')
+
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
+
         if (data['status'] != 'error') {
           this.categoria = data[0];
           this.cargarDatosFormulario();
-          //console.log(this.categoria);
+
         } else {
-          //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
           console.log(data);
         }
       },
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.toast=true;
       }
     );
   }
   cargarDatosFormulario() {
-    //console.log(this.categoria.nombre)
     this.forma.reset({
       nombre: this.categoria.nombre,
       descripcion: this.categoria.descripcion,

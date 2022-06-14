@@ -5,11 +5,16 @@ import {UsuarioService} from "../../services/usuario.service";
 @Injectable()
 export class Autorizacion implements CanActivate {
 
+  /**
+   * @ignore
+   */
   constructor(private router: Router,
               private usuarioService: UsuarioService) { }
 
+  /**
+   * Comprobar si esta autenticado
+   */
   canActivate() {
-    console.log(this.usuarioService.comprobarAutenticacion());
     if (this.usuarioService.comprobarAutenticacion()) {
       // logged in so return true
       return true;

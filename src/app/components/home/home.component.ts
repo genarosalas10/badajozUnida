@@ -44,14 +44,11 @@ export class HomeComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log('hola');
         if (data['status'] != 'error') {
           this.eventos = data;
           this.mostrar=true;
-          console.log(this.eventos[0]['imagen'])
         } else {
           this.mostrar=false;
-          console.log(data);
         }
       },
       async (errorServicio) => {
@@ -73,16 +70,13 @@ export class HomeComponent implements OnInit {
       idEvento: `${idEvento}`,
       idUsuario: this.usuarioService.getIdUsuarioActual()
     };
-    console.log(datos);
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {
-          console.log(data);
           this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoEvento();
           this.listadoEventoByUsuario(this.usuarioService.getIdUsuarioActual());
         } else {
-          console.log(data);
           this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
         }
       },
@@ -92,15 +86,7 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-/*
-  decodificarImagen(datos:any){
-    for (let i=0;i<datos.length;i++){
-      datos[i]['imagen']=atob(datos[i]['imagen']);
-    }
-    return datos;
-  }
 
- */
 
 
 
@@ -115,12 +101,9 @@ export class HomeComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
-          console.log('data');
           this.eventosByUsuario = data;
         } else {
-          //this.mostrar = true;
           console.log(data);
         }
       },
@@ -145,7 +128,6 @@ export class HomeComponent implements OnInit {
       }
       return true;
     }
-
     return true;
   }
 }

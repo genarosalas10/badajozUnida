@@ -68,19 +68,16 @@ export class CategoriaComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           this.categorias = data;
           this.mostrar = true;
         } else {
           this.mostrar = false;
-          console.log(data);
         }
       },
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.toast=true;
       }
     );
   }
@@ -92,12 +89,10 @@ export class CategoriaComponent implements OnInit {
     let datos = {
       tipo: 'listarSubcategoria',
     };
-    console.log(datos);
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {
           this.subcategorias = data;
-          console.log(this.subcategorias);
         } else {
           console.log(data);
         }
@@ -105,7 +100,6 @@ export class CategoriaComponent implements OnInit {
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.toast=true;
       }
     );
   }
@@ -124,7 +118,6 @@ export class CategoriaComponent implements OnInit {
       (data) => {
         if (data['status'] != 'error') {
           this.subcategorias = data;
-          console.log(this.subcategorias);
         } else {
           console.log(data);
         }
@@ -170,7 +163,6 @@ export class CategoriaComponent implements OnInit {
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {
-          console.log(data);
           this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoCategoria();
         } else {
@@ -199,7 +191,6 @@ export class CategoriaComponent implements OnInit {
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {
-          console.log(data);
           this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoSubcategoria();
         } else {

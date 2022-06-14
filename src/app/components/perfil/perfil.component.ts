@@ -102,18 +102,15 @@ export class PerfilComponent implements OnInit {
       tipo: 'perfilUsuario',
       idUsuario: idUsuario,
     };
-    console.log(JSON.stringify(datos));
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           this.usuario = data[0];
           this.usuarioService.setNombreActual(data[0]['nombre']);
           this.cargarDatosFormulario();
         } else {
           this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
-          console.log(data);
         }
       },
       async (errorServicio) => {
@@ -131,7 +128,6 @@ export class PerfilComponent implements OnInit {
     let datos = forma.value;
     datos.tipo = 'modificarPerfilUsuario';
     datos.idUsuario = this.usuarioService.getIdUsuarioActual();
-    console.log(JSON.stringify(datos));
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {

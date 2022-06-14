@@ -27,9 +27,7 @@ export class DatosUbicacionesComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((parametros) => {
       this.idUbicacion = parametros['idUbicacion'];
-      console.log(parametros);
       if (parametros['idUbicacion'] > 0) {
-        console.log('modificar');
         this.sacarUbicacion(parametros['idUbicacion']);
       }
     });
@@ -59,8 +57,6 @@ export class DatosUbicacionesComponent implements OnInit {
    * @returns - void
    */
   guardar(forma: FormGroup) {
-    console.log('guardarFormulario');
-
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach((control) => {
         if (control instanceof FormGroup) this.guardar(control);
@@ -93,15 +89,11 @@ export class DatosUbicacionesComponent implements OnInit {
   anadirUbicacion(forma: any) {
     let datos = forma.value;
     datos.tipo = 'crearUbicacion';
-    //console.log(JSON.stringify(datos));
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
-          console.log('data');
           window.history.back();
-          //this.borrarForm();
         } else {
           this.modal.generateModal(
             `Algo salió mal`,
@@ -110,13 +102,11 @@ export class DatosUbicacionesComponent implements OnInit {
             'error'
           );
           console.log(data);
-          //this.borrarForm();
         }
       },
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.borrarForm();
       }
     );
   }
@@ -132,9 +122,7 @@ export class DatosUbicacionesComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
-          console.log('data');
           window.history.back();
         } else {
           this.modal.generateModal(
@@ -144,13 +132,11 @@ export class DatosUbicacionesComponent implements OnInit {
             'error'
           );
           console.log(data);
-          //this.borrarForm();
         }
       },
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.borrarForm();
       }
     );
   }
@@ -179,16 +165,13 @@ export class DatosUbicacionesComponent implements OnInit {
         if (data['status'] != 'error') {
           this.ubicacion = data[0];
           this.cargarDatosFormulario();
-          //console.log(this.categoria);
         } else {
-          //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
           console.log(data);
         }
       },
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.toast=true;
       }
     );
   }
@@ -197,7 +180,6 @@ export class DatosUbicacionesComponent implements OnInit {
    * En caso de edición, añade los valores anteriores de los campos al formulario.
    */
   cargarDatosFormulario() {
-    //console.log(this.categoria.nombre)
     this.forma.reset({
       nombre: this.ubicacion.nombre,
       direccion: this.ubicacion.direccion,

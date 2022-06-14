@@ -28,9 +28,7 @@ export class DatosSubcategoriasComponent implements OnInit {
     this.listadoCategoria();
     this.activatedRoute.params.subscribe((parametros) => {
       this.idCategoria = parametros['idCategoria'];
-      console.log(parametros);
       if (parametros['idSubcategoria'] > 0) {
-        console.log('modificar');
         this.sacarSubcategoria(parametros['idSubcategoria']);
       }
     });
@@ -60,7 +58,6 @@ export class DatosSubcategoriasComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           this.categorias = data;
         } else {
@@ -70,7 +67,6 @@ export class DatosSubcategoriasComponent implements OnInit {
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.toast=true;
       }
     );
   }
@@ -106,8 +102,6 @@ export class DatosSubcategoriasComponent implements OnInit {
    * @returns - void
    */
   guardar(forma: FormGroup) {
-    console.log('guardarFormulario');
-
     if (forma.invalid || forma.pending) {
       Object.values(forma.controls).forEach((control) => {
         if (control instanceof FormGroup) this.guardar(control);
@@ -144,10 +138,8 @@ export class DatosSubcategoriasComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           this.router.navigate(['/categoria']);
-          console.log('data');
         } else {
           //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
           console.log(data);
@@ -168,15 +160,12 @@ export class DatosSubcategoriasComponent implements OnInit {
   modificarSubcategoria(forma: any) {
     let datos = forma.value;
     datos.tipo = 'modificarSubcategoria';
-    //console.log(JSON.stringify(datos));
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           console.log('data');
           this.router.navigate(['/categoria']);
-          //this.borrarForm();
         } else {
           this.modal.generateModal(
             `Algo salió mal`,
@@ -185,13 +174,11 @@ export class DatosSubcategoriasComponent implements OnInit {
             'error'
           );
           console.log(data);
-          //this.borrarForm();
         }
       },
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.borrarForm();
       }
     );
   }
@@ -206,23 +193,18 @@ export class DatosSubcategoriasComponent implements OnInit {
       idSubcategoria: idSubcategoria,
     };
     console.log(JSON.stringify(datos));
-    //this.cargarDatosFormulario('Cargar1','cargar2')
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           this.subcategoria = data[0];
           this.cargarDatosFormulario();
-          //console.log(this.categoria);
         } else {
-          //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
           console.log(data);
         }
       },
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.toast=true;
       }
     );
   }

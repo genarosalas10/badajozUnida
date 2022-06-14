@@ -12,6 +12,7 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  modal = new ModalComponent();
   /**
    * @ignore
    */
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   ) {
     this.usuarioService.removeSesionActual();
   }
-  modal = new ModalComponent();
+
 
   /**
    * @ignore
@@ -82,8 +83,6 @@ export class LoginComponent implements OnInit {
           this.usuarioService.recogerUsuario(
             data[0]
           );
-          console.log(btoa(data[0]['password']));
-          console.log(atob("YWJj"));
           this.router.navigate(['home']);
         } else {
           this.modal.generateModal(

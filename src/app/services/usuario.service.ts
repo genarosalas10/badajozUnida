@@ -11,52 +11,80 @@ export class UsuarioService {
     nombre:null,
     tipo:null
   };
-
+  /**
+   * @ignore
+   */
   constructor(private router: Router) {
 
     this.sesion=this.getDatosSesion();
   }
+
+  /**
+   * Recoge los datos del usuario al iniciar sesión
+   * @param datosUsuario
+   */
   recogerUsuario(datosUsuario:UsuarioInterfaces){
     this.sesion=datosUsuario;
-    console.log(this.sesion)
   }
 
+  /**
+   * Para coger los datos de la sesión
+   */
   getDatosSesion(): UsuarioInterfaces{
     var sessionStr = this.sesion;
       return sessionStr;
 
   }
+
+  /**
+   * Comprueba si existe los datos de la sesión
+   */
   comprobarAutenticacion(): boolean {
-    console.log(this.getIdUsuarioActual())
     return (this.getIdUsuarioActual() != null) ? true : false;
   };
 
+  /**
+   * Para coger los datos de la sesion actual
+   */
   getSesionActual(): UsuarioInterfaces{
     return this.sesion;
   }
 
+  /**
+   * Para coger el id del usuario
+   */
   getIdUsuarioActual(): any {
     var session: UsuarioInterfaces = this.getDatosSesion();
     return (session && session.idUsuario) ? session.idUsuario : null;
   };
 
+  /**
+   * Para coger el nombre del usuario
+   */
   getNombreActual(): any {
     var session: UsuarioInterfaces = this.getDatosSesion();
-    console.log(session.nombre);
     return (session && session.nombre) ? session.nombre : null;
   };
 
+  /**
+   * Para coger el tipo de usuario
+   */
   getTipoActual(): any {
     var session: UsuarioInterfaces = this.getDatosSesion();
     return (session && session.tipo) ? session.tipo : null;
   };
 
+  /**
+   * Para cambiar el nombre del usuario
+   * @param nombre
+   */
   setNombreActual(nombre:string){
-    console.log(nombre)
     this.sesion.nombre=nombre;
-    console.log(this.sesion.nombre)
   }
 
+  /**
+   * Para eliminar la sesión
+   */
   removeSesionActual(): void {
     this.sesion.tipo = null;
     this.sesion.idUsuario = null;

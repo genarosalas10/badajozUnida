@@ -35,7 +35,6 @@ export class UbicacionComponent implements OnInit {
    * @param nombreUbicacion - Nombre de la ubicación
    */
   buscar(nombreUbicacion: any) {
-    //nombreUbicacion=nombreUbicacion.trim();
 
     nombreUbicacion = nombreUbicacion.toLowerCase().replace(/\s/g, '');
     console.log(nombreUbicacion);
@@ -56,13 +55,11 @@ export class UbicacionComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           this.ubicaciones = data;
           this.mostrar = true;
         } else {
           this.mostrar = false;
-          console.log(data);
         }
       },
       async (errorServicio) => {
@@ -85,7 +82,6 @@ export class UbicacionComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           this.mostrar = true;
           this.ubicaciones = data;
@@ -109,7 +105,6 @@ export class UbicacionComponent implements OnInit {
    * @param idUbicacion - ID de la ubicación
    */
   llamarFormulario(idUbicacion: number) {
-    console.log('Llamada');
     this.router.navigate(['/formularioUbicacion', idUbicacion]);
   }
 
@@ -137,7 +132,6 @@ export class UbicacionComponent implements OnInit {
       tipo: 'eliminarUbicacion',
       idUbicacion: `${idUbicacion}`,
     };
-    console.log(datos);
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {

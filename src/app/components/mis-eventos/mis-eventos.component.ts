@@ -3,6 +3,7 @@ import {FormBuilder} from "@angular/forms";
 import {AppService} from "../../services/app.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UsuarioService} from "../../services/usuario.service";
+import {ModalComponent} from "../modal/modal.component";
 
 @Component({
   selector: 'app-mis-eventos',
@@ -20,6 +21,7 @@ export class MisEventosComponent implements OnInit {
   mostrarC=false;
   mostrarP=false;
   idUsuario:any;
+  modal=new ModalComponent();
   /**
    * @ignore
    */
@@ -48,7 +50,6 @@ export class MisEventosComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           this.eventosParticipo =data;
           this.mostrarP=true;
@@ -78,13 +79,11 @@ export class MisEventosComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
 
           this.eventosCreados = data;
           this.mostrarC=true;
         } else {
-          console.log(data);
           if (data['result']['error_id'] == '200') {
             this.mostrarC=false;
             this.eventosCreados = false;
@@ -100,7 +99,6 @@ export class MisEventosComponent implements OnInit {
 
 
   mostrar(valor:any) {
-    console.log('cambio')
     if(valor==1){
       if(this.mostrarCreados){
         this.mostrarCreados=false;
@@ -147,15 +145,14 @@ export class MisEventosComponent implements OnInit {
       idUsuario: `${this.idUsuario}`
 
     };
-    console.log(datos);
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {
-          console.log(data);
+          this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoEventoByUsuario(this.idUsuario);
           this.listadoEventoByCreador(this.idUsuario);
         } else {
-          console.log(data);
+          this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
         }
       },
       async (errorServicio) => {
@@ -171,7 +168,6 @@ export class MisEventosComponent implements OnInit {
    * @param id - ID del Evento
    */
   borrarEvento(idEvento: any, imagen:any) {
-    console.log('idEvento');
     let datos = {
       tipo: 'eliminarEvento',
       idEvento: `${idEvento}`,
@@ -179,15 +175,14 @@ export class MisEventosComponent implements OnInit {
       imagen:imagen
 
     };
-    console.log(datos);
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {
-          console.log(data);
+          this.modal.generateModal('Éxito', data, '¡De acuerdo!', 'success')
           this.listadoEventoByUsuario(this.idUsuario);
           this.listadoEventoByCreador(this.idUsuario);
         } else {
-          console.log(data);
+          this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
         }
       },
       async (errorServicio) => {

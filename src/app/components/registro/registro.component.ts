@@ -90,7 +90,6 @@ export class RegistroComponent implements OnInit {
       return;
     }
     this.registro(forma);
-    //this.forma.reset();
   }
 
   /**
@@ -100,7 +99,6 @@ export class RegistroComponent implements OnInit {
   registro(loginForm: FormGroup) {
     let datos = loginForm.value;
     datos.tipo = 'registro';
-    console.log(JSON.stringify(datos));
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {
