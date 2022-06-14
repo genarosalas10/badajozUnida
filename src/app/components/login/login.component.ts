@@ -56,7 +56,6 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.ComprobarUsuario(forma);
-    //this.forma.reset();
   }
 
   /**
@@ -77,11 +76,8 @@ export class LoginComponent implements OnInit {
   ComprobarUsuario(loginForm: FormGroup) {
     let datos = loginForm.value;
     datos.tipo = 'login';
-    //console.log(JSON.stringify(datos));
-
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           this.usuarioService.recogerUsuario(
             data[0]
@@ -97,14 +93,10 @@ export class LoginComponent implements OnInit {
             'error'
           );
         }
-        /*
-           window.location.reload();
-           */
       },
       async (errorServicio) => {
-        console.log('he fallado');
+        console.log('fallo al conectar con el servidor');
         console.log(errorServicio);
-        //this.toast=true;
       }
     );
   }
