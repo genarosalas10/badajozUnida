@@ -158,7 +158,6 @@ export class CrearEventoComponent implements OnInit {
     datos.tipo = 'crearEvento'
     datos.imagen= this.imagen;
     datos.idUsuario=this.idUsuario;
-    
     this.appService.postQuery(datos).subscribe(
       (data) => {
         console.log(data);

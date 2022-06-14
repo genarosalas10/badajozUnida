@@ -1,5 +1,5 @@
 <div class="contenedor-crear">
-    <form [formGroup]="forma" (ngSubmit)="guardar(this.forma)" > <!--enctype="multipart/form-data"-->
+    <form [formGroup]="forma" (ngSubmit)="guardar(this.forma)" >
         <div class="input-container">
             <input type="text" formControlName="titulo" placeholder="Título">
           <p *ngIf="!this.validar('titulo')" class="error">Título muy corto.</p>
@@ -22,7 +22,7 @@
         <div class="input-container">
             <select formControlName="idUbicacion" >
               <option value="" selected="selected">Seleccione Ubicación</option>
-                <option  *ngFor="let ubicacion of ubicaciones" value="{{ubicacion.idUbicacion}}" >{{ubicacion.nombre}}</option> <!-- El value puede ser el ID --->
+                <option  *ngFor="let ubicacion of ubicaciones" value="{{ubicacion.idUbicacion}}" >{{ubicacion.nombre}}</option>
             </select>
           <strong class="add-button" (click)="anadirUbicacion()">Añadir ubicación <i class="bi bi-geo-alt-fill"></i></strong>
           <p *ngIf="!this.validar('idUbicacion')" class="error">Debes elegir una ubicación</p>
