@@ -259,7 +259,7 @@ class C_Evento extends modelo
       if($result!=0){
         return $result;
       }else{
-        return $this->_respuestas->error_200("No hay usuario con ese id.");
+        return $this->_respuestas->error_200("No participas en ningun evento.");
       }
     }else{
       return $this->_respuestas->error_400();
@@ -344,6 +344,12 @@ class C_Evento extends modelo
     }
   }
 
+
+  /**
+   * Para guardar la imagen en el servidor
+   * @param $img
+   * @return string Devuelve el nombre del archivo
+   */
   private function procesarImage($img)
   {
     $direccion = dirname(__DIR__)."/eventos/imagenes/";
@@ -353,10 +359,14 @@ class C_Evento extends modelo
     $nombre= uniqid().".".$extension;
     $file = $direccion.$nombre;
     file_put_contents($file,$imagen_base64);
-    $nuevaDireccion = str_replace('\\','/',$file);
-    //print_r($nombre);
     return $nombre;
   }
+
+  /**
+   * Elimina la imagen
+   * @param $img
+   * @return bool Devuelve true si se ha borrado correctamente o false si ha fallado
+   */
   private function eliminarImagen($img){
     $direccion = dirname(__DIR__)."/eventos/imagenes/";
     $file=$direccion.$img;
