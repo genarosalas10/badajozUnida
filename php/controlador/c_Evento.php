@@ -89,7 +89,7 @@ class C_Evento extends modelo
   {
     $query = "SELECT e.idEvento, e.titulo, e.imagen, e.descripcion, e.fechaHora ,
               u.nombre as 'nombreUbicacion', s.nombre as 'nombreSubcateogria', concat(u2.nombre,' ', u2.apellidos) as 'nombreCreador',
-              (SELECT count(participante.idEvento) FROM participante INNER JOIN evento ON participante.idEvento= evento.idEvento) as 'numParticipantes'
+              (SELECT count(Participante.idEvento) FROM Participante INNER JOIN Evento ON Participante.idEvento= Evento.idEvento) as 'numParticipantes'
               FROM Evento e
               INNER JOIN Ubicacion u
               ON e.idUbicacion = u.idUbicacion
@@ -114,7 +114,7 @@ class C_Evento extends modelo
   {
     $query = "select e.idEvento, e.titulo, e.imagen, e.descripcion, e.fechaHora ,
               u.nombre as 'nombreUbicacion', s.nombre as 'nombreSubcateogria', concat(u2.nombre,' ', u2.apellidos) as 'nombreCreador',
-              (SELECT count(participante.idEvento) FROM participante INNER JOIN evento ON participante.idEvento= evento.idEvento) as 'numParticipantes'
+              (SELECT count(Participante.idEvento) FROM Participante INNER JOIN Evento ON Participante.idEvento= Evento.idEvento) as 'numParticipantes'
               from  Evento e
               inner join Usuario u2
               ON e.idUsuario = u2.idUsuario
@@ -140,17 +140,17 @@ class C_Evento extends modelo
   {
     $query = "select e.idEvento, e.titulo, e.imagen, e.descripcion, e.fechaHora ,
               u.nombre as 'nombreUbicacion', s.nombre as 'nombreSubcateogria', concat(u2.nombre,' ', u2.apellidos) as 'nombreCreador',
-              (SELECT count(participante.idEvento) FROM participante INNER JOIN evento ON participante.idEvento= evento.idEvento) as 'numParticipantes'
-              from evento e
-              inner join usuario u2
+              (SELECT count(Participante.idEvento) FROM Participante INNER JOIN Evento ON Participante.idEvento= Evento.idEvento) as 'numParticipantes'
+              from Evento e
+              inner join Usuario u2
               ON e.idUsuario = u2.idUsuario
-              INNER JOIN ubicacion u
+              INNER JOIN Ubicacion u
               ON e.idUbicacion = u.idUbicacion
-              INNER JOIN subcategoria s
+              INNER JOIN Subcategoria s
               ON e.idSubcategoria = s.idSubcategoria
               INNER JOIN Participante p
               ON e.idEvento = p.idEvento
-              where P.idUsuario = '$idParticipante'
+              where p.idUsuario = '$idParticipante'
               order by e.fechaHora;";
     $datos = parent::obtenerDatos($query);
     if (isset($datos[0]["idEvento"])) {
@@ -346,7 +346,7 @@ class C_Evento extends modelo
 
   private function procesarImage($img)
   {
-    $direccion = dirname(__DIR__)."\\eventos\imagenes\\";
+    $direccion = dirname(__DIR__)."/eventos/imagenes/";
     $partes = explode(";base64",$img);
     $extension = explode('/',mime_content_type($img))[1];
     $imagen_base64 = base64_decode($partes[1]);
