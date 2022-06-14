@@ -21,6 +21,7 @@ body{font-family: 'Open Sans', sans-serif;}
     height: 100vh;
     max-height: 100vh;
     overflow-y: auto;
+    background-color: #fff;
 }
 
 /*======Formulario======*/

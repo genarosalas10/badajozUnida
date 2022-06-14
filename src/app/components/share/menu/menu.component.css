@@ -125,6 +125,7 @@ main{
     overflow-y: scroll;
     height: 84vh;
     padding: 1rem;
+    padding-bottom: 70px;
 }
 
 /*======Footer======*/
@@ -189,7 +190,10 @@ footer{
         color: #fff;
     }
 
-    main{height: 90vh;}
+    main{
+        height: 90vh;
+        padding-bottom: 1rem;
+    }
 
     footer{display: none;}
 }
