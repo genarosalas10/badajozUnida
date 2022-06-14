@@ -358,7 +358,7 @@ class C_Evento extends modelo
     return $nombre;
   }
   private function eliminarImagen($img){
-    $direccion = dirname(__DIR__)."\\eventos\imagenes\\";
+    $direccion = dirname(__DIR__)."/eventos/imagenes/";
     $file=$direccion.$img;
     if(unlink($file))
     {
