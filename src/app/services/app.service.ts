@@ -9,6 +9,7 @@ import {Observable} from "rxjs";
 export class AppService {
 
   private URLBASE2 = "https://2daw.esvirgua.com/01/php/controlador/index.php"; //Servidor
+
   constructor( private http: HttpClient) { }
 
   //Para llamar a la Api con el metodo get
