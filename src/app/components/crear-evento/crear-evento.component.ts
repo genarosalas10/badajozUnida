@@ -48,10 +48,10 @@ export class CrearEventoComponent implements OnInit {
    */
   crearFormulario() {
     this.forma = this.formBuilder.group({
-      titulo: ['', [Validators.required, Validators.minLength(2)]],
-      imagen: ['', [Validators.required, Validators.minLength(10)]],
-      descripcion: ['', [Validators.required, Validators.minLength(10)]],
-      fechaHora: ['', [Validators.required, Validators.minLength(10)]],
+      titulo: ['', [Validators.required, Validators.minLength(5),Validators.maxLength(50)]],
+      imagen: ['', [Validators.required]],
+      descripcion: ['', [Validators.required, Validators.minLength(10),Validators.maxLength(200)]],
+      fechaHora: [null, [Validators.required]],
       idSubcategoria: ['', [Validators.required]],
       idUbicacion: ['', [Validators.required]]
     });
@@ -212,6 +212,23 @@ export class CrearEventoComponent implements OnInit {
   anadirUbicacion() {
     this.router.navigate(['/formularioUbicacion', 0]);
   }
+
+  /**
+   * Comprueba que la fecha sea posterior a mañana.
+   */
+
+  get comprobarFecha() {
+    let fechaHora = this.forma.get('fechaHora')?.value;
+    if (fechaHora != null) {
+      let fechaActual= new Date();
+      let fechaHoraComprobar=Date.parse(fechaHora);
+      fechaActual.setDate(fechaActual.getDate()+1)
+      let fecha=Date.parse(`${fechaActual}`)
+      return fecha < fechaHoraComprobar ? true : false;
+    }
+    return true;
+  }
+
 }
 
 

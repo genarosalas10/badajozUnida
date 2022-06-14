@@ -16,8 +16,8 @@
           <p *ngIf="!this.validar('descripcion')" class="error">Descripción muy corta.</p>
         </div>
         <div class="input-container">
-            <input type="datetime-local" formControlName="fechaHora">
-          <p *ngIf="!this.validar('fechaHora')" class="error">Fecha.</p>
+            <input type="datetime-local" formControlName="fechaHora" >
+          <p *ngIf="!comprobarFecha || !this.validar('fechaHora')" class="error">Fecha.</p>
         </div>
         <div class="input-container">
             <select formControlName="idUbicacion" >
