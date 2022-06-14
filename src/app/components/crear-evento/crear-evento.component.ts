@@ -67,7 +67,6 @@ export class CrearEventoComponent implements OnInit {
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
-        console.log(data);
         if (data['status'] != 'error') {
           this.ubicaciones = data;
         } else {
@@ -89,7 +88,6 @@ export class CrearEventoComponent implements OnInit {
     let datos = {
       tipo: 'listarSubcategoria',
     };
-    console.log(datos);
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {
@@ -101,7 +99,6 @@ export class CrearEventoComponent implements OnInit {
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.toast=true;
       }
     );
   }
@@ -111,7 +108,6 @@ export class CrearEventoComponent implements OnInit {
    * @param idUbicacion - ID de la ubicación
    */
   guardarIdUicacion(idUbicacion: any) {
-    console.log(idUbicacion)
     this.idUbicacion=idUbicacion;
   }
 
@@ -138,7 +134,6 @@ export class CrearEventoComponent implements OnInit {
       return;
     }
 
-    console.log(forma.value);
     this.crearEvento(forma);
   }
 
@@ -201,7 +196,7 @@ export class CrearEventoComponent implements OnInit {
   }
 
   /**
-   * Guarda una imagen en el servidor.
+   * Guardar imagen en base64 para enviarla al servidor..
    * @param event - Imagen
    */
   guardarFile(event: any) {
@@ -209,6 +204,9 @@ export class CrearEventoComponent implements OnInit {
     console.log(event[0]['base64'])
   }
 
+  /**
+   * LLamar a añadir ubicación
+   */
   anadirUbicacion() {
     this.router.navigate(['/formularioUbicacion', 0]);
   }
