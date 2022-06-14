@@ -153,14 +153,12 @@ export class CrearEventoComponent implements OnInit {
    * @param forma - Datos del evento
    */
   crearEvento(forma: any) {
-    console.log(forma.value)
+
     let datos = forma.value;
     datos.tipo = 'crearEvento'
     datos.imagen= this.imagen;
     datos.idUsuario=this.idUsuario;
-    console.log(datos)
-
-
+    
     this.appService.postQuery(datos).subscribe(
       (data) => {
         console.log(data);
@@ -184,13 +182,11 @@ export class CrearEventoComponent implements OnInit {
             'error'
           );
           console.log(data);
-          //this.borrarForm();
         }
       },
       async (errorServicio) => {
         console.log('he fallado');
         console.log(errorServicio);
-        //this.borrarForm();
       }
     );
   }
