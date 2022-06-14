@@ -81,7 +81,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    C_Usuario
+    C_Evento
 
         <span class="phpdocumentor-element__extends">
         extends <a href="classes/modelo.html"><abbr title="\modelo">modelo</abbr></a>
@@ -98,13 +98,13 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">5</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Controlador del usuario.</p>
+            <p class="phpdocumentor-summary">Controlador de eventos</p>
 
 
 
@@ -142,18 +142,32 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/C-Usuario.html#method_cambiarPermisosUsuarios">cambiarPermisosUsuarios()</a>
+    <a href="classes/C-Evento.html#method_anadirParticipante">anadirParticipante()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|string    </span>
 </dt>
-<dd>Da permiso de administrador al usuario.</dd>
+<dd>Método encargado de añadir un participante a un evento</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/C-Usuario.html#method_eliminarUsuario">eliminarUsuario()</a>
+    <a href="classes/C-Evento.html#method_crearEvento">crearEvento()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|string    </span>
 </dt>
-<dd>Elimina a un usuario.</dd>
+<dd>Método encargado de crear eventos</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/C-Evento.html#method_eliminarEvento">eliminarEvento()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|string    </span>
+</dt>
+<dd>Método encargado de eliminar un evento</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/C-Evento.html#method_eliminarParticipante">eliminarParticipante()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|string    </span>
+</dt>
+<dd>Método encargado de eliminar un participante a un evento</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/modelo.html#method_errorId">errorId()</a>
@@ -170,32 +184,32 @@
 <dd>Devuelve el mensaje de error de la última consulta</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/C-Usuario.html#method_listado">listado()</a>
+    <a href="classes/C-Evento.html#method_listarEventos">listarEventos()</a>
     <span>
-                                &nbsp;: string|array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Se encarga de listar los usuarios</dd>
+<dd>Método encargado de devolver la lista con todos los eventos</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/C-Usuario.html#method_listarUsuariosByNombre">listarUsuariosByNombre()</a>
+    <a href="classes/C-Evento.html#method_listarEventosbyCreador">listarEventosbyCreador()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Para buscar usuarios por el nombre</dd>
+<dd>Método encargado de devolver la lista de los eventos creados por un usuario</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/C-Usuario.html#method_login">login()</a>
+    <a href="classes/C-Evento.html#method_listarEventosbyParticipante">listarEventosbyParticipante()</a>
     <span>
-                                &nbsp;: string|array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Método encargado de gestionar el inicio de sesión.</dd>
+<dd>Método encargado de devolver la lista de los eventos a los que participa un usuario</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/C-Usuario.html#method_modificarPerfilUsuario">modificarPerfilUsuario()</a>
+    <a href="classes/C-Evento.html#method_listarEventosbyParticipanteSoloId">listarEventosbyParticipanteSoloId()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|int|string    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Método para modificar los datos del usuario</dd>
+<dd>Método encargado de sacar los eventos a los que se ha apuntado un usuario.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/modelo.html#method_nonQuery">nonQuery()</a>
@@ -228,25 +242,18 @@ Se usará para insertar</dd>
 <dd>Para sacar datos de la base de datos</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/C-Usuario.html#method_obtenerListadUsuarioByNombre">obtenerListadUsuarioByNombre()</a>
+    <a href="classes/C-Evento.html#method_realizarAnadirParticipante">realizarAnadirParticipante()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
 </dt>
-<dd>Obtiene un listado con los usuarios que tengan coincidencias en el nombre</dd>
+<dd>Para añadir un participante a un evento en la bd</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/C-Usuario.html#method_perfilUsuario">perfilUsuario()</a>
+    <a href="classes/C-Evento.html#method_realizarRegistroEvento">realizarRegistroEvento()</a>
     <span>
-                                &nbsp;: string|array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: int    </span>
 </dt>
-<dd>Se encarga de obtener los datos de un usuario.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/C-Usuario.html#method_registro">registro()</a>
-    <span>
-                                &nbsp;: string|<abbr title="\function">function</abbr>    </span>
-</dt>
-<dd>Método encargado de gestionar el alta de un nuevo usuario.</dd>
+<dd>Para realizar un registro en la bd</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/modelo.html#method_encriptar">encriptar()</a>
@@ -263,67 +270,60 @@ Se usará para insertar</dd>
 <dd>Devuelve los los valores sacados en la ultima consulta en utf-8</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/C-Usuario.html#method_modificarTipoUsuario">modificarTipoUsuario()</a>
-    <span>
-                                &nbsp;: int    </span>
-</dt>
-<dd>Cambiar el tipo de un usuario en concreto en la BD.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/C-Usuario.html#method_obtenerDatosUsuarioLogin">obtenerDatosUsuarioLogin()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
-</dt>
-<dd>Obtiene los datos de un usuario para gestionar el inicio de sesión.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/C-Usuario.html#method_obtenerDatosUsuarioLoginConsultaPreparada">obtenerDatosUsuarioLoginConsultaPreparada()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
-</dt>
-<dd>Obtiene los datos de un usuario para gestionar el inicio de sesión.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/C-Usuario.html#method_obtenerListado">obtenerListado()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
-</dt>
-<dd>Saca una lista  con todos los usuarios de la BD.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/C-Usuario.html#method_obtenerPerfilUsuario">obtenerPerfilUsuario()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
-</dt>
-<dd>Obtiene los datos de un usuario específico de la BD.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/C-Usuario.html#method_realizarEliminacion">realizarEliminacion()</a>
-    <span>
-                                &nbsp;: int|array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd>Borra un usuario específico de la BD.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/C-Usuario.html#method_realizarModificacion">realizarModificacion()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
-</dt>
-<dd>Para realizar la modificación de un usuario en la bd</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/C-Usuario.html#method_realizarRegistro">realizarRegistro()</a>
-    <span>
-                                &nbsp;: int|string    </span>
-</dt>
-<dd>Completa el proceso de registro.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/C-Usuario.html#method_validarCampos">validarCampos()</a>
+    <a href="classes/C-Evento.html#method_eliminarImagen">eliminarImagen()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Valida los campos introducidos.</dd>
+<dd>Elimina la imagen</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/C-Evento.html#method_obtenerListadoEventos">obtenerListadoEventos()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
+</dt>
+<dd>Para obtener el listado de eventos de la bd</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/C-Evento.html#method_obtenerListadoEventosByCreador">obtenerListadoEventosByCreador()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
+</dt>
+<dd>Para obtener el listado de eventos creado por idUsuario de la bd</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/C-Evento.html#method_obtenerListadoEventosByParticipante">obtenerListadoEventosByParticipante()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
+</dt>
+<dd>Para obtener el listado de eventos en los que participa un idUsuario de la bd</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/C-Evento.html#method_obtenerListarEventosbyParticipanteSoloId">obtenerListarEventosbyParticipanteSoloId()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
+</dt>
+<dd>Para obtener los eventos a los que está apuntado un usuario</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/C-Evento.html#method_procesarImage">procesarImage()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Para guardar la imagen en el servidor</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/C-Evento.html#method_realizarEliminacionEvento">realizarEliminacionEvento()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/C-Evento.html#method_realizarEliminacionParticipante">realizarEliminacionParticipante()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
+</dt>
+<dd>Para añadir un participante a un evento en la bd</dd>
 
         </dl>
 
@@ -335,7 +335,7 @@ Se usará para insertar</dd>
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/C-Usuario.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/C-Evento.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="
@@ -410,7 +410,7 @@ Se usará para insertar</dd>
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/C-Usuario.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/C-Evento.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -451,47 +451,41 @@ Se usará para insertar</dd>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_cambiarPermisosUsuarios">
-        cambiarPermisosUsuarios()
-        <a href="classes/C-Usuario.html#method_cambiarPermisosUsuarios" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_anadirParticipante">
+        anadirParticipante()
+        <a href="classes/C-Evento.html#method_anadirParticipante" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">174</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Da permiso de administrador al usuario.</p>
+        <p class="phpdocumentor-summary">Método encargado de añadir un participante a un evento</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">cambiarPermisosUsuarios</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">anadirParticipante</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|string</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$datos</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><ul>
-<li>Datos del usuario</li>
-</ul>
-</section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|string</span>
             &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Mensaje de éxito o error</li>
-</ul>
+            <section class="phpdocumentor-description"><p>Devuelve un mensaje de éxito o un mensaje de error</p>
 </section>
 
     
@@ -502,47 +496,131 @@ Se usará para insertar</dd>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_eliminarUsuario">
-        eliminarUsuario()
-        <a href="classes/C-Usuario.html#method_eliminarUsuario" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_crearEvento">
+        crearEvento()
+        <a href="classes/C-Evento.html#method_crearEvento" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">134</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Elimina a un usuario.</p>
+        <p class="phpdocumentor-summary">Método encargado de crear eventos</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">eliminarUsuario</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">crearEvento</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|string</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$datos</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><ul>
-<li>Datos del usuario</li>
-</ul>
-</section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|string</span>
             &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Mensaje de éxito o error</li>
-</ul>
+            <section class="phpdocumentor-description"><p>-- Puede devolver diferentes mensajes de error o un mensaje de éxito</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_eliminarEvento">
+        eliminarEvento()
+        <a href="classes/C-Evento.html#method_eliminarEvento" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">230</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Método encargado de eliminar un evento</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">eliminarEvento</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$datos</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Devuelve un mensaje de éxito o un mensaje de error</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_eliminarParticipante">
+        eliminarParticipante()
+        <a href="classes/C-Evento.html#method_eliminarParticipante" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">211</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Método encargado de eliminar un participante a un evento</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">eliminarParticipante</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$datos</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Devuelve un mensaje de éxito o un mensaje de error</p>
 </section>
 
     
@@ -619,124 +697,32 @@ Se usará para insertar</dd>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_listado">
-        listado()
-        <a href="classes/C-Usuario.html#method_listado" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_listarEventos">
+        listarEventos()
+        <a href="classes/C-Evento.html#method_listarEventos" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">102</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Se encarga de listar los usuarios</p>
+        <p class="phpdocumentor-summary">Método encargado de devolver la lista con todos los eventos</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">listado</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">listarEventos</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string|array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Devolverá un mensaje de error o la lista con todos los usuarios</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_listarUsuariosByNombre">
-        listarUsuariosByNombre()
-        <a href="classes/C-Usuario.html#method_listarUsuariosByNombre" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">151</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Para buscar usuarios por el nombre</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">listarUsuariosByNombre</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$datos</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_login">
-        login()
-        <a href="classes/C-Usuario.html#method_login" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">18</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Método encargado de gestionar el inicio de sesión.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">login</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|array&lt;string|int, mixed&gt;</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$datos</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><ul>
-<li>Correo y contraseña introducidos por el usuario</li>
-</ul>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string|array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
             <section class="phpdocumentor-description"><ul>
-<li>Puede devolver diferentes mensajes de error o los datos de la sesión dependiendo de si el login fue correcto o incorrecto</li>
+<li>Puede devolver diferentes mensajes de error o los datos dependiendo de si hay o no hay eventos</li>
 </ul>
 </section>
 
@@ -748,22 +734,118 @@ Se usará para insertar</dd>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_modificarPerfilUsuario">
-        modificarPerfilUsuario()
-        <a href="classes/C-Usuario.html#method_modificarPerfilUsuario" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_listarEventosbyCreador">
+        listarEventosbyCreador()
+        <a href="classes/C-Evento.html#method_listarEventosbyCreador" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Método para modificar los datos del usuario</p>
+        <p class="phpdocumentor-summary">Método encargado de devolver la lista de los eventos creados por un usuario</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">modificarPerfilUsuario</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int|string</span></code>
+                    <span class="phpdocumentor-signature__name">listarEventosbyCreador</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$datos</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"><ul>
+<li>Puede devolver diferentes mensajes de error o los datos dependiendo de si hay o no hay eventos</li>
+</ul>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_listarEventosbyParticipante">
+        listarEventosbyParticipante()
+        <a href="classes/C-Evento.html#method_listarEventosbyParticipante" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Método encargado de devolver la lista de los eventos a los que participa un usuario</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">listarEventosbyParticipante</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$datos</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"><ul>
+<li>Puede devolver diferentes mensajes de error o los datos dependiendo de si hay o no hay eventos</li>
+</ul>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_listarEventosbyParticipanteSoloId">
+        listarEventosbyParticipanteSoloId()
+        <a href="classes/C-Evento.html#method_listarEventosbyParticipanteSoloId" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">255</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Método encargado de sacar los eventos a los que se ha apuntado un usuario.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">listarEventosbyParticipanteSoloId</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -780,9 +862,11 @@ Se usará para insertar</dd>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int|string</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Devuelve el resultado o el mensaje de error</p>
+</section>
+
     
 </article>
                     <article
@@ -974,33 +1058,32 @@ Se usará para insertar</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_obtenerListadUsuarioByNombre">
-        obtenerListadUsuarioByNombre()
-        <a href="classes/C-Usuario.html#method_obtenerListadUsuarioByNombre" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_realizarAnadirParticipante">
+        realizarAnadirParticipante()
+        <a href="classes/C-Evento.html#method_realizarAnadirParticipante" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">197</span>
+    <span class="phpdocumentor-element-found-in__line">276</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Obtiene un listado con los usuarios que tengan coincidencias en el nombre</p>
+        <p class="phpdocumentor-summary">Para añadir un participante a un evento en la bd</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">obtenerListadUsuarioByNombre</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nombreUsuario</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
+                    <span class="phpdocumentor-signature__name">realizarAnadirParticipante</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$nombreUsuario</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                <span class="phpdocumentor-signature__argument__name">$datos</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
@@ -1009,56 +1092,7 @@ Se usará para insertar</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
             &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_perfilUsuario">
-        perfilUsuario()
-        <a href="classes/C-Usuario.html#method_perfilUsuario" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">83</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Se encarga de obtener los datos de un usuario.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">perfilUsuario</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|array&lt;string|int, mixed&gt;</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$datos</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><ul>
-<li>Datos del usuario</li>
-</ul>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string|array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Devolverá mensajes de error o los datos del usuario dependiendo de que tenga éxito o no</li>
-</ul>
+            <section class="phpdocumentor-description"><p>Devuelve un 1 si es correcto o un mensaje de error</p>
 </section>
 
     
@@ -1069,47 +1103,41 @@ Se usará para insertar</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_registro">
-        registro()
-        <a href="classes/C-Usuario.html#method_registro" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_realizarRegistroEvento">
+        realizarRegistroEvento()
+        <a href="classes/C-Evento.html#method_realizarRegistroEvento" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">168</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Método encargado de gestionar el alta de un nuevo usuario.</p>
+        <p class="phpdocumentor-summary">Para realizar un registro en la bd</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">registro</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|<abbr title="\function">function</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">realizarRegistroEvento</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$datos</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><ul>
-<li>Nombre, apellidos, correo... introducidos por el usuario</li>
-</ul>
-</section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string|<abbr title="\function">function</abbr></span>
+    <span class="phpdocumentor-signature__response_type">int</span>
             &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Puede devolver diversos mensajes de error o llamar al método para completar el registro en caso de que todo esté correcto</li>
-</ul>
+            <section class="phpdocumentor-description"><p>Devuelve 1 si es correcto o 0 si ha fallado</p>
 </section>
 
     
@@ -1206,35 +1234,108 @@ Se usará para insertar</p>
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_modificarTipoUsuario">
-        modificarTipoUsuario()
-        <a href="classes/C-Usuario.html#method_modificarTipoUsuario" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_eliminarImagen">
+        eliminarImagen()
+        <a href="classes/C-Evento.html#method_eliminarImagen" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">354</span>
+    <span class="phpdocumentor-element-found-in__line">370</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Cambiar el tipo de un usuario en concreto en la BD.</p>
+        <p class="phpdocumentor-summary">Elimina la imagen</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">modificarTipoUsuario</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idUsuario</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tipo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+                    <span class="phpdocumentor-signature__name">eliminarImagen</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$img</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$idUsuario</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                <span class="phpdocumentor-signature__argument__name">$img</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Devuelve true si se ha borrado correctamente o false si ha fallado</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_obtenerListadoEventos">
+        obtenerListadoEventos()
+        <a href="classes/C-Evento.html#method_obtenerListadoEventos" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">88</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Para obtener el listado de eventos de la bd</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">obtenerListadoEventos</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Puede devolver 0 si falla o los datos de las eventos</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_obtenerListadoEventosByCreador">
+        obtenerListadoEventosByCreador()
+        <a href="classes/C-Evento.html#method_obtenerListadoEventosByCreador" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">113</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Para obtener el listado de eventos creado por idUsuario de la bd</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">obtenerListadoEventosByCreador</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idCreador</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$tipo</span>
+                <span class="phpdocumentor-signature__argument__name">$idCreador</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -1246,11 +1347,9 @@ Se usará para insertar</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
             &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Éxito o error</li>
-</ul>
+            <section class="phpdocumentor-description"><p>Puede devolver 0 si falla o los datos de los eventos</p>
 </section>
 
     
@@ -1261,32 +1360,33 @@ Se usará para insertar</p>
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_obtenerDatosUsuarioLogin">
-        obtenerDatosUsuarioLogin()
-        <a href="classes/C-Usuario.html#method_obtenerDatosUsuarioLogin" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_obtenerListadoEventosByParticipante">
+        obtenerListadoEventosByParticipante()
+        <a href="classes/C-Evento.html#method_obtenerListadoEventosByParticipante" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">215</span>
+    <span class="phpdocumentor-element-found-in__line">139</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Obtiene los datos de un usuario para gestionar el inicio de sesión.</p>
+        <p class="phpdocumentor-summary">Para obtener el listado de eventos en los que participa un idUsuario de la bd</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">obtenerDatosUsuarioLogin</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$email</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
+                    <span class="phpdocumentor-signature__name">obtenerListadoEventosByParticipante</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idParticipante</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$email</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                <span class="phpdocumentor-signature__argument__name">$idParticipante</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -1295,9 +1395,7 @@ Se usará para insertar</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
             &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Datos del usuario o valor vacío según encuentre o no al usuario</li>
-</ul>
+            <section class="phpdocumentor-description"><p>Puede devolver 0 si falla o los datos de los eventos</p>
 </section>
 
     
@@ -1308,208 +1406,28 @@ Se usará para insertar</p>
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_obtenerDatosUsuarioLoginConsultaPreparada">
-        obtenerDatosUsuarioLoginConsultaPreparada()
-        <a href="classes/C-Usuario.html#method_obtenerDatosUsuarioLoginConsultaPreparada" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_obtenerListarEventosbyParticipanteSoloId">
+        obtenerListarEventosbyParticipanteSoloId()
+        <a href="classes/C-Evento.html#method_obtenerListarEventosbyParticipanteSoloId" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">233</span>
+    <span class="phpdocumentor-element-found-in__line">336</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Obtiene los datos de un usuario para gestionar el inicio de sesión.</p>
+        <p class="phpdocumentor-summary">Para obtener los eventos a los que está apuntado un usuario</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">obtenerDatosUsuarioLoginConsultaPreparada</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$email</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$email</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Datos del usuario o valor vacío según encuentre o no al usuario</li>
-</ul>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_obtenerListado">
-        obtenerListado()
-        <a href="classes/C-Usuario.html#method_obtenerListado" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">273</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Saca una lista  con todos los usuarios de la BD.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">obtenerListado</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Datos de los usuarios o error</li>
-</ul>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_obtenerPerfilUsuario">
-        obtenerPerfilUsuario()
-        <a href="classes/C-Usuario.html#method_obtenerPerfilUsuario" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">290</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Obtiene los datos de un usuario específico de la BD.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">obtenerPerfilUsuario</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idUsuario</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
+                    <span class="phpdocumentor-signature__name">obtenerListarEventosbyParticipanteSoloId</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idUsuario</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$idUsuario</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><ul>
-<li>ID del usuario</li>
-</ul>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Datos del usuario o error</li>
-</ul>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_realizarEliminacion">
-        realizarEliminacion()
-        <a href="classes/C-Usuario.html#method_realizarEliminacion" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">308</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Borra un usuario específico de la BD.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">realizarEliminacion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idUsuario</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|array&lt;string|int, mixed&gt;</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$idUsuario</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int|array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>devuelve mensaje de error si ha fallado y 1 si ha realizado con éxito</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_realizarModificacion">
-        realizarModificacion()
-        <a href="classes/C-Usuario.html#method_realizarModificacion" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">327</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Para realizar la modificación de un usuario en la bd</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">realizarModificacion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$datos</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -1522,7 +1440,7 @@ Se usará para insertar</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Devuelve un mensaje de error si falla y un 1 si es correcto</p>
+            <section class="phpdocumentor-description"><p>Devuelve el resultado si es correcto o 0 si no hay</p>
 </section>
 
     
@@ -1533,80 +1451,29 @@ Se usará para insertar</p>
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_realizarRegistro">
-        realizarRegistro()
-        <a href="classes/C-Usuario.html#method_realizarRegistro" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_procesarImage">
+        procesarImage()
+        <a href="classes/C-Evento.html#method_procesarImage" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">251</span>
+    <span class="phpdocumentor-element-found-in__line">353</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Completa el proceso de registro.</p>
+        <p class="phpdocumentor-summary">Para guardar la imagen en el servidor</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">realizarRegistro</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|string</span></code>
+                    <span class="phpdocumentor-signature__name">procesarImage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$img</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$datos</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><ul>
-<li>Datos del usuario</li>
-</ul>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int|string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Éxito o mensajes de error</li>
-</ul>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_validarCampos">
-        validarCampos()
-        <a href="classes/C-Usuario.html#method_validarCampos" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Usuario.php"><a href="files/controlador-c-usuario.html"><abbr title="controlador/c_Usuario.php">c_Usuario.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">371</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Valida los campos introducidos.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">validarCampos</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$datos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$datos</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                <span class="phpdocumentor-signature__argument__name">$img</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1616,11 +1483,113 @@ Se usará para insertar</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
+    <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
-            <section class="phpdocumentor-description"><ul>
-<li>Datos validados o no</li>
-</ul>
+            <section class="phpdocumentor-description"><p>Devuelve el nombre del archivo</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_realizarEliminacionEvento">
+        realizarEliminacionEvento()
+        <a href="classes/C-Evento.html#method_realizarEliminacionEvento" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">315</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">realizarEliminacionEvento</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idUsuario</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idEvento</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$idUsuario</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$idEvento</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_realizarEliminacionParticipante">
+        realizarEliminacionParticipante()
+        <a href="classes/C-Evento.html#method_realizarEliminacionParticipante" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="controlador/c_Evento.php"><a href="files/controlador-c-evento.html"><abbr title="controlador/c_Evento.php">c_Evento.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">299</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Para añadir un participante a un evento en la bd</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">realizarEliminacionParticipante</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idUsuario</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idEvento</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$idUsuario</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$idEvento</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Devuelve un 1 si es correcto o un mensaje de error</p>
 </section>
 
     
@@ -1703,7 +1672,7 @@ Se usará para insertar</p>
 </section>
             </div>
         </div>
-        <a href="classes/C-Usuario.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/C-Evento.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
