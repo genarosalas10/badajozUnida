@@ -32,7 +32,7 @@ export class DatosCategoriasComponent implements OnInit {
 
   crearFormulario() {
     this.forma = this.formBuilder.group({
-      nombre: ['', [Validators.required, Validators.minLength(2)]],
+      nombre: ['', [Validators.required, Validators.minLength(4)]],
       descripcion: ['', [Validators.required, Validators.minLength(10)]],
       idCategoria: ['0', [Validators.minLength(1)]],
     });

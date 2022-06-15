@@ -195,8 +195,7 @@ export class CrearEventoComponent implements OnInit {
    * @param event - Imagen
    */
   guardarFile(event: any) {
-    this.imagen=event[0]['base64']
-    console.log(event[0]['base64'])
+    this.imagen=event[0]['base64'];
   }
 
   /**

@@ -76,7 +76,7 @@ export class DatosSubcategoriasComponent implements OnInit {
    */
   crearFormulario() {
     this.forma = this.formBuilder.group({
-      nombre: ['', [Validators.required, Validators.minLength(2)]],
+      nombre: ['', [Validators.required, Validators.minLength(4)]],
       descripcion: ['', [Validators.required, Validators.minLength(10)]],
       idCategoria: [this.idCategoria, [Validators.required]],
       idSubcategoria: ['0', [Validators.required]],
@@ -134,14 +134,14 @@ export class DatosSubcategoriasComponent implements OnInit {
   anadirSubcategoria(forma: any) {
     let datos = forma.value;
     datos.tipo = 'crearSubcategoria';
-    //console.log(JSON.stringify(datos));
+
 
     this.appService.postQuery(datos).subscribe(
       (data) => {
         if (data['status'] != 'error') {
           this.router.navigate(['/categoria']);
         } else {
-          //this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
+          this.modal.generateModal(`Algo salió mal`, `${data['result']['error_msg']}`, 'De acuerdo', 'error');
           console.log(data);
         }
       },

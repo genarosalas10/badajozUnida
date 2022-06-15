@@ -70,11 +70,8 @@ class C_Evento extends modelo
       return $this->_respuestas->error_400();
     } else {
       $datos['imagen']=$this->procesarImage($datos['imagen']);
-      if($datos['imagen']!=0){
+
         $result = $this->realizarRegistroEvento($datos);
-      }else{
-        return $this->_respuestas->error_200("El fichero no es una imagen");
-      }
 
     }
     if ($result == 1){
@@ -360,14 +357,11 @@ class C_Evento extends modelo
     $direccion = dirname(__DIR__)."/eventos/imagenes/";
     $partes = explode(";base64",$img);
     $extension = explode('/',mime_content_type($img))[1];
-    if($extension !='png' && $extension !='jpg' && $extension !='webp'){
-      return 0;
-    }
-    $imagen_base64 = base64_decode($partes[1]);
-    $nombre= uniqid().".".$extension;
-    $file = $direccion.$nombre;
-    file_put_contents($file,$imagen_base64);
-    return $nombre;
+      $imagen_base64 = base64_decode($partes[1]);
+      $nombre= uniqid().".".$extension;
+      $file = $direccion.$nombre;
+      file_put_contents($file,$imagen_base64);
+      return $nombre;
   }
 
   /**
