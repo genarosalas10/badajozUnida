@@ -125,6 +125,29 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#eventos" >eventos</a>
+                            </li>
+                            <li>
+                                <a href="#eventosByUsuario" >eventosByUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#modal" >modal</a>
+                            </li>
+                            <li>
+                                <a href="#mostrar" >mostrar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -135,7 +158,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnInit" >ngOnInit</a>
+                                <a href="#anadirParticipante" >anadirParticipante</a>
+                            </li>
+                            <li>
+                                <a href="#comprobarParticipante" >comprobarParticipante</a>
+                            </li>
+                            <li>
+                                <a href="#listadoEvento" >listadoEvento</a>
+                            </li>
+                            <li>
+                                <a href="#listadoEventoByUsuario" >listadoEventoByUsuario</a>
                             </li>
                         </ul>
                     </td>
@@ -149,24 +181,6 @@
     </table>
 </section>
 
-    <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/components/home/home.component.ts:9</a></div>
-                            </td>
-                        </tr>
-
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -181,30 +195,189 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnInit"></a>
+                    <a name="anadirParticipante"></a>
                     <span class="name">
-                        <span ><b>ngOnInit</b></span>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>anadirParticipante</b></span>
+                        <a href="#anadirParticipante"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnInit()</code>
+<code>anadirParticipante(idEvento: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/components/home/home.component.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/components/home/home.component.ts:70</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Añadir participante a un evento.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idEvento</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>ID de evento</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comprobarParticipante"></a>
+                    <span class="name">
+                        <span ><b>comprobarParticipante</b></span>
+                        <a href="#comprobarParticipante"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>comprobarParticipante(idEvento: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">src/app/components/home/home.component.ts:139</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Comprueba si el usuario está apuntado al evento.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idEvento</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>ID el evento</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>true o false</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listadoEvento"></a>
+                    <span class="name">
+                        <span ><b>listadoEvento</b></span>
+                        <a href="#listadoEvento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listadoEvento()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/components/home/home.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista todas los eventos.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -212,6 +385,185 @@
                     </div>
                 </td>
             </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listadoEventoByUsuario"></a>
+                    <span class="name">
+                        <span ><b>listadoEventoByUsuario</b></span>
+                        <a href="#listadoEventoByUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listadoEventoByUsuario(idUsuario: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/app/components/home/home.component.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista todas los eventos.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idUsuario</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eventos"></a>
+                    <span class="name">
+                        <span ><b>eventos</b></span>
+                        <a href="#eventos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/home/home.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eventosByUsuario"></a>
+                    <span class="name">
+                        <span ><b>eventosByUsuario</b></span>
+                        <a href="#eventosByUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/home/home.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modal"></a>
+                    <span class="name">
+                        <span ><b>modal</b></span>
+                        <a href="#modal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ModalComponent()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/home/home.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrar"></a>
+                    <span class="name">
+                        <span ><b>mostrar</b></span>
+                        <a href="#mostrar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/home/home.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
         </tbody>
     </table>
 </section>
@@ -222,6 +574,10 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
+import {UsuarioService} from &quot;../../services/usuario.service&quot;;
+import {FormBuilder} from &quot;@angular/forms&quot;;
+import {AppService} from &quot;../../services/app.service&quot;;
+import {ModalComponent} from &quot;../modal/modal.component&quot;;
 
 @Component({
   selector: &#x27;app-home&#x27;,
@@ -230,17 +586,166 @@ import { Router } from &#x27;@angular/router&#x27;;
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  eventos:any;
+  modal&#x3D;new ModalComponent();
+  eventosByUsuario: any;
+  mostrar&#x3D;true
+  /**
+   * @ignore
+  */
+  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder,
+              private appService: AppService,
+              private router: Router) {
+    this.listadoEvento();
+    this.usuarioService.comprobarAutenticacion();
+    this.listadoEventoByUsuario(usuarioService.getIdUsuarioActual());
+  }
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {
   }
 
+
+  /**
+   * Lista todas los eventos.
+   */
+  listadoEvento() {
+    let datos &#x3D; {
+      tipo: &#x27;listarEventos&#x27;,
+    };
+
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        console.log(&#x27;hola&#x27;);
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          this.eventos &#x3D; data;
+          this.mostrar&#x3D;true;
+          console.log(this.eventos[0][&#x27;imagen&#x27;])
+        } else {
+          this.mostrar&#x3D;false;
+          console.log(data);
+        }
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+      }
+    );
+  }
+
+
+  /**
+   * Añadir participante a un evento.
+   *
+   * @param idEvento - ID de evento
+   */
+  anadirParticipante(idEvento: any) {
+    let datos &#x3D; {
+      tipo: &#x27;anadirParticipante&#x27;,
+      idEvento: &#x60;${idEvento}&#x60;,
+      idUsuario: this.usuarioService.getIdUsuarioActual()
+    };
+    console.log(datos);
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          console.log(data);
+          this.modal.generateModal(&#x27;Éxito&#x27;, data, &#x27;¡De acuerdo!&#x27;, &#x27;success&#x27;)
+          this.listadoEvento();
+          this.listadoEventoByUsuario(this.usuarioService.getIdUsuarioActual());
+        } else {
+          console.log(data);
+          this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
+        }
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+      }
+    );
+  }
+/*
+  decodificarImagen(datos:any){
+    for (let i&#x3D;0;i&lt;datos.length;i++){
+      datos[i][&#x27;imagen&#x27;]&#x3D;atob(datos[i][&#x27;imagen&#x27;]);
+    }
+    return datos;
+  }
+
+ */
+
+
+
+  /**
+   * Lista todas los eventos.
+   */
+  listadoEventoByUsuario(idUsuario:any) {
+    let datos &#x3D; {
+      tipo: &#x27;listarEventosbyParticipanteSoloId&#x27;,
+      idUsuario: idUsuario
+    };
+
+    this.appService.postQuery(datos).subscribe(
+      (data) &#x3D;&gt; {
+        console.log(data);
+        if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
+          console.log(&#x27;data&#x27;);
+          this.eventosByUsuario &#x3D; data;
+        } else {
+          //this.mostrar &#x3D; true;
+          console.log(data);
+        }
+      },
+      async (errorServicio) &#x3D;&gt; {
+        console.log(&#x27;he fallado&#x27;);
+        console.log(errorServicio);
+      }
+    );
+  }
+
+  /**
+   * Comprueba si el usuario está apuntado al evento.
+   * @param idEvento - ID el evento
+   * @returns true o false
+   */
+  comprobarParticipante(idEvento:any) {
+    if (this.eventosByUsuario) {
+      for (let i &#x3D; 0; i &lt; this.eventosByUsuario.length; i++) {
+        if (this.eventosByUsuario[i][&#x27;idEvento&#x27;] &#x3D;&#x3D; idEvento) {
+          return false
+        }
+      }
+      return true;
+    }
+
+    return true;
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;home works!&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;contenedor-eventos&quot;&gt;
+    &lt;div class&#x3D;&quot;evento&quot; *ngFor&#x3D;&quot;let evento of eventos&quot;&gt;
+        &lt;div class&#x3D;&quot;imagen-evento&quot; [ngStyle]&#x3D;&quot;{&#x27;background-image&#x27;: &#x27;url(&#x27; + &#x27;https://2daw.esvirgua.com/01/php/eventos/imagenes/&#x27;+evento.imagen + &#x27;)&#x27;}&quot;&gt;&lt;/div&gt;
+        &lt;h2&gt;{{evento.titulo}}&lt;/h2&gt;
+        &lt;p&gt;{{evento.descripcion}}&lt;/p&gt;
+        &lt;div class&#x3D;&quot;info&quot;&gt;
+            &lt;span&gt;&lt;strong&gt;Fecha y hora: &lt;/strong&gt; {{evento.fechaHora}}&lt;/span&gt;
+            &lt;span&gt;&lt;strong&gt;Lugar: &lt;/strong&gt; {{evento.nombreUbicacion}} &lt;/span&gt;
+            &lt;span&gt;&lt;strong&gt;Organizador/a: &lt;/strong&gt; {{evento.nombreCreador}}&lt;/span&gt;
+            &lt;span&gt;&lt;strong&gt;Nº asistentes: &lt;/strong&gt; {{evento.numParticipantes}}&lt;/span&gt;
+            &lt;span&gt;&lt;strong&gt;{{evento.nombreSubcateogria}}&lt;/strong&gt;&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;button *ngIf&#x3D;&quot;comprobarParticipante(evento.idEvento)&quot;(click)&#x3D;&quot;anadirParticipante(evento.idEvento)&quot;&gt;Apuntarme &lt;i class&#x3D;&quot;bi bi-check-circle-fill&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;button *ngIf&#x3D;&quot;!comprobarParticipante(evento.idEvento)&quot;&gt;&lt;i class&#x3D;&quot;bi bi-check-circle-fill&quot; style&#x3D;&quot;opacity: 10%; cursor: default;&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;!--&lt;button *ngIf&#x3D;&quot;!comprobarParticipante(evento.idEvento)&quot;&gt;&lt;i class&#x3D;&quot;bi bi-dash-circle-fill&quot; style&#x3D;&quot;opacity: 10%&quot;&gt;&lt;/i&gt;&lt;/button&gt;--&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p *ngIf&#x3D;&quot;!mostrar&quot;&gt;No hay eventos&lt;/p&gt;
+&lt;app-modal&gt;&lt;/app-modal&gt;
 </code></pre>
     </div>
 
@@ -248,7 +753,64 @@ export class HomeComponent implements OnInit {
                 <p class="comment">
                     <code>./home.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  --bg-color: white;
+  --primary-color: #d10000;
+  --secondary-color: #939393;
+  --text-base-color: black;
+}
+
+.contenedor-eventos {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 360px);
+  gap: 1rem;
+}
+
+.contenedor-eventos .evento {
+  background-color: #fff;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  height: 385px;
+  border-radius: 12px;
+  padding: 1rem;
+  position: relative;
+}
+
+.contenedor-eventos .evento .imagen-evento {
+  height: 130px;
+  background-position: center;
+  background-size: cover;
+}
+
+.contenedor-eventos .evento h2 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: #d10000;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.contenedor-eventos .evento p,
+.contenedor-eventos .evento .info {
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+
+.contenedor-eventos .evento .info span {
+  display: block;
+}
+
+.contenedor-eventos .evento button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -276,8 +838,8 @@ export class HomeComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>home works!</p></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+        var COMPONENT_TEMPLATE = '<div><div class="contenedor-eventos">    <div class="evento" *ngFor="let evento of eventos">        <div class="imagen-evento" [ngStyle]="{\'background-image\': \'url(\' + \'https://2daw.esvirgua.com/01/php/eventos/imagenes/\'+evento.imagen + \')\'}"></div>        <h2>{{evento.titulo}}</h2>        <p>{{evento.descripcion}}</p>        <div class="info">            <span><strong>Fecha y hora: </strong> {{evento.fechaHora}}</span>            <span><strong>Lugar: </strong> {{evento.nombreUbicacion}} </span>            <span><strong>Organizador/a: </strong> {{evento.nombreCreador}}</span>            <span><strong>Nº asistentes: </strong> {{evento.numParticipantes}}</span>            <span><strong>{{evento.nombreSubcateogria}}</strong></span>        </div>        <button *ngIf="comprobarParticipante(evento.idEvento)"(click)="anadirParticipante(evento.idEvento)">Apuntarme <i class="bi bi-check-circle-fill"></i></button>        <button *ngIf="!comprobarParticipante(evento.idEvento)"><i class="bi bi-check-circle-fill" style="opacity: 10%; cursor: default;"></i></button>      <!--<button *ngIf="!comprobarParticipante(evento.idEvento)"><i class="bi bi-dash-circle-fill" style="opacity: 10%"></i></button>-->    </div></div><p *ngIf="!mostrar">No hay eventos</p><app-modal></app-modal></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'CrearEventoComponent', 'selector': 'app-crear-evento'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisEventosComponent', 'selector': 'app-mis-eventos'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
 </script>

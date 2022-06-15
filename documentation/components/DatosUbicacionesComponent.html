@@ -220,8 +220,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:93</a></div>
                 </td>
             </tr>
 
@@ -337,8 +337,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:48</a></div>
                 </td>
             </tr>
 
@@ -376,8 +376,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:61</a></div>
                 </td>
             </tr>
 
@@ -457,8 +457,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="127"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:127</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:128</a></div>
                 </td>
             </tr>
 
@@ -613,8 +613,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/components/datos-ubicaciones/datos-ubicaciones.component.ts:84</a></div>
                 </td>
             </tr>
 
@@ -814,6 +814,7 @@ export class DatosUbicacionesComponent implements OnInit {
     private appService: AppService,
     private router: Router,
     private activatedRoute: ActivatedRoute
+
   ) {
     this.activatedRoute.params.subscribe((parametros) &#x3D;&gt; {
       this.idUbicacion &#x3D; parametros[&#x27;idUbicacion&#x27;];
@@ -890,7 +891,7 @@ export class DatosUbicacionesComponent implements OnInit {
         console.log(data);
         if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
           console.log(&#x27;data&#x27;);
-          this.router.navigate([&#x27;/ubicacion&#x27;]);
+          window.history.back();
           //this.borrarForm();
         } else {
           this.modal.generateModal(
@@ -925,8 +926,7 @@ export class DatosUbicacionesComponent implements OnInit {
         console.log(data);
         if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
           console.log(&#x27;data&#x27;);
-          this.router.navigate([&#x27;/ubicacion&#x27;]);
-          //this.borrarForm();
+          window.history.back();
         } else {
           this.modal.generateModal(
             &#x60;Algo salió mal&#x60;,
@@ -950,7 +950,7 @@ export class DatosUbicacionesComponent implements OnInit {
    * @ignore
    */
   volver() {
-    this.router.navigate([&#x27;ubicacion&#x27;]);
+    window.history.back();
   }
 
   /**
@@ -1007,7 +1007,7 @@ export class DatosUbicacionesComponent implements OnInit {
       &lt;p *ngIf&#x3D;&quot;!this.validar(&#x27;nombre&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;Nombre muy corto.&lt;/p&gt;
       &lt;label&gt;Direccion:&lt;/label&gt;&lt;br/&gt;
       &lt;textarea formControlName&#x3D;&quot;direccion&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;
-      &lt;p *ngIf&#x3D;&quot;!this.validar(&#x27;descripcion&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;Descripción muy corta.&lt;/p&gt;
+      &lt;p *ngIf&#x3D;&quot;!this.validar(&#x27;direccion&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;Descripción muy corta.&lt;/p&gt;
       &lt;input type&#x3D;&quot;hidden&quot; formControlName&#x3D;&quot;idUbicacion&quot; /&gt;
       &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;Guardar&quot; /&gt;
       &lt;span (click)&#x3D;&quot;volver()&quot;&gt;Volver&lt;/span&gt;&lt;br/&gt;
@@ -1096,8 +1096,8 @@ export class DatosUbicacionesComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="popup-form-container">    <form class="popup-form" [formGroup]="forma" (ngSubmit)="guardar(this.forma)">      <label>Nombre:</label><br/>      <input type="text" formControlName="nombre"/><br/>      <p *ngIf="!this.validar(\'nombre\')" class="error">Nombre muy corto.</p>      <label>Direccion:</label><br/>      <textarea formControlName="direccion"></textarea><br/>      <p *ngIf="!this.validar(\'descripcion\')" class="error">Descripción muy corta.</p>      <input type="hidden" formControlName="idUbicacion" />      <input type="submit" value="Guardar" />      <span (click)="volver()">Volver</span><br/>      <small>Foto de Annie Spratt en <a href="https://unsplash.com/es/fotos/AFB6S2kibuk">Unsplash</a></small>    </form></div><app-modal></app-modal></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+        var COMPONENT_TEMPLATE = '<div><div class="popup-form-container">    <form class="popup-form" [formGroup]="forma" (ngSubmit)="guardar(this.forma)">      <label>Nombre:</label><br/>      <input type="text" formControlName="nombre"/><br/>      <p *ngIf="!this.validar(\'nombre\')" class="error">Nombre muy corto.</p>      <label>Direccion:</label><br/>      <textarea formControlName="direccion"></textarea><br/>      <p *ngIf="!this.validar(\'direccion\')" class="error">Descripción muy corta.</p>      <input type="hidden" formControlName="idUbicacion" />      <input type="submit" value="Guardar" />      <span (click)="volver()">Volver</span><br/>      <small>Foto de Annie Spratt en <a href="https://unsplash.com/es/fotos/AFB6S2kibuk">Unsplash</a></small>    </form></div><app-modal></app-modal></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'CrearEventoComponent', 'selector': 'app-crear-evento'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisEventosComponent', 'selector': 'app-mis-eventos'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DatosUbicacionesComponent'};
 </script>

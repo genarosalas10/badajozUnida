@@ -373,8 +373,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">src/app/components/perfil/perfil.component.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/app/components/perfil/perfil.component.ts:130</a></div>
                 </td>
             </tr>
 
@@ -529,8 +529,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="164"
-                            class="link-to-prism">src/app/components/perfil/perfil.component.ts:164</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="165"
+                            class="link-to-prism">src/app/components/perfil/perfil.component.ts:165</a></div>
                 </td>
             </tr>
 
@@ -695,17 +695,17 @@ export class PerfilComponent implements OnInit {
   forma!: FormGroup;
   modal &#x3D; new ModalComponent();
   /**
-   * @ignore 
+   * @ignore
    */
   constructor(private formBuilder: FormBuilder,
               private appService: AppService,
               private usuarioService: UsuarioService) {
     this.crearFormulario();
-    this.sacarUsuario(usuarioService.idUsuario);
+    this.sacarUsuario(usuarioService.getIdUsuarioActual());
   }
 
   /**
-   * @ignore 
+   * @ignore
    */
   ngOnInit(): void {
   }
@@ -790,6 +790,7 @@ export class PerfilComponent implements OnInit {
         console.log(data);
         if (data[&#x27;status&#x27;] !&#x3D; &#x27;error&#x27;) {
           this.usuario &#x3D; data[0];
+          this.usuarioService.setNombreActual(data[0][&#x27;nombre&#x27;]);
           this.cargarDatosFormulario();
         } else {
           this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
@@ -810,7 +811,7 @@ export class PerfilComponent implements OnInit {
   modificarUsuario(forma: FormGroup) {
     let datos &#x3D; forma.value;
     datos.tipo &#x3D; &#x27;modificarPerfilUsuario&#x27;;
-    datos.idUsuario &#x3D; this.usuarioService.idUsuario;
+    datos.idUsuario &#x3D; this.usuarioService.getIdUsuarioActual();
     console.log(JSON.stringify(datos));
     this.appService.postQuery(datos).subscribe(
       (data) &#x3D;&gt; {
@@ -858,14 +859,17 @@ export class PerfilComponent implements OnInit {
       &lt;label for&#x3D;&quot;iNombre&quot;&gt;Nombre:&lt;/label&gt;
       &lt;input type&#x3D;&quot;text&quot;  formControlName&#x3D;&quot;nombre&quot; maxlength&#x3D;&quot;60&quot; name&#x3D;&quot;nombre&quot; id&#x3D;&quot;iNombre&quot; /&gt;
     &lt;/div&gt;
+    &lt;p *ngIf&#x3D;&quot;!validar(&#x27;nombre&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;El nombre es incorrecto.&lt;/p&gt;
     &lt;div class&#x3D;&quot;input-group_&quot;&gt;
       &lt;label for&#x3D;&quot;&quot;&gt;Apellidos:&lt;/label&gt;
       &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;apellidos&quot; maxlength&#x3D;&quot;60&quot; name&#x3D;&quot;apellidos&quot; id&#x3D;&quot;iApellidos&quot; /&gt;
     &lt;/div&gt;
+    &lt;p *ngIf&#x3D;&quot;!validar(&#x27;apellidos&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;El apellido es incorrecto.&lt;/p&gt;
     &lt;div class&#x3D;&quot;input-group_&quot;&gt;
       &lt;label for&#x3D;&quot;&quot;&gt;Correo:&lt;/label&gt;
       &lt;input type&#x3D;&quot;email&quot; formControlName&#x3D;&quot;email&quot; maxlength&#x3D;&quot;100&quot;  name&#x3D;&quot;mail&quot; id&#x3D;&quot;iMail&quot; placeholder&#x3D;&quot;Correo Electrónico&quot;/&gt;
     &lt;/div&gt;
+    &lt;p *ngIf&#x3D;&quot;!validar(&#x27;email&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;Ajústese al formato del correo.&lt;/p&gt;
     &lt;div class&#x3D;&quot;submit-container&quot;&gt;
       &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;GUARDAR&quot; /&gt;
     &lt;/div&gt;
@@ -937,6 +941,10 @@ export class PerfilComponent implements OnInit {
     transition: .3s;
 }
 
+.error{
+    color: red;
+}
+
 @media screen and (max-width: 420px) {
     .contenedor-perfil form .input-group_{
         grid-template-columns: 1fr;
@@ -969,8 +977,8 @@ export class PerfilComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="contenedor-perfil">  <h1>MI PERFIL</h1>  <form [formGroup]="forma" (ngSubmit)="guardar(forma)">    <div class="input-group_">      <label for="iNombre">Nombre:</label>      <input type="text"  formControlName="nombre" maxlength="60" name="nombre" id="iNombre" />    </div>    <div class="input-group_">      <label for="">Apellidos:</label>      <input type="text" formControlName="apellidos" maxlength="60" name="apellidos" id="iApellidos" />    </div>    <div class="input-group_">      <label for="">Correo:</label>      <input type="email" formControlName="email" maxlength="100"  name="mail" id="iMail" placeholder="Correo Electrónico"/>    </div>    <div class="submit-container">      <input type="submit" value="GUARDAR" />    </div>  </form></div><app-modal></app-modal></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+        var COMPONENT_TEMPLATE = '<div><div class="contenedor-perfil">  <h1>MI PERFIL</h1>  <form [formGroup]="forma" (ngSubmit)="guardar(forma)">    <div class="input-group_">      <label for="iNombre">Nombre:</label>      <input type="text"  formControlName="nombre" maxlength="60" name="nombre" id="iNombre" />    </div>    <p *ngIf="!validar(\'nombre\')" class="error">El nombre es incorrecto.</p>    <div class="input-group_">      <label for="">Apellidos:</label>      <input type="text" formControlName="apellidos" maxlength="60" name="apellidos" id="iApellidos" />    </div>    <p *ngIf="!validar(\'apellidos\')" class="error">El apellido es incorrecto.</p>    <div class="input-group_">      <label for="">Correo:</label>      <input type="email" formControlName="email" maxlength="100"  name="mail" id="iMail" placeholder="Correo Electrónico"/>    </div>    <p *ngIf="!validar(\'email\')" class="error">Ajústese al formato del correo.</p>    <div class="submit-container">      <input type="submit" value="GUARDAR" />    </div>  </form></div><app-modal></app-modal></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'CrearEventoComponent', 'selector': 'app-crear-evento'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisEventosComponent', 'selector': 'app-mis-eventos'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PerfilComponent'};
 </script>

@@ -849,18 +849,20 @@ export class RegistroComponent implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;grid-form-container&quot;&gt;
     &lt;div class&#x3D;&quot;grid-form-image&quot;&gt;
-      &lt;img src&#x3D;&quot;assets/Logo_Badajoz_Unida.png&quot; alt&#x3D;&quot;&quot;&gt;
+      &lt;img src&#x3D;&quot;assets/Logo_Badajoz_Unida2.png&quot; alt&#x3D;&quot;&quot;&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;grid-form&quot;&gt;
       &lt;form [formGroup]&#x3D;&quot;forma&quot; (ngSubmit)&#x3D;&quot;guardar(forma)&quot;&gt;
             &lt;h1&gt;REGISTRO&lt;/h1&gt;
             &lt;div class&#x3D;&quot;separador&quot;&gt;&lt;/div&gt;
 
-            &lt;div class&#x3D;&quot;input-group flex&quot;&gt;
+            &lt;div class&#x3D;&quot;input-group&quot;&gt;
               &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;nombre&quot; maxlength&#x3D;&quot;60&quot; name&#x3D;&quot;nombre&quot; id&#x3D;&quot;iNombre&quot; placeholder&#x3D;&quot;Nombre&quot; /&gt;
-              &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;apellidos&quot; maxlength&#x3D;&quot;60&quot; name&#x3D;&quot;apellidos&quot; id&#x3D;&quot;iApellidos&quot; placeholder&#x3D;&quot;Apellidos&quot; /&gt;
             &lt;/div&gt;
             &lt;p *ngIf&#x3D;&quot;!validar(&#x27;nombre&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;El nombre es incorrecto.&lt;/p&gt;
+            &lt;div class&#x3D;&quot;input-group&quot;&gt;
+              &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;apellidos&quot; maxlength&#x3D;&quot;60&quot; name&#x3D;&quot;apellidos&quot; id&#x3D;&quot;iApellidos&quot; placeholder&#x3D;&quot;Apellidos&quot; /&gt;
+            &lt;/div&gt;
             &lt;p *ngIf&#x3D;&quot;!validar(&#x27;apellidos&#x27;)&quot; class&#x3D;&quot;error&quot;&gt;El apellido es incorrecto.&lt;/p&gt;
 
             &lt;div class&#x3D;&quot;input-group&quot;&gt;
@@ -924,6 +926,9 @@ body{font-family: &#x27;Open Sans&#x27;, sans-serif;}
 
 .grid-form-container{
     height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    background-color: #fff;
 }
 
 /*&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;Formulario&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;*/
@@ -958,10 +963,6 @@ body{font-family: &#x27;Open Sans&#x27;, sans-serif;}
     width: 80%;
     display: block;
     margin: 1.5rem auto;
-}
-
-.grid-form form .input-group.flex{
-    display: flex;
 }
 
 .grid-form form .input-group.password{
@@ -1081,8 +1082,8 @@ body{font-family: &#x27;Open Sans&#x27;, sans-serif;}
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="grid-form-container">    <div class="grid-form-image">      <img src="assets/Logo_Badajoz_Unida.png" alt="">    </div>    <div class="grid-form">      <form [formGroup]="forma" (ngSubmit)="guardar(forma)">            <h1>REGISTRO</h1>            <div class="separador"></div>            <div class="input-group flex">              <input type="text" formControlName="nombre" maxlength="60" name="nombre" id="iNombre" placeholder="Nombre" />              <input type="text" formControlName="apellidos" maxlength="60" name="apellidos" id="iApellidos" placeholder="Apellidos" />            </div>            <p *ngIf="!validar(\'nombre\')" class="error">El nombre es incorrecto.</p>            <p *ngIf="!validar(\'apellidos\')" class="error">El apellido es incorrecto.</p>            <div class="input-group">              <input type="email" formControlName="email" maxlength="100"  name="mail" id="iMail" placeholder="Correo Electrónico" />            </div>            <p *ngIf="!validar(\'email\')" class="error">Ajústese al formato del correo.</p>            <div class="input-group password">              <input type="password" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" oncopy="return false" onpaste="return false"/>              <i id="ieye"class="bi bi-eye-fill float-end mb-2" (click)="showHide()"></i>            </div>            <p *ngIf="!validar(\'password\')" class="error">              La contraseña debe incluir mínimo 8 caracteres y contener al menos una letra minúscula, mayúscula,              un número y un caracter especial. No se permiten espacios en blanco.            </p>            <div class="input-group password">              <input type="password" formControlName="password2" name="passwordRepeat" id="iPasswordRepeat" placeholder="Repite tu contraseña" oncopy="return false" onpaste="return false"/>              <i id="ieye2"class="bi bi-eye-fill float-end mb-2" (click)="showHide2()"></i>            </div>            <p *ngIf="!comprobarPasswords || !validar(\'password2\')" class="error">Las contraseñas no son iguales.</p>            <div class="input-group">              <label for="ifechaNacimiento">Fecha de nacimiento </label><input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" id="ifechaNacimiento" />            </div>            <p *ngIf="!comprobarEdad || !validar(\'fechaNacimiento\')" class="error">Tienes que ser mayor de 16 años.</p>            <div class="input-group">              <input type="submit" value="CREAR CUENTA" />            </div>            <a routerLink="/login">¿Ya tienes cuenta? Inicia sesión.</a>        </form>    </div></div><app-modal></app-modal></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+        var COMPONENT_TEMPLATE = '<div><div class="grid-form-container">    <div class="grid-form-image">      <img src="assets/Logo_Badajoz_Unida2.png" alt="">    </div>    <div class="grid-form">      <form [formGroup]="forma" (ngSubmit)="guardar(forma)">            <h1>REGISTRO</h1>            <div class="separador"></div>            <div class="input-group">              <input type="text" formControlName="nombre" maxlength="60" name="nombre" id="iNombre" placeholder="Nombre" />            </div>            <p *ngIf="!validar(\'nombre\')" class="error">El nombre es incorrecto.</p>            <div class="input-group">              <input type="text" formControlName="apellidos" maxlength="60" name="apellidos" id="iApellidos" placeholder="Apellidos" />            </div>            <p *ngIf="!validar(\'apellidos\')" class="error">El apellido es incorrecto.</p>            <div class="input-group">              <input type="email" formControlName="email" maxlength="100"  name="mail" id="iMail" placeholder="Correo Electrónico" />            </div>            <p *ngIf="!validar(\'email\')" class="error">Ajústese al formato del correo.</p>            <div class="input-group password">              <input type="password" formControlName="password" name="password" id="iPassword" placeholder="Contraseña" oncopy="return false" onpaste="return false"/>              <i id="ieye"class="bi bi-eye-fill float-end mb-2" (click)="showHide()"></i>            </div>            <p *ngIf="!validar(\'password\')" class="error">              La contraseña debe incluir mínimo 8 caracteres y contener al menos una letra minúscula, mayúscula,              un número y un caracter especial. No se permiten espacios en blanco.            </p>            <div class="input-group password">              <input type="password" formControlName="password2" name="passwordRepeat" id="iPasswordRepeat" placeholder="Repite tu contraseña" oncopy="return false" onpaste="return false"/>              <i id="ieye2"class="bi bi-eye-fill float-end mb-2" (click)="showHide2()"></i>            </div>            <p *ngIf="!comprobarPasswords || !validar(\'password2\')" class="error">Las contraseñas no son iguales.</p>            <div class="input-group">              <label for="ifechaNacimiento">Fecha de nacimiento </label><input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" id="ifechaNacimiento" />            </div>            <p *ngIf="!comprobarEdad || !validar(\'fechaNacimiento\')" class="error">Tienes que ser mayor de 16 años.</p>            <div class="input-group">              <input type="submit" value="CREAR CUENTA" />            </div>            <a routerLink="/login">¿Ya tienes cuenta? Inicia sesión.</a>        </form>    </div></div><app-modal></app-modal></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'CrearEventoComponent', 'selector': 'app-crear-evento'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisEventosComponent', 'selector': 'app-mis-eventos'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RegistroComponent'};
 </script>

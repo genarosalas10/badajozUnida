@@ -1006,7 +1006,7 @@ export class UsuariosComponent implements OnInit {
           this.modal.generateModal(&#x27;Éxito&#x27;, data, &#x27;¡De acuerdo!&#x27;, &#x27;success&#x27;)
           this.listadoUsuario();
         } else {
-          console.log(data);
+          this.modal.generateModal(&#x60;Algo salió mal&#x60;, &#x60;${data[&#x27;result&#x27;][&#x27;error_msg&#x27;]}&#x60;, &#x27;De acuerdo&#x27;, &#x27;error&#x27;);
         }
       },
       async (errorServicio) &#x3D;&gt; {
@@ -1091,7 +1091,7 @@ export class UsuariosComponent implements OnInit {
 
   /**
    * Filtra los usuarios por el nombre.
-   * 
+   *
    * @param nombreUsuario - Nombre del usuario/s
    */
   listadoUsuarioPorNombre(nombreUsuario: any) {
@@ -1208,6 +1208,12 @@ export class UsuariosComponent implements OnInit {
 .contenedor-usuarios table tr td i{
     cursor: pointer;
     margin: 0 1rem;
+}
+
+@media screen and (max-width: 450px) {
+    .contenedor-usuarios {
+        display: block;
+    }
 }</code></pre>
     </div>
 
@@ -1237,7 +1243,7 @@ export class UsuariosComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><p></p><div class="contenedor-usuarios " >  <input #nombreUsuario type="text" name="" id="" placeholder="Buscar usuario..." (keyup)="buscar(nombreUsuario.value)"/>  <table *ngIf="mostrar">    <tr>      <th>ID</th>      <th>NOMBRE</th>      <th>CORREO</th>      <th>GESTIÓN</th>    </tr>    <tr *ngFor="let usuario of usuarios">      <td>{{usuario.idUsuario}}</td>      <td>{{usuario.nombre}}</td>      <td>{{usuario.email}}</td>      <td>        <i class="bi bi-lock-fill" *ngIf="usuario.tipo==\'u\'" (click)="preguntaCambiar(usuario.idUsuario,usuario.tipo)"></i>        <i class="bi bi-unlock-fill" *ngIf="usuario.tipo==\'a\'" (click)="preguntaCambiar(usuario.idUsuario,usuario.tipo)"></i>        <i class="bi bi-trash-fill" (click)="preguntaBorrado(usuario.idUsuario)"></i>      </td>    </tr>  </table>  <p *ngIf="!mostrar">No se han encontrado resultados</p></div><app-modal></app-modal></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'CrearEventoComponent', 'selector': 'app-crear-evento'},{'name': 'DatosCategoriasComponent', 'selector': 'app-datos-categorias'},{'name': 'DatosSubcategoriasComponent', 'selector': 'app-datos-subcategorias'},{'name': 'DatosUbicacionesComponent', 'selector': 'app-datos-ubicaciones'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisEventosComponent', 'selector': 'app-mis-eventos'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UsuariosComponent'};
 </script>

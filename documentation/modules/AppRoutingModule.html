@@ -80,22 +80,26 @@ import { ModalComponent } from &#x27;./components/modal/modal.component&#x27;;
 import { MenuComponent } from &#x27;./components/share/menu/menu.component&#x27;;
 import {DatosCategoriasComponent} from &quot;./components/share/datos-categorias/datos-categorias.component&quot;;
 import {DatosSubcategoriasComponent} from &quot;./components/datos-subcategorias/datos-subcategorias.component&quot;;
-import { DatosUbicacionesComponent } from &#x27;./components/datos-ubicaciones/datos-ubicaciones.component&#x27;;
+import {DatosUbicacionesComponent} from &#x27;./components/datos-ubicaciones/datos-ubicaciones.component&#x27;;
+import {Autorizacion} from &quot;./components/autorizacion/Autorizacion&quot;;
 
 const routes: Routes &#x3D; [
 
   {path: &quot;login&quot;, component: LoginComponent},
   {path: &quot;registro&quot;, component: RegistroComponent},
-  {path: &quot;home&quot;, component: MenuComponent},
-  {path: &quot;categoria&quot;, component: MenuComponent},
-  {path: &quot;perfil&quot;, component: MenuComponent},
-  {path: &quot;formularioCategorias/:id&quot;, component: DatosCategoriasComponent},
-  {path: &quot;formularioSubcategorias/:idCategoria/:idSubcategoria&quot;, component: DatosSubcategoriasComponent},
-  {path: &quot;ubicacion&quot;, component: MenuComponent},
-  {path: &quot;usuario&quot;, component: MenuComponent},
-  {path: &quot;formularioUbicacion/:idUbicacion&quot;, component: DatosUbicacionesComponent},
+  {path: &quot;home&quot;, component: MenuComponent, canActivate: [ Autorizacion ]},
+  {path: &quot;categoria&quot;, component: MenuComponent, canActivate: [ Autorizacion ]},
+  {path: &quot;perfil&quot;, component: MenuComponent, canActivate: [ Autorizacion ]},
+  {path: &quot;formularioCategorias/:id&quot;, component: DatosCategoriasComponent, canActivate: [ Autorizacion ]},
+  {path: &quot;formularioSubcategorias/:idCategoria/:idSubcategoria&quot;, component: DatosSubcategoriasComponent, canActivate: [ Autorizacion ]},
+  {path: &quot;ubicacion&quot;, component: MenuComponent, canActivate: [ Autorizacion ]},
+  {path: &quot;usuario&quot;, component: MenuComponent, canActivate: [ Autorizacion ]},
+  {path: &quot;crear-evento&quot;, component: MenuComponent, canActivate: [ Autorizacion ]},
+  {path: &quot;mis-eventos&quot;, component: MenuComponent, canActivate: [ Autorizacion ]},
+  {path: &quot;formularioUbicacion/:idUbicacion&quot;, component: DatosUbicacionesComponent, canActivate: [ Autorizacion ]},
 
-  {path: &quot;**&quot;, redirectTo: &quot;/home&quot;, pathMatch: &quot;full&quot;} //Temporal
+  {path: &quot;**&quot;, redirectTo: &quot;/home&quot;, pathMatch: &quot;full&quot;},
+  {path: &quot;&quot;, redirectTo: &quot;/home&quot;, pathMatch: &quot;full&quot;}//Temporal
 ];
 
 @NgModule({
