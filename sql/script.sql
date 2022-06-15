@@ -13,7 +13,10 @@ CREATE TABLE Usuario(
 	fechaNacimiento DATE NOT NULL,
     tipo char(1) NOT NULL DEFAULT 'u',
     CONSTRAINT CHK_tipo_Usuario CHECK (tipo='a' OR tipo='u')
-);
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8
+COLLATE=utf8_spanish_ci;
 
 --Tabla Categoria
 CREATE TABLE Categoria(
